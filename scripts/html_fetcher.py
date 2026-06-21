@@ -103,4 +103,3 @@ for item in items[:100]:
     })
 
 return news
-```
