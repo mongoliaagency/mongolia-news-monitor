@@ -1,0 +1,11 @@
+{
+  "name": "Montsame",
+
+  "homepage": "https://montsame.mn",
+
+  "source_type": "rss",
+
+  "rss_url": "https://montsame.mn/feed",
+
+  "status": "active"
+}
