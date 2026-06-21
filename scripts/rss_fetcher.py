@@ -26,3 +26,12 @@ def fetch_rss(source_file):
         news.append(item)
 
     return news
+
+
+if __name__ == "__main__":
+
+    source_file = "config/sources/montsame.json"
+
+    result = fetch_rss(source_file)
+
+    print(json.dumps(result[:5], ensure_ascii=False, indent=2))
