@@ -22,14 +22,11 @@ url = source["news_url"]
 selector = source["title_selector"]
 
 response = requests.get(
-
     url,
-
     headers={
         "User-Agent":
         "Mozilla/5.0"
     },
-
     timeout=30
 )
 
@@ -42,9 +39,7 @@ soup = BeautifulSoup(
 
 news = []
 
-items = soup.select(
-    selector
-)
+items = soup.select(selector)
 
 for item in items[:100]:
 
