@@ -1,36 +1,40 @@
 name: Mongolia News Monitor
 
-permissions:
-  contents: write
-
 on:
+
   schedule:
+
     - cron: '0 4 * * *'
+
     - cron: '0 10 * * *'
+
     - cron: '0 13 * * *'
 
   workflow_dispatch:
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: "3.13"
 
-      - name: Show Python Version
-        run: |
-          python --version
-
-      - name: Install Packages
+      - name: Install Dependencies
         run: |
           pip install feedparser
+
+      - name: Show Environment
+        run: |
+          python --version
 
       - name: Run Main Program
         run: |
@@ -40,9 +44,15 @@ jobs:
         run: |
           python scripts/build_status.py
 
+      - name: Build Pages
+        run: |
+          python scripts/build_pages.py
+
       - name: Commit Generated Files
         run: |
+
           git config --global user.name "github-actions"
+
           git config --global user.email "github-actions@github.com"
 
           git add .
@@ -50,7 +60,3 @@ jobs:
           git diff --cached --quiet || git commit -m "Auto update news page"
 
           git push
-
-      - name: Workflow Ready
-        run: |
-          echo "Mongolia News Monitor Initialized"
