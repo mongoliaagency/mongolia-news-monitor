@@ -30,8 +30,6 @@ def fetch_rss(source_file):
 
 if __name__ == "__main__":
 
-    source_file = "config/sources/montsame.json"
-
-    result = fetch_rss(source_file)
-
-    print(json.dumps(result[:5], ensure_ascii=False, indent=2))
+    print(
+        "rss_fetcher.py should be called by main.py"
+    )
