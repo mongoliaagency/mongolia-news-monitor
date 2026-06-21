@@ -32,13 +32,9 @@ jobs:
         run: |
           pip install feedparser
 
-      - name: Test RSS Fetcher
+      - name: Run Main Program
         run: |
-          python scripts/rss_fetcher.py
-
-      - name: Build HTML
-        run: |
-          python scripts/build_html.py
+          python scripts/main.py
 
       - name: Commit Generated Files
         run: |
