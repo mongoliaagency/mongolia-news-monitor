@@ -26,6 +26,17 @@ def collect_news():
 ```
 all_news = []
 
+status = {
+
+    "total": 0,
+
+    "success": 0,
+
+    "failed": 0,
+
+    "failed_list": []
+}
+
 source_files = load_sources()
 
 for source_file in source_files:
