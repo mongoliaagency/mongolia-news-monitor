@@ -1,32 +1,32 @@
-:::writing{variant="document" id="48392"}
 name: Mongolia News Monitor
 
 on:
-  schedule:
-    - cron: '0 4 * * *'
-    - cron: '0 10 * * *'
-    - cron: '0 13 * * *'
+schedule:
+- cron: '0 4 * * *'
+- cron: '0 10 * * *'
+- cron: '0 13 * * *'
 
-  workflow_dispatch:
+workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+build:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+```
+steps:
+  - name: Checkout Repository
+    uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
+  - name: Setup Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: '3.13'
 
-      - name: Show Environment
-        run: |
-          python --version
+  - name: Show Python Version
+    run: |
+      python --version
 
-      - name: Finished
-        run: |
-          echo "Workflow Ready"
-:::
+  - name: Workflow Ready
+    run: |
+      echo "Mongolia News Monitor Initialized"
+```
