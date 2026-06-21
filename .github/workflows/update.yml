@@ -33,6 +33,10 @@ jobs:
         run: |
           python scripts/rss_fetcher.py
 
+      - name: Build HTML
+        run: |
+          python scripts/build_html.py
+
       - name: Workflow Ready
         run: |
           echo "Mongolia News Monitor Initialized"
