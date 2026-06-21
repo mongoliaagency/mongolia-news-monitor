@@ -1,0 +1,11 @@
+{
+  "name": "IKON",
+
+  "homepage": "https://ikon.mn/",
+
+  "source_type": "rss",
+
+  "rss_url": "https://ikon.mn/rss",
+
+  "status": "active"
+}
