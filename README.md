@@ -1,2 +1,35 @@
-# mongolia-news-monitor
-Mongolia News Headlines Monitor
+# Mongolia News Monitor
+
+蒙古国新闻标题列表静态页
+
+## 项目目标
+
+通过 Github Pages + Github Actions 自动采集蒙古国媒体、政府机构、协会及企业官网新闻标题。
+
+## 采集内容
+
+* 新闻标题
+* 发布日期
+* 网站名称
+* 原文链接
+
+## 不采集
+
+* 正文
+* 图片
+* AI摘要
+* 翻译
+
+## 数据范围
+
+仅保留最近7天新闻。
+
+## 运行时间
+
+每天：
+
+* 12:00
+* 18:00
+* 21:00
+
+自动更新。
