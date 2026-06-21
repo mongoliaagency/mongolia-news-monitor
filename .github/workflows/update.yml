@@ -37,6 +37,17 @@ jobs:
         run: |
           python scripts/build_html.py
 
+      - name: Commit Generated Files
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          git add docs/
+
+          git diff --cached --quiet || git commit -m "Auto update news page"
+
+          git push
+
       - name: Workflow Ready
         run: |
           echo "Mongolia News Monitor Initialized"
