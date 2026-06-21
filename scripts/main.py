@@ -1,3 +1,5 @@
+from news_storage import save_news
+
 import json
 from pathlib import Path
 
