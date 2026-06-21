@@ -25,6 +25,14 @@ jobs:
         run: |
           python --version
 
+      - name: Install Packages
+        run: |
+          pip install feedparser
+
+      - name: Test RSS Fetcher
+        run: |
+          python scripts/rss_fetcher.py
+
       - name: Workflow Ready
         run: |
           echo "Mongolia News Monitor Initialized"
