@@ -28,8 +28,3 @@ def fetch_rss(source_file):
     return news
 
 
-if __name__ == "__main__":
-
-    print(
-        "rss_fetcher.py should be called by main.py"
-    )
