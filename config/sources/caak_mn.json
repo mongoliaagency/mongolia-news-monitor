@@ -5,7 +5,7 @@
 
   "source_type": "rss",
 
-  "news_url": "https://www.caak.mn/rss",
+  "rss_url": "https://www.caak.mn/rss",
 
   "status": "active"
 }
