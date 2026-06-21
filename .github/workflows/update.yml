@@ -1,5 +1,8 @@
 name: Mongolia News Monitor
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 4 * * *'
