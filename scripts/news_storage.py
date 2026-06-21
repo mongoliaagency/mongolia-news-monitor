@@ -63,6 +63,9 @@ def save_news(news_list):
         if news_day < cutoff:
             continue
 
+        if news_day > today:
+            continue
+
         grouped.setdefault(
             publish_date,
             []
@@ -108,7 +111,11 @@ def cleanup_old_files():
                 "%Y-%m-%d"
             ).date()
 
-            if file_date < cutoff:
+            if (
+                file_date < cutoff
+                or
+                file_date > today
+            ):
 
                 file.unlink()
 
@@ -116,6 +123,8 @@ def cleanup_old_files():
                     f"Deleted: {file.name}"
                 )
 
-        except:
+        except Exception:
 
-            pass
+            print(
+                f"Skip: {file.name}"
+            )
