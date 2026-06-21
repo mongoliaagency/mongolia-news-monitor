@@ -1,8 +1,7 @@
 import json
-
 from pathlib import Path
-
 from datetime import datetime
+
 
 def get_today_file():
 
@@ -21,17 +20,22 @@ def get_today_file():
 
     return news_dir / f"{today}.json"
 
-def load_today_news():
+
+def save_news(news_list):
 
     output_file = get_today_file()
 
-    if not output_file.exists():
+    output_file.write_text(
 
-        return []
+        json.dumps(
+            news_list,
+            ensure_ascii=False,
+            indent=2
+        ),
 
-    return json.loads(
+        encoding="utf-8"
+    )
 
-        output_file.read_text(
-            encoding="utf-8"
-        )
+    print(
+        f"Saved: {output_file}"
     )
