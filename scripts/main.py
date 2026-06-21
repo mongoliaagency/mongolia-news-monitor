@@ -4,83 +4,102 @@ import json
 from pathlib import Path
 
 from rss_fetcher import fetch_rss
+from html_fetcher import fetch_html
+
 from build_html import build_html
 from build_html import save_html
 
-
 def load_sources():
 
-    sources_dir = Path("config/sources")
+```
+sources_dir = Path("config/sources")
 
-    source_files = list(
-        sources_dir.glob("*.json")
-    )
+source_files = list(
+    sources_dir.glob("*.json")
+)
 
-    return source_files
-
+return source_files
+```
 
 def collect_news():
 
-    all_news = []
+```
+all_news = []
 
-    source_files = load_sources()
+source_files = load_sources()
 
-    for source_file in source_files:
+for source_file in source_files:
 
-        try:
+    try:
 
-            with open(
-                source_file,
-                "r",
-                encoding="utf-8"
-            ) as f:
+        with open(
+            source_file,
+            "r",
+            encoding="utf-8"
+        ) as f:
 
-                source = json.load(f)
+            source = json.load(f)
 
-            if source.get("status") != "active":
-                continue
+        if source.get("status") != "active":
+            continue
 
-            if source.get("source_type") != "rss":
-                continue
+        source_type = source.get(
+            "source_type"
+        )
 
-            news = fetch_rss(source_file)
+        if source_type == "rss":
 
-            all_news.extend(news)
-
-            print(
-                f"SUCCESS: {source['name']} "
-                f"{len(news)} articles"
+            news = fetch_rss(
+                source_file
             )
 
-        except Exception as e:
+        elif source_type == "html":
 
-            print(
-                f"ERROR: {source_file.name}"
+            news = fetch_html(
+                source_file
             )
 
-            print(e)
+        else:
 
-    return all_news
+            continue
 
+        all_news.extend(news)
+
+        print(
+            f"SUCCESS: {source['name']} "
+            f"{len(news)} articles"
+        )
+
+    except Exception as e:
+
+        print(
+            f"ERROR: {source_file.name}"
+        )
+
+        print(e)
+
+return all_news
+```
 
 def main():
 
-    all_news = collect_news()
+```
+all_news = collect_news()
 
-    save_news(all_news)
+save_news(all_news)
 
-    html = build_html(all_news)
+html = build_html(all_news)
 
-    save_html(html)
+save_html(html)
 
-    print(
-        f"Total articles: {len(all_news)}"
-    )
+print(
+    f"Total articles: {len(all_news)}"
+)
 
-    print(
-        "HTML generated successfully."
-    )
+print(
+    "HTML generated successfully."
+)
+```
 
-
-if __name__ == "__main__":
-    main()
+if **name** == "**main**":
+main()
