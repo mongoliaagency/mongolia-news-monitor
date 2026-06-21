@@ -24,11 +24,6 @@ source_files = list(
 return source_files
 ```
 
-def save_runtime_status(
-status
-):
-
-```
 output = Path(
     "data/status/runtime_status.json"
 )
