@@ -67,6 +67,8 @@ def main():
 
     all_news = collect_news()
 
+    save_news(all_news)
+
     html = build_html(all_news)
 
     save_html(html)
