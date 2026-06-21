@@ -32,6 +32,57 @@ def build_status():
 
     return status
 
+def scan_sources():
+
+    sources_dir = Path(
+        "config/sources"
+    )
+
+    source_files = list(
+        sources_dir.glob("*.json")
+    )
+
+    total = len(source_files)
+
+    success = 0
+
+    failed = 0
+
+    failed_list = []
+
+    for file in source_files:
+
+        try:
+
+            with open(
+                file,
+                "r",
+                encoding="utf-8"
+            ) as f:
+
+                source = json.load(f)
+
+            if (
+                source.get("status")
+                == "active"
+            ):
+
+                success += 1
+
+        except Exception:
+
+            failed += 1
+
+            failed_list.append(
+                file.name
+            )
+
+    return (
+        total,
+        success,
+        failed,
+        failed_list
+    )
 
 def save_status_json(status):
 
@@ -50,24 +101,69 @@ def save_status_json(status):
         encoding="utf-8"
     )
 
+def build_status_html(status):
 
-def save_status_json(status):
+    html = f"""
+<!DOCTYPE html>
 
-    output_file = Path(
-        "data/status/status.json"
-    )
+<html>
 
-    output_file.write_text(
+<head>
 
-        json.dumps(
-            status,
-            ensure_ascii=False,
-            indent=2
-        ),
+<meta charset="utf-8">
 
-        encoding="utf-8"
-    )
+<title>采集状态</title>
 
+</head>
+
+<body>
+
+<h1>采集状态</h1>
+
+<p>
+更新时间：
+{status["updated_at"]}
+</p>
+
+<p>
+新闻源总数：
+{status["total_sources"]}
+</p>
+
+<p>
+成功：
+{status["success_sources"]}
+</p>
+
+<p>
+失败：
+{status["failed_sources"]}
+</p>
+
+<p>
+成功率：
+{status["success_rate"]}%
+</p>
+
+<h2>失败新闻源</h2>
+
+<ul>
+"""
+
+    for item in status["failed_list"]:
+
+        html += f"<li>{item}</li>"
+
+    html += """
+
+</ul>
+
+</body>
+
+</html>
+"""
+
+    return html
 
 def save_status_html(content):
 
@@ -81,7 +177,6 @@ def save_status_html(content):
 
         encoding="utf-8"
     )
-
 
 def main():
 
