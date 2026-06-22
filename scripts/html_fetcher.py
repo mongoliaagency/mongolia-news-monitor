@@ -6,95 +6,81 @@ from bs4 import BeautifulSoup
 
 from datetime import datetime
 
+
 def fetch_html(source_file):
 
-```
-with open(
-    source_file,
-    "r",
-    encoding="utf-8"
-) as f:
+    with open(
+        source_file,
+        "r",
+        encoding="utf-8"
+    ) as f:
 
-    source = json.load(f)
+        source = json.load(f)
 
-url = source["news_url"]
+    url = source["news_url"]
 
-selector = source["title_selector"]
+    selector = source["title_selector"]
 
-response = requests.get(
-    url,
-    headers={
-        "User-Agent":
-        "Mozilla/5.0"
-    },
-    timeout=30
-)
-
-response.encoding = response.apparent_encoding
-
-soup = BeautifulSoup(
-    response.text,
-    "lxml"
-)
-
-news = []
-
-items = soup.select(selector)
-
-for item in items[:100]:
-
-    title = item.get_text(
-        strip=True
+    response = requests.get(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0"
+        },
+        timeout=30
     )
 
-    if not title:
-        continue
+    response.encoding = response.apparent_encoding
 
-    link = item.get(
-        "href",
-        ""
+    soup = BeautifulSoup(
+        response.text,
+        "lxml"
     )
 
-    if not link:
-        continue
+    news = []
 
-    if link.startswith("/"):
+    items = soup.select(selector)
 
-        link = (
-            source["homepage"].rstrip("/")
-            + link
-        )
+    for item in items[:100]:
 
-    elif link.startswith("//"):
+        title = item.get_text(strip=True)
 
-        link = (
-            "https:"
-            + link
-        )
+        if not title:
+            continue
 
-    elif not link.startswith("http"):
+        link = item.get("href", "")
 
-        link = (
-            source["homepage"].rstrip("/")
-            + "/"
-            + link.lstrip("/")
-        )
+        if not link:
+            continue
 
-    news.append({
+        if link.startswith("/"):
 
-        "title": title,
+            link = (
+                source["homepage"].rstrip("/")
+                + link
+            )
 
-        "publish_date":
-        datetime.now().strftime(
-            "%a, %d %b %Y 00:00:00 GMT"
-        ),
+        elif link.startswith("//"):
 
-        "source":
-        source["name"],
+            link = (
+                "https:"
+                + link
+            )
 
-        "url":
-        link
+        elif not link.startswith("http"):
 
-    })
+            link = (
+                source["homepage"].rstrip("/")
+                + "/"
+                + link.lstrip("/")
+            )
 
-return news
+        news.append({
+            "title": title,
+            "publish_date": datetime.now().strftime(
+                "%a, %d %b %Y 00:00:00 GMT"
+            ),
+            "source": source["name"],
+            "url": link
+        })
+
+    return news
