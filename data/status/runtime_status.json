@@ -1,11 +1,6 @@
 {
   "total": 3,
-  "success": 2,
-  "failed": 1,
-  "failed_list": [
-    {
-      "source": "蒙通社",
-      "error": "0 articles"
-    }
-  ]
+  "success": 3,
+  "failed": 0,
+  "failed_list": []
 }
