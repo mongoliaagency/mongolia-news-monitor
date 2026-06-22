@@ -1,6 +1,11 @@
 {
-  "total": 2,
+  "total": 3,
   "success": 2,
-  "failed": 0,
-  "failed_list": []
+  "failed": 1,
+  "failed_list": [
+    {
+      "source": "montsame_mn.json",
+      "error": "No connection adapters were found for '[https://montsame.mn/mn/](https://montsame.mn/mn/)'"
+    }
+  ]
 }
