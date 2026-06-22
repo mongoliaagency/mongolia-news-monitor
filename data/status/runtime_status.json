@@ -4,8 +4,8 @@
   "failed": 1,
   "failed_list": [
     {
-      "source": "montsame_mn.json",
-      "error": "No connection adapters were found for '[https://montsame.mn/mn/](https://montsame.mn/mn/)'"
+      "source": "蒙通社",
+      "error": "0 articles"
     }
   ]
 }
