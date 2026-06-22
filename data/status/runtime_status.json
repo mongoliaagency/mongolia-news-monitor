@@ -1,11 +1,6 @@
 {
   "total": 3,
-  "success": 2,
-  "failed": 1,
-  "failed_list": [
-    {
-      "source": "montsame_mn.json",
-      "error": "HTTPSConnectionPool(host='montsame.mn', port=443): Max retries exceeded with url: /mn/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='montsame.mn', port=443) at 0x7f5962342e40>, 'Connection to montsame.mn timed out. (connect timeout=30)'))"
-    }
-  ]
+  "success": 3,
+  "failed": 0,
+  "failed_list": []
 }
