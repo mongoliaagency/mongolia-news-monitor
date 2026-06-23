@@ -1,10 +1,16 @@
 {
   "total": 4,
-  "success": 3,
-  "failed": 1,
+  "success": 2,
+  "failed": 2,
   "failed_list": [
     {
+      "source": "蒙通社",
+      "homepage": "https://montsame.mn/",
+      "error": "Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?"
+    },
+    {
       "source": "蒙古国总统办公厅",
+      "homepage": "https://president.mn/",
       "error": "0 articles"
     }
   ]
