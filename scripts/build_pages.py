@@ -97,6 +97,10 @@ body {{
 .failed {{
     color: red;
 }}
+.failed a, .failed-link {{
+    color: red;
+    text-decoration: none;
+}}
 </style>
 </head>
 <body>
@@ -111,9 +115,9 @@ body {{
         html += "<p class='failed'>"
         html += "失败源：<br>"
         for item in status["failed_list"]:
-            html += (
-                f"<a href='{item['homepage']}' target='_blank'>{item['source']}</a> - {item['error']}<br>"
-            )
+            homepage = item.get('homepage', '#') or '#'
+            display = f"{item.get('source', '')} - {item.get('error', '')}"
+            html += f"<a href=\"{homepage}\" target=\"_blank\" class=\"failed-link\">{display}</a><br>"
         html += "</p>"
 
     html += "<hr>"
