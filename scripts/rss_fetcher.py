@@ -4,77 +4,111 @@ import requests
 from pathlib import Path
 
 
-def fetch_rss(source_file):
+def _is_cloudflare_challenge(content, status_code=None):
+    if not content:
+        return True
 
+    if status_code in {403, 429, 503, 520, 521, 522, 523, 524}:
+        return True
+
+    lower = content[:2000].lower()
+    challenge_keywords = [
+        b"just a moment",
+        b"cf-chl-bypass",
+        b"cf-browser-verification",
+        b"cloudflare",
+        b"attention required",
+        b"please enable javascript",
+        b"captcha",
+    ]
+    return any(keyword in lower for keyword in challenge_keywords)
+
+
+def _fetch_with_cloudscraper(url, headers=None, timeout=20):
+    try:
+        import cloudscraper
+        scraper = cloudscraper.create_scraper(
+            browser={
+                "browser": "chrome",
+                "platform": "windows",
+                "mobile": False,
+            }
+        )
+        if headers:
+            scraper.headers.update(headers)
+        return scraper.get(url, timeout=timeout)
+    except Exception:
+        return None
+
+
+def _fetch_with_requests(url, headers=None, timeout=20):
+    try:
+        return requests.get(url, headers=headers, timeout=timeout)
+    except Exception:
+        return None
+
+
+def _fetch_with_playwright(url, timeout=45000):
+    try:
+        from playwright.sync_api import sync_playwright
+    except Exception:
+        return None
+
+    try:
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(headless=True)
+            page = browser.new_page()
+            page.set_extra_http_headers({
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            })
+            page.goto(url, wait_until="networkidle", timeout=timeout)
+            content = page.content()
+            browser.close()
+            return content.encode("utf-8")
+    except Exception:
+        return None
+
+
+def fetch_rss(source_file):
     with open(source_file, "r", encoding="utf-8") as f:
         source = json.load(f)
 
     rss_url = source["rss_url"]
-    # Try to fetch the feed with cloudscraper to bypass Cloudflare; fall back to requests
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+
     content = None
-    resp = None
-    try:
-        import cloudscraper
+    resp = _fetch_with_cloudscraper(rss_url, headers=headers, timeout=20)
+    if resp is not None and resp.status_code == 200 and not _is_cloudflare_challenge(resp.content, resp.status_code):
+        content = resp.content
+    elif resp is not None and resp.content and not _is_cloudflare_challenge(resp.content, resp.status_code):
+        content = resp.content
 
-        scraper = cloudscraper.create_scraper()
-        resp = scraper.get(rss_url, timeout=15)
-        # do not raise here; capture whatever the server returned
-        if resp is not None and getattr(resp, 'status_code', None) == 200:
-            content = resp.content
-        else:
-            content = getattr(resp, 'content', None)
-    except Exception:
-        # fallback: use requests with a browser-like User-Agent
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36"
-        }
-        try:
-            resp = requests.get(rss_url, headers=headers, timeout=15)
-            if resp is not None and resp.status_code == 200:
-                content = resp.content
-            else:
-                content = getattr(resp, 'content', None)
-        except Exception:
-            resp = None
-            content = None
-
-    # If the response looks like a Cloudflare challenge page, try rendering with Playwright (if installed)
-    try_playwright = False
     if content is None:
-        try_playwright = True
-    else:
-        lower = content[:2000].lower()
-        if b"just a moment" in lower or b"cf-chl-bypass" in lower or b"cf-browser-verification" in lower:
-            try_playwright = True
+        resp = _fetch_with_requests(rss_url, headers=headers, timeout=20)
+        if resp is not None and resp.status_code == 200 and not _is_cloudflare_challenge(resp.content, resp.status_code):
+            content = resp.content
+        elif resp is not None and resp.content and not _is_cloudflare_challenge(resp.content, resp.status_code):
+            content = resp.content
 
-    if try_playwright:
-        try:
-            from playwright.sync_api import sync_playwright
+    if content is None or _is_cloudflare_challenge(content, getattr(resp, 'status_code', None)):
+        playwright_content = _fetch_with_playwright(rss_url)
+        if playwright_content:
+            content = playwright_content
 
-            with sync_playwright() as pw:
-                browser = pw.chromium.launch(headless=True)
-                page = browser.new_page()
-                page.goto(rss_url, wait_until="networkidle", timeout=30000)
-                html = page.content()
-                content = html.encode("utf-8")
-                browser.close()
-        except Exception:
-            # if Playwright isn't available or fails, continue with whatever content we have
-            pass
-
-    feed = feedparser.parse(content)
+    feed = feedparser.parse(content or b"")
 
     news = []
-
     for entry in feed.entries:
-
         item = {
             "title": entry.get("title", ""),
             "publish_date": entry.get("published", ""),
             "source": source["name"],
-            "url": entry.get("link", "")
+            "url": entry.get("link", ""),
         }
-
         news.append(item)
 
     return news
