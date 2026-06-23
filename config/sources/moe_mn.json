@@ -1,0 +1,12 @@
+{
+  "name": "蒙古国教育部",
+  "homepage": "https://moe.gov.mn",
+  "source_type": "html",
+  "news_url": "https://moe.gov.mn/news?category_id=11390",
+  "requires_browser": true,
+  "items_selector": "div.list-item-dtl, div.list-item-top-dtl",
+  "title_selector": "h4.list-item-dtl-title > a",
+  "link_selector": "h4.list-item-dtl-title > a",
+  "date_selector": "div.list-item-date.before",
+  "status": "active"
+}

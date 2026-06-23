@@ -6,12 +6,18 @@ from bs4 import BeautifulSoup
 
 from datetime import datetime
 
+from playwright.sync_api import sync_playwright
+
 
 def parse_publish_date(raw_date):
     if not raw_date:
         return None
 
     raw_date = raw_date.strip()
+    
+    # Remove common date prefixes/icons
+    if raw_date.startswith('far fa-clock'):
+        raw_date = raw_date.replace('far fa-clock', '').strip()
 
     formats = [
         "%Y/%m/%d",
@@ -43,21 +49,38 @@ def fetch_html(source_file):
         source = json.load(f)
 
     url = source["news_url"]
+    requires_browser = source.get("requires_browser", False)
 
-    response = requests.get(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0"
-        },
-        timeout=30
-    )
-
-    response.encoding = response.apparent_encoding
+    if requires_browser:
+        # Use Playwright to render JavaScript-heavy pages
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch()
+                page = browser.new_page()
+                page.goto(url, wait_until='networkidle')
+                html_content = page.content()
+                browser.close()
+        except Exception as e:
+            print(f"Browser fetch failed for {url}: {e}, falling back to requests")
+            response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+            response.encoding = response.apparent_encoding
+            html_content = response.text
+    else:
+        # Standard requests-based fetching
+        response = requests.get(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0"
+            },
+            timeout=30
+        )
+        response.encoding = response.apparent_encoding
+        html_content = response.text
 
     try:
-        soup = BeautifulSoup(response.text, "lxml")
+        soup = BeautifulSoup(html_content, "lxml")
     except Exception:
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(html_content, "html.parser")
 
     news = []
 
