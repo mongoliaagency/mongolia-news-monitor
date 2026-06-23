@@ -8,177 +8,186 @@ from news_storage import save_news
 
 from build_pages import main as build_pages
 
-
 def load_sources():
 
-    sources_dir = Path(
-        "config/sources"
-    )
+sources_dir = Path(
+    "config/sources"
+)
 
-    source_files = list(
-        sources_dir.glob("*.json")
-    )
+source_files = list(
+    sources_dir.glob("*.json")
+)
 
-    return source_files
-
+return source_files
 
 def save_runtime_status(status):
 
-    output = Path(
-        "data/status/runtime_status.json"
+output = Path(
+    "data/status/runtime_status.json"
+)
+
+output.parent.mkdir(
+    parents=True,
+    exist_ok=True
+)
+
+with open(
+    output,
+    "w",
+    encoding="utf-8"
+) as f:
+
+    json.dump(
+        status,
+        f,
+        ensure_ascii=False,
+        indent=2
     )
-
-    output.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    with open(
-        output,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
-        json.dump(
-            status,
-            f,
-            ensure_ascii=False,
-            indent=2
-        )
-
 
 def collect_news():
 
-    all_news = []
+all_news = []
 
-    status = {
+status = {
 
-        "total": 0,
+    "total": 0,
 
-        "success": 0,
+    "success": 0,
 
-        "failed": 0,
+    "failed": 0,
 
-        "failed_list": []
-    }
+    "failed_list": []
+}
 
-    source_files = load_sources()
+source_files = load_sources()
 
-    for source_file in source_files:
+for source_file in source_files:
 
-        try:
+    try:
 
-            with open(
-                source_file,
-                "r",
-                encoding="utf-8"
-            ) as f:
+        with open(
+            source_file,
+            "r",
+            encoding="utf-8"
+        ) as f:
 
-                source = json.load(f)
+            source = json.load(f)
 
-            if source.get("status") != "active":
-                continue
+        if source.get("status") != "active":
+            continue
 
-            status["total"] += 1
+        status["total"] += 1
 
-            source_type = source.get(
-                "source_type"
+        source_type = source.get(
+            "source_type"
+        )
+
+        if source_type == "rss":
+
+            news = fetch_rss(
+                source_file
             )
 
-            if source_type == "rss":
+        elif source_type == "html":
 
-                news = fetch_rss(
-                    source_file
-                )
-
-            elif source_type == "html":
-
-                news = fetch_html(
-                    source_file
-                )
-
-            else:
-
-                continue
-
-            all_news.extend(
-                news
+            news = fetch_html(
+                source_file
             )
 
-            if len(news) > 0:
+        else:
 
-                status["success"] += 1
+            continue
 
-            else:
+        all_news.extend(
+            news
+        )
 
-                status["failed"] += 1
+        if len(news) > 0:
 
-                status["failed_list"].append({
+            status["success"] += 1
 
-                    "source":
-                    source["name"],
-
-                    "error":
-                    "0 articles"
-
-                })
-
-            print(
-
-                f"SUCCESS: "
-                f"{source['name']} "
-                f"{len(news)} articles"
-
-            )
-
-        except Exception as e:
+        else:
 
             status["failed"] += 1
 
             status["failed_list"].append({
 
                 "source":
-                source_file.name,
+                source["name"],
+
+                "homepage":
+                source.get(
+                    "homepage",
+                    "#"
+                ),
 
                 "error":
-                str(e)
+                "0 articles"
 
             })
 
-            print(
-                f"ERROR: "
-                f"{source_file.name}"
-            )
+        print(
 
-            print(e)
+            f"SUCCESS: "
+            f"{source['name']} "
+            f"{len(news)} articles"
 
-    return all_news, status
+        )
 
+    except Exception as e:
+
+        status["failed"] += 1
+
+        status["failed_list"].append({
+
+            "source":
+            source.get(
+                "name",
+                source_file.name
+            ),
+
+            "homepage":
+            source.get(
+                "homepage",
+                "#"
+            ),
+
+            "error":
+            str(e)
+
+        })
+
+        print(
+            f"ERROR: "
+            f"{source_file.name}"
+        )
+
+        print(e)
+
+return all_news, status
 
 def main():
 
-    all_news, status = collect_news()
+all_news, status = collect_news()
 
-    save_runtime_status(
-        status
-    )
+save_runtime_status(
+    status
+)
 
-    save_news(
-        all_news
-    )
+save_news(
+    all_news
+)
 
-    build_pages()
+build_pages()
 
-    print(
-        f"Total articles: "
-        f"{len(all_news)}"
-    )
+print(
+    f"Total articles: "
+    f"{len(all_news)}"
+)
 
-    print(
-        "HTML generated successfully."
-    )
+print(
+    "HTML generated successfully."
+)
 
-
-if __name__ == "__main__":
-
-    main()
+if **name** == "**main**":
+main()
