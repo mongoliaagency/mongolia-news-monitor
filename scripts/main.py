@@ -3,6 +3,7 @@ from pathlib import Path
 
 from rss_fetcher import fetch_rss
 from html_fetcher import fetch_html
+from api_fetcher import fetch_api
 
 from news_storage import save_news
 
@@ -51,6 +52,8 @@ def collect_news():
                 news = fetch_rss(source_file)
             elif source_type == "html":
                 news = fetch_html(source_file)
+            elif source_type == "api":
+                news = fetch_api(source_file)
             else:
                 continue
 
