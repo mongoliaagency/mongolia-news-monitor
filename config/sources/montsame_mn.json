@@ -1,8 +1,8 @@
 {
   "name": "蒙通社",
-  "homepage": "https://montsame.mn/mn/",
+  "homepage": "https://montsame.mn/",
   "source_type": "html",
-  "news_url": "https://montsame.mn/mn/",
+  "news_url": "https://montsame.mn/",
   "title_selector": ".main-item a, .sub-item a, .news-box a.box",
   "status": "active"
 }
