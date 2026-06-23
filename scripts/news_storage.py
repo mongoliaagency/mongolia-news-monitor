@@ -5,8 +5,6 @@ from pathlib import Path
 from datetime import datetime
 from datetime import timedelta
 
-from email.utils import parsedate_to_datetime
-
 
 NEWS_DIR = Path("data/news")
 
@@ -19,79 +17,33 @@ def ensure_dir():
     )
 
 
-def parse_publish_date(date_str):
-
-    try:
-
-        dt = parsedate_to_datetime(
-            date_str
-        )
-
-        return dt.strftime(
-            "%Y-%m-%d"
-        )
-
-    except:
-
-        return None
-
-
 def save_news(news_list):
 
     ensure_dir()
 
-    grouped = {}
+    today = datetime.now().strftime(
+        "%Y-%m-%d"
+    )
 
-    today = datetime.now().date()
+    output_file = (
+        NEWS_DIR /
+        f"{today}.json"
+    )
 
-    cutoff = today - timedelta(days=6)
+    output_file.write_text(
 
-    for item in news_list:
+        json.dumps(
+            news_list,
+            ensure_ascii=False,
+            indent=2
+        ),
 
-        publish_date = parse_publish_date(
-            item["publish_date"]
-        )
+        encoding="utf-8"
+    )
 
-        if not publish_date:
-            continue
-
-        news_day = datetime.strptime(
-            publish_date,
-            "%Y-%m-%d"
-        ).date()
-
-        if news_day < cutoff:
-            continue
-
-        if news_day > today:
-            continue
-
-        grouped.setdefault(
-            publish_date,
-            []
-        ).append(item)
-
-    for date_key, items in grouped.items():
-
-        output_file = (
-            NEWS_DIR /
-            f"{date_key}.json"
-        )
-
-        output_file.write_text(
-
-            json.dumps(
-                items,
-                ensure_ascii=False,
-                indent=2
-            ),
-
-            encoding="utf-8"
-        )
-
-        print(
-            f"Saved: {output_file}"
-        )
+    print(
+        f"Saved: {output_file}"
+    )
 
     cleanup_old_files()
 
@@ -111,11 +63,7 @@ def cleanup_old_files():
                 "%Y-%m-%d"
             ).date()
 
-            if (
-                file_date < cutoff
-                or
-                file_date > today
-            ):
+            if file_date < cutoff:
 
                 file.unlink()
 
