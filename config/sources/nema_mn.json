@@ -1,0 +1,8 @@
+{
+  "name": "蒙古国紧急情况总局",
+  "homepage": "https://nema.gov.mn/",
+  "source_type": "html",
+  "news_url": "https://nema.gov.mn/posts",
+  "title_selector": "article.post-item h6 a[href^=\"/post/\"]",
+  "status": "active"
+}
