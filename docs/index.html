@@ -1,63 +1,128 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>蒙古国新闻标题列表</title>
 <style>
+:root {
+    color-scheme: light;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    background: #eef2f8;
+    color: #1f2937;
+}
+* {
+    box-sizing: border-box;
+}
 body {
-    font-family: Arial;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
+    background: #eef2f8;
 }
-.day-link {
-    margin: 10px 0;
-    font-size: 20px;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 22px 40px;
 }
-.failed {
-    color: red;
+.page-header {
+    margin-bottom: 22px;
 }
-.failed a, .failed-link {
-    color: red;
+h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 0.03em;
+}
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+    color: #4b5563;
+}
+.summary span {
+    background: #ffffff;
+    padding: 10px 14px;
+    border-radius: 999px;
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    font-size: 0.95rem;
+}
+.failures {
+    margin: 18px 0 28px;
+    padding: 18px;
+    border-radius: 16px;
+    background: #fff1f2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+}
+.failures a {
+    color: #991b1b;
+    text-decoration: underline;
+}
+.day-list {
+    display: grid;
+    gap: 14px;
+}
+.day-card {
+    background: #ffffff;
+    padding: 18px 20px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.day-card:hover {
+    transform: translateY(-2px);
+    border-color: #c7d2fe;
+}
+.day-card a {
+    color: #1d4ed8;
+    font-size: 1.05rem;
+    font-weight: 600;
     text-decoration: none;
+}
+.day-card a:hover {
+    text-decoration: underline;
 }
 </style>
 </head>
 <body>
+<div class="container">
+<section class="page-header">
 <h1>蒙古国新闻标题列表</h1>
-<p>采集时间：2026-06-23 20:33</p>
-<p>采集总计：4 个新闻源</p>
-<p>采集成功：3 个新闻源</p>
-<p>采集失败：1 个新闻源</p>
-<p class='failed'>失败源：<br><a href="https://president.mn/" target="_blank" class="failed-link">蒙古国总统办公厅 - 0 articles</a><br></p><hr>
-<div class="day-link">
+<div class="summary">
+<span>采集时间：2026-06-23 21:05</span>
+<span>采集总计：4 个新闻源</span>
+<span>采集成功：3 个新闻源</span>
+<span>采集失败：1 个新闻源</span>
+</div>
+</section>
+<section class="failures"><strong>失败源：</strong><br><a href="https://president.mn/" target="_blank">蒙古国总统办公厅 - 0 articles</a><br></section><section class="day-list">
+<div class="day-card">
 <a href="2026-06-23.html">2026-06-23</a>
 </div>
 
-<div class="day-link">
+<div class="day-card">
 <a href="2026-06-22.html">2026-06-22</a>
 </div>
 
-<div class="day-link">
+<div class="day-card">
 <a href="2026-06-21.html">2026-06-21</a>
 </div>
 
-<div class="day-link">
+<div class="day-card">
 <a href="2026-06-20.html">2026-06-20</a>
 </div>
 
-<div class="day-link">
+<div class="day-card">
 <a href="2026-06-19.html">2026-06-19</a>
 </div>
 
-<div class="day-link">
+<div class="day-card">
 <a href="2026-06-18.html">2026-06-18</a>
 </div>
 
-<div class="day-link">
+<div class="day-card">
 <a href="2026-06-17.html">2026-06-17</a>
 </div>
-
-</body>
+</section></div></body>
 </html>
