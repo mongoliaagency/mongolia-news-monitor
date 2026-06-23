@@ -7,6 +7,31 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
+def parse_publish_date(raw_date):
+    if not raw_date:
+        return None
+
+    raw_date = raw_date.strip()
+
+    formats = [
+        "%Y/%m/%d",
+        "%Y.%m.%d",
+        "%Y-%m-%d",
+        "%d/%m/%Y",
+        "%d.%m.%Y",
+        "%d-%m-%Y",
+    ]
+
+    for fmt in formats:
+        try:
+            dt = datetime.strptime(raw_date, fmt)
+            return dt.strftime("%a, %d %b %Y 00:00:00 GMT")
+        except Exception:
+            continue
+
+    return None
+
+
 def fetch_html(source_file):
 
     with open(
@@ -19,8 +44,6 @@ def fetch_html(source_file):
 
     url = source["news_url"]
 
-    selector = source["title_selector"]
-
     response = requests.get(
         url,
         headers={
@@ -31,7 +54,6 @@ def fetch_html(source_file):
 
     response.encoding = response.apparent_encoding
 
-    # 尝试优先使用 faster 的 lxml 解析器，若未安装则回退到内置的 html.parser
     try:
         soup = BeautifulSoup(response.text, "lxml")
     except Exception:
@@ -39,47 +61,58 @@ def fetch_html(source_file):
 
     news = []
 
-    items = soup.select(selector)
+    items_selector = source.get("items_selector")
+    title_selector = source.get("title_selector")
+    link_selector = source.get("link_selector", title_selector)
+    date_selector = source.get("date_selector")
+
+    if items_selector:
+        items = soup.select(items_selector)
+    elif title_selector:
+        items = soup.select(title_selector)
+    else:
+        items = []
 
     for item in items[:100]:
 
-        title = item.get_text(strip=True)
+        if items_selector:
+            title_node = item.select_one(title_selector) if title_selector else item
+            link_node = item.select_one(link_selector) if link_selector else title_node
+        else:
+            title_node = item
+            link_node = item
+
+        title = title_node.get_text(strip=True) if title_node else ""
 
         if not title:
             continue
 
-        link = item.get("href", "")
+        link = link_node.get("href", "") if link_node else ""
 
         if not link:
             continue
 
         if link.startswith("/"):
-
-            link = (
-                source["homepage"].rstrip("/")
-                + link
-            )
-
+            link = source["homepage"].rstrip("/") + link
         elif link.startswith("//"):
-
-            link = (
-                "https:"
-                + link
-            )
-
+            link = "https:" + link
         elif not link.startswith("http"):
+            link = source["homepage"].rstrip("/") + "/" + link.lstrip("/")
 
-            link = (
-                source["homepage"].rstrip("/")
-                + "/"
-                + link.lstrip("/")
+        publish_date = None
+        if date_selector:
+            date_node = item.select_one(date_selector)
+            if date_node:
+                publish_date = parse_publish_date(date_node.get_text(strip=True))
+
+        if not publish_date:
+            publish_date = datetime.now().strftime(
+                "%a, %d %b %Y 00:00:00 GMT"
             )
 
         news.append({
             "title": title,
-            "publish_date": datetime.now().strftime(
-                "%a, %d %b %Y 00:00:00 GMT"
-            ),
+            "publish_date": publish_date,
             "source": source["name"],
             "url": link
         })
