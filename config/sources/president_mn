@@ -1,0 +1,7 @@
+{
+  "name": "Монгол Улсын Ерөнхийлөгчийн Тамгын газар",
+  "homepage": "https://president.mn/",
+  "source_type": "rss",
+  "rss_url": "https://president.mn/feed/",
+  "status": "active"
+}
