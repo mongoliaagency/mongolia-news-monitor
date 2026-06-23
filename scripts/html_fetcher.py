@@ -31,10 +31,11 @@ def fetch_html(source_file):
 
     response.encoding = response.apparent_encoding
 
-    soup = BeautifulSoup(
-        response.text,
-        "lxml"
-    )
+    # 尝试优先使用 faster 的 lxml 解析器，若未安装则回退到内置的 html.parser
+    try:
+        soup = BeautifulSoup(response.text, "lxml")
+    except Exception:
+        soup = BeautifulSoup(response.text, "html.parser")
 
     news = []
 
