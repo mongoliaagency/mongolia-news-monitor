@@ -9,6 +9,10 @@ NEWS_DIR = Path("data/news")
 
 DOCS_DIR = Path("docs")
 
+STATUS_FILE = Path(
+    "data/status/runtime_status.json"
+)
+
 
 def load_news_files():
 
@@ -21,6 +25,30 @@ def load_news_files():
     )
 
     return files
+
+
+def load_status():
+
+    if not STATUS_FILE.exists():
+
+        return {
+
+            "total": 0,
+
+            "success": 0,
+
+            "failed": 0,
+
+            "failed_list": []
+        }
+
+    with open(
+        STATUS_FILE,
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        return json.load(f)
 
 
 def build_day_page(
@@ -109,6 +137,8 @@ target="_blank">
 
 def build_index_page(files):
 
+    status = load_status()
+
     update_time = datetime.now().strftime(
         "%Y-%m-%d %H:%M"
     )
@@ -139,6 +169,10 @@ body {{
     font-size: 20px;
 }}
 
+.failed {{
+    color: red;
+}}
+
 </style>
 
 </head>
@@ -150,13 +184,45 @@ body {{
 </h1>
 
 <p>
-更新时间：
+采集时间：
 {update_time}
 </p>
 
-<hr>
+<p>
+采集总计：
+{status["total"]} 个新闻源
+</p>
+
+<p>
+采集成功：
+{status["success"]} 个新闻源
+</p>
+
+<p>
+采集失败：
+{status["failed"]} 个新闻源
+</p>
 
 """
+
+    if status["failed"] > 0:
+
+        html += "<p class='failed'>"
+
+        html += "失败源：<br>"
+
+        for item in status["failed_list"]:
+
+            html += (
+                f"{item['source']}"
+                f" - "
+                f"{item['error']}"
+                f"<br>"
+            )
+
+        html += "</p>"
+
+    html += "<hr>"
 
     for file in files:
 
