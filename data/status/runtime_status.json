@@ -1,8 +1,13 @@
 {
   "total": 4,
-  "success": 3,
-  "failed": 1,
+  "success": 2,
+  "failed": 2,
   "failed_list": [
+    {
+      "source": "蒙通社",
+      "homepage": "https://montsame.mn/",
+      "error": "HTTPSConnectionPool(host='montsame.mn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='montsame.mn', port=443) at 0x7fcda465ecf0>, 'Connection to montsame.mn timed out. (connect timeout=30)'))"
+    },
     {
       "source": "蒙古国总统办公厅",
       "homepage": "https://president.mn/",
