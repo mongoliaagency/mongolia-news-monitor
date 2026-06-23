@@ -6,13 +6,14 @@ from html_fetcher import fetch_html
 
 from news_storage import save_news
 
-from build_html import build_html
-from build_html import save_html
+from build_pages import main as build_pages
 
 
 def load_sources():
 
-    sources_dir = Path("config/sources")
+    sources_dir = Path(
+        "config/sources"
+    )
 
     source_files = list(
         sources_dir.glob("*.json")
@@ -51,17 +52,19 @@ def collect_news():
     all_news = []
 
     status = {
+
         "total": 0,
+
         "success": 0,
+
         "failed": 0,
+
         "failed_list": []
     }
 
     source_files = load_sources()
 
     for source_file in source_files:
-
-        status["total"] += 1
 
         try:
 
@@ -75,6 +78,8 @@ def collect_news():
 
             if source.get("status") != "active":
                 continue
+
+            status["total"] += 1
 
             source_type = source.get(
                 "source_type"
@@ -96,7 +101,9 @@ def collect_news():
 
                 continue
 
-            all_news.extend(news)
+            all_news.extend(
+                news
+            )
 
             if len(news) > 0:
 
@@ -107,13 +114,21 @@ def collect_news():
                 status["failed"] += 1
 
                 status["failed_list"].append({
-                    "source": source["name"],
-                    "error": "0 articles"
+
+                    "source":
+                    source["name"],
+
+                    "error":
+                    "0 articles"
+
                 })
 
             print(
-                f"SUCCESS: {source['name']} "
+
+                f"SUCCESS: "
+                f"{source['name']} "
                 f"{len(news)} articles"
+
             )
 
         except Exception as e:
@@ -121,12 +136,18 @@ def collect_news():
             status["failed"] += 1
 
             status["failed_list"].append({
-                "source": source_file.name,
-                "error": str(e)
+
+                "source":
+                source_file.name,
+
+                "error":
+                str(e)
+
             })
 
             print(
-                f"ERROR: {source_file.name}"
+                f"ERROR: "
+                f"{source_file.name}"
             )
 
             print(e)
@@ -138,16 +159,19 @@ def main():
 
     all_news, status = collect_news()
 
-    save_runtime_status(status)
+    save_runtime_status(
+        status
+    )
 
-    save_news(all_news)
+    save_news(
+        all_news
+    )
 
-    html = build_html(all_news)
-
-    save_html(html)
+    build_pages()
 
     print(
-        f"Total articles: {len(all_news)}"
+        f"Total articles: "
+        f"{len(all_news)}"
     )
 
     print(
@@ -156,4 +180,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
