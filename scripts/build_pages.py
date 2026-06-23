@@ -1,63 +1,56 @@
 import json
-
 from pathlib import Path
-
 from datetime import datetime
 
-
 NEWS_DIR = Path("data/news")
-
 DOCS_DIR = Path("docs")
 
 STATUS_FILE = Path(
-    "data/status/runtime_status.json"
+"data/status/runtime_status.json"
 )
-
 
 def load_news_files():
 
-    files = list(
-        NEWS_DIR.glob("*.json")
-    )
+files = list(
+    NEWS_DIR.glob("*.json")
+)
 
-    files.sort(
-        reverse=True
-    )
+files.sort(
+    reverse=True
+)
 
-    return files
-
+return files
 
 def load_status():
 
-    if not STATUS_FILE.exists():
+if not STATUS_FILE.exists():
 
-        return {
+    return {
 
-            "total": 0,
+        "total": 0,
+        "success": 0,
+        "failed": 0,
+        "failed_list": []
 
-            "success": 0,
+    }
 
-            "failed": 0,
+with open(
+    STATUS_FILE,
+    "r",
+    encoding="utf-8"
+) as f:
 
-            "failed_list": []
-        }
-
-    with open(
-        STATUS_FILE,
-        "r",
-        encoding="utf-8"
-    ) as f:
-
-        return json.load(f)
-
+    return json.load(f)
 
 def build_day_page(
-    date_str,
-    news_list
+date_str,
+news_list
 ):
 
-    html = f"""
+html = f"""
+
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -101,9 +94,10 @@ body {{
 
 """
 
-    for item in news_list:
+for item in news_list:
 
-        html += f"""
+    html += f"""
+
 <div class="news">
 
 <a href="{item['url']}"
@@ -124,7 +118,7 @@ target="_blank">
 </div>
 """
 
-    html += """
+html += """
 
 </body>
 
@@ -132,19 +126,20 @@ target="_blank">
 
 """
 
-    return html
-
+return html
 
 def build_index_page(files):
 
-    status = load_status()
+status = load_status()
 
-    update_time = datetime.now().strftime(
-        "%Y-%m-%d %H:%M"
-    )
+update_time = datetime.now().strftime(
+    "%Y-%m-%d %H:%M"
+)
 
-    html = f"""
+html = f"""
+
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -205,30 +200,33 @@ body {{
 
 """
 
-    if status["failed"] > 0:
+if status["failed"] > 0:
 
-        html += "<p class='failed'>"
+    html += "<p class='failed'>"
 
-        html += "失败源：<br>"
+    html += "失败源：<br>"
 
-        for item in status["failed_list"]:
+    for item in status["failed_list"]:
 
-            html += (
-                f"{item['source']}"
-                f" - "
-                f"{item['error']}"
-                f"<br>"
-            )
+        html += (
+            f"<a href='{item['homepage']}' "
+            f"target='_blank'>"
+            f"{item['source']}"
+            f"</a>"
+            f" - "
+            f"{item['error']}"
+            f"<br>"
+        )
 
-        html += "</p>"
+    html += "</p>"
 
-    html += "<hr>"
+html += "<hr>"
 
-    for file in files:
+for file in files:
 
-        date_str = file.stem
+    date_str = file.stem
 
-        html += f"""
+    html += f"""
 
 <div class="day-link">
 
@@ -242,7 +240,7 @@ body {{
 
 """
 
-    html += """
+html += """
 
 </body>
 
@@ -250,67 +248,63 @@ body {{
 
 """
 
-    return html
-
+return html
 
 def save_page(
-    filename,
-    content
+filename,
+content
 ):
 
-    DOCS_DIR.mkdir(
-        exist_ok=True
-    )
+DOCS_DIR.mkdir(
+    exist_ok=True
+)
 
-    output = (
-        DOCS_DIR /
-        filename
-    )
+output = (
+    DOCS_DIR /
+    filename
+)
 
-    output.write_text(
-        content,
-        encoding="utf-8"
-    )
-
+output.write_text(
+    content,
+    encoding="utf-8"
+)
 
 def main():
 
-    files = load_news_files()
+files = load_news_files()
 
-    for file in files:
+for file in files:
 
-        with open(
-            file,
-            "r",
-            encoding="utf-8"
-        ) as f:
+    with open(
+        file,
+        "r",
+        encoding="utf-8"
+    ) as f:
 
-            news_list = json.load(f)
+        news_list = json.load(f)
 
-        html = build_day_page(
-            file.stem,
-            news_list
-        )
-
-        save_page(
-            f"{file.stem}.html",
-            html
-        )
-
-    index_html = build_index_page(
-        files
+    html = build_day_page(
+        file.stem,
+        news_list
     )
 
     save_page(
-        "index.html",
-        index_html
+        f"{file.stem}.html",
+        html
     )
 
-    print(
-        "NEW BUILD_PAGES VERSION"
-    )
+index_html = build_index_page(
+    files
+)
 
+save_page(
+    "index.html",
+    index_html
+)
 
-if __name__ == "__main__":
+print(
+    "7 day pages generated."
+)
 
-    main()
+if **name** == "**main**":
+main()
