@@ -307,7 +307,7 @@ def main():
     )
 
     print(
-        "7 day pages generated."
+        "NEW BUILD_PAGES VERSION"
     )
 
 
