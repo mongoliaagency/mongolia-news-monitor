@@ -1,17 +1,22 @@
 {
-  "total": 10,
-  "success": 7,
-  "failed": 3,
+  "total": 12,
+  "success": 8,
+  "failed": 4,
   "failed_list": [
     {
-      "source": "蒙古国工业和矿产资源部",
-      "homepage": "https://mmhi.gov.mn",
-      "error": "'rss_url'"
+      "source": "蒙古国环境和气候变化部",
+      "homepage": "https://mecc.gov.mn/",
+      "error": "0 articles"
+    },
+    {
+      "source": "蒙古国国防部",
+      "homepage": "https://mod.gov.mn/",
+      "error": "0 articles"
     },
     {
       "source": "蒙古国大呼拉尔",
       "homepage": "https://www.parliament.mn/",
-      "error": "'news_url'"
+      "error": "0 articles"
     },
     {
       "source": "蒙古国总统办公厅",
