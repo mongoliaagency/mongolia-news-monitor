@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 
@@ -7,9 +8,14 @@ DOCS_DIR = Path("docs")
 
 STATUS_FILE = Path("data/status/runtime_status.json")
 
+_DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
 
 def load_news_files():
-    files = list(NEWS_DIR.glob("*.json"))
+    files = [
+        f for f in NEWS_DIR.glob("*.json")
+        if _DATE_PATTERN.match(f.stem)
+    ]
     files.sort(reverse=True)
     return files
 

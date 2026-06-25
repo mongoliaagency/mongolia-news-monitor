@@ -37,6 +37,7 @@ def collect_news():
     source_files = load_sources()
 
     for source_file in source_files:
+        source = None
         try:
             with open(source_file, "r", encoding="utf-8") as f:
                 source = json.load(f)
@@ -55,6 +56,13 @@ def collect_news():
             elif source_type == "api":
                 news = fetch_api(source_file)
             else:
+                status["failed"] += 1
+                status["failed_list"].append({
+                    "source": source.get("name", source_file.name),
+                    "homepage": source.get("homepage", "#"),
+                    "error": f"Unknown source_type: {source_type}"
+                })
+                print(f"ERROR: {source_file.name} - Unknown source_type: {source_type}")
                 continue
 
             all_news.extend(news)
@@ -73,9 +81,14 @@ def collect_news():
 
         except Exception as e:
             status["failed"] += 1
+            source_name = source_file.name
+            source_homepage = "#"
+            if source is not None:
+                source_name = source.get("name", source_file.name)
+                source_homepage = source.get("homepage", "#")
             status["failed_list"].append({
-                "source": source.get("name", source_file.name),
-                "homepage": source.get("homepage", "#"),
+                "source": source_name,
+                "homepage": source_homepage,
                 "error": str(e)
             })
 
