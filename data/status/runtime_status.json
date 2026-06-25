@@ -1,22 +1,17 @@
 {
   "total": 12,
-  "success": 6,
-  "failed": 6,
+  "success": 7,
+  "failed": 5,
   "failed_list": [
     {
       "source": "蒙通社",
       "homepage": "https://montsame.mn/",
-      "error": "HTTPSConnectionPool(host='montsame.mn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='montsame.mn', port=443) at 0x7ffb5e1eb610>, 'Connection to montsame.mn timed out. (connect timeout=30)'))"
+      "error": "0 articles"
     },
     {
       "source": "乌兰巴托市政府",
       "homepage": "https://ulaanbaatar.mn/",
-      "error": "HTTPSConnectionPool(host='ulaanbaatar.mn', port=8443): Max retries exceeded with url: /api/article?type=TIME_HISTORY&currentPage=1&pageSize=24 (Caused by ConnectTimeoutError(<HTTPSConnection(host='ulaanbaatar.mn', port=8443) at 0x7ffb5e1ebed0>, 'Connection to ulaanbaatar.mn timed out. (connect timeout=30)'))"
-    },
-    {
-      "source": "蒙古国大呼拉尔",
-      "homepage": "https://www.parliament.mn/",
-      "error": "0 articles"
+      "error": "HTTPSConnectionPool(host='ulaanbaatar.mn', port=8443): Max retries exceeded with url: /api/article?type=TIME_HISTORY&currentPage=1&pageSize=24 (Caused by ConnectTimeoutError(<HTTPSConnection(host='ulaanbaatar.mn', port=8443) at 0x7fa806eaf4d0>, 'Connection to ulaanbaatar.mn timed out. (connect timeout=45)'))"
     },
     {
       "source": "蒙古国总统办公厅",
