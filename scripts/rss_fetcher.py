@@ -24,7 +24,7 @@ def _is_cloudflare_challenge(content, status_code=None):
     return any(keyword in lower for keyword in challenge_keywords)
 
 
-def _fetch_with_cloudscraper(url, headers=None, timeout=20):
+def _fetch_with_cloudscraper(url, headers=None, timeout=30):
     try:
         import cloudscraper
         scraper = cloudscraper.create_scraper(
@@ -41,7 +41,7 @@ def _fetch_with_cloudscraper(url, headers=None, timeout=20):
         return None
 
 
-def _fetch_with_requests(url, headers=None, timeout=20):
+def _fetch_with_requests(url, headers=None, timeout=30):
     try:
         return requests.get(url, headers=headers, timeout=timeout)
     except Exception:
@@ -81,21 +81,21 @@ def fetch_rss(source_file):
     }
 
     content = None
-    resp = _fetch_with_cloudscraper(rss_url, headers=headers, timeout=20)
+    resp = _fetch_with_cloudscraper(rss_url, headers=headers, timeout=30)
     if resp is not None and resp.status_code == 200 and not _is_cloudflare_challenge(resp.content, resp.status_code):
         content = resp.content
     elif resp is not None and resp.content and not _is_cloudflare_challenge(resp.content, resp.status_code):
         content = resp.content
 
     if content is None:
-        resp = _fetch_with_requests(rss_url, headers=headers, timeout=20)
+        resp = _fetch_with_requests(rss_url, headers=headers, timeout=30)
         if resp is not None and resp.status_code == 200 and not _is_cloudflare_challenge(resp.content, resp.status_code):
             content = resp.content
         elif resp is not None and resp.content and not _is_cloudflare_challenge(resp.content, resp.status_code):
             content = resp.content
 
     if content is None or _is_cloudflare_challenge(content, getattr(resp, 'status_code', None)):
-        playwright_content = _fetch_with_playwright(rss_url)
+        playwright_content = _fetch_with_playwright(rss_url, timeout=60000)
         if playwright_content:
             content = playwright_content
 

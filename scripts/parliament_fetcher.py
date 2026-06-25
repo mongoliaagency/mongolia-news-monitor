@@ -9,7 +9,7 @@ def fetch_parliament(config_path='config/sources/parliament_mn.json', out_path='
     with open(config_path, 'r', encoding='utf-8') as f:
         cfg = json.load(f)
 
-    page_url = cfg.get('page_url')
+    page_url = cfg.get('news_url')
     resp = requests.get(page_url, timeout=30)
     resp.raise_for_status()
 

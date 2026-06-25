@@ -3,5 +3,6 @@
   "homepage": "https://www.parliament.mn/",
   "source_type": "html",
   "news_url": "https://www.parliament.mn/nc/340/",
+  "title_selector": "a[href^=\"/nn/\"]",
   "status": "active"
 }

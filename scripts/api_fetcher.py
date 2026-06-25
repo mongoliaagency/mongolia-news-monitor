@@ -1,8 +1,29 @@
 import json
+import time
 import requests
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from datetime import datetime
+
+
+def _fetch_api_with_retry(api_url, max_retries=3, timeout=45):
+    """Fetch API endpoint with retry logic for connection timeouts."""
+    last_error = None
+    for attempt in range(max_retries):
+        try:
+            response = requests.get(api_url, headers={
+                'User-Agent': 'Mozilla/5.0'
+            }, timeout=timeout)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            last_error = e
+            if attempt < max_retries - 1:
+                wait = (attempt + 1) * 10
+                print(f"  Retry {attempt + 1}/{max_retries} for {api_url} in {wait}s: {e}")
+                time.sleep(wait)
+            else:
+                raise last_error
 
 
 def fetch_api(source_file):
@@ -13,12 +34,7 @@ def fetch_api(source_file):
     if not api_url:
         raise ValueError('api_url is required for api source_type')
 
-    response = requests.get(api_url, headers={
-        'User-Agent': 'Mozilla/5.0'
-    }, timeout=30)
-    response.raise_for_status()
-
-    data = response.json()
+    data = _fetch_api_with_retry(api_url)
     items = []
 
     raw_list = []
