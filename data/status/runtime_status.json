@@ -6,12 +6,12 @@
     {
       "source": "蒙通社",
       "homepage": "https://montsame.mn/",
-      "error": "Page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://montsame.mn/\", waiting until \"networkidle\"\n"
+      "error": "0 articles"
     },
     {
       "source": "乌兰巴托市政府",
       "homepage": "https://ulaanbaatar.mn/",
-      "error": "HTTPSConnectionPool(host='ulaanbaatar.mn', port=8443): Max retries exceeded with url: /api/article?type=TIME_HISTORY&currentPage=1&pageSize=24 (Caused by ConnectTimeoutError(<HTTPSConnection(host='ulaanbaatar.mn', port=8443) at 0x7f89490a9d10>, 'Connection to ulaanbaatar.mn timed out. (connect timeout=45)'))"
+      "error": "HTTPSConnectionPool(host='ulaanbaatar.mn', port=8443): Max retries exceeded with url: /api/article?type=TIME_HISTORY&currentPage=1&pageSize=24 (Caused by ConnectTimeoutError(<HTTPSConnection(host='ulaanbaatar.mn', port=8443) at 0x7fbc71ca7250>, 'Connection to ulaanbaatar.mn timed out. (connect timeout=45)'))"
     },
     {
       "source": "蒙古国总统办公厅",
