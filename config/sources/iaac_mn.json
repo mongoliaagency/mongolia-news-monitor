@@ -4,7 +4,7 @@
   "category": "党政机关",
   "status": "active",
   "source_type": "html",
-  "url": "https://iaac.mn/news",
+  "news_url": "https://iaac.mn/news",
   "items_selector": "div.blog_box.type_two",
   "title_selector": "h4.title_16 a",
   "link_selector": "h4.title_16 a",

@@ -23,16 +23,13 @@ def _parse_date_from_item(item):
     if not publish_date:
         return None
 
-    formats = [
-        "%a, %d %b %Y %H:%M:%S %Z",
-        "%a, %d %b %Y 00:00:00 GMT",
-    ]
-    for fmt in formats:
-        try:
-            dt = datetime.strptime(publish_date.strip(), fmt)
-            return dt.strftime("%Y-%m-%d")
-        except Exception:
-            continue
+    # Use the same robust parser as the fetchers to handle all formats:
+    # "%a, %d %b %Y %H:%M:%S %z" (+0800), "%a, %d %b %Y %H:%M:%S %Z" (GMT),
+    # "%a, %d %b %Y 00:00:00 GMT", and ISO variants
+    from date_utils import parse_date as date_parse
+    dt = date_parse(publish_date)
+    if dt:
+        return dt.strftime("%Y-%m-%d")
 
     return None
 

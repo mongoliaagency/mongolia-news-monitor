@@ -4,7 +4,7 @@
   "category": "党政机关",
   "status": "active",
   "source_type": "html",
-  "url": "https://mmra.gov.mn/?id=200008",
+  "news_url": "https://mmra.gov.mn/?id=200008",
   "items_selector": "div.blog.list-view div.post",
   "title_selector": "h3.post-title a",
   "link_selector": "h3.post-title a",

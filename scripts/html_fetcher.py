@@ -89,6 +89,7 @@ def fetch_html(source_file):
     title_attr = source.get("title_attr")  # e.g. "alt" to read title from img alt
     date_selector = source.get("date_selector")
     date_attr = source.get("date_attr")  # e.g. "src" to read date from img src
+    exclude_urls = source.get("exclude_urls", [])  # URL substrings to skip (e.g. static pages)
 
     if items_selector:
         items = soup.select(items_selector)
@@ -129,6 +130,17 @@ def fetch_html(source_file):
             link = "https:" + link
         elif not link.startswith("http"):
             link = source["homepage"].rstrip("/") + "/" + link.lstrip("/")
+
+        # Skip excluded URLs (e.g. static pages, navigation links)
+        if exclude_urls:
+            link_lower = link.lower()
+            skip = False
+            for pattern in exclude_urls:
+                if pattern.lower() in link_lower:
+                    skip = True
+                    break
+            if skip:
+                continue
 
         publish_date_str = None
         date_from_text_fallback = source.get("date_from_item_text", False)

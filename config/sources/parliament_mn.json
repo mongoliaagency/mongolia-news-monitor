@@ -8,5 +8,10 @@
   "title_selector": "h3 a[href^=\"/nn/\"]",
   "link_selector": "h3 a[href^=\"/nn/\"]",
   "date_selector": "div.entry-meta",
+  "exclude_urls": [
+    "/nn/74270/",
+    "/nn/73816/",
+    "/nn/73892/"
+  ],
   "status": "active"
 }
