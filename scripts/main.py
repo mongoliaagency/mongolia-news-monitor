@@ -4,6 +4,7 @@ from pathlib import Path
 from rss_fetcher import fetch_rss
 from html_fetcher import fetch_html
 from api_fetcher import fetch_api
+from sitemap_fetcher import fetch_sitemap
 
 from news_storage import save_news
 
@@ -63,6 +64,8 @@ def collect_news():
                 news = fetch_html(source_file)
             elif source_type == "api":
                 news = fetch_api(source_file)
+            elif source_type == "sitemap":
+                news = fetch_sitemap(source_file)
             else:
                 cat_status["failed"] += 1
                 cat_status["failed_list"].append({

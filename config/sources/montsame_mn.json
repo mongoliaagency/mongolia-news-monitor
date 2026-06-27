@@ -8,5 +8,6 @@
   "title_selector": "h6 span",
   "link_selector": "a.box",
   "date_selector": ".body",
+  "date_alt_selector": ".stat",
   "status": "active"
 }

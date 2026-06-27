@@ -1,12 +1,14 @@
 {
-  "name": "央行",
+  "name": "蒙古国央行",
   "homepage": "https://www.mongolbank.mn",
-  "source_type": "html",
-  "news_url": "https://www.mongolbank.mn/mn/",
-  "items_selector": "div.row.home-news1.my-3",
-  "title_selector": "h5.home-news1-title a",
-  "link_selector": "h5.home-news1-title a",
-  "date_selector": "div.home-news1-date",
   "category": "党政机关",
+  "source_type": "api",
+  "api_url": "https://www.mongolbank.mn/mn/category/news",
+  "api_method": "POST",
+  "api_data_path": "data",
+  "api_id_field": "ID",
+  "api_date_field": "PUBLISH_DATE",
+  "api_link_template": "/mn/research/{id}",
+  "api_max_pages": 1,
   "status": "active"
 }

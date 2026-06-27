@@ -1,10 +1,11 @@
 {
-  "name": "反腐败总局",
-  "homepage": "https://iaac.mn/news",
+  "name": "蒙古国反腐败总局",
+  "homepage": "https://iaac.mn/",
   "category": "党政机关",
   "status": "active",
   "source_type": "html",
   "news_url": "https://iaac.mn/news",
+  "requires_browser": false,
   "items_selector": "div.blog_box.type_two",
   "title_selector": "h4.title_16 a",
   "link_selector": "h4.title_16 a",

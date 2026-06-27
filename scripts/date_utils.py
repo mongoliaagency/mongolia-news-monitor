@@ -80,20 +80,47 @@ def parse_date(raw_date):
         'аравдугаар сарын': 10, 'арван нэгдүгээр сарын': 11, 'арван хоёрдугаар сарын': 12,
         # Spelling variant: "аравдугаар" vs "аравдугаар"
         'арваннэгдүгээр сарын': 11, 'арванхоёрдугаар сарын': 12,
+        # Common Mongolian typo variants (missing 'д' in month names)
+        'зургааугаар сарын': 6, 'долооугаар сарын': 7, 'наймугаар сарын': 8,
     }
     # Pattern: "6 сарын 25, 2026" or "2026 оны 6 сарын 25" or "2026 оны зургаадугаар сарын 27"
     for mn_key, mn_val in MN_MONTHS.items():
         if mn_key in raw_date:
-            # Extract numbers - year comes first in "2026 оны ... сарын 27"
             nums = re.findall(r'\d+', raw_date)
             if len(nums) >= 2:
-                year = int(nums[0])
-                day = int(nums[-1])
+                parsed = [int(n) for n in nums]
+                if len(parsed) >= 3:
+                    # Try to identify year (4-digit number) and day (remaining non-month)
+                    if parsed[0] >= 1000:
+                        # "2026 оны 6 сарын 25": year first, day last
+                        year, day = parsed[0], parsed[-1]
+                    elif parsed[0] == mn_val:
+                        # "6 сарын 25, 2026": month first, year last
+                        year, day = parsed[-1], parsed[1]
+                    else:
+                        # Unknown order: assume year first, day last
+                        year, day = parsed[0], parsed[-1]
+                else:
+                    # Only 2 numbers: assume day and use current year
+                    day = parsed[-1]
+                    year = datetime.now().year
                 try:
                     return datetime(year, mn_val, day)
                 except Exception:
                     pass
             break
+
+    # Relative time in Mongolian (e.g. "8 цаг" = 8 hours ago, "5 өдөр" = 5 days ago)
+    rel_match = re.match(r'^\s*(\d+)\s*(цаг|өдөр|хоног)\s*$', raw_date)
+    if rel_match:
+        num = int(rel_match.group(1))
+        unit = rel_match.group(2)
+        from datetime import timedelta
+        now = datetime.now()
+        if unit in ('цаг',):
+            return now.replace(hour=0, minute=0, second=0, microsecond=0)
+        elif unit in ('өдөр', 'хоног'):
+            return (now - timedelta(days=num)).replace(hour=0, minute=0, second=0, microsecond=0)
 
     # Fallback: extract first date-like pattern (e.g. "2026-06-26" from "2026-06-26Category")
     date_pattern = re.search(r'(\d{4}[-./]\d{1,2}[-./]\d{1,2})', raw_date)

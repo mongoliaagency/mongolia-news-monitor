@@ -5,9 +5,8 @@
   "source_type": "html",
   "news_url": "https://mod.gov.mn/?cat=23",
   "requires_browser": true,
-  "items_selector": ".td-block-span12, [class*=\"td_module\"]",
-  "title_selector": ".entry-title a, h3 a[href*=\"?p=\"]",
-  "link_selector": ".entry-title a, h3 a[href*=\"?p=\"]",
+  "items_selector": "[class*=\"td_module\"]",
+  "title_selector": ".entry-title a",
   "date_selector": "time.entry-date",
   "status": "active"
 }

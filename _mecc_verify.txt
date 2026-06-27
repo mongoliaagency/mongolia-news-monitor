@@ -1,0 +1,11 @@
+[1] Title OK=True | Link OK=True | Date raw='2026.06.22' parsed=2026-06-22 00:00:00
+[2] Title OK=True | Link OK=True | Date raw='2026.06.22' parsed=2026-06-22 00:00:00
+[3] Title OK=True | Link OK=True | Date raw='2026.06.22' parsed=2026-06-22 00:00:00
+[4] Title OK=True | Link OK=True | Date raw='2026.06.16' parsed=2026-06-16 00:00:00
+[5] Title OK=True | Link OK=True | Date raw='2026.06.12' parsed=2026-06-12 00:00:00
+[6] Title OK=True | Link OK=True | Date raw='2026.06.09' parsed=2026-06-09 00:00:00
+[7] Title OK=True | Link OK=True | Date raw='2026.06.04' parsed=2026-06-04 00:00:00
+[8] Title OK=True | Link OK=True | Date raw='2026.06.04' parsed=2026-06-04 00:00:00
+[9] Title OK=True | Link OK=True | Date raw='2026.06.02' parsed=2026-06-02 00:00:00
+
+TOTAL: 9 items, 9 titles, 9 dates parsed

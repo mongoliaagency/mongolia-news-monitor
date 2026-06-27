@@ -142,6 +142,17 @@ def _parse_articles(soup, source, override_date=None):
             if dt:
                 publish_date_str = format_date(dt)
 
+        # Fallback: try alt date selector when primary date_selector didn't yield a date
+        if not publish_date_str and not override_date:
+            date_alt_selector = source.get("date_alt_selector")
+            if date_alt_selector:
+                date_alt_node = item.select_one(date_alt_selector)
+                if date_alt_node:
+                    raw_date_alt = date_alt_node.get_text(strip=True)
+                    dt = parse_date(raw_date_alt)
+                    if dt:
+                        publish_date_str = format_date(dt)
+
         # Fallback: extract date from item's full text when date_selector didn't yield a date
         if not publish_date_str and not override_date and source.get("date_from_item_text") and date_selector:
             dt = parse_date(item.get_text(strip=True))

@@ -6,14 +6,20 @@ from bs4 import BeautifulSoup
 from date_utils import parse_date, format_date, is_within_days
 
 
-def _fetch_api_with_retry(api_url, max_retries=3, timeout=45, verify=True):
+def _fetch_api_with_retry(api_url, max_retries=3, timeout=45, verify=True, method='GET'):
     """Fetch API endpoint with retry logic for connection timeouts."""
     last_error = None
     for attempt in range(max_retries):
         try:
-            response = requests.get(api_url, headers={
+            headers = {
                 'User-Agent': 'Mozilla/5.0'
-            }, timeout=timeout, verify=verify)
+            }
+            if method.upper() == 'POST':
+                headers['Content-Type'] = 'application/json;charset=UTF-8'
+                headers['X-Requested-With'] = 'XMLHttpRequest'
+                response = requests.post(api_url, json={}, headers=headers, timeout=timeout, verify=verify)
+            else:
+                response = requests.get(api_url, headers=headers, timeout=timeout, verify=verify)
             response.raise_for_status()
             return response.json()
         except Exception as e:
@@ -88,6 +94,7 @@ def _get_paginated_items(source):
     all_items = []
     max_pages = source.get('api_max_pages', 5)
     verify = source.get('api_verify_ssl', True)
+    api_method = source.get('api_method', 'GET')
 
     for page in range(max_pages):
         # Build page URL using proper query parameter manipulation
@@ -103,7 +110,7 @@ def _get_paginated_items(source):
         last_error = None
         for url in urls_to_try:
             try:
-                data = _fetch_api_with_retry(url, max_retries=2, timeout=30, verify=verify)
+                data = _fetch_api_with_retry(url, max_retries=2, timeout=30, verify=verify, method=api_method)
                 break
             except Exception as e:
                 last_error = e
@@ -225,9 +232,10 @@ def fetch_api(source_file):
         urls_to_try = [api_url] + source.get('api_fallback_urls', [])
         data = None
         last_error = None
+        api_method = source.get('api_method', 'GET')
         for url in urls_to_try:
             try:
-                data = _fetch_api_with_retry(url, max_retries=2, timeout=30, verify=verify)
+                data = _fetch_api_with_retry(url, max_retries=2, timeout=30, verify=verify, method=api_method)
                 break
             except Exception as e:
                 last_error = e

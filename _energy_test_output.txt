@@ -1,0 +1,11 @@
+﻿python : Traceback (most recent call last):
+所在位置 行:1 字符: 266
++ ... nts\GitHub\mongolia-news-monitor; python _verify_ikon.py 2>&1 | Out-F ...
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\VictorXu\Documents\GitHub\mongolia-news-monitor\_verify_ikon.py", line 75, in <module>
+    print('\n'.join(output))
+    ~~~~~^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\u04e9' in position 210: illegal multibyte sequence
