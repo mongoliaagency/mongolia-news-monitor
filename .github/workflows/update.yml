@@ -59,4 +59,6 @@ jobs:
 
           git diff --cached --quiet || git commit -m "Auto update news page"
 
+          git pull --rebase origin main
+
           git push
