@@ -1,4 +1,5 @@
 """Shared date parsing and filtering utilities for all fetchers."""
+import re
 from datetime import datetime
 
 
@@ -40,6 +41,17 @@ def parse_date(raw_date):
             return datetime.strptime(raw_date, fmt)
         except Exception:
             continue
+
+    # Fallback: extract first date-like pattern (e.g. "2026-06-26" from "2026-06-26Category")
+    date_pattern = re.search(r'(\d{4}[-./]\d{1,2}[-./]\d{1,2})', raw_date)
+    if date_pattern:
+        date_str = date_pattern.group(1)
+        # Normalize separators to "-"
+        date_str = date_str.replace('.', '-').replace('/', '-')
+        try:
+            return datetime.strptime(date_str, "%Y-%m-%d")
+        except Exception:
+            pass
 
     return None
 

@@ -1,0 +1,12 @@
+{
+  "name": "道路与交通运输部",
+  "homepage": "https://mrt.gov.mn/",
+  "source_type": "html",
+  "news_url": "https://mrt.gov.mn/t/3",
+  "requires_browser": false,
+  "items_selector": ".category-list-item",
+  "title_selector": ".title",
+  "link_selector": "a[href*=\"/i/\"]",
+  "date_selector": ".news-date",
+  "status": "active"
+}
