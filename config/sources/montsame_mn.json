@@ -4,7 +4,10 @@
   "category": "media",
   "source_type": "html",
   "news_url": "https://montsame.mn/",
-  "title_selector": ".main-item a, .sub-item a, .news-box a.box",
   "requires_browser": true,
+  "items_selector": ".main-item, .sub-item, .news-box",
+  "title_selector": "a[href*=\"/n/\"]",
+  "link_selector": "a[href*=\"/n/\"]",
+  "date_selector": ".date, time, [class*=\"date\"]",
   "status": "inactive"
 }
