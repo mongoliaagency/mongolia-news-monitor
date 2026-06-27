@@ -1,0 +1,15 @@
+{
+  "name": "GoGo",
+  "source_type": "api",
+  "status": "active",
+  "homepage": "https://gogo.mn/",
+  "category": "新闻媒体",
+  "api_url": "https://gogo.mn/news/shinemedee",
+  "api_data_paths": ["shinemedee_list", "politicmedee_list"],
+  "api_date_field": "publish_date",
+  "api_title_field": "title",
+  "api_id_field": "id",
+  "api_link_template": "/corner/{id}",
+  "api_summary_field": "head_line",
+  "api_max_pages": 1
+}

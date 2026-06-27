@@ -26,7 +26,19 @@ def _fetch_api_with_retry(api_url, max_retries=3, timeout=45, verify=True):
 
 
 def _extract_raw_list(data, source):
-    """Extract the raw list of items from API response using configurable data path."""
+    """Extract the raw list of items from API response using configurable data path(s).
+    Supports both single 'api_data_path' (string) and multiple 'api_data_paths' (array).
+    """
+    # Support multiple data paths (merge all)
+    data_paths = source.get('api_data_paths', [])
+    if data_paths:
+        all_items = []
+        for dp in data_paths:
+            items = _navigate_data_path(data, dp)
+            all_items.extend(items)
+        return all_items
+
+    # Single data path
     data_path = source.get('api_data_path', '')
     if not data_path:
         # Legacy: default path data.list
@@ -36,7 +48,11 @@ def _extract_raw_list(data, source):
             return data
         return []
 
-    # Navigate the data_path, e.g. "rows" or "data.rows"
+    return _navigate_data_path(data, data_path)
+
+
+def _navigate_data_path(data, data_path):
+    """Navigate a dot-separated path into a nested dict to extract a list."""
     parts = data_path.split('.')
     current = data
     for part in parts:
@@ -194,8 +210,8 @@ def fetch_api(source_file):
     with open(source_file, 'r', encoding='utf-8') as f:
         source = json.load(f)
 
-    # Use pagination if api_data_path is configured
-    use_pagination = bool(source.get('api_data_path', ''))
+    # Use pagination if api_data_path or api_data_paths is configured
+    use_pagination = bool(source.get('api_data_path', '') or source.get('api_data_paths', []))
 
     verify = source.get('api_verify_ssl', True)
 

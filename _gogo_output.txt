@@ -1,0 +1,51 @@
+Total chars: 87881
+Total lines: 1799
+
+=== RSS/FEED LINKS ===
+
+=== LINKS with rss/feed in href ===
+
+=== ARTICLE TAGS ===
+  <article> count: 0
+
+=== RELEVANT CLASS PATTERNS ===
+  <div class="uk-navbar-item search-btn-container"> ... </div>
+  <li class="sub-menu-link-item"> ... </li>
+  <section class="contentbody"> ... </section>
+
+=== LINK PATTERNS (first 15) ===
+  Total a[href] with text>10chars: 61
+  href=/i/3
+    text=§¿§Õ§Ú§Û§ß §Ù§Ñ§ã§Ñ§Ô
+    parent: <li class="sub-menu-link-item">
+
+  href=/i/9670
+    text=§®§ï§Õ§Õ§ï§Ô §Þ§ï§Õ§ï§ï§Ý§Õ§ï§Ô §Ò§Ñ§Û§ñ
+    parent: <li class="sub-menu-link-item">
+
+  href=/i/9681
+    text=§¯§à§Ô§à§à§ß §Õ§ï§Ý§ç§Ú§Û
+    parent: <li class="sub-menu-link-item">
+
+  href=/i/9682
+    text=GoGo §Ú§Ý §ä§à§Õ §Ò§Ñ§Û§Õ§Ñ§Ý
+    parent: <li class="sub-menu-link-item">
+
+  href=/corner/9679
+    text=§®§Ñ§â§Ô§Ñ§Ñ§ê §Ñ§Ø§Ú§Ý§ä§Ñ§Û
+    parent: <li class="sub-menu-link-item">
+
+  href=/corner/9677
+    text=35 §Þ§Þ-§Ú§Û§ß §Õ§å§â§Ñ§ß§Õ
+    parent: <li class="sub-menu-link-item">
+
+  href=/corner/9606
+    text=§³§à§×§Ý§í§ß §Õ§à§Ó§ä§à§Ý§Ô§à§à
+    parent: <li class="sub-menu-link-item">
+
+  href=/corner/9678
+Traceback (most recent call last):
+  File "c:\Users\VictorXu\Documents\GitHub\mongolia-news-monitor\_analyze_gogo.py", line 44, in <module>
+    print(f"    text={a.get_text(strip=True)[:100]}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\u04af' in position 20: illegal multibyte sequence

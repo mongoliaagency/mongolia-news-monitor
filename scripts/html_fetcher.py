@@ -1,5 +1,6 @@
 import json
 import time
+from datetime import datetime, timedelta
 
 import requests
 
@@ -52,44 +53,17 @@ def _fetch_with_retry(url, requires_browser=False, max_retries=3, timeout=60):
                 raise last_error
 
 
-def fetch_html(source_file):
-
-    with open(
-        source_file,
-        "r",
-        encoding="utf-8"
-    ) as f:
-
-        source = json.load(f)
-
-    url = source["news_url"]
-    requires_browser = source.get("requires_browser", False)
-
-    try:
-        html_content = _fetch_with_retry(url, requires_browser=requires_browser)
-    except Exception as e:
-        if not requires_browser:
-            try:
-                html_content = _fetch_with_retry(url, requires_browser=True)
-            except Exception:
-                raise
-        else:
-            raise
-
-    try:
-        soup = BeautifulSoup(html_content, "lxml")
-    except Exception:
-        soup = BeautifulSoup(html_content, "html.parser")
-
-    news = []
-
+def _parse_articles(soup, source, override_date=None):
+    """Extract articles from a parsed BeautifulSoup object.
+    If override_date is provided, use it as the publish_date for all articles.
+    """
     items_selector = source.get("items_selector")
     title_selector = source.get("title_selector")
     link_selector = source.get("link_selector", title_selector)
-    title_attr = source.get("title_attr")  # e.g. "alt" to read title from img alt
+    title_attr = source.get("title_attr")
     date_selector = source.get("date_selector")
-    date_attr = source.get("date_attr")  # e.g. "src" to read date from img src
-    exclude_urls = source.get("exclude_urls", [])  # URL substrings to skip (e.g. static pages)
+    date_attr = source.get("date_attr")
+    exclude_urls = source.get("exclude_urls", [])
 
     if items_selector:
         items = soup.select(items_selector)
@@ -97,6 +71,8 @@ def fetch_html(source_file):
         items = soup.select(title_selector)
     else:
         items = []
+
+    articles = []
 
     for item in items[:100]:
 
@@ -142,15 +118,17 @@ def fetch_html(source_file):
             if skip:
                 continue
 
+        # Date extraction
         publish_date_str = None
-        date_from_text_fallback = source.get("date_from_item_text", False)
 
-        if date_selector:
+        if override_date:
+            # When using date_url_template, the date is known from the URL
+            publish_date_str = override_date
+        elif date_selector:
             date_node = item.select_one(date_selector)
             if date_node:
                 if date_attr:
                     raw_date = date_node.get(date_attr, '')
-                    # URL-decode if needed (e.g. Next.js image src with %2F)
                     if '%' in raw_date:
                         from urllib.parse import unquote
                         raw_date = unquote(raw_date)
@@ -159,23 +137,21 @@ def fetch_html(source_file):
                 dt = parse_date(raw_date)
                 if dt:
                     publish_date_str = format_date(dt)
-        elif date_from_text_fallback:
-            # No date_selector configured, extract from item text
+        elif source.get("date_from_item_text", False):
             dt = parse_date(item.get_text(strip=True))
             if dt:
                 publish_date_str = format_date(dt)
 
         # Fallback: extract date from item's full text when date_selector didn't yield a date
-        if not publish_date_str and date_from_text_fallback and date_selector:
+        if not publish_date_str and not override_date and source.get("date_from_item_text") and date_selector:
             dt = parse_date(item.get_text(strip=True))
             if dt:
                 publish_date_str = format_date(dt)
 
-        # Only keep articles with a parsed date matching today
         if not publish_date_str:
             continue
 
-        news.append({
+        articles.append({
             "title": title,
             "publish_date": publish_date_str,
             "source": source["name"],
@@ -183,7 +159,67 @@ def fetch_html(source_file):
             "category": source.get("category", "党政机关"),
         })
 
-    # Filter: only articles from the last 7 days
-    filtered_news = [item for item in news if is_within_days(item["publish_date"], days=7)]
+    return articles
 
-    return filtered_news
+
+def _fetch_and_parse(url, source, requires_browser, override_date=None):
+    """Fetch a URL and parse articles from it. Optionally override the publish date."""
+    try:
+        html_content = _fetch_with_retry(url, requires_browser=requires_browser)
+    except Exception:
+        if not requires_browser:
+            try:
+                html_content = _fetch_with_retry(url, requires_browser=True)
+            except Exception:
+                raise
+        else:
+            raise
+
+    try:
+        soup = BeautifulSoup(html_content, "lxml")
+    except Exception:
+        soup = BeautifulSoup(html_content, "html.parser")
+
+    return _parse_articles(soup, source, override_date=override_date)
+
+
+def fetch_html(source_file):
+
+    with open(
+        source_file,
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        source = json.load(f)
+
+    requires_browser = source.get("requires_browser", False)
+
+    date_url_template = source.get("date_url_template")
+
+    if date_url_template:
+        # Fetch per-day archive pages for the last 7 days
+        all_news = []
+        today = datetime.now().date()
+        for days_ago in range(7):
+            d = today - timedelta(days=days_ago)
+            url = date_url_template.format(
+                year=d.year,
+                month=f"{d.month:02d}",
+                day=f"{d.day:02d}"
+            )
+            override_date = format_date(datetime(d.year, d.month, d.day))
+            try:
+                news = _fetch_and_parse(url, source, requires_browser,
+                                        override_date=override_date)
+                all_news.extend(news)
+            except Exception as e:
+                # Log but continue with other days
+                print(f"WARN: {source.get('name')} date={d} — {e}")
+        return all_news
+    else:
+        url = source["news_url"]
+        news = _fetch_and_parse(url, source, requires_browser)
+
+        # Filter: only articles from the last 7 days
+        return [item for item in news if is_within_days(item["publish_date"], days=7)]

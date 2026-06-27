@@ -1,0 +1,22 @@
+Total <a> tags in first 30000 chars of body: 123
+  [2] TEXT: §¿§Õ§Ú§Û§ß §Ù§Ñ§ã§Ñ§Ô
+  [6] TEXT: §¿§ß§ä§Ö§â§ä§Ñ§Û§ß§Þ§Ö§ß§ä
+  [12] TEXT: §¿§Õ§Ú§Û§ß §Ù§Ñ§ã§Ñ§Ô
+  [16] TEXT: §¿§ß§ä§Ö§â§ä§Ñ§Û§ß§Þ§Ö§ß§ä
+
+Link href+text pairs: 8
+  HREF: https://www.koreanair.com/contents/promotion/list/2026/UBN2603?pageNum=1
+  TEXT: 
+
+  HREF: https://news.mn/archive?start%5Byear%5D=2026&#038;start%5Bmonth%5D=06&#038;start%5Bday%5D=27&#038;end%5Byear%5D=2026&#038;end%5Bmonth%5D=06&#038;end%5Bday%5D=27
+  TEXT: §Ò§ñ§Þ§Ò§Ñ 2026-06-27
+
+  HREF: https://news.mn/archive?start%5Byear%5D=2026&#038;start%5Bmonth%5D=06&#038;start%5Bday%5D=26&#038;end%5Byear%5D=2026&#038;end%5Bmonth%5D=06&#038;end%5Bday%5D=26
+  TEXT: §Ò§Ñ§Ñ§ã§Ñ§ß 2026-06-26
+
+  HREF: https://news.mn/archive?start%5Byear%5D=2026&#038;start%5Bmonth%5D=06&#038;start%5Bday%5D=25&#038;end%5Byear%5D=2026&#038;end%5Bmonth%5D=06&#038;end%5Bday%5D=25
+Traceback (most recent call last):
+  File "c:\Users\VictorXu\Documents\GitHub\mongolia-news-monitor\_analyze_html.py", line 25, in <module>
+    print(f"  TEXT: {text[:100]}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\u04af' in position 9: illegal multibyte sequence
