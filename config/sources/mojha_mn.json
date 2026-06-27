@@ -1,0 +1,15 @@
+{
+  "name": "司法与内务部",
+  "homepage": "https://mojha.gov.mn/",
+  "category": "government",
+  "source_type": "api",
+  "api_url": "https://mojha.gov.mn:8085/saContent/list?limit=50",
+  "api_data_path": "rows",
+  "api_id_field": "_id",
+  "api_date_field": "publishDate",
+  "api_date_alt_fields": ["createdAt", "updatedAt"],
+  "api_link_template": "/allnews/{id}",
+  "api_summary_field": "description",
+  "api_max_pages": 3,
+  "status": "active"
+}

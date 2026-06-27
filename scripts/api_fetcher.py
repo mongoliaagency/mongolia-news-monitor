@@ -26,59 +26,219 @@ def _fetch_api_with_retry(api_url, max_retries=3, timeout=45):
                 raise last_error
 
 
-def fetch_api(source_file):
-    with open(source_file, 'r', encoding='utf-8') as f:
-        source = json.load(f)
+def _extract_raw_list(data, source):
+    """Extract the raw list of items from API response using configurable data path."""
+    data_path = source.get('api_data_path', '')
+    if not data_path:
+        # Legacy: default path data.list
+        if isinstance(data, dict):
+            return data.get('data', {}).get('list', [])
+        elif isinstance(data, list):
+            return data
+        return []
 
+    # Navigate the data_path, e.g. "rows" or "data.rows"
+    parts = data_path.split('.')
+    current = data
+    for part in parts:
+        if isinstance(current, dict):
+            current = current.get(part, [])
+        else:
+            return []
+    if isinstance(current, list):
+        return current
+    return []
+
+
+def _get_paginated_items(source):
+    """Fetch items from API with optional pagination."""
     api_url = source.get('api_url')
     if not api_url:
         raise ValueError('api_url is required for api source_type')
 
-    # Try primary URL first, then fallback URLs
-    urls_to_try = [api_url] + source.get('api_fallback_urls', [])
-    data = None
-    last_error = None
-    for url in urls_to_try:
-        try:
-            data = _fetch_api_with_retry(url, max_retries=2, timeout=30)
+    all_items = []
+    max_pages = source.get('api_max_pages', 5)
+
+    for page in range(max_pages):
+        # Build page URL
+        if page == 0:
+            page_url = api_url
+        elif '?' in api_url:
+            page_url = f"{api_url}&page={page}"
+        else:
+            page_url = f"{api_url}?page={page}"
+
+        # Try primary URL pattern, then fallback URLs
+        urls_to_try = [page_url]
+        fallback_urls = source.get('api_fallback_urls', [])
+        for fb in fallback_urls:
+            if page == 0:
+                urls_to_try.append(fb)
+            elif '?' in fb:
+                urls_to_try.append(f"{fb}&page={page}")
+            else:
+                urls_to_try.append(f"{fb}?page={page}")
+
+        data = None
+        last_error = None
+        for url in urls_to_try:
+            try:
+                data = _fetch_api_with_retry(url, max_retries=2, timeout=30)
+                break
+            except Exception as e:
+                last_error = e
+
+        if data is None:
+            if page == 0:
+                raise last_error
+            else:
+                break  # No more pages
+
+        raw_list = _extract_raw_list(data, source)
+        if not raw_list:
             break
-        except Exception as e:
-            last_error = e
 
-    if data is None:
-        raise last_error
+        # Check if any items are still within today's range
+        has_recent = False
+        date_field = source.get('api_date_field', 'createdDateText')
+        for item in raw_list:
+            pub_date = _get_date_from_item(item, date_field, source)
+            if pub_date:
+                dt = parse_date(pub_date)
+                if dt and dt.date() >= datetime.now().date():
+                    has_recent = True
+                    break
+
+        all_items.extend(raw_list)
+
+        if not has_recent:
+            break  # No more today's items in older pages
+
+        # Check total if available
+        if isinstance(data, dict):
+            total = data.get('total', 0)
+            if total and len(all_items) >= total:
+                break
+
+    return all_items
+
+
+def _get_date_from_item(item, date_field, source):
+    """Extract date from an item using configurable field name."""
+    raw = item.get(date_field, '')
+    if raw:
+        return raw
+
+    # Try alternate date fields
+    alt_fields = source.get('api_date_alt_fields', [])
+    if not alt_fields:
+        alt_fields = ['createdDate', 'createdAt', 'publishDate', 'updatedAt', 'date']
+    for alt in alt_fields:
+        val = item.get(alt, '')
+        if val:
+            return val
+    return ''
+
+
+def _get_id_from_item(item, source):
+    """Extract ID from an item using configurable field name."""
+    id_field = source.get('api_id_field', '')
+    if not id_field:
+        return item.get('urlId') or item.get('id')
+    return item.get(id_field)
+
+
+def _get_link(item, source):
+    """Build the detail page link using configurable template."""
+    url_id = _get_id_from_item(item, source)
+    if url_id is None:
+        return ''
+
+    link_template = source.get('api_link_template', '')
+    if link_template:
+        return urljoin(source.get('homepage', ''), link_template.replace('{id}', str(url_id)))
+    else:
+        return urljoin(source.get('homepage', ''), f'/news/{url_id}')
+
+
+def _get_summary(item, source):
+    """Extract summary from an item using configurable field name."""
+    summary_field = source.get('api_summary_field', '')
+    if summary_field:
+        summary = item.get(summary_field, '')
+        if summary:
+            # If it's HTML content, strip tags
+            if '<' in summary:
+                try:
+                    soup = BeautifulSoup(summary, 'lxml')
+                except Exception:
+                    soup = BeautifulSoup(summary, 'html.parser')
+                return soup.get_text(strip=True)[:300]
+            return summary[:300]
+
+    # Fallback: try shortContent, then content HTML
+    summary = item.get('shortContent') or ''
+    if not summary:
+        content_html = item.get('content') or ''
+        try:
+            soup = BeautifulSoup(content_html, 'lxml')
+        except Exception:
+            soup = BeautifulSoup(content_html, 'html.parser')
+        summary = soup.get_text(strip=True)[:300]
+    return summary
+
+
+def fetch_api(source_file):
+    with open(source_file, 'r', encoding='utf-8') as f:
+        source = json.load(f)
+
+    # Use pagination if api_data_path is configured
+    use_pagination = bool(source.get('api_data_path', ''))
+
+    if use_pagination:
+        raw_list = _get_paginated_items(source)
+    else:
+        api_url = source.get('api_url')
+        if not api_url:
+            raise ValueError('api_url is required for api source_type')
+
+        urls_to_try = [api_url] + source.get('api_fallback_urls', [])
+        data = None
+        last_error = None
+        for url in urls_to_try:
+            try:
+                data = _fetch_api_with_retry(url, max_retries=2, timeout=30)
+                break
+            except Exception as e:
+                last_error = e
+
+        if data is None:
+            raise last_error
+
+        raw_list = _extract_raw_list(data, source)
+
+    date_field = source.get('api_date_field', 'createdDateText')
     items = []
-
-    raw_list = []
-    if isinstance(data, dict):
-        raw_list = data.get('data', {}).get('list', [])
-    elif isinstance(data, list):
-        raw_list = data
 
     for item in raw_list:
         title = item.get('title', '').strip()
         if not title:
             continue
 
-        url_id = item.get('urlId') or item.get('id')
+        url_id = _get_id_from_item(item, source)
         if url_id is None:
             continue
 
-        link = urljoin(source.get('homepage', ''), f'/news/{url_id}')
+        link = _get_link(item, source)
+        if not link:
+            continue
 
-        publish_date_raw = item.get('createdDateText') or item.get('createdDate') or ''
+        publish_date_raw = _get_date_from_item(item, date_field, source)
         dt = parse_date(publish_date_raw)
         if not dt or dt.date() != datetime.now().date():
             continue  # only keep today's articles
 
-        summary = item.get('shortContent') or ''
-        if not summary:
-            content_html = item.get('content') or ''
-            try:
-                soup = BeautifulSoup(content_html, 'lxml')
-            except Exception:
-                soup = BeautifulSoup(content_html, 'html.parser')
-            summary = soup.get_text(strip=True)[:300]
+        summary = _get_summary(item, source)
 
         items.append({
             'title': title,
