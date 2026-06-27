@@ -1,0 +1,145 @@
+=== blog_box count: 40 ===
+
+
+--- Box 0 FULL HTML ---
+<div class="blog_box type_two trans hover_1_get">
+					<div class="blog_inner trans">
+						<div class="image_box trans hover_1">
+							<a href="3653/nitem">
+								<img src="https://iaac.mn/files/img/0.626831001782360319.jpg" class="img-fluid" alt="img">
+							</a>
+							<div class="oh ho_1"></div>
+							<div class="oh ho_2"></div>
+							<div class="oh ho_3"></div>
+							<div class="oh ho_4"></div>
+							<span class="date_tm">
+								<i class="fi-rr-calendar"></i>
+								<time class="date published">6 сарын 25, 2026</time>
+							</span>
+						</div>
+						<div class="content">						
+							<h4 class="title_16" style="line-height:18px;">
+								<a href="3653/nitem">Авлигын эсрэг сургалтад 1879 албан тушаалтныг хамруулав</a>
+							</h4>
+							<div class="bottn_flex">
+								<a href="3653/nitem" class="rd_more">дэлгэрэнгүй <i class="fi-rr-arrow-small-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					</div>
+				
+
+--- Box 1 FULL HTML ---
+<div class="blog_box type_two trans hover_1_get">
+					<div class="blog_inner trans">
+						<div class="image_box trans hover_1">
+							<a href="3652/nitem">
+								<img src="https://iaac.mn/files/img/0.512978001782266972.jpg" class="img-fluid" alt="img">
+							</a>
+							<div class="oh ho_1"></div>
+							<div class="oh ho_2"></div>
+							<div class="oh ho_3"></div>
+							<div class="oh ho_4"></div>
+							<span class="date_tm">
+								<i class="fi-rr-calendar"></i>
+								<time class="date published">6 сарын 24, 2026</time>
+							</span>
+						</div>
+						<div class="content">						
+							<h4 class="title_16" style="line-height:18px;">
+								<a href="3652/nitem">Хүлээн авсан өргөдөл, гомдлын 63.1 хувь нь гэмт хэргийн шинжтэй байв</a>
+							</h4>
+							<div class="bottn_flex">
+								<a href="3652/nitem" class="rd_more">дэлгэрэнгүй <i class="fi-rr-arrow-small-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					</div>
+				
+
+--- Box 2 FULL HTML ---
+<div class="blog_box type_two trans hover_1_get">
+					<div class="blog_inner trans">
+						<div class="image_box trans hover_1">
+							<a href="3651/nitem">
+								<img src="https://iaac.mn/files/img/0.292767001782196381.jpg" class="img-fluid" alt="img">
+							</a>
+							<div class="oh ho_1"></div>
+							<div class="oh ho_2"></div>
+							<div class="oh ho_3"></div>
+							<div class="oh ho_4"></div>
+							<span class="date_tm">
+								<i class="fi-rr-calendar"></i>
+								<time class="date published">6 сарын 23, 2026</time>
+							</span>
+						</div>
+						<div class="content">						
+							<h4 class="title_16" style="line-height:18px;">
+								<a href="3651/nitem">Нийтийн албанд томилогдохоор нэр дэвшсэн 468 иргэний урьдчилсан мэдүүлгийг хянав</a>
+							</h4>
+							<div class="bottn_flex">
+								<a href="3651/nitem" class="rd_more">дэлгэрэнгүй <i class="fi-rr-arrow-small-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					</div>
+				
+
+=== blog_inner count: 40 ===
+
+--- Inner 0 FULL HTML ---
+<div class="blog_inner trans">
+						<div class="image_box trans hover_1">
+							<a href="3653/nitem">
+								<img src="https://iaac.mn/files/img/0.626831001782360319.jpg" class="img-fluid" alt="img">
+							</a>
+							<div class="oh ho_1"></div>
+							<div class="oh ho_2"></div>
+							<div class="oh ho_3"></div>
+							<div class="oh ho_4"></div>
+							<span class="date_tm">
+								<i class="fi-rr-calendar"></i>
+								<time class="date published">6 сарын 25, 2026</time>
+							</span>
+						</div>
+						<div class="content">						
+							<h4 class="title_16" style="line-height:18px;">
+								<a href="3653/nitem">Авлигын эсрэг сургалтад 1879 албан тушаалтныг хамруулав</a>
+							</h4>
+							<div class="bottn_flex">
+								<a href="3653/nitem" class="rd_more">дэлгэрэнгүй <i class="fi-rr-arrow-small-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					
+
+--- Inner 1 FULL HTML ---
+<div class="blog_inner trans">
+						<div class="image_box trans hover_1">
+							<a href="3652/nitem">
+								<img src="https://iaac.mn/files/img/0.512978001782266972.jpg" class="img-fluid" alt="img">
+							</a>
+							<div class="oh ho_1"></div>
+							<div class="oh ho_2"></div>
+							<div class="oh ho_3"></div>
+							<div class="oh ho_4"></div>
+							<span class="date_tm">
+								<i class="fi-rr-calendar"></i>
+								<time class="date published">6 сарын 24, 2026</time>
+							</span>
+						</div>
+						<div class="content">						
+							<h4 class="title_16" style="line-height:18px;">
+								<a href="3652/nitem">Хүлээн авсан өргөдөл, гомдлын 63.1 хувь нь гэмт хэргийн шинжтэй байв</a>
+							</h4>
+							<div class="bottn_flex">
+								<a href="3652/nitem" class="rd_more">дэлгэрэнгүй <i class="fi-rr-arrow-small-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					

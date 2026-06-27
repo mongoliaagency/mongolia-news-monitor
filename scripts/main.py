@@ -24,10 +24,7 @@ def save_runtime_status(status):
     with open(output, "w", encoding="utf-8") as f:
         json.dump(status, f, ensure_ascii=False, indent=2)
 
-CATEGORY_LABELS = {
-    "government": "党政机关",
-    "media": "新闻媒体",
-}
+CATEGORY_ORDER = ["党政机关", "新闻媒体"]
 
 def _init_category_status():
     return {
@@ -40,10 +37,7 @@ def _init_category_status():
 def collect_news():
     all_news = []
 
-    status = {
-        "government": _init_category_status(),
-        "media": _init_category_status(),
-    }
+    status = {k: _init_category_status() for k in CATEGORY_ORDER}
 
     source_files = load_sources()
 
@@ -56,7 +50,7 @@ def collect_news():
             if source.get("status") != "active":
                 continue
 
-            category = source.get("category", "government")
+            category = source.get("category", "党政机关")
             cat_status = status.setdefault(category, _init_category_status())
             cat_status["total"] += 1
 
@@ -92,7 +86,7 @@ def collect_news():
                 print(f"ERROR: {source['name']} — 无当日文章")
 
         except Exception as e:
-            cat_status = status.get(source.get("category", "government") if source else "government", status["government"])
+            cat_status = status.get(source.get("category", "党政机关") if source else "党政机关", status["党政机关"])
             cat_status["failed"] += 1
             source_name = source_file.name
             source_homepage = "#"

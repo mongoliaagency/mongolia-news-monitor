@@ -1,0 +1,12 @@
+{
+  "name": "央行",
+  "homepage": "https://www.mongolbank.mn",
+  "source_type": "html",
+  "news_url": "https://www.mongolbank.mn/mn/",
+  "items_selector": "div.row.home-news1.my-3",
+  "title_selector": "h5.home-news1-title a",
+  "link_selector": "h5.home-news1-title a",
+  "date_selector": "div.home-news1-date",
+  "category": "党政机关",
+  "status": "active"
+}

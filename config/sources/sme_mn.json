@@ -1,0 +1,13 @@
+{
+  "name": "中小企业局",
+  "homepage": "https://sme.gov.mn/",
+  "category": "党政机关",
+  "source_type": "html",
+  "news_url": "https://sme.gov.mn/index",
+  "requires_browser": false,
+  "items_selector": ".entry.col-12.pb-2",
+  "title_selector": "h4 a",
+  "link_selector": "h4 a",
+  "date_selector": ".entry-meta li.sme-custom-blue:last-child",
+  "status": "active"
+}

@@ -1,0 +1,55 @@
+Total div.list_item: 1
+
+=== Item 1 ===
+<div class="list_item home">
+<div class="item">
+<div class="image">
+<a href="https://namem.gov.mn/d/news/846">
+<img alt="" src="https://namem.gov.mn/uploads/image/2026/06/400x300/1782349719_d80b1f6a9a01412380ec.jpg"/> </a>
+</div>
+<div class="text">
+<div class="date"><i class="fa fa-calendar-alt me-2"></i>2026.06.25</div>
+<h2><a class="title" href="https://namem.gov.mn/d/news/846">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ НӨӨЦ, ЭХ ҮҮСВЭРИЙН СУДАЛГАА ШИНЖИЛГЭЭ БОЛОН УС ЦАГ УУРЫН АЖИГЛАЛТЫН ЗОРИУЛАЛТТАЙ 15 НЭР ТӨРЛИЙН ТОНОГ ТӨХӨӨРӨМЖИЙГ ГААЛЬ, НӨАТ-ААС ЧӨЛӨӨЛӨХ ТОГТООЛЫГ БАТАЛЛАА</a></h2>
+</div>
+</div>
+<div class="item">
+<div class="image">
+<a href="https://namem.gov.mn/d/news/828">
+<img alt="" src="https://namem.gov.mn/uploads/image/2026/06/400x300/1782091588_fee1cc06d488453fc7af.jpg"/> </a>
+</div>
+<div class="text">
+<div class="date"><i class="fa fa-calendar-alt me-2"></i>2026.06.18</div>
+<h2><a class="title" href="https://namem.gov.mn/d/news/828">ЦАГ УУР, ОРЧНЫ ШИНЖИЛГЭЭНИЙ ГАЗРЫН ДАРГА Э. БАТТУЛГА ФРАНЦ УЛСЫН ҮНДЭСНИЙ ЦАГ УУРЫН БАЙГУУЛЛАГЫН ТӨСЛИЙН ЗАХИРАЛ, МЭРГЭЖИЛТЭН НОЁН КРИСТОП ПЕРАРДЫГ ХҮЛЭЭН АВЧ УУЛЗЛАА</a></h2>
+</div>
+</div>
+<div class="item">
+<div class="image">
+<a href="https://namem.gov.m
+
+
+=== ALSO CHECK: section.top.btm structure ===
+<section class="top btm">
+<div class="container">
+<div class="list_item home">
+<div class="item">
+<div class="image">
+<a href="https://namem.gov.mn/d/news/846">
+<img alt="" src="https://namem.gov.mn/uploads/image/2026/06/400x300/1782349719_d80b1f6a9a01412380ec.jpg"/> </a>
+</div>
+<div class="text">
+<div class="date"><i class="fa fa-calendar-alt me-2"></i>2026.06.25</div>
+<h2><a class="title" href="https://namem.gov.mn/d/news/846">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ НӨӨЦ, ЭХ ҮҮСВЭРИЙН СУДАЛГАА ШИНЖИЛГЭЭ БОЛОН УС ЦАГ УУРЫН АЖИГЛАЛТЫН ЗОРИУЛАЛТТАЙ 15 НЭР ТӨРЛИЙН ТОНОГ ТӨХӨӨРӨМЖИЙГ ГААЛЬ, НӨАТ-ААС ЧӨЛӨӨЛӨХ ТОГТООЛЫГ БАТАЛЛАА</a></h2>
+</div>
+</div>
+<div class="item">
+<div class="image">
+<a href="https://namem.gov.mn/d/news/828">
+<img alt="" src="https://namem.gov.mn/uploads/image/2026/06/400x300/1782091588_
+
+  div.container
+
+=== DATE PATTERNS in list_items ===
+
+[1] СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ НӨӨЦ, ЭХ ҮҮСВЭРИЙН СУДАЛГАА ШИНЖИЛГЭЭ БОЛОН УС ЦАГ УУРЫН АЖИГЛАЛТЫН ЗОРИУЛАЛ
+    Link: https://namem.gov.mn/d/news/846
+    Date: 2026.06.25СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ НӨӨЦ, ЭХ ҮҮСВЭРИЙН СУДАЛГАА ШИНЖИЛГЭЭ БОЛОН УС ЦАГ УУРЫН АЖИГЛАЛТЫН ЗОРИУЛАЛТТАЙ 15 НЭР ТӨРЛИЙН ТОНОГ ТӨХӨӨРӨМЖИЙГ ГААЛЬ, НӨАТ-ААС ЧӨЛӨӨЛӨХ ТОГТООЛЫГ БАТАЛЛАА

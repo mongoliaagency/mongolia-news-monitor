@@ -1,0 +1,13 @@
+{
+  "name": "气象与环境研究局",
+  "homepage": "https://namem.gov.mn/",
+  "category": "党政机关",
+  "source_type": "html",
+  "news_url": "https://namem.gov.mn/c/news",
+  "requires_browser": false,
+  "items_selector": ".list_item .item",
+  "title_selector": "h2 a.title",
+  "link_selector": "h2 a.title",
+  "date_selector": ".text .date",
+  "status": "active"
+}

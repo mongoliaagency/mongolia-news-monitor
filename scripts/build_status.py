@@ -2,12 +2,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-CATEGORY_LABELS = {
-    "government": "党政机关",
-    "media": "新闻媒体",
-}
-
-CATEGORY_ORDER = ["government", "media"]
+CATEGORY_ORDER = ["党政机关", "新闻媒体"]
 
 
 def build_status():
@@ -40,7 +35,7 @@ def build_status():
         rate = round(cat_success * 100 / cat_total, 1) if cat_total > 0 else 0
 
         status["categories"][key] = {
-            "label": CATEGORY_LABELS.get(key, key),
+            "label": key,
             "total": cat_total,
             "success": cat_success,
             "failed": cat_failed,

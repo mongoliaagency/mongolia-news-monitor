@@ -1,7 +1,7 @@
 {
   "name": "蒙古国紧急情况总局",
   "homepage": "https://nema.gov.mn/",
-  "category": "government",
+  "category": "党政机关",
   "source_type": "html",
   "news_url": "https://nema.gov.mn/posts",
   "requires_browser": false,

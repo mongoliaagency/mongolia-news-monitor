@@ -1,0 +1,263 @@
+
+=== POST [0] ===
+  LINK: href='/news/za-bol-zaaval-khii-sanaachilgyn-khureend-khaiguul-ashiglaltyn-tusgai-zuvshuurul-ezemshigch-aj-akhuin-negjuudtei-uulzalt-kheleltsuuleg' text='' class=''
+  LINK: href='/news/za-bol-zaaval-khii-sanaachilgyn-khureend-khaiguul-ashiglaltyn-tusgai-zuvshuurul-ezemshigch-aj-akhuin-negjuudtei-uulzalt-kheleltsuuleg' text='2026-06-16' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/za-bol-zaaval-khii-sanaachilgyn-khureend-khaiguul-ashiglaltyn-tusgai-zuvshuurul-ezemshigch-aj-akhuin-negjuudtei-uulzalt-kheleltsuuleg' text='"ХҮҮХДИЙН ТӨЛӨӨ ЗА БОЛ ЗААВАЛ ХИЙ” санаачилгын хүрээнд хайгуул, ашиглалтын тусга' class=''
+  LINK: href='/news/za-bol-zaaval-khii-sanaachilgyn-khureend-khaiguul-ashiglaltyn-tusgai-zuvshuurul-ezemshigch-aj-akhuin-negjuudtei-uulzalt-kheleltsuuleg' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-06-16"ХҮҮХДИЙН ТӨЛӨӨ ЗА БОЛ ЗААВАЛ ХИЙ” санаачилгын хүрээнд хайгуул, ашиглалтын тусгай зөвшөөрөл эзэмшигч аж ахуйн нэгжүүдтэй хийсэн уулзалт, хэл'
+  FULL_TEXT (first 200): '2026-06-16"ХҮҮХДИЙН ТӨЛӨӨ ЗА БОЛ ЗААВАЛ ХИЙ” санаачилгын хүрээнд хайгуул, ашиглалтын тусгай зөвшөөрөл эзэмшигч аж ахуйн нэгжүүдтэй хийсэн уулзалт, хэлэлцүүлэгАж үйлдвэр, эрдэс баялгийн яам, Ашигт малт'
+
+=== POST [1] ===
+  LINK: href='/news/songon-shalgaruulalt-90-n-urilga' text='2026-06-12' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/songon-shalgaruulalt-90-n-urilga' text='Сонгон шалгаруулалт 90-н урилга' class=''
+  LINK: href='/news/songon-shalgaruulalt-90-n-urilga' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-content bg-color-light p-3' text='2026-06-12Сонгон шалгаруулалт 90-н урилгаАшигт малтмал, газрын тосны газар нь Ашигт малтмалын тухай хууль болонЗасгийн газрын 2018 оны 243, 2023 оны 2'
+  FULL_TEXT (first 200): '2026-06-12Сонгон шалгаруулалт 90-н урилгаАшигт малтмал, газрын тосны газар нь Ашигт малтмалын тухай хууль болонЗасгийн газрын 2018 оны 243, 2023 оны 268, 447 дугаартогтоолуудыг үндэслэн дараах талбайн'
+
+=== POST [2] ===
+  LINK: href='/news/songon-shalgaruulalt-89-n-urilga-1' text='2026-06-11' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/songon-shalgaruulalt-89-n-urilga-1' text='Сонгон шалгаруулалт 89-н урилга' class=''
+  LINK: href='/news/songon-shalgaruulalt-89-n-urilga-1' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-content bg-color-light p-3' text='2026-06-11Сонгон шалгаруулалт 89-н урилгаСОНГОНШАЛГАРУУЛАЛТ 89-ИЙН УРИЛГА1976article, generalДэлгэрэнгүй'
+  FULL_TEXT (first 200): '2026-06-11Сонгон шалгаруулалт 89-н урилгаСОНГОНШАЛГАРУУЛАЛТ 89-ИЙН УРИЛГА1976article, generalДэлгэрэнгүй'
+
+=== POST [3] ===
+  LINK: href='/news/aj-uildverjiltiin-khugjliin-shiidliig-todorkhoilokhod-sanalaa-iruulne-uu' text='' class=''
+  LINK: href='/news/aj-uildverjiltiin-khugjliin-shiidliig-todorkhoilokhod-sanalaa-iruulne-uu' text='2026-06-08' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/aj-uildverjiltiin-khugjliin-shiidliig-todorkhoilokhod-sanalaa-iruulne-uu' text='Аж үйлдвэржилтийн хөгжлийн шийдлийг тодорхойлоход саналаа ирүүлнэ үү' class=''
+  LINK: href='/news/aj-uildverjiltiin-khugjliin-shiidliig-todorkhoilokhod-sanalaa-iruulne-uu' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-06-08Аж үйлдвэржилтийн хөгжлийн шийдлийг тодорхойлоход саналаа ирүүлнэ үүАж үйлдвэр, эрдэс баялгийн яамхолбоо барих утас:7588-339994077774362arti'
+  FULL_TEXT (first 200): '2026-06-08Аж үйлдвэржилтийн хөгжлийн шийдлийг тодорхойлоход саналаа ирүүлнэ үүАж үйлдвэр, эрдэс баялгийн яамхолбоо барих утас:7588-339994077774362article, generalДэлгэрэнгүй'
+
+=== POST [4] ===
+  LINK: href='/news/gazryn-tos-2026-olon-ulsyn-erdem-shinjilgee-onol-praktikiin-xxxii-baga-khural-mongol-ulsad-gazryn-tosny-salbar-uusen-khugjsunii-85-jiliin-oin-khureend-amjilttai-zokhion-baiguullagdlaa' text='' class=''
+  LINK: href='/news/gazryn-tos-2026-olon-ulsyn-erdem-shinjilgee-onol-praktikiin-xxxii-baga-khural-mongol-ulsad-gazryn-tosny-salbar-uusen-khugjsunii-85-jiliin-oin-khureend-amjilttai-zokhion-baiguullagdlaa' text='2026-06-04' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/gazryn-tos-2026-olon-ulsyn-erdem-shinjilgee-onol-praktikiin-xxxii-baga-khural-mongol-ulsad-gazryn-tosny-salbar-uusen-khugjsunii-85-jiliin-oin-khureend-amjilttai-zokhion-baiguullagdlaa' text='“Газрын Тос” – 2026” Олон Улсын эрдэм шинжилгээ, онол практикийн  XXXII бага хур' class=''
+  LINK: href='/news/gazryn-tos-2026-olon-ulsyn-erdem-shinjilgee-onol-praktikiin-xxxii-baga-khural-mongol-ulsad-gazryn-tosny-salbar-uusen-khugjsunii-85-jiliin-oin-khureend-amjilttai-zokhion-baiguullagdlaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-06-04“Газрын Тос” – 2026” Олон Улсын эрдэм шинжилгээ, онол практикийн  XXXII бага хурал Монгол Улсад Газрын тосны салбар үүсэн хөгжсөний 85 жилий'
+  FULL_TEXT (first 200): '2026-06-04“Газрын Тос” – 2026” Олон Улсын эрдэм шинжилгээ, онол практикийн  XXXII бага хурал Монгол Улсад Газрын тосны салбар үүсэн хөгжсөний 85 жилийн ойн хүрээнд амжилттай зохион байгуулагдлааМонгол'
+
+=== POST [5] ===
+  LINK: href='/news/mongol-ulsad-ankh-udaa-nuursnii-davkhargyn-metan-khiin-bayalgiin-unelgee-nuutsiin-tootsoog-burtgen-avlaa' text='' class=''
+  LINK: href='/news/mongol-ulsad-ankh-udaa-nuursnii-davkhargyn-metan-khiin-bayalgiin-unelgee-nuutsiin-tootsoog-burtgen-avlaa' text='2026-06-04' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/mongol-ulsad-ankh-udaa-nuursnii-davkhargyn-metan-khiin-bayalgiin-unelgee-nuutsiin-tootsoog-burtgen-avlaa' text='МОНГОЛ УЛСАД АНХ УДАА НҮҮРСНИЙ ДАВХАРГЫН МЕТАН ХИЙН БАЯЛГИЙН ҮНЭЛГЭЭ, НӨӨЦИЙН ТО' class=''
+  LINK: href='/news/mongol-ulsad-ankh-udaa-nuursnii-davkhargyn-metan-khiin-bayalgiin-unelgee-nuutsiin-tootsoog-burtgen-avlaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-06-04МОНГОЛ УЛСАД АНХ УДАА НҮҮРСНИЙ ДАВХАРГЫН МЕТАН ХИЙН БАЯЛГИЙН ҮНЭЛГЭЭ, НӨӨЦИЙН ТООЦООГ БҮРТГЭН АВЛААМОНГОЛ
+
+УЛСАД АНХ УДАА НҮҮРСНИЙ ДАВХАРГЫН'
+  FULL_TEXT (first 200): '2026-06-04МОНГОЛ УЛСАД АНХ УДАА НҮҮРСНИЙ ДАВХАРГЫН МЕТАН ХИЙН БАЯЛГИЙН ҮНЭЛГЭЭ, НӨӨЦИЙН ТООЦООГ БҮРТГЭН АВЛААМОНГОЛ
+
+УЛСАД АНХ УДАА НҮҮРСНИЙ ДАВХАРГЫН МЕТАН ХИЙН БАЯЛГИЙН ҮНЭЛГЭЭ, НӨӨЦИЙН ТООЦООГ
+
+БҮР'
+
+=== POST [6] ===
+  LINK: href='/news/khariutslagatai-uul-uurkhai-baruun-busiin-udurlug-ulaangom-khotod-ekhellee' text='' class=''
+  LINK: href='/news/khariutslagatai-uul-uurkhai-baruun-busiin-udurlug-ulaangom-khotod-ekhellee' text='2026-05-29' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/khariutslagatai-uul-uurkhai-baruun-busiin-udurlug-ulaangom-khotod-ekhellee' text='“ХАРИУЦЛАГАТАЙ УУЛ УУРХАЙ” баруун бүсийн өдөрлөг Улаангом хотод эхэллээ' class=''
+  LINK: href='/news/khariutslagatai-uul-uurkhai-baruun-busiin-udurlug-ulaangom-khotod-ekhellee' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-05-29“ХАРИУЦЛАГАТАЙ УУЛ УУРХАЙ” баруун бүсийн өдөрлөг Улаангом хотод эхэллээ“ХАРИУЦЛАГАТАЙ УУЛ УУРХАЙ” БАРУУН БҮСИЙН ӨДӨРЛӨГ УЛААНГОМ ХОТОД ЭХЭЛЛ'
+  FULL_TEXT (first 200): '2026-05-29“ХАРИУЦЛАГАТАЙ УУЛ УУРХАЙ” баруун бүсийн өдөрлөг Улаангом хотод эхэллээ“ХАРИУЦЛАГАТАЙ УУЛ УУРХАЙ” БАРУУН БҮСИЙН ӨДӨРЛӨГ УЛААНГОМ ХОТОД ЭХЭЛЛЭЭ516article, generalДэлгэрэнгүй'
+
+=== POST [7] ===
+  LINK: href='/news/gazryn-tosny-salbaryn-85-jiliin-oin-khureend-shangal-garduullaa' text='' class=''
+  LINK: href='/news/gazryn-tosny-salbaryn-85-jiliin-oin-khureend-shangal-garduullaa' text='2026-05-28' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/gazryn-tosny-salbaryn-85-jiliin-oin-khureend-shangal-garduullaa' text='Газрын тосны салбарын 85 жилийн ойн хүрээнд шагнал гардууллаа' class=''
+  LINK: href='/news/gazryn-tosny-salbaryn-85-jiliin-oin-khureend-shangal-garduullaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-05-28Газрын тосны салбарын 85 жилийн ойн хүрээнд шагнал гардууллааГазрын тосны салбарын 85 жилийн ойн хүрээнд шагнал гардууллаа570article, genera'
+  FULL_TEXT (first 200): '2026-05-28Газрын тосны салбарын 85 жилийн ойн хүрээнд шагнал гардууллааГазрын тосны салбарын 85 жилийн ойн хүрээнд шагнал гардууллаа570article, generalДэлгэрэнгүй'
+
+=== POST [8] ===
+  LINK: href='/news/ashigt-maltmalyn-khaiguulyn-tusgai-zuvshuurliin-khuchin-tuguldur-baikh-khugatsaa-duussanyg-medegdej-baina-9' text='2026-05-28' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/ashigt-maltmalyn-khaiguulyn-tusgai-zuvshuurliin-khuchin-tuguldur-baikh-khugatsaa-duussanyg-medegdej-baina-9' text='Ашигт малтмалын хайгуулын тусгай зөвшөөрлийн хүчин төгөлдөр байх хугацаа дууссан' class=''
+  LINK: href='/news/ashigt-maltmalyn-khaiguulyn-tusgai-zuvshuurliin-khuchin-tuguldur-baikh-khugatsaa-duussanyg-medegdej-baina-9' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-content bg-color-light p-3' text='2026-05-28Ашигт малтмалын хайгуулын тусгай зөвшөөрлийн хүчин төгөлдөр байх хугацаа дууссаныг мэдэгдэж байнаАШИГТ МАЛТМАЛЫН ТУСГАЙ ЗӨВШӨӨРӨЛ ЭЗЭМШИГЧДИ'
+  FULL_TEXT (first 200): '2026-05-28Ашигт малтмалын хайгуулын тусгай зөвшөөрлийн хүчин төгөлдөр байх хугацаа дууссаныг мэдэгдэж байнаАШИГТ МАЛТМАЛЫН ТУСГАЙ ЗӨВШӨӨРӨЛ ЭЗЭМШИГЧДИЙН АНХААРАЛД Ашигт малтмалын тухай хуулийн 53 дуга'
+
+=== POST [9] ===
+  LINK: href='/news/umnugovi-aimagt-gazryn-tosny-salbaryn-unuugiin-baidal-sedevt-oron-nutgiin-uulzaltyg-2026-ony-5-dugaar-saryn-15-ny-udur-zokhion-baiguullaa' text='' class=''
+  LINK: href='/news/umnugovi-aimagt-gazryn-tosny-salbaryn-unuugiin-baidal-sedevt-oron-nutgiin-uulzaltyg-2026-ony-5-dugaar-saryn-15-ny-udur-zokhion-baiguullaa' text='2026-05-18' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/umnugovi-aimagt-gazryn-tosny-salbaryn-unuugiin-baidal-sedevt-oron-nutgiin-uulzaltyg-2026-ony-5-dugaar-saryn-15-ny-udur-zokhion-baiguullaa' text='Өмнөговь аймагт "Газрын тосны салбарын өнөөгийн байдал" сэдэвт орон нутгийн уулз' class=''
+  LINK: href='/news/umnugovi-aimagt-gazryn-tosny-salbaryn-unuugiin-baidal-sedevt-oron-nutgiin-uulzaltyg-2026-ony-5-dugaar-saryn-15-ny-udur-zokhion-baiguullaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-05-18Өмнөговь аймагт "Газрын тосны салбарын өнөөгийн байдал" сэдэвт орон нутгийн уулзалтыг 2026 оны 5 дугаар сарын 15-ны өдөр зохион байгууллааӨм'
+  FULL_TEXT (first 200): '2026-05-18Өмнөговь аймагт "Газрын тосны салбарын өнөөгийн байдал" сэдэвт орон нутгийн уулзалтыг 2026 оны 5 дугаар сарын 15-ны өдөр зохион байгууллааӨмнөговь аймагт "Газрын тосны салбарын өнөөгийн байд'
+
+=== POST [10] ===
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-zokhion-baiguulagdaj-baina' text='' class=''
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-zokhion-baiguulagdaj-baina' text='2026-05-13' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-zokhion-baiguulagdaj-baina' text='“GAS SAFETY & TECHNOLOGY CONFERENCE–2026” зөвлөгөөн Улаанбаатар хотноо зохион ба' class=''
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-zokhion-baiguulagdaj-baina' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-05-13“GAS SAFETY & TECHNOLOGY CONFERENCE–2026” зөвлөгөөн Улаанбаатар хотноо зохион байгуулагдаж байнаМонгол
+
+Улсын хийн салбарын хөгжил, аюулгүй '
+  FULL_TEXT (first 200): '2026-05-13“GAS SAFETY & TECHNOLOGY CONFERENCE–2026” зөвлөгөөн Улаанбаатар хотноо зохион байгуулагдаж байнаМонгол
+
+Улсын хийн салбарын хөгжил, аюулгүй байдал, дэвшилтэт технологийн хамтын
+
+ажиллагааг ө'
+
+=== POST [11] ===
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-bolno' text='' class=''
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-bolno' text='2026-05-12' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-bolno' text='“GAS SAFETY & TECHNOLOGY CONFERENCE–2026” ЗӨВЛӨГӨӨН УЛААНБААТАР ХОТНОО БОЛНО' class=''
+  LINK: href='/news/gas-safety-technology-conference-2026-zuvluguun-ulaanbaatar-khotnoo-bolno' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-05-12“GAS SAFETY & TECHNOLOGY CONFERENCE–2026” ЗӨВЛӨГӨӨН УЛААНБААТАР ХОТНОО БОЛНОМонголУлсын хийн салбарын хөгжил, аюулгүй байдал, дэвшилтэт техн'
+  FULL_TEXT (first 200): '2026-05-12“GAS SAFETY & TECHNOLOGY CONFERENCE–2026” ЗӨВЛӨГӨӨН УЛААНБААТАР ХОТНОО БОЛНОМонголУлсын хийн салбарын хөгжил, аюулгүй байдал, дэвшилтэт технологийн хамтын ажиллагаагөргөжүүлэх зорилготой “Ga'
+
+=== POST [12] ===
+  LINK: href='/news/mod-tarikh-ajlyg-zokhion-baiguulsan-tukhai-tovch-tailan' text='' class=''
+  LINK: href='/news/mod-tarikh-ajlyg-zokhion-baiguulsan-tukhai-tovch-tailan' text='2026-05-12' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/mod-tarikh-ajlyg-zokhion-baiguulsan-tukhai-tovch-tailan' text='Бүх нийтээр мод тарих өдөр Ашигт малтмал, газрын тосны газрын хамт олон идэвхтэй' class=''
+  LINK: href='/news/mod-tarikh-ajlyg-zokhion-baiguulsan-tukhai-tovch-tailan' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-05-12Бүх нийтээр мод тарих өдөр Ашигт малтмал, газрын тосны газрын хамт олон идэвхтэй оролцлооМонгол Улсын ерөнхийлөгчийн санаачилсан “Тэрбум мод'
+  FULL_TEXT (first 200): '2026-05-12Бүх нийтээр мод тарих өдөр Ашигт малтмал, газрын тосны газрын хамт олон идэвхтэй оролцлооМонгол Улсын ерөнхийлөгчийн санаачилсан “Тэрбум мод” үндэсний хөдөлгөөнийг хэрэгжүүлэх ажлын хүрээнд '
+
+=== POST [13] ===
+  LINK: href='/news/songon-shalgaruulalt-89-n-urilga' text='2026-04-28' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/songon-shalgaruulalt-89-n-urilga' text='Сонгон шалгаруулалтад оролцогч аж ахуйн нэгжүүдийн анхааралд' class=''
+  LINK: href='/news/songon-shalgaruulalt-89-n-urilga' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-content bg-color-light p-3' text='2026-04-28Сонгон шалгаруулалтад оролцогч аж ахуйн нэгжүүдийн анхааралдСОНГОНШАЛГАРУУЛАЛТАД ОРОЛЦОГЧ АЖАХУЙН НЭГЖҮҮДИЙН АНХААРАЛДАшигт малтмал, газрынт'
+  FULL_TEXT (first 200): '2026-04-28Сонгон шалгаруулалтад оролцогч аж ахуйн нэгжүүдийн анхааралдСОНГОНШАЛГАРУУЛАЛТАД ОРОЛЦОГЧ АЖАХУЙН НЭГЖҮҮДИЙН АНХААРАЛДАшигт малтмал, газрынтосны газрын даргын үүргийг түр орлон гүйцэтгэгчийн'
+
+=== POST [14] ===
+  LINK: href='/news/neelttei-khaalgany-udur-2026' text='' class=''
+  LINK: href='/news/neelttei-khaalgany-udur-2026' text='2026-04-10' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/neelttei-khaalgany-udur-2026' text='Нээлттэй хаалганы өдөр-2026' class=''
+  LINK: href='/news/neelttei-khaalgany-udur-2026' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-04-10Нээлттэй хаалганы өдөр-2026АЖ ҮЙЛДВЭР, ЭРДЭС БАЯЛГЫН ЯАМ, ЭРЧИМХҮЧНИЙ ЯАМ ХАМТРАН Д.СҮХБААТАРЫН ТАЛБАЙД ЗОХИОН БАЙГУУЛЖ БУЙ “НЭЭЛТТЭЙ ХААЛГА'
+  FULL_TEXT (first 200): '2026-04-10Нээлттэй хаалганы өдөр-2026АЖ ҮЙЛДВЭР, ЭРДЭС БАЯЛГЫН ЯАМ, ЭРЧИМХҮЧНИЙ ЯАМ ХАМТРАН Д.СҮХБААТАРЫН ТАЛБАЙД ЗОХИОН БАЙГУУЛЖ БУЙ “НЭЭЛТТЭЙ ХААЛГАНЫӨДӨР”-Т АШИГТ МАЛТМАЛ ГАЗРЫН ТОСНЫ ГАЗАР ОРОЛЦОЖ'
+
+=== POST [15] ===
+  LINK: href='/news/khariutslagaar-negd-ayanyg-zokhion-baiguulna' text='' class=''
+  LINK: href='/news/khariutslagaar-negd-ayanyg-zokhion-baiguulna' text='2026-04-08' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/khariutslagaar-negd-ayanyg-zokhion-baiguulna' text='“Хариуцлагаар Нэгдье” аяныг зохион байгуулна' class=''
+  LINK: href='/news/khariutslagaar-negd-ayanyg-zokhion-baiguulna' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-04-08“Хариуцлагаар Нэгдье” аяныг зохион байгуулна“Хариуцлагаар Нэгд” аяныг зохион байгуулна. Ашигт малтмал,газрын тосны газар Уул уурхайн үндэсни'
+  FULL_TEXT (first 200): '2026-04-08“Хариуцлагаар Нэгдье” аяныг зохион байгуулна“Хариуцлагаар Нэгд” аяныг зохион байгуулна. Ашигт малтмал,газрын тосны газар Уул уурхайн үндэсний ассиоцитой байгуулсан санамж бичгийнхүрээнд Авли'
+
+=== POST [16] ===
+  LINK: href='/news/songon-shalgaruulalt-88-n-urilga' text='2026-03-31' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/songon-shalgaruulalt-88-n-urilga' text='Сонгон шалгаруулалт 88-н урилга' class=''
+  LINK: href='/news/songon-shalgaruulalt-88-n-urilga' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-content bg-color-light p-3' text='2026-03-31Сонгон шалгаруулалт 88-н урилгаСОНГОН ШАЛГАРУУЛАЛТ 88-ЫН УРИЛГА                              2026.03.31Ашигт малтмал, газрын тосны газар нь '
+  FULL_TEXT (first 200): '2026-03-31Сонгон шалгаруулалт 88-н урилгаСОНГОН ШАЛГАРУУЛАЛТ 88-ЫН УРИЛГА                              2026.03.31Ашигт малтмал, газрын тосны газар нь Ашигт малтмалын тухай хууль болонЗасгийн газрын 20'
+
+=== POST [17] ===
+  LINK: href='/news/songon-shalgaruulalt-87-n-urilga' text='2026-03-31' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/songon-shalgaruulalt-87-n-urilga' text='Сонгон шалгаруулалт 87-н урилга' class=''
+  LINK: href='/news/songon-shalgaruulalt-87-n-urilga' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-content bg-color-light p-3' text='2026-03-31Сонгон шалгаруулалт 87-н урилгаАшигт малтмал, газрын тосны газар нь Ашигт малтмалын тухай хууль болонЗасгийн газрын 2018 оны 243, 2023 оны 2'
+  FULL_TEXT (first 200): '2026-03-31Сонгон шалгаруулалт 87-н урилгаАшигт малтмал, газрын тосны газар нь Ашигт малтмалын тухай хууль болонЗасгийн газрын 2018 оны 243, 2023 оны 268, 447 дугаартогтоолуудыг үндэслэн дараах талбайн'
+
+=== POST [18] ===
+  LINK: href='/news/songon-shalgaruulalt-86-n-urilga' text='2026-03-30' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/songon-shalgaruulalt-86-n-urilga' text='Сонгон шалгаруулалт 86-н урилга' class=''
+  LINK: href='/news/songon-shalgaruulalt-86-n-urilga' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-content bg-color-light p-3' text='2026-03-30Сонгон шалгаруулалт 86-н урилгаАшигтмалтмал, газрын тосны газар нь Ашигт малтмалын тухай хууль болон Засгийн газрын2018 оны 243, 2023 оны268'
+  FULL_TEXT (first 200): '2026-03-30Сонгон шалгаруулалт 86-н урилгаАшигтмалтмал, газрын тосны газар нь Ашигт малтмалын тухай хууль болон Засгийн газрын2018 оны 243, 2023 оны268, 447 дугаар тогтоолуудыг үндэслэн дараах талбайну'
+
+=== POST [19] ===
+  LINK: href='/news/altny-tusgai-zuvshuurul-ezemshigchidtei-khiikh-uulzalt-zokhion-baiguulav' text='' class=''
+  LINK: href='/news/altny-tusgai-zuvshuurul-ezemshigchidtei-khiikh-uulzalt-zokhion-baiguulav' text='2026-03-30' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/altny-tusgai-zuvshuurul-ezemshigchidtei-khiikh-uulzalt-zokhion-baiguulav' text='Алтны тусгай зөвшөөрөл эзэмшигчидтэй хийх уулзалт зохион байгуулав' class=''
+  LINK: href='/news/altny-tusgai-zuvshuurul-ezemshigchidtei-khiikh-uulzalt-zokhion-baiguulav' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-30Алтны тусгай зөвшөөрөл эзэмшигчидтэй хийх уулзалт зохион байгуулавАж үйлдвэр, эрдэс баялгийн яам, Байгаль орчин, уур амьсгалынөөрчлөлтийн яа'
+  FULL_TEXT (first 200): '2026-03-30Алтны тусгай зөвшөөрөл эзэмшигчидтэй хийх уулзалт зохион байгуулавАж үйлдвэр, эрдэс баялгийн яам, Байгаль орчин, уур амьсгалынөөрчлөлтийн яам,  Ашигт малтмал, газрын тосны газар санаачлан 20'
+
+=== POST [20] ===
+  LINK: href='/news/mongolyn-geologi-khaiguul-2026-chuulga-uulzaltand-iltgel-taniltsuullaa' text='' class=''
+  LINK: href='/news/mongolyn-geologi-khaiguul-2026-chuulga-uulzaltand-iltgel-taniltsuullaa' text='2026-03-30' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/mongolyn-geologi-khaiguul-2026-chuulga-uulzaltand-iltgel-taniltsuullaa' text='“МОНГОЛЫН ГЕОЛОГИ, ХАЙГУУЛ 2026” чуулга уулзалтанд илтгэл танилцууллаа' class=''
+  LINK: href='/news/mongolyn-geologi-khaiguul-2026-chuulga-uulzaltand-iltgel-taniltsuullaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-30“МОНГОЛЫН ГЕОЛОГИ, ХАЙГУУЛ 2026” чуулга уулзалтанд илтгэл танилцууллааМонголынүйлдвэрлэлийн геологичдын холбоо 2009 оноос хойш жил бүр зохио'
+  FULL_TEXT (first 200): '2026-03-30“МОНГОЛЫН ГЕОЛОГИ, ХАЙГУУЛ 2026” чуулга уулзалтанд илтгэл танилцууллааМонголынүйлдвэрлэлийн геологичдын холбоо 2009 оноос хойш жил бүр зохион байгуулж буй “Монголынгеологи, хайгуул 2026” чуу'
+
+=== POST [21] ===
+  LINK: href='/news/gamshgiin-ayuulyn-zarlan-medeelliin-dokhiogoor-ajillalaa' text='' class=''
+  LINK: href='/news/gamshgiin-ayuulyn-zarlan-medeelliin-dokhiogoor-ajillalaa' text='2026-03-30' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/gamshgiin-ayuulyn-zarlan-medeelliin-dokhiogoor-ajillalaa' text='Гамшгийн аюулын зарлан мэдээллийн дохиогоор ажиллалаа' class=''
+  LINK: href='/news/gamshgiin-ayuulyn-zarlan-medeelliin-dokhiogoor-ajillalaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-30Гамшгийн аюулын зарлан мэдээллийн дохиогоор ажиллалааЗасгийн газрын 2011 оны 339-р тогтоолоорбатлагдсан “Гамшгийн аюулын тухай зарлан мэдээл'
+  FULL_TEXT (first 200): '2026-03-30Гамшгийн аюулын зарлан мэдээллийн дохиогоор ажиллалааЗасгийн газрын 2011 оны 339-р тогтоолоорбатлагдсан “Гамшгийн аюулын тухай зарлан мэдээллийн дохио дамжуулах журам”-дзааснаар жил бүрийн г'
+
+=== POST [22] ===
+  LINK: href='/news/ashigt-maltmal-gazryn-tosny-gazar-bnkhau-yn-geoshinjlekh-ukhaany-ikh-surguulitai-khamtran-ajillakh-khariltsan-oilgoltslyn-sanamj-bichigt-garyn-useg-zurlaa' text='' class=''
+  LINK: href='/news/ashigt-maltmal-gazryn-tosny-gazar-bnkhau-yn-geoshinjlekh-ukhaany-ikh-surguulitai-khamtran-ajillakh-khariltsan-oilgoltslyn-sanamj-bichigt-garyn-useg-zurlaa' text='2026-03-27' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/ashigt-maltmal-gazryn-tosny-gazar-bnkhau-yn-geoshinjlekh-ukhaany-ikh-surguulitai-khamtran-ajillakh-khariltsan-oilgoltslyn-sanamj-bichigt-garyn-useg-zurlaa' text='Ашигт малтмал, газрын тосны газар БНХАУ-ын Геошинжлэх ухааны их сургуультай хамт' class=''
+  LINK: href='/news/ashigt-maltmal-gazryn-tosny-gazar-bnkhau-yn-geoshinjlekh-ukhaany-ikh-surguulitai-khamtran-ajillakh-khariltsan-oilgoltslyn-sanamj-bichigt-garyn-useg-zurlaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-27Ашигт малтмал, газрын тосны газар БНХАУ-ын Геошинжлэх ухааны их сургуультай хамтран ажиллах харилцан ойлголцлын санамж бичигт гарын үсэг зур'
+  FULL_TEXT (first 200): '2026-03-27Ашигт малтмал, газрын тосны газар БНХАУ-ын Геошинжлэх ухааны их сургуультай хамтран ажиллах харилцан ойлголцлын санамж бичигт гарын үсэг зурлааАшигт малтмал, газрын тосны газар БНХАУ-ын Геош'
+
+=== POST [23] ===
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel-1' text='' class=''
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel-1' text='2026-03-18' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel-1' text='ЗАСГИЙН ГАЗРЫН ТОГТООЛООР БАТЛАГДСАН СОНГОН ШАЛГАРУУЛАЛТЫН ТАЛБАЙН МЭДЭЭЛЭЛ' class=''
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel-1' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-18ЗАСГИЙН ГАЗРЫН ТОГТООЛООР БАТЛАГДСАН СОНГОН ШАЛГАРУУЛАЛТЫН ТАЛБАЙН МЭДЭЭЛЭЛэнд дарж харна уу2281article, generalДэлгэрэнгүй'
+  FULL_TEXT (first 200): '2026-03-18ЗАСГИЙН ГАЗРЫН ТОГТООЛООР БАТЛАГДСАН СОНГОН ШАЛГАРУУЛАЛТЫН ТАЛБАЙН МЭДЭЭЛЭЛэнд дарж харна уу2281article, generalДэлгэрэнгүй'
+
+=== POST [24] ===
+  LINK: href='/news/uurkhaichdyn-ugluu-arga-khemjee-zokhion-baiguulagdlaa' text='' class=''
+  LINK: href='/news/uurkhaichdyn-ugluu-arga-khemjee-zokhion-baiguulagdlaa' text='2026-03-13' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/uurkhaichdyn-ugluu-arga-khemjee-zokhion-baiguulagdlaa' text='Уурхайчдын өглөө арга хэмжээ зохион байгуулагдлаа' class=''
+  LINK: href='/news/uurkhaichdyn-ugluu-arga-khemjee-zokhion-baiguulagdlaa' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-13Уурхайчдын өглөө арга хэмжээ зохион байгуулагдлаа“Уурхайчдын өглөө” уулзалтыг зохион байгууллааАшигт малтмал, газрын тосны газрын Уул уурхай'
+  FULL_TEXT (first 200): '2026-03-13Уурхайчдын өглөө арга хэмжээ зохион байгуулагдлаа“Уурхайчдын өглөө” уулзалтыг зохион байгууллааАшигт малтмал, газрын тосны газрын Уул уурхайнхэлтсээс сар бүр ашигт малтмалынсалбараар төрөлжү'
+
+=== POST [25] ===
+  LINK: href='/news/gazryn-tosny-buteegdekhuunii-khadgalakh-aguulakh-shineer-barikh-urgutgukh-tusliin-khuselt-khuleen-avakh-tukhai' text='' class=''
+  LINK: href='/news/gazryn-tosny-buteegdekhuunii-khadgalakh-aguulakh-shineer-barikh-urgutgukh-tusliin-khuselt-khuleen-avakh-tukhai' text='2026-03-13' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/gazryn-tosny-buteegdekhuunii-khadgalakh-aguulakh-shineer-barikh-urgutgukh-tusliin-khuselt-khuleen-avakh-tukhai' text='Газрын тосны бүтээгдэхүүний хадгалах агуулах шинээр барих, өргөтгөх төслийн хүсэ' class=''
+  LINK: href='/news/gazryn-tosny-buteegdekhuunii-khadgalakh-aguulakh-shineer-barikh-urgutgukh-tusliin-khuselt-khuleen-avakh-tukhai' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-13Газрын тосны бүтээгдэхүүний хадгалах агуулах шинээр барих, өргөтгөх төслийн хүсэлт хүлээн авах тухайГазрын тосны бүтээгдэхүүнийхадгалах агуу'
+  FULL_TEXT (first 200): '2026-03-13Газрын тосны бүтээгдэхүүний хадгалах агуулах шинээр барих, өргөтгөх төслийн хүсэлт хүлээн авах тухайГазрын тосны бүтээгдэхүүнийхадгалах агуулахшинээр барих, өргөтгөх төслийнхүсэлт хүлээн ава'
+
+=== POST [26] ===
+  LINK: href='/news/pdac-2026-mongolyn-uzesgelengiin-talbai-neegdlee' text='' class=''
+  LINK: href='/news/pdac-2026-mongolyn-uzesgelengiin-talbai-neegdlee' text='2026-03-04' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/pdac-2026-mongolyn-uzesgelengiin-talbai-neegdlee' text='PDAC-2026: Монголын үзэсгэлэнгийн талбай нээгдлээ' class=''
+  LINK: href='/news/pdac-2026-mongolyn-uzesgelengiin-talbai-neegdlee' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-04PDAC-2026: Монголын үзэсгэлэнгийн талбай нээгдлээЭрдэс баялгийн хайгуул, олборлолтын олон улсын чуулга уулзалт “PDAC-2026” -ын үзэсгэлэнгийн'
+  FULL_TEXT (first 200): '2026-03-04PDAC-2026: Монголын үзэсгэлэнгийн талбай нээгдлээЭрдэс баялгийн хайгуул, олборлолтын олон улсын чуулга уулзалт “PDAC-2026” -ын үзэсгэлэнгийн хэсэгт Монгол Улсын үзэсгэлэнгийн талбайн нээлт б'
+
+=== POST [27] ===
+  LINK: href='/news/khiin-ayuulgui-ajillagaany-gas-safety-2026-surgaltyn-neelt-bolloo' text='' class=''
+  LINK: href='/news/khiin-ayuulgui-ajillagaany-gas-safety-2026-surgaltyn-neelt-bolloo' text='2026-03-04' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/khiin-ayuulgui-ajillagaany-gas-safety-2026-surgaltyn-neelt-bolloo' text='Хийн аюулгүй ажиллагааны “GAS SAFETY 2026” сургалтын нээлт боллоо' class=''
+  LINK: href='/news/khiin-ayuulgui-ajillagaany-gas-safety-2026-surgaltyn-neelt-bolloo' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2026-03-04Хийн аюулгүй ажиллагааны “GAS SAFETY 2026” сургалтын нээлт боллооХИЙН АЮУЛГҮЙ АЖИЛЛАГААНЫ “GAS SAFETY-2026” СУРГАЛТЫННЭЭЛТ БОЛЛООАшигт малтм'
+  FULL_TEXT (first 200): '2026-03-04Хийн аюулгүй ажиллагааны “GAS SAFETY 2026” сургалтын нээлт боллооХИЙН АЮУЛГҮЙ АЖИЛЛАГААНЫ “GAS SAFETY-2026” СУРГАЛТЫННЭЭЛТ БОЛЛООАшигт малтмал, газрын тосны газар нь Монгол Улсын ИхХурал, За'
+
+=== POST [28] ===
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel' text='' class=''
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel' text='2025-12-05' class='bg-tertiary p-1 text-color-light'
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel' text='ЗАСГИЙН ГАЗРЫН ТОГТООЛООР БАТЛАГДСАН СОНГОН ШАЛГАРУУЛАЛТЫН ТАЛБАЙН МЭДЭЭЛЭЛ' class=''
+  LINK: href='/news/zasgiin-gazryn-togtooloor-batlagdsan-songon-shalgaruulaltyn-talbain-medeelel' text='Дэлгэрэнгүй' class='btn btn-xs btn-light text-1 text-uppercase'
+  <div> class='post-image' text=''
+  <div> class='post-content bg-color-light p-3' text='2025-12-05ЗАСГИЙН ГАЗРЫН ТОГТООЛООР БАТЛАГДСАН СОНГОН ШАЛГАРУУЛАЛТЫН ТАЛБАЙН МЭДЭЭЛЭЛАшигт малтмалын тухай хууль болон Монгол Улсын Их Хурлын 2020 оны'
+  FULL_TEXT (first 200): '2025-12-05ЗАСГИЙН ГАЗРЫН ТОГТООЛООР БАТЛАГДСАН СОНГОН ШАЛГАРУУЛАЛТЫН ТАЛБАЙН МЭДЭЭЛЭЛАшигт малтмалын тухай хууль болон Монгол Улсын Их Хурлын 2020 оны 52 дугаар тогтоолоор батлагдсан “АЛСЫН ХАРАА-2050'
+
+=== TOTAL POSTS: 29 ===
+
+=== PAGINATION ===

@@ -1,0 +1,12 @@
+{
+  "name": "日报",
+  "homepage": "https://dnn.mn",
+  "news_url": "https://dnn.mn/",
+  "source_type": "html",
+  "requires_browser": true,
+  "items_selector": "a[href*=\"/article/\"]",
+  "title_selector": "img",
+  "title_attr": "alt",
+  "date_from_item_text": true,
+  "category": "新闻媒体"
+}

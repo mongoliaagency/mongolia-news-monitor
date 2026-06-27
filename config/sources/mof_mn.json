@@ -1,7 +1,7 @@
 {
   "name": "财政部",
   "homepage": "https://mof.gov.mn/",
-  "category": "government",
+  "category": "党政机关",
   "source_type": "html",
   "news_url": "https://mof.gov.mn/article/news/new",
   "requires_browser": false,

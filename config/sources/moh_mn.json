@@ -1,7 +1,7 @@
 {
   "name": "卫生部",
   "homepage": "https://moh.gov.mn/",
-  "category": "government",
+  "category": "党政机关",
   "source_type": "html",
   "news_url": "https://moh.gov.mn/index.php/news/t/1",
   "requires_browser": false,

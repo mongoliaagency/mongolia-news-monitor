@@ -1,0 +1,12 @@
+{
+  "name": "反腐败总局",
+  "homepage": "https://iaac.mn/news",
+  "category": "党政机关",
+  "status": "active",
+  "source_type": "html",
+  "url": "https://iaac.mn/news",
+  "items_selector": "div.blog_box.type_two",
+  "title_selector": "h4.title_16 a",
+  "link_selector": "h4.title_16 a",
+  "date_selector": "time.date.published"
+}

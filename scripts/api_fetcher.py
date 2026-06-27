@@ -7,14 +7,14 @@ from datetime import datetime
 from date_utils import parse_date, format_date, is_today
 
 
-def _fetch_api_with_retry(api_url, max_retries=3, timeout=45):
+def _fetch_api_with_retry(api_url, max_retries=3, timeout=45, verify=True):
     """Fetch API endpoint with retry logic for connection timeouts."""
     last_error = None
     for attempt in range(max_retries):
         try:
             response = requests.get(api_url, headers={
                 'User-Agent': 'Mozilla/5.0'
-            }, timeout=timeout)
+            }, timeout=timeout, verify=verify)
             response.raise_for_status()
             return response.json()
         except Exception as e:
@@ -58,6 +58,7 @@ def _get_paginated_items(source):
 
     all_items = []
     max_pages = source.get('api_max_pages', 5)
+    verify = source.get('api_verify_ssl', True)
 
     for page in range(max_pages):
         # Build page URL
@@ -83,7 +84,7 @@ def _get_paginated_items(source):
         last_error = None
         for url in urls_to_try:
             try:
-                data = _fetch_api_with_retry(url, max_retries=2, timeout=30)
+                data = _fetch_api_with_retry(url, max_retries=2, timeout=30, verify=verify)
                 break
             except Exception as e:
                 last_error = e
@@ -195,6 +196,8 @@ def fetch_api(source_file):
     # Use pagination if api_data_path is configured
     use_pagination = bool(source.get('api_data_path', ''))
 
+    verify = source.get('api_verify_ssl', True)
+
     if use_pagination:
         raw_list = _get_paginated_items(source)
     else:
@@ -207,7 +210,7 @@ def fetch_api(source_file):
         last_error = None
         for url in urls_to_try:
             try:
-                data = _fetch_api_with_retry(url, max_retries=2, timeout=30)
+                data = _fetch_api_with_retry(url, max_retries=2, timeout=30, verify=verify)
                 break
             except Exception as e:
                 last_error = e
@@ -218,10 +221,11 @@ def fetch_api(source_file):
         raw_list = _extract_raw_list(data, source)
 
     date_field = source.get('api_date_field', 'createdDateText')
+    title_field = source.get('api_title_field', 'title')
     items = []
 
     for item in raw_list:
-        title = item.get('title', '').strip()
+        title = (item.get(title_field) or '').strip()
         if not title:
             continue
 

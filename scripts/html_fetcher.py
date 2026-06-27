@@ -88,7 +88,9 @@ def fetch_html(source_file):
     items_selector = source.get("items_selector")
     title_selector = source.get("title_selector")
     link_selector = source.get("link_selector", title_selector)
+    title_attr = source.get("title_attr")  # e.g. "alt" to read title from img alt
     date_selector = source.get("date_selector")
+    date_attr = source.get("date_attr")  # e.g. "src" to read date from img src
 
     if items_selector:
         items = soup.select(items_selector)
@@ -106,12 +108,19 @@ def fetch_html(source_file):
             title_node = item
             link_node = item
 
-        title = title_node.get_text(strip=True) if title_node else ""
+        if title_attr and title_node:
+            title = title_node.get(title_attr, '').strip()
+        else:
+            title = title_node.get_text(strip=True) if title_node else ""
 
         if not title:
             continue
 
         link = link_node.get("href", "") if link_node else ""
+
+        # Fallback: if link_node didn't yield a href, try the item itself
+        if not link and item.name == 'a':
+            link = item.get("href", "")
 
         if not link:
             continue
@@ -124,12 +133,33 @@ def fetch_html(source_file):
             link = source["homepage"].rstrip("/") + "/" + link.lstrip("/")
 
         publish_date_str = None
+        date_from_text_fallback = source.get("date_from_item_text", False)
+
         if date_selector:
             date_node = item.select_one(date_selector)
             if date_node:
-                dt = parse_date(date_node.get_text(strip=True))
+                if date_attr:
+                    raw_date = date_node.get(date_attr, '')
+                    # URL-decode if needed (e.g. Next.js image src with %2F)
+                    if '%' in raw_date:
+                        from urllib.parse import unquote
+                        raw_date = unquote(raw_date)
+                else:
+                    raw_date = date_node.get_text(strip=True)
+                dt = parse_date(raw_date)
                 if dt:
                     publish_date_str = format_date(dt)
+        elif date_from_text_fallback:
+            # No date_selector configured, extract from item text
+            dt = parse_date(item.get_text(strip=True))
+            if dt:
+                publish_date_str = format_date(dt)
+
+        # Fallback: extract date from item's full text when date_selector didn't yield a date
+        if not publish_date_str and date_from_text_fallback and date_selector:
+            dt = parse_date(item.get_text(strip=True))
+            if dt:
+                publish_date_str = format_date(dt)
 
         # Only keep articles with a parsed date matching today
         if not publish_date_str:
@@ -140,7 +170,7 @@ def fetch_html(source_file):
             "publish_date": publish_date_str,
             "source": source["name"],
             "url": link,
-            "category": source.get("category", "government"),
+            "category": source.get("category", "党政机关"),
         })
 
     # Filter: only today's articles

@@ -1,7 +1,7 @@
 {
   "name": "蒙古国环境和气候变化部",
   "homepage": "https://mecc.gov.mn/",
-  "category": "government",
+  "category": "党政机关",
   "source_type": "html",
   "news_url": "https://mecc.gov.mn/posts",
   "requires_browser": true,

@@ -1,13 +1,12 @@
 {
   "name": "蒙通社",
   "homepage": "https://montsame.mn/",
-  "category": "media",
+  "category": "新闻媒体",
   "source_type": "html",
   "news_url": "https://montsame.mn/",
-  "requires_browser": true,
-  "items_selector": ".main-item, .sub-item, .news-box",
-  "title_selector": "a[href*=\"/n/\"]",
-  "link_selector": "a[href*=\"/n/\"]",
-  "date_selector": ".date, time, [class*=\"date\"]",
+  "items_selector": ".news-box",
+  "title_selector": "h6 span",
+  "link_selector": "a.box",
+  "date_selector": ".body",
   "status": "active"
 }

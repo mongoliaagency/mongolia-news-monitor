@@ -1,0 +1,13 @@
+{
+  "name": "矿产资源和石油管理局",
+  "homepage": "https://mrpam.gov.mn/",
+  "category": "党政机关",
+  "source_type": "html",
+  "news_url": "https://mrpam.gov.mn/news/type/article",
+  "requires_browser": false,
+  "items_selector": "article.post.post-medium",
+  "title_selector": ".post-content h4 a",
+  "link_selector": "a.bg-tertiary",
+  "date_selector": "a.bg-tertiary",
+  "status": "active"
+}

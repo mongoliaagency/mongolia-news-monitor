@@ -10,12 +10,7 @@ STATUS_FILE = Path("data/status/runtime_status.json")
 
 _DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
-CATEGORY_LABELS = {
-    "government": "党政机关",
-    "media": "新闻媒体",
-}
-
-CATEGORY_ORDER = ["government", "media"]
+CATEGORY_ORDER = ["党政机关", "新闻媒体"]
 
 
 def load_news_files():
@@ -28,26 +23,24 @@ def load_news_files():
 
 
 def load_status():
+    default_status = {k: {"total": 0, "success": 0, "failed": 0, "failed_list": []} for k in CATEGORY_ORDER}
     if not STATUS_FILE.exists():
-        return {
-            "government": {"total": 0, "success": 0, "failed": 0, "failed_list": []},
-            "media": {"total": 0, "success": 0, "failed": 0, "failed_list": []},
-        }
+        return default_status
 
     with open(STATUS_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def build_day_page(date_str, news_list):
-    # Group by category: government first, then media
-    gov_news = []
-    media_news = []
+    # Group by category
+    party_gov = []
+    media = []
     for item in news_list:
-        cat = item.get("category", "government")
-        if cat == "media":
-            media_news.append(item)
+        cat = item.get("category", "党政机关")
+        if cat == "新闻媒体":
+            media.append(item)
         else:
-            gov_news.append(item)
+            party_gov.append(item)
 
     html = f"""
 <!DOCTYPE html>
@@ -140,9 +133,9 @@ a.home-link:hover {{
 </header>
 """
 
-    if gov_news:
+    if party_gov:
         html += "<h2>党政机关</h2>"
-        for item in gov_news:
+        for item in party_gov:
             html += f"""
 <div class="news-item">
 <a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
@@ -150,9 +143,9 @@ a.home-link:hover {{
 </div>
 """
 
-    if media_news:
+    if media:
         html += "<h2>新闻媒体</h2>"
-        for item in media_news:
+        for item in media:
             html += f"""
 <div class="news-item">
 <a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
@@ -174,10 +167,9 @@ def _build_category_summary(status):
     parts = []
     for key in CATEGORY_ORDER:
         cat = status.get(key, {"total": 0, "success": 0, "failed": 0, "failed_list": []})
-        label = CATEGORY_LABELS.get(key, key)
         parts.append(
             f"<div class=\"cat-group\">"
-            f"<div class=\"cat-label\">{label}</div>"
+            f"<div class=\"cat-label\">{key}</div>"
             f"<span>总计：{cat['total']}</span>"
             f"<span class=\"ok\">成功：{cat['success']}</span>"
             f"<span class=\"fail\">失败：{cat['failed']}</span>"
@@ -193,8 +185,7 @@ def _build_failures(status):
         cat = status.get(key, {"total": 0, "success": 0, "failed": 0, "failed_list": []})
         if cat["failed"] == 0:
             continue
-        label = CATEGORY_LABELS.get(key, key)
-        html += f"<div class=\"cat-fail\"><strong>{label}失败源：</strong><br>"
+        html += f"<div class=\"cat-fail\"><strong>{key}失败源：</strong><br>"
         for item in cat["failed_list"]:
             homepage = item.get('homepage', '#') or '#'
             display = f"{item.get('source', '')} - {item.get('error', '')}"

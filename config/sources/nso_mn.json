@@ -1,0 +1,14 @@
+{
+  "name": "统计局",
+  "homepage": "https://www.1212.mn",
+  "source_type": "api",
+  "api_url": "https://www.1212.mn/api/articles",
+  "api_data_path": "data",
+  "api_title_field": "name",
+  "api_date_field": "published_date",
+  "api_id_field": "id",
+  "api_link_template": "/mn/about-us/news/{id}",
+  "api_verify_ssl": false,
+  "category": "党政机关",
+  "status": "active"
+}

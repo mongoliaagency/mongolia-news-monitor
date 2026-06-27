@@ -1,7 +1,7 @@
 {
   "name": "道路与交通运输部",
   "homepage": "https://mrt.gov.mn/",
-  "category": "government",
+  "category": "党政机关",
   "source_type": "html",
   "news_url": "https://mrt.gov.mn/t/3",
   "requires_browser": false,

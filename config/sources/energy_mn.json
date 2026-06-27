@@ -1,0 +1,13 @@
+{
+  "name": "能源部",
+  "homepage": "https://energy.gov.mn/",
+  "category": "党政机关",
+  "source_type": "html",
+  "news_url": "https://energy.gov.mn/posts",
+  "requires_browser": false,
+  "items_selector": ".post-item",
+  "title_selector": "a.text-dark-emphasis",
+  "link_selector": "a.text-dark-emphasis",
+  "date_selector": ".post-date",
+  "status": "active"
+}

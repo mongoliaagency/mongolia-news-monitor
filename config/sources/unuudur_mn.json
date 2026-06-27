@@ -1,0 +1,12 @@
+{
+  "name": "今日报",
+  "homepage": "https://www.unuudur.mn",
+  "news_url": "https://www.unuudur.mn/",
+  "source_type": "html",
+  "items_selector": "a.sidebar-article.uk-position-relative",
+  "title_selector": "span.news-item__title",
+  "link_selector": "a.sidebar-article.uk-position-relative",
+  "date_selector": "div.sidebar-article__img img",
+  "date_attr": "src",
+  "category": "新闻媒体"
+}

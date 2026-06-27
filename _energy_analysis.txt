@@ -1,0 +1,91 @@
+=== BODY DIRECT CHILDREN ===
+<div> class='content-wrapper bg-light d-flex flex-column' id='' text='info@energy.gov.mn(+976) 51-263051Өргөдөл гомдол, санал хүсэлтХолбоо барихХуучин'
+<script> class='' id='' text=''
+<script> class='' id='' text=''
+<script> class='' id='' text=''
+<script> class='' id='' text=''
+<script> class='' id='' text=''
+<script> class='' id='' text=''
+<script> class='' id='' text=''
+<script> class='' id='' text='// Configure PDF.js worker (same version as above)
+  if (window.pdfjsLib) {
+    '
+<script> class='' id='' text='(function ($) {
+
+  function initFlipbook($root) {
+    var pdfUrl = $root.data('p'
+<script> class='' id='' text='(function () {
+      const DOTLOTTIE_SCRIPT_URL = 'https://unpkg.com/@dotlottie/'
+<script> class='' id='' text='document.querySelector('.nav-language a:nth-child(1)').textContent = 'ENG';
+
+doc'
+<script> class='' id='' text='document.addEventListener('shown.bs.modal', (e) => {
+      // Find all Swiper in'
+<script> class='' id='' text='document.getElementById('q-minus').addEventListener('click', function () {
+     '
+<script> class='' id='' text='document.addEventListener("DOMContentLoaded", function () {
+        document.que'
+<script> class='' id='' text='$(".typography table").wrap("<div class='table-wrap' style='overflow-x:auto;padd'
+<script> class='' id='' text='$(function() {
+        $("#loan-start-date").datepicker({
+          dateFormat: '
+
+=== LOOKING FOR POSTS/CARDS/ARTICLES ===
+
+.post-item: 15 items
+  [0] class='post-item d-flex flex-column flex-md-row align-items-center gap-4' text='25/06/2026БЭРЧИМ ХҮЧНИЙ САЛБАРЫН МЭДЭЭЛЭЛ ИРГЭН БҮРТ НЭЭЛТТЭЙ БОЛЛООМонгол Улсын Засгийн газрын дэвш'
+  [1] class='post-item d-flex flex-column flex-md-row align-items-center gap-4' text='24/06/2026TsenguunМэдээ мэдээлэлСЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ АУКЦИОНД ШАЛГАРСАН КОМПАНИУДАД БАРИЛГА БАЙГУ'
+  [2] class='post-item d-flex flex-column flex-md-row align-items-center gap-4' text='24/06/2026БХБНГУ-ТАЙ ЭРЧИМ ХҮЧНИЙ САЛБАР ДАХЬ ХАМТЫН АЖИЛЛАГААГАА ӨРГӨЖҮҮЛЭХ ТАЛААР ХЭЛЭЛЦЛЭЭЭрчим х'
+
+[class*='post']: 197 items
+  [0] class='posts-page wrapper' text='Мэдээ мэдээлэлНүүрHomeホーム홈페이지AccueilStartseiteМэдээ мэдээлэл25/06/2026БЭРЧИМ ХҮЧНИЙ САЛБАРЫН МЭДЭЭЛЭ'
+  [1] class='post-item d-flex flex-column flex-md-row align-items-center gap-4' text='25/06/2026БЭРЧИМ ХҮЧНИЙ САЛБАРЫН МЭДЭЭЛЭЛ ИРГЭН БҮРТ НЭЭЛТТЭЙ БОЛЛООМонгол Улсын Засгийн газрын дэвш'
+  [2] class='post-image w-100 h-100' text=''
+
+.row [class*='col']: 67 items
+  [0] class='col col-auto d-flex align-items-center gap-3 gap-md-4 gap-lg-6' text='info@energy.gov.mn(+976) 51-263051'
+  [1] class='col col-auto top ms-auto d-flex align-items-center' text='Өргөдөл гомдол, санал хүсэлтХолбоо барихХуучин хувилбар'
+  [2] class='col-12 col-lg-8 col-xl-9' text='25/06/2026БЭРЧИМ ХҮЧНИЙ САЛБАРЫН МЭДЭЭЛЭЛ ИРГЭН БҮРТ НЭЭЛТТЭЙ БОЛЛООМонгол Улсын Засгийн газрын дэвш'
+
+
+=== SAMPLE LINKS (first 30) ===
+  href='https://www.facebook.com/www.energy.gov.mn/' text='' class='d-flex align-items-center justify-content-center link-dark fs-14'
+  href='https://x.com/energy_gov_mn' text='' class='d-flex align-items-center justify-content-center link-dark fs-14'
+  href='' text='' class='d-flex align-items-center justify-content-center link-dark fs-14'
+  href='' text='' class='d-flex align-items-center justify-content-center link-dark fs-14'
+  href='https://www.youtube.com/user/energygovmn' text='' class='d-flex align-items-center justify-content-center link-dark fs-14'
+  href='' text='' class='link-dark'
+  href='mailto:info@energy.gov.mn' text='info@energy.gov.mn' class='d-flex align-items-center gap-1 link-dark fw-semibold fs-sm lh-sm'
+  href='tel:(+976) 51-263051' text='(+976) 51-263051' class='d-flex align-items-center gap-1 link-dark fw-semibold fs-sm lh-sm'
+  href='/complain' text='Өргөдөл гомдол, санал хүсэлт' class='d-flex link-dark fw-semibold fs-sm lh-sm gap-1'
+  href='/complain#block-258880' text='Холбоо барих' class='d-flex link-dark fw-semibold fs-sm lh-sm gap-1'
+  href='https://old.energy.gov.mn/' text='Хуучин хувилбар' class='d-flex link-dark fw-semibold fs-sm lh-sm gap-1'
+  href='/' text='' class='navbar-logo-light'
+  href='/' text='' class='navbar-logo-dark d-none'
+  href='tel:(+976) 51-263051' text='(+976) 51-263051' class='d-flex align-items-center gap-1 link-dark fw-semibold fs-sm lh-sm'
+  href='mailto:info@energy.gov.mn' text='info@energy.gov.mn' class='d-flex align-items-center gap-1 link-dark fw-semibold fs-sm lh-sm'
+  href='https://en.energy.gov.mn/' text='EN' class='w-8 h-8 text-body d-flex align-items-center justify-content-center rounded-2 fw-semibold fs-sm'
+  href='https://mng.energy.gov.mn/' text='MN' class='w-8 h-8 text-body d-flex align-items-center justify-content-center rounded-2 fw-semibold fs-sm'
+  href='/cart' text='Сагсанд0' class='d-flex align-items-center gap-2'
+  href='#' text='Цэс' class='btn btn-outline-dark d-flex align-items-center gap-1 border-1 fs-sm lh-sm'
+  href='/' text='' class='navbar-logo-light d-none'
+  href='/' text='' class='navbar-logo-dark'
+  href='/home' text='Нүүр' class='nav-link text-uppercase fw-semibold fs-sm text-light lh-sm p-0 px-xl-0 py-xl-3'
+  href='#' text='Яамны тухай' class='nav-link text-uppercase fw-semibold fs-sm text-light lh-sm p-0 px-xl-0 py-xl-3 dropdown-toggle'
+  href='/objectives' text='Яамны зорилго, зорилт, чиг үүрэг' class='dropdown-item fw-normal fs-sm text-light lh-sm py-1'
+  href='/timeline' text='Түүхэн замнал' class='dropdown-item fw-normal fs-sm text-light lh-sm py-1'
+  href='/structure' text='Яамны бүтэц' class='dropdown-item fw-normal fs-sm text-light lh-sm py-1'
+  href='/minister' text='Сайд' class='dropdown-item fw-normal fs-sm text-light lh-sm py-1'
+  href='/төрийн-нарийн-бичгийн-дарга' text='Төрийн нарийн бичгийн дарга' class='dropdown-item fw-normal fs-sm text-light lh-sm py-1'
+  href='/#' text='Газар хэлтэс' class='dropdown-item dropdown-toggle fw-normal fs-sm text-light lh-sm py-1'
+  href='/policy-planning' text='Бодлого, төлөвлөлтийн газар' class='dropdown-item fw-normal fs-sm text-light lh-sm py-1'
+
+
+=== DATE PATTERNS ===
+
+[class*='date']: 15 items
+  datetime='' text='25/06/2026'
+  datetime='' text='24/06/2026'
+  datetime='' text='24/06/2026'
+  datetime='' text='19/06/2026'
+  datetime='' text='19/06/2026'

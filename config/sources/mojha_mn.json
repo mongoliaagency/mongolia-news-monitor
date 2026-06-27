@@ -1,7 +1,7 @@
 {
   "name": "司法与内务部",
   "homepage": "https://mojha.gov.mn/",
-  "category": "government",
+  "category": "党政机关",
   "source_type": "api",
   "api_url": "https://mojha.gov.mn:8085/saContent/list?limit=50",
   "api_data_path": "rows",

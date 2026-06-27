@@ -133,7 +133,7 @@ def fetch_rss(source_file):
             "publish_date": format_date(dt),
             "source": source["name"],
             "url": entry.get("link", ""),
-            "category": source.get("category", "government"),
+            "category": source.get("category", "党政机关"),
         }
         news.append(item)
 
