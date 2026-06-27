@@ -1,0 +1,13 @@
+{
+  "name": "财政部",
+  "homepage": "https://mof.gov.mn/",
+  "category": "government",
+  "source_type": "html",
+  "news_url": "https://mof.gov.mn/article/news/new",
+  "requires_browser": false,
+  "items_selector": ".news-item",
+  "title_selector": "h5",
+  "link_selector": "a[href*=\"/article/entry/\"]",
+  "date_selector": ".pull-right",
+  "status": "active"
+}
