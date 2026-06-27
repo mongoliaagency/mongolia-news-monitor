@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>蒙古国新闻标题列表</title>
 <style>
-:root {
+::root {
     color-scheme: light;
     font-family: 'Noto Sans', Arial, sans-serif;
     background: #eef2f8;
@@ -36,26 +36,61 @@ h1 {
 .summary {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
     margin-top: 14px;
     color: #4b5563;
 }
-.summary span {
+.cat-group {
     background: #ffffff;
-    padding: 10px 14px;
-    border-radius: 999px;
+    padding: 12px 16px;
+    border-radius: 14px;
     box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
-    font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.cat-label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1e3a5f;
+    margin-right: 4px;
+}
+.cat-group span {
+    font-size: 0.92rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f1f5f9;
+}
+.cat-group span.ok {
+    color: #15803d;
+    background: #dcfce7;
+}
+.cat-group span.fail {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+.all-total {
+    background: #1e3a5f;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-weight: 600;
 }
 .failures {
     margin: 18px 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.cat-fail {
     padding: 18px;
     border-radius: 16px;
     background: #fff1f2;
     color: #b91c1c;
     border: 1px solid #fca5a5;
 }
-.failures a {
+.cat-fail a {
     color: #991b1b;
     text-decoration: underline;
 }
@@ -90,13 +125,12 @@ h1 {
 <section class="page-header">
 <h1>蒙古国新闻标题列表</h1>
 <div class="summary">
-<span>采集时间：2026-06-27 05:26</span>
-<span>采集总计：10 个新闻源</span>
-<span>采集成功：1 个新闻源</span>
-<span>采集失败：9 个新闻源</span>
+<span class="all-total">采集时间：2026-06-27 08:36</span>
+<div class="cat-group"><div class="cat-label">党政机关</div><span>总计：26</span><span class="ok">成功：15</span><span class="fail">失败：11</span></div>
+<div class="cat-group"><div class="cat-label">新闻媒体</div><span>总计：2</span><span class="ok">成功：2</span><span class="fail">失败：0</span></div>
 </div>
 </section>
-<section class="failures"><strong>失败源：</strong><br><a href="https://moe.gov.mn" target="_blank">蒙古国教育部 - 0 articles</a><br><a href="https://www.parliament.mn/" target="_blank">蒙古国大呼拉尔 - 0 articles</a><br><a href="https://president.mn/" target="_blank">蒙古国总统办公厅 - 0 articles</a><br><a href="https://www.masm.gov.mn" target="_blank">蒙古国标准计量局 - 0 articles</a><br><a href="https://mod.gov.mn/" target="_blank">蒙古国国防部 - 0 articles</a><br><a href="https://mlsp.gov.mn/" target="_blank">家庭、劳动和社会保障部 - 0 articles</a><br><a href="https://mmhi.gov.mn" target="_blank">蒙古国工业和矿产资源部 - 0 articles</a><br><a href="https://nema.gov.mn/" target="_blank">蒙古国紧急情况总局 - 0 articles</a><br><a href="https://mecc.gov.mn/" target="_blank">蒙古国环境和气候变化部 - 0 articles</a><br></section><section class="day-list">
+<section class="failures"><div class="cat-fail"><strong>党政机关失败源：</strong><br><a href="https://ulaanbaatar.mn/" target="_blank">乌兰巴托市政府 - 连接失败</a><br><a href="https://president.mn/" target="_blank">蒙古国总统办公厅 - 0 articles</a><br><a href="https://mof.gov.mn/" target="_blank">财政部 - 连接失败</a><br><a href="https://iaac.mn/news" target="_blank">反腐败总局 - 连接失败</a><br><a href="https://www.1212.mn" target="_blank">统计局 - 0 articles</a><br><a href="https://mod.gov.mn/" target="_blank">蒙古国国防部 - 0 articles</a><br><a href="https://mojha.gov.mn/" target="_blank">司法与内务部 - 连接失败</a><br><a href="https://mcud.gov.mn/" target="_blank">蒙古国城市发展建设与住房部 - 0 articles</a><br><a href="https://mrpam.gov.mn/" target="_blank">矿产资源和石油管理局 - 0 articles</a><br><a href="https://mmra.gov.mn/?id=200008" target="_blank">药品和医疗器械控制监管局 - 连接失败</a><br><a href="https://mddic.gov.mn/" target="_blank">数字发展创新与通信部 - 0 articles</a><br></div></section><section class="day-list">
 <div class="day-card">
 <a href="2026-06-27.html">2026-06-27</a>
 </div>

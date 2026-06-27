@@ -1,52 +1,70 @@
 {
-  "total": 10,
-  "success": 1,
-  "failed": 9,
-  "failed_list": [
-    {
-      "source": "蒙古国教育部",
-      "homepage": "https://moe.gov.mn",
-      "error": "0 articles"
-    },
-    {
-      "source": "蒙古国大呼拉尔",
-      "homepage": "https://www.parliament.mn/",
-      "error": "0 articles"
-    },
-    {
-      "source": "蒙古国总统办公厅",
-      "homepage": "https://president.mn/",
-      "error": "0 articles"
-    },
-    {
-      "source": "蒙古国标准计量局",
-      "homepage": "https://www.masm.gov.mn",
-      "error": "0 articles"
-    },
-    {
-      "source": "蒙古国国防部",
-      "homepage": "https://mod.gov.mn/",
-      "error": "0 articles"
-    },
-    {
-      "source": "家庭、劳动和社会保障部",
-      "homepage": "https://mlsp.gov.mn/",
-      "error": "0 articles"
-    },
-    {
-      "source": "蒙古国工业和矿产资源部",
-      "homepage": "https://mmhi.gov.mn",
-      "error": "0 articles"
-    },
-    {
-      "source": "蒙古国紧急情况总局",
-      "homepage": "https://nema.gov.mn/",
-      "error": "0 articles"
-    },
-    {
-      "source": "蒙古国环境和气候变化部",
-      "homepage": "https://mecc.gov.mn/",
-      "error": "0 articles"
-    }
-  ]
+  "党政机关": {
+    "total": 26,
+    "success": 15,
+    "failed": 11,
+    "failed_list": [
+      {
+        "source": "乌兰巴托市政府",
+        "homepage": "https://ulaanbaatar.mn/",
+        "error": "连接失败"
+      },
+      {
+        "source": "蒙古国总统办公厅",
+        "homepage": "https://president.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "财政部",
+        "homepage": "https://mof.gov.mn/",
+        "error": "连接失败"
+      },
+      {
+        "source": "反腐败总局",
+        "homepage": "https://iaac.mn/news",
+        "error": "连接失败"
+      },
+      {
+        "source": "统计局",
+        "homepage": "https://www.1212.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国国防部",
+        "homepage": "https://mod.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "司法与内务部",
+        "homepage": "https://mojha.gov.mn/",
+        "error": "连接失败"
+      },
+      {
+        "source": "蒙古国城市发展建设与住房部",
+        "homepage": "https://mcud.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "矿产资源和石油管理局",
+        "homepage": "https://mrpam.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "药品和医疗器械控制监管局",
+        "homepage": "https://mmra.gov.mn/?id=200008",
+        "error": "连接失败"
+      },
+      {
+        "source": "数字发展创新与通信部",
+        "homepage": "https://mddic.gov.mn/",
+        "error": "0 articles"
+      }
+    ]
+  },
+  "新闻媒体": {
+    "total": 2,
+    "success": 2,
+    "failed": 0,
+    "failed_list": []
+  }
 }
