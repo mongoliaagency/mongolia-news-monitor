@@ -1,0 +1,13 @@
+{
+  "name": "蒙古国数字发展创新与通信部",
+  "url": "https://mddic.gov.mn/mn/category/news/",
+  "type": "html",
+  "enabled": true,
+  "items_selector": "article.eael-grid-post",
+  "title_selector": ".eael-entry-title",
+  "link_selector": ".eael-entry-overlay a",
+  "date_selector": ".eael-posted-on",
+  "date_format": "%Y-%m-%d",
+  "date_language": "mn",
+  "encoding": "utf-8"
+}

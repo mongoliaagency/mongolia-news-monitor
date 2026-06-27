@@ -1,0 +1,31 @@
+=== 候选容器 ===
+  [div#__next.] links=13
+  [section#.ant-layout layoutPublic_wrapper__1UKA5] links=13
+  [section#.ant-layout] links=7
+  [div#.container] links=6
+  [div#.publicHeader_top__1Kydx] links=6
+  [div#.publicHeader_right__EDlH_] links=6
+  [ul#.] links=6
+  [main#.ant-layout-content] links=6
+  [div#.layoutPublic_content__1TyoV] links=6
+  [div#.container] links=5
+  [div#.ant-row] links=5
+  [div#.ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-5] links=5
+  [div#.news_menu__3Pmw-] links=5
+  [ul#.] links=5
+
+=== 新闻链接 ===
+  [Видео мэдээ] -> /news/video
+  [Хэвлэлийн мэдээ] -> /news/hewlel
+
+=== 日期元素 ===
+  <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-19"> 16 / page
+  <div class="ant-list ant-list-split ant-list-loading ant-list-grid ant-list-something-after-last-item"> 16 / page
+  <div class="ant-list-pagination"> 16 / page
+  <div class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"> 6 / page
+  <div class="ant-select-selector"> 6 / page
+  <span class="ant-select-selection-item"> 6 / page
+  <span class="publicFooter_bordered__3AJQp"> 51-262271
+
+=== 页面字符数: 700 ===
+  body: <body><div id="__next"><section class="ant-layout layoutPublic_wrapper__1UKA5"><header class="ant-layout-header publicHeader_headerWrapper__3oeS5"><div class="container"><div class="publicHeader_top__1Kydx"><div class="publicHeader_left__BLejR"><span style="width:280px;margin-top:-3px"><div style="display:inline-block;max-width:100%;overflow:hidden;position:relative;box-sizing:border-box;margin:0"><div style="box-sizing:border-box;display:block;max-width:100%"><img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjcwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg==" style="max-width:100%;display:block;margin:0;border:none;padding:0"/></div><img alt="logo-main" data-nimg="intrinsic" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="logo-main" data-nimg="intrinsic" decoding="async" loading="lazy" src="/_next/image?url=%2Fimages%2Flogo%2Flogo_mofa.svg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fimages%2Flogo%2Flogo_mofa.svg&amp;w=384&amp;q=75 1x, /_next/image?url=%2Fimages%2Flogo%2Flogo_mofa.svg&amp;w=640&amp;q=75 2x" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/></noscript></div></span></div><div class="publicHeader_right__EDlH_"><ul><li><a href="https://email.gov.mn" target="_blank">Имэйл шалгах</a></li><li><a href="https://profile.igovernment.mn/" target="_blank">Е-Оффис</a></li><li><a href="/question">Асуулт хариулт</a></li><li><a href="/sitemap">Сайтын бүтэц</a></li><li><a href="/contact">Холбоо барих</a></li><li><a href="/web">Вэб холбоос</a></li></ul></div></div><di

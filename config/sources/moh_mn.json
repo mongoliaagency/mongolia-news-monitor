@@ -1,0 +1,14 @@
+{
+  "name": "蒙古国卫生部",
+  "url": "https://moh.gov.mn/index.php/news/t/1",
+  "type": "html",
+  "enabled": true,
+  "items_selector": ".standart-news-listpage .row.clearfix",
+  "title_selector": ".entry-title h4 a",
+  "link_selector": ".entry-title h4 a",
+  "date_selector": "p",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "date_language": "mn",
+  "encoding": "utf-8",
+  "base_url": "https://moh.gov.mn"
+}

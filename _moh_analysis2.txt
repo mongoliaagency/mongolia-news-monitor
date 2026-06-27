@@ -1,0 +1,94 @@
+=== .row.clearfix in news list: 20 ===
+
+--- Row #1 ---
+<div class="row clearfix" style="border-bottom: 1px solid #ddd; margin-bottom: 20px">
+<div class="col-md-4">
+<div class="entry-image overflowed">
+<a href="/news/7575"><img alt="ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ОХУ-ЫН ЭРҮҮЛ МЭНДИЙН ДЭД САЙД ЕВГЕНИЯ КОТОВАТАЙ УУЛЗЛАА" class="img-responsive" src="/uploads/content_picture/f86d41c70481bff4923428c3a5e5c275ac8580de.jpg "/></a>
+</div>
+</div>
+<div class="col-md-8">
+<div class="entry-title">
+<h4 style="font-size: 15px;"><a href="/news/7575" style="color:#000;">ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ОХУ-ЫН ЭРҮҮЛ МЭНДИЙН ДЭД САЙД ЕВГЕНИЯ КОТОВАТАЙ УУЛЗЛАА</a></h4>
+</div>
+<p style="font-size: 13px; color: #999;">
+<i class="icon-calendar3"></i> 2026-06-26 05:00:00                            </p>
+<!--                            <div class="entry-content overflow">
+                                <p></p>
+                            </div>-->
+</div>
+</div>
+
+--- Row #2 ---
+<div class="row clearfix" style="border-bottom: 1px solid #ddd; margin-bottom: 20px">
+<div class="col-md-4">
+<div class="entry-image overflowed">
+<a href="/news/7573"><img alt="ТӨРИЙН ЖИНХЭНЭ АЛБАНЫ ЕРӨНХИЙ ШАЛГАЛТЫН БҮРТГЭЛТЭЙ ХОЛБООТОЙ АСУУДЛААР ХАМТАРСАН УУЛЗАЛТ БОЛЛОО" class="img-responsive" src="/uploads/content_picture/14a59cfd3882de829f28201272197b450b5b51c6.jpg "/></a>
+</div>
+</div>
+<div class="col-md-8">
+<div class="entry-title">
+<h4 style="font-size: 15px;"><a href="/news/7573" style="color:#000;">ТӨРИЙН ЖИНХЭНЭ АЛБАНЫ ЕРӨНХИЙ ШАЛГАЛТЫН БҮРТГЭЛТЭЙ ХОЛБООТОЙ АСУУДЛААР ХАМТАРСАН УУЛЗАЛТ БОЛЛОО</a></h4>
+</div>
+<p style="font-size: 13px; color: #999;">
+<i class="icon-calendar3"></i> 2026-06-23 01:44:00                            </p>
+<!--                            <div class="entry-content overflow">
+                                <p></p>
+                            </div>-->
+</div>
+</div>
+
+--- Row #3 ---
+<div class="row clearfix" style="border-bottom: 1px solid #ddd; margin-bottom: 20px">
+<div class="col-md-4">
+<div class="entry-image overflowed">
+<a href="/news/7572"><img alt=" “ХАЛДВАРТ БУС ӨВЧНӨӨС СЭРГИЙЛЭХ, ХЯНАХ АРГА ХЭМЖЭЭНИЙ ҮНДЭСНИЙ ТӨЛӨВЛӨГӨӨ (2026–2028 ОН)”-Г БАТАЛЖ, АЛБАН ЁСООР ТАНИЛЦУУЛЛАА" class="img-responsive" src="/uploads/content_picture/536050ff89cbc0da39d9da6a6c9eea9beb312cd7.jpg "/></a>
+</div>
+</div>
+<div class="col-md-8">
+<div class="entry-title">
+<h4 style="font-size: 15px;"><a href="/news/7572" style="color:#000;"> “ХАЛДВАРТ БУС ӨВЧНӨӨС СЭРГИЙЛЭХ, ХЯНАХ АРГА ХЭМЖЭЭНИЙ ҮНДЭСНИЙ ТӨЛӨВЛӨГӨӨ (2026–2028 ОН)”-Г БАТАЛЖ, АЛБАН ЁСООР ТАНИЛЦУУЛЛАА</a></h4>
+</div>
+<p style="font-size: 13px; color: #999;">
+<i class="icon-calendar3"></i> 2026-06-17 06:16:00                            </p>
+<!--                            <div class="entry-content overflow">
+                                <p></p>
+                            </div>-->
+</div>
+</div>
+
+=== First row detailed walk ===
+<div class='col-md-4'> 
+  <div class='entry-image.overflowed'> 
+    <a class=''> 
+      href=/news/7575
+<div class='col-md-8'> ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ОХУ-ЫН ЭРҮҮЛ МЭНДИЙН ДЭД САЙД ЕВГЕНИЯ КОТОВАТАЙ УУЛЗЛАА2026-06-26 05:00:00
+  <div class='entry-title'> ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ОХУ-ЫН ЭРҮҮЛ МЭНДИЙН ДЭД САЙД ЕВГЕНИЯ КОТОВАТАЙ УУЛЗЛАА
+    <h4 class=''> ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ОХУ-ЫН ЭРҮҮЛ МЭНДИЙН ДЭД САЙД ЕВГЕНИЯ КОТОВАТАЙ УУЛЗЛАА
+      <a class=''> ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ОХУ-ЫН ЭРҮҮЛ МЭНДИЙН ДЭД САЙД ЕВГЕНИЯ КОТОВАТАЙ УУЛЗЛАА
+        href=/news/7575
+  <p class=''> 2026-06-26 05:00:00
+
+=== /news/NNN links: 40 ===
+  /news/7575 -> 
+  /news/7575 -> ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ОХУ-ЫН ЭРҮҮЛ МЭНДИЙН ДЭД САЙД ЕВГЕНИЯ КОТОВАТАЙ УУЛЗЛАА
+  /news/7573 -> 
+  /news/7573 -> ТӨРИЙН ЖИНХЭНЭ АЛБАНЫ ЕРӨНХИЙ ШАЛГАЛТЫН БҮРТГЭЛТЭЙ ХОЛБООТОЙ АСУУДЛААР ХАМТАРСАН УУЛЗАЛТ БОЛЛОО
+  /news/7572 -> 
+  /news/7572 -> “ХАЛДВАРТ БУС ӨВЧНӨӨС СЭРГИЙЛЭХ, ХЯНАХ АРГА ХЭМЖЭЭНИЙ ҮНДЭСНИЙ ТӨЛӨВЛӨГӨӨ (2026–2028 ОН)”-Г БАТАЛЖ, АЛБАН ЁСООР ТАНИЛЦУУ
+  /news/7570 -> 
+  /news/7570 -> ӨРГӨН ХЭРЭГЛЭЭНИЙ ЭМИЙГ ЧАНАРЫН ШИНЖИЛГЭЭНД ХАМРУУЛАХ АЖЛЫГ ЭХЛҮҮЛЛЭЭ
+  /news/7569 -> 
+  /news/7569 -> Э.БАТШУГАР: МОНГОЛ УЛС "ЭМ, ЭМНЭЛГИЙН ХЭРЭГСЛИЙН ҮНДЭСНИЙ ЛАВЛАГАА ЛАБОРАТОРИ"-ТОЙ  БОЛЛОО
+  /news/7568 -> 
+  /news/7568 -> ЭРҮҮЛ МЭНДИЙН САЙД Э.БАТШУГАР ДЭМБ-ЫН НОМХОН ДАЛАЙН БАРУУН БҮСИЙН ЗАХИРАЛ ДР. САИА МА’У ПИУКАЛА-ТАЙ УУЛЗЛАА
+  /news/7566 -> 
+  /news/7566 -> МОНГОЛЫН УЛАМЖЛАЛТ АНАГААХ УХААНЫГ НОТОЛГООНД СУУРИЛАН ХӨГЖҮҮЛЖ, ЭРХ ЗҮЙН ОРЧНЫГ БЭХЖҮҮЛНЭ
+  /news/7565 -> 
+
+Datetime matches: 20, first 10: ['2026-06-26 05:00:00', '2026-06-23 01:44:00', '2026-06-17 06:16:00', '2026-06-17 04:53:00', '2026-06-16 03:31:00', '2026-06-16 01:57:00', '2026-06-05 12:08:00', '2026-06-05 11:59:00', '2026-06-02 10:26:00', '2026-06-02 05:50:00']
+
+Datetime in first row: ['2026-06-26 05:00:00']
+  Context: ...px; color: #999;">
+<i class="icon-calendar3"></i> 2026-06-26 05:00:00                            </p>
+<!--             ...

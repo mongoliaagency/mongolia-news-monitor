@@ -1,0 +1,40 @@
+=== TITLE ===
+ÐÑÐ´ÑÑ Ð¼ÑÐ´ÑÑÐ»ÑÐ» | Ð­Ð´Ð¸Ð¹Ð½ Ð·Ð°ÑÐ°Ð³, ÑÓ©Ð³Ð¶Ð»Ð¸Ð¹Ð½ ÑÐ°Ð¼
+
+=== ARTICLE tags: 0 ===
+
+=== class~post: 21 elems ===
+  <body class=['no-transition', 'stretched', 'side-push-panel', 'standart_postlist']> text: Ð¢Ò¯Ñ ÑÒ¯Ð»ÑÑÐ½Ñ Ò¯Ò¯FacebookTwitterYoutubeUSD3,576.95Ð¡Ð°Ð½Ð°Ð» ÑÒ¯ÑÑÐ»Ñ Ð¸Ð»Ð³ÑÑÑÐ£ÑÐ°ÑÐ½Ñ Ð¶Ð°Ð³ÑÐ°Ð°Ð»ÑEnEnÐ­ÐÐ¥Ð¯-Ð½Ñ ÑÑÑÐ°Ð
+  <li class=['postlist-page-breadcrumb']> text: ÐÑÐ´ÑÑ
+  <div class=['content-wrap', 'post-list-page', 'post_layout5']> text: ÐÑÐ´ÑÑ Ð¼ÑÐ´ÑÑÐ»ÑÐ»ÐÐ ÐÐ ÐÐ£Ð¢ÐÐÐ¢ Ð¢Ó¨Ð , Ð¥Ð£ÐÐÐÐ Ð¥Ð­ÐÐ¨ÐÐÐÐ Ð¢Ò®ÐÐ¨ÐÐ­ÐÐÐÐ Ð§ÐÐÐÐÐ¥Ð«Ð ÐÐ­Ð¥ÐÒ®Ò®ÐÐ­Ð¥ Ð¡Ð£Ð 
+
+=== class~item: 68 elems ===
+  <li class=['topbar-menu-item38361']> text: Ð¡Ð°Ð½Ð°Ð» ÑÒ¯ÑÑÐ»Ñ Ð¸Ð»Ð³ÑÑÑ
+  <li class=['topbar-menu-item45972']> text: Ð£ÑÐ°ÑÐ½Ñ Ð¶Ð°Ð³ÑÐ°Ð°Ð»Ñ
+  <li class=['topbar-menu-item38361']> text: Ð¡Ð°Ð½Ð°Ð» ÑÒ¯ÑÑÐ»Ñ Ð¸Ð»Ð³ÑÑÑ
+
+=== class~entry: 50 elems ===
+  <div class=['entry', 'clearfix', 'post-list-item']> text: ÐÐ ÐÐ ÐÐ£Ð¢ÐÐÐ¢ Ð¢Ó¨Ð , Ð¥Ð£ÐÐÐÐ Ð¥Ð­ÐÐ¨ÐÐÐÐ Ð¢Ò®ÐÐ¨ÐÐ­ÐÐÐÐ Ð§ÐÐÐÐÐ¥Ð«Ð ÐÐ­Ð¥ÐÒ®Ò®ÐÐ­Ð¥ Ð¡Ð£Ð ÐÐÐÐ¢ Ð¢Ó¨ÐÐÐÐ ÐÐÐ
+  <div class=['entry-image']> text: 
+  <div class=['entry-title']> text: ÐÐ ÐÐ ÐÐ£Ð¢ÐÐÐ¢ Ð¢Ó¨Ð , Ð¥Ð£ÐÐÐÐ Ð¥Ð­ÐÐ¨ÐÐÐÐ Ð¢Ò®ÐÐ¨ÐÐ­ÐÐÐÐ Ð§ÐÐÐÐÐ¥Ð«Ð ÐÐ­Ð¥ÐÒ®Ò®ÐÐ­Ð¥ Ð¡Ð£Ð ÐÐÐÐ¢ Ð¢Ó¨ÐÐÐÐ ÐÐÐ
+
+=== class~list: 55 elems ===
+  <body class=['no-transition', 'stretched', 'side-push-panel', 'standart_postlist']> text: Ð¢Ò¯Ñ ÑÒ¯Ð»ÑÑÐ½Ñ Ò¯Ò¯FacebookTwitterYoutubeUSD3,576.95Ð¡Ð°Ð½Ð°Ð» ÑÒ¯ÑÑÐ»Ñ Ð¸Ð»Ð³ÑÑÑÐ£ÑÐ°ÑÐ½Ñ Ð¶Ð°Ð³ÑÐ°Ð°Ð»ÑEnEnÐ­ÐÐ¥Ð¯-Ð½Ñ ÑÑÑÐ°Ð
+  <li class=['postlist-page-breadcrumb']> text: ÐÑÐ´ÑÑ
+  <div class=['content-wrap', 'post-list-page', 'post_layout5']> text: ÐÑÐ´ÑÑ Ð¼ÑÐ´ÑÑÐ»ÑÐ»ÐÐ ÐÐ ÐÐ£Ð¢ÐÐÐ¢ Ð¢Ó¨Ð , Ð¥Ð£ÐÐÐÐ Ð¥Ð­ÐÐ¨ÐÐÐÐ Ð¢Ò®ÐÐ¨ÐÐ­ÐÐÐÐ Ð§ÐÐÐÐÐ¥Ð«Ð ÐÐ­Ð¥ÐÒ®Ò®ÐÐ­Ð¥ Ð¡Ð£Ð 
+
+=== /posts/ links: 0 ===
+
+<div>: 350
+
+<section>: 9
+
+<article>: 0
+
+<li>: 214
+
+<a>: 261
+
+Date pattern '\d{4}\.\d{2}\.\d{2}': 1 matches, first 5: ['2026.06.23']
+
+Date pattern '\d{4}-\d{2}-\d{2}': 10 matches, first 5: ['2026-06-26', '2026-06-26', '2026-06-26', '2026-06-26', '2026-06-26']

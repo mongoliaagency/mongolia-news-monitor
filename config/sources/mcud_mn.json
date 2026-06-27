@@ -1,0 +1,13 @@
+{
+  "name": "蒙古国城市发展建设与住房部",
+  "homepage": "https://mcud.gov.mn/",
+  "category": "government",
+  "source_type": "html",
+  "news_url": "https://mcud.gov.mn/as/news",
+  "requires_browser": false,
+  "items_selector": "#listTarget > div",
+  "title_selector": ".article-list-item__name",
+  "link_selector": "a.video-list-item",
+  "date_selector": ".video-list-item__published",
+  "status": "active"
+}

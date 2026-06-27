@@ -1,0 +1,151 @@
+=== card_body__stories 子元素: 5 ===
+
+  <div class="list tab-slider--body">
+  <div class="list tab-slider--body" id="tab1">
+<div class="card-body">
+<div class="card-body__item">
+<a class="card-body-item" href="/a/1756" title="ТӨРИЙН ЖИНХЭНЭ АЛБАН ХААГЧИЙГ ШИЛЖИН АЖИЛЛУУЛАХ ТУХАЙ ЗАР">
+<div class="card-body-item__img">
+<div class="card-body-item-img">
+<img alt="" src="/static/webs/mcudv2/assets/no-img.jpg" uk-cover=""/>
+</div>
+</div>
+<div class="card-body-item__desc">
+<div class="card-body-item-desc">
+<div class="card-body-item-desc__name">ТӨРИЙН ЖИНХЭНЭ АЛБАН ХААГЧИЙГ ШИЛ
+
+  <div class="list tab-slider--body">
+  <div class="list tab-slider--body" id="tab2">
+<div class="card-body">
+<div class="card-body__item">
+<a class="card-body-item" href="/a/1756" title="ТӨРИЙН ЖИНХЭНЭ АЛБАН ХААГЧИЙГ ШИЛЖИН АЖИЛЛУУЛАХ ТУХАЙ ЗАР">
+<div class="card-body-item__img">
+<div class="card-body-item-img">
+<img alt="" src="/static/webs/mcudv2/assets/no-img.jpg" uk-cover=""/>
+</div>
+</div>
+<div class="card-body-item__desc">
+<div class="card-body-item-desc">
+<div class="card-body-item-desc__name">ТӨРИЙН ЖИНХЭНЭ АЛБАН ХААГЧИЙГ ШИЛ
+
+=== card 内链接 ===
+  [ХОТ БАЙГУУЛАЛТЫН ТУХАЙ ХУУЛИЙН ШИНЭЧИЛСЭН НАЙРУУЛГ] -> /a/1745
+  ["АЖ АХУЙН НЭГЖ, БАЙГУУЛЛАГЫН ТООЛЛОГО - 2026"2026 ] -> /a/1743
+  [БАРИЛГЫН ЕРӨНХИЙ ХУУЛИЙН  ШИНЭЧИЛСЭН НАЙРУУЛГЫН ТӨ] -> /a/1741
+  [“Орон сууцжуулалтын тухай” болон “Орон сууцны санх] -> /a/1730
+  [МБҮА ТББ болон Хаан Банк хамтран зохион байгуулах ] -> /a/1727
+  [Барилгын салбарын зуун жилийн ойн Лого "Их барилга] -> /a/1720
+  [ХЭРЭГЛЭГЧИЙН СЭТГЭЛ ХАНАМЖИЙН СУДАЛГАА2026 / 02 / ] -> /a/1717
+  [Гадаадаас ажиллах хүч, мэргэжилтэн авахтай холбогд] -> /a/1716
+  [Хот байгуулалт, барилга, орон сууцжуулалтын сайдын] -> /a/1718
+  [Монголын барилгын зураг төсөл зохиогчдын холбооны ] -> /a/1715
+  [ХОТ БАЙГУУЛАЛТ, БАРИЛГА, ОРОН СУУЦЖУУЛАЛТЫН САЛБАР] -> /a/1708
+  [Өргөх байгууламжийн цахим бүртгэлийг системийг хэр] -> /a/1707
+  [Эмгэнэл2026 / 01 / 20Эмгэнэл] -> /a/1706
+  [МОНГОЛ УЛСАД БАРИЛГЫН САЛБАР ҮҮСЭЖ ХӨГЖСӨНИЙ 100 Ж] -> /a/1700
+  [ЭМГЭНЭЛ2026 / 01 / 06эмгэнэл] -> /a/1688
+  [Хүний эрхийн үндэсний форум-20252025 / 12 / 09Хүни] -> /a/1682
+  [“Хариуцлагатай бизнес ба хүний эрх: Хүний эрхийн м] -> /a/1676
+  [Их Британи, Умард Ирландын Нэгдсэн Вант Улс-Монгол] -> /a/1675
+  [ХОТ, СУУРИН ГАЗРЫГ ДАХИН ХӨГЖҮҮЛЭХ ТУХАЙ ХУУЛИЙН Ш] -> /a/1668
+  [МЭНДЧИЛГЭЭ2025 / 11 / 21МЭНДЧИЛГЭЭ] -> /a/1673
+  ---
+  [ТӨРИЙН ЖИНХЭНЭ АЛБАН ХААГЧИЙГ ШИЛЖИН АЖИЛЛУУЛАХ ТУ] -> /a/1756
+  [ХОТ, СУУРИНЫ УС ХАНГАМЖ АРИУТГАХ ТАТУУРГЫН АШИГЛАЛ] -> /a/1752
+  [ХОТ, СУУРИН ГАЗРЫГ ДАХИН ХӨГЖҮҮЛЭХ ТУХАЙ ХУУЛИЙН Х] -> /a/1751
+  [ХОТ БАЙГУУЛАЛТЫН ТУХАЙ ХУУЛИЙН ХЭРЭГЖИЛТИЙН ҮР ДАГ] -> /a/1750
+  [СУУЦ ӨМЧЛӨГЧДИЙН ХОЛБООНЫ ЭРХ ЗҮЙН БАЙДАЛ, НИЙТИЙН] -> /a/1749
+  [ОРОН СУУЦНЫ ТУХАЙ ХУУЛИЙН ХЭРЭГЖИЛТИЙН ҮР ДАГАВАРТ] -> /a/1748
+  [БАРИЛГЫН ТУХАЙ ХУУЛИЙН ХЭРЭГЖИЛТИЙН ҮР ДАГАВРЫН СУ] -> /a/1747
+  [ХОТ БАЙГУУЛАЛТЫН БАРИМТ БИЧИГ БОЛОВСРУУЛАХ ЭРХИЙН ] -> /a/1746
+  [ХОТ БАЙГУУЛАЛТЫН ТУХАЙ ХУУЛИЙН ШИНЭЧИЛСЭН НАЙРУУЛГ] -> /a/1745
+  ["АЖ АХУЙН НЭГЖ, БАЙГУУЛЛАГЫН ТООЛЛОГО - 2026" Виде] -> /a/1744
+  ["АЖ АХУЙН НЭГЖ, БАЙГУУЛЛАГЫН ТООЛЛОГО - 2026"2026 ] -> /a/1743
+  [Барилгын хашаанд байршуулах салбарын 100 жилд зори] -> /a/1742
+  [БАРИЛГЫН ЕРӨНХИЙ ХУУЛИЙН  ШИНЭЧИЛСЭН НАЙРУУЛГЫН ТӨ] -> /a/1741
+  [ХББОСЯ Авлигын эсрэг нэгдэж байна2026 / 04 / 24] -> /a/1740
+  [БАРИЛГЫН ТУХАЙ ХУУЛИЙН ШИНЭЧИЛСЭН НАЙРУУЛГЫН ЦУВРА] -> /a/1739
+  [ХОТ БАЙГУУЛАЛТ, БАРИЛГА, ОРОН СУУЦЖУУЛАЛТЫН ЯАМНЫ ] -> /a/1738
+  [Увс аймгийн Улаангом сумын гадна ариутгах татуургы] -> /a/1737
+  [ТӨРИЙН ЖИНХЭНЭ АЛБАН ХААГЧИЙГ ШИЛЖИН АЖИЛЛУУЛАХ ТУ] -> /a/1736
+  [ХББОСЯ-ны Нэгдсэн төсөл хэрэгжүүлэх нэгжид дараах ] -> /a/1734
+  [Хот байгуулалт барилга, орон сууцжуулалтын сайдын ] -> /a/1731
+  [ТӨРИЙН ЖИНХЭНЭ АЛБАН ХААГЧИЙГ ШИЛЖИН АЖИЛЛУУЛАХ ТУ] -> /a/1756
+  [ХОТ, СУУРИНЫ УС ХАНГАМЖ АРИУТГАХ ТАТУУРГЫН АШИГЛАЛ] -> /a/1752
+  [ДЭЛХИЙН ХОТУУДЫН 13 ДАХЬ УДААГИЙН ЧУУЛГА УУЛЗАЛТ20] -> /a/1753
+  [ХОТ, СУУРИН ГАЗРЫГ ДАХИН ХӨГЖҮҮЛЭХ ТУХАЙ ХУУЛИЙН Х] -> /a/1751
+  [БАРИЛГЫН ТУХАЙ ХУУЛИЙН ХЭРЭГЖИЛТИЙН ҮР ДАГАВРЫН СУ] -> /a/1747
+  [СУУЦ ӨМЧЛӨГЧДИЙН ХОЛБООНЫ ЭРХ ЗҮЙН БАЙДАЛ, НИЙТИЙН] -> /a/1749
+  [ХОТ БАЙГУУЛАЛТЫН ТУХАЙ ХУУЛИЙН ХЭРЭГЖИЛТИЙН ҮР ДАГ] -> /a/1750
+  [ОРОН СУУЦНЫ ТУХАЙ ХУУЛИЙН ХЭРЭГЖИЛТИЙН ҮР ДАГАВАРТ] -> /a/1748
+  [АЖЛЫН ЗАР2026 / 06 / 22] -> /a/1755
+  ---
+=== uk-width-2-3 主内容区 ===
+<div class="uk-width-2-3@m uk-width-1-1">
+<div class="card">
+<div class="card__titles">
+<div class="card__title">
+<div class="card-title__name uk-width-1-1 uk-text-bold uk-flex uk-flex-between">
+<div>
+                                            Мэдээ, мэдээлэл</div>
+<div>
+<div class="card-title-name__buttons">
+<a class="active" href="javascript:void(0)">
+<i class="fa fa-sort-numeric-down"></i>
+</a>
+<a href="javascript:void(0)">
+<i class="fa fa-sort-numeric-up"></i>
+</a>
+<a class="view-change-button active" href="javascript:void(0)">
+<i class="fa fa-th-large"></i>
+</a>
+<a class="view-change-button" href="javascript:void(0)">
+<i class="fa fa-list"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+                                $(document).ready(function () {
+                                    $('.view-change-button').on('click',function () {
+                                        var $this = $(this);
+                                        var $sibling = $($this).siblings('.view-change-button');
+                                        $($this).addClass('active');
+                                        $($sibling).removeClass('active');
+                                        var $listTarget = $('#listTarget');
+                                        $($listTarget).toggleClass('uk-child-width-1-3@m');
+                                        $($listTarget).toggleClass('articles-list');
+                                    });
+                                });
+                            </script>
+<div class="card__body list">
+<div class="card-body uk-child-width-1-3@m uk-child-width-1-1" id="listTarget" uk-grid="">
+<div>
+<a class="video-list-item" href="/a/1745">
+<div class="video-list-item-img__container">
+<div class="video-list-item__img w265xh160">
+<div class="pictureCovered-wrapper"><img alt="" class="pictureCovered-image pictureCovered-image--w" src="/resource/mcud/image/2026/05/13/5yqcbtljt35auvw9/2026.05.14_m.JPG" title=""/></div>
+</div>
+</div>
+<div class="video-list-item-text__container">
+<div class="article-list-item__name">
+                                                            ХОТ БАЙГУУЛАЛТЫН ТУХАЙ ХУУЛИЙН ШИНЭЧИЛСЭН НАЙРУУЛГЫН ТӨСЛИЙН ХЭЛЭЛЦҮҮЛЭГ</div>
+<div class="video-list-item__published">
+                                                        2026 / 05 / 13</div>
+<div class="video-list-item__desc">
+                                                            ХОТ БАЙГУУЛАЛТЫН ТУХАЙ ХУУЛИЙН ШИНЭЧИЛСЭН НАЙРУУЛГЫН ТӨСЛИЙН ХЭЛЭЛЦҮҮЛЭГ</div>
+</div>
+</a>
+</div>
+<div>
+<a class="video-list-item" href="/a/1743">
+<div class="video-list-item-img__container">
+<div class="video-list-item__img w265xh160">
+<div class="pictureCovered-wrapper"><img alt="" class="pictureCovered-image pictureCovered-image--w" src="/resource/mcud/image/2026/05/04/e6qslnvnewnongb3/%D1%82%D0%BE%D0%BE%D0%BB%D0%BB%D0%BE%D0%B3%D0%BE_m.png" title=""/></div>
+</div>
+</div>
+<div class="video-list-item-text__container">
+<div class="article-list-item__name">
+         
