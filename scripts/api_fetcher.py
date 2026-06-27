@@ -85,7 +85,8 @@ def fetch_api(source_file):
             'publish_date': format_date(dt),
             'source': source.get('name'),
             'url': link,
-            'summary': summary
+            'summary': summary,
+            'category': source.get('category', 'government'),
         })
 
     return items

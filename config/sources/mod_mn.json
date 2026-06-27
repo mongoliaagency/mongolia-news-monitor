@@ -1,6 +1,7 @@
 {
   "name": "蒙古国国防部",
   "homepage": "https://mod.gov.mn/",
+  "category": "government",
   "source_type": "html",
   "news_url": "https://mod.gov.mn/?cat=23",
   "title_selector": ".entry-title a, .post-title a, h2 a, h3 a, article a",

@@ -1,6 +1,7 @@
 {
   "name": "家庭、劳动和社会保障部",
   "homepage": "https://mlsp.gov.mn/",
+  "category": "government",
   "source_type": "html",
   "news_url": "https://mlsp.gov.mn/content?c=1",
   "items_selector": "div.blog-post",

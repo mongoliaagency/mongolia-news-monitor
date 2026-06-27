@@ -1,6 +1,7 @@
 {
   "name": "蒙古国总统办公厅",
   "homepage": "https://president.mn/",
+  "category": "government",
   "source_type": "rss",
   "rss_url": "https://president.mn/feed/",
   "status": "active"

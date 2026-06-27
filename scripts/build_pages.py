@@ -10,6 +10,13 @@ STATUS_FILE = Path("data/status/runtime_status.json")
 
 _DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+CATEGORY_LABELS = {
+    "government": "党政机关",
+    "media": "新闻媒体",
+}
+
+CATEGORY_ORDER = ["government", "media"]
+
 
 def load_news_files():
     files = [
@@ -23,10 +30,8 @@ def load_news_files():
 def load_status():
     if not STATUS_FILE.exists():
         return {
-            "total": 0,
-            "success": 0,
-            "failed": 0,
-            "failed_list": []
+            "government": {"total": 0, "success": 0, "failed": 0, "failed_list": []},
+            "media": {"total": 0, "success": 0, "failed": 0, "failed_list": []},
         }
 
     with open(STATUS_FILE, "r", encoding="utf-8") as f:
@@ -34,8 +39,17 @@ def load_status():
 
 
 def build_day_page(date_str, news_list):
-    html = f"""
+    # Group by category: government first, then media
+    gov_news = []
+    media_news = []
+    for item in news_list:
+        cat = item.get("category", "government")
+        if cat == "media":
+            media_news.append(item)
+        else:
+            gov_news.append(item)
 
+    html = f"""
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -43,7 +57,7 @@ def build_day_page(date_str, news_list):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{date_str} - 蒙古国新闻</title>
 <style>
-:root {{
+::root {{
     color-scheme: light;
     font-family: 'Noto Sans', Arial, sans-serif;
     background: #f5f7fb;
@@ -69,6 +83,13 @@ h1 {{
     margin: 0 0 12px;
     font-size: 2rem;
     letter-spacing: 0.02em;
+}}
+h2 {{
+    margin: 28px 0 14px;
+    font-size: 1.3rem;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 6px;
 }}
 a.home-link {{
     display: inline-block;
@@ -119,8 +140,20 @@ a.home-link:hover {{
 </header>
 """
 
-    for item in news_list:
-        html += f"""
+    if gov_news:
+        html += "<h2>党政机关</h2>"
+        for item in gov_news:
+            html += f"""
+<div class="news-item">
+<a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
+<div class="news-meta">来源：{item['source']} | 时间：{item.get('publish_date', '')}</div>
+</div>
+"""
+
+    if media_news:
+        html += "<h2>新闻媒体</h2>"
+        for item in media_news:
+            html += f"""
 <div class="news-item">
 <a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
 <div class="news-meta">来源：{item['source']} | 时间：{item.get('publish_date', '')}</div>
@@ -136,6 +169,40 @@ a.home-link:hover {{
     return html
 
 
+def _build_category_summary(status):
+    """Build HTML summary rows for each category."""
+    parts = []
+    for key in CATEGORY_ORDER:
+        cat = status.get(key, {"total": 0, "success": 0, "failed": 0, "failed_list": []})
+        label = CATEGORY_LABELS.get(key, key)
+        parts.append(
+            f"<div class=\"cat-group\">"
+            f"<div class=\"cat-label\">{label}</div>"
+            f"<span>总计：{cat['total']}</span>"
+            f"<span class=\"ok\">成功：{cat['success']}</span>"
+            f"<span class=\"fail\">失败：{cat['failed']}</span>"
+            f"</div>"
+        )
+    return "\n".join(parts)
+
+
+def _build_failures(status):
+    """Build failure list HTML, grouped by category."""
+    html = ""
+    for key in CATEGORY_ORDER:
+        cat = status.get(key, {"total": 0, "success": 0, "failed": 0, "failed_list": []})
+        if cat["failed"] == 0:
+            continue
+        label = CATEGORY_LABELS.get(key, key)
+        html += f"<div class=\"cat-fail\"><strong>{label}失败源：</strong><br>"
+        for item in cat["failed_list"]:
+            homepage = item.get('homepage', '#') or '#'
+            display = f"{item.get('source', '')} - {item.get('error', '')}"
+            html += f"<a href=\"{homepage}\" target=\"_blank\">{display}</a><br>"
+        html += "</div>"
+    return html
+
+
 def build_index_page(files):
     status = load_status()
     update_time = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -148,7 +215,7 @@ def build_index_page(files):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>蒙古国新闻标题列表</title>
 <style>
-:root {{
+::root {{
     color-scheme: light;
     font-family: 'Noto Sans', Arial, sans-serif;
     background: #eef2f8;
@@ -178,26 +245,61 @@ h1 {{
 .summary {{
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
     margin-top: 14px;
     color: #4b5563;
 }}
-.summary span {{
+.cat-group {{
     background: #ffffff;
-    padding: 10px 14px;
-    border-radius: 999px;
+    padding: 12px 16px;
+    border-radius: 14px;
     box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
-    font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}}
+.cat-label {{
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1e3a5f;
+    margin-right: 4px;
+}}
+.cat-group span {{
+    font-size: 0.92rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f1f5f9;
+}}
+.cat-group span.ok {{
+    color: #15803d;
+    background: #dcfce7;
+}}
+.cat-group span.fail {{
+    color: #b91c1c;
+    background: #fee2e2;
+}}
+.all-total {{
+    background: #1e3a5f;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-weight: 600;
 }}
 .failures {{
     margin: 18px 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}}
+.cat-fail {{
     padding: 18px;
     border-radius: 16px;
     background: #fff1f2;
     color: #b91c1c;
     border: 1px solid #fca5a5;
 }}
-.failures a {{
+.cat-fail a {{
     color: #991b1b;
     text-decoration: underline;
 }}
@@ -232,22 +334,15 @@ h1 {{
 <section class="page-header">
 <h1>蒙古国新闻标题列表</h1>
 <div class="summary">
-<span>采集时间：{update_time}</span>
-<span>采集总计：{status["total"]} 个新闻源</span>
-<span>采集成功：{status["success"]} 个新闻源</span>
-<span>采集失败：{status["failed"]} 个新闻源</span>
+<span class="all-total">采集时间：{update_time}</span>
+{_build_category_summary(status)}
 </div>
 </section>
 """
 
-    if status["failed"] > 0:
-        html += "<section class=\"failures\">"
-        html += "<strong>失败源：</strong><br>"
-        for item in status["failed_list"]:
-            homepage = item.get('homepage', '#') or '#'
-            display = f"{item.get('source', '')} - {item.get('error', '')}"
-            html += f"<a href=\"{homepage}\" target=\"_blank\">{display}</a><br>"
-        html += "</section>"
+    failure_html = _build_failures(status)
+    if failure_html:
+        html += f"<section class=\"failures\">{failure_html}</section>"
 
     html += "<section class=\"day-list\">"
 
@@ -289,4 +384,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 

@@ -139,7 +139,8 @@ def fetch_html(source_file):
             "title": title,
             "publish_date": publish_date_str,
             "source": source["name"],
-            "url": link
+            "url": link,
+            "category": source.get("category", "government"),
         })
 
     # Filter: only today's articles

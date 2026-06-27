@@ -3,6 +3,8 @@
 
   "homepage": "https://www.caak.mn/",
 
+  "category": "media",
+
   "source_type": "rss",
 
   "rss_url": "https://www.caak.mn/rss",

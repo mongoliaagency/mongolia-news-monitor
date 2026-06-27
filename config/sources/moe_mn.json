@@ -1,6 +1,7 @@
 {
   "name": "蒙古国教育部",
   "homepage": "https://moe.gov.mn",
+  "category": "government",
   "source_type": "html",
   "news_url": "https://moe.gov.mn/news?category_id=11390",
   "requires_browser": true,

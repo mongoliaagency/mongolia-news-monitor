@@ -1,6 +1,7 @@
 {
   "name": "蒙古国工业和矿产资源部",
   "homepage": "https://mmhi.gov.mn",
+  "category": "government",
   "source_type": "rss",
   "rss_url": "https://mmhi.gov.mn/feed/",
   "status": "active"

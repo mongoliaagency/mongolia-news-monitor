@@ -1,6 +1,7 @@
 {
   "name": "乌兰巴托市政府",
   "homepage": "https://ulaanbaatar.mn/",
+  "category": "government",
   "source_type": "api",
   "api_url": "https://ulaanbaatar.mn:8443/api/article?type=TIME_HISTORY&currentPage=1&pageSize=24",
   "api_fallback_urls": [

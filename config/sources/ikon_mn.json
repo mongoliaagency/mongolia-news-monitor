@@ -3,6 +3,8 @@
 
   "homepage": "https://ikon.mn/",
 
+  "category": "media",
+
   "source_type": "rss",
 
   "rss_url": "https://ikon.mn/rss",

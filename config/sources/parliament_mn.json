@@ -1,6 +1,7 @@
 {
   "name": "蒙古国大呼拉尔",
   "homepage": "https://www.parliament.mn/",
+  "category": "government",
   "source_type": "html",
   "news_url": "https://www.parliament.mn/nc/340/",
   "title_selector": "a[href^=\"/nn/\"]",

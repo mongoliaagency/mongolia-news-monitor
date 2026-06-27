@@ -24,14 +24,25 @@ def save_runtime_status(status):
     with open(output, "w", encoding="utf-8") as f:
         json.dump(status, f, ensure_ascii=False, indent=2)
 
-def collect_news():
-    all_news = []
+CATEGORY_LABELS = {
+    "government": "党政机关",
+    "media": "新闻媒体",
+}
 
-    status = {
+def _init_category_status():
+    return {
         "total": 0,
         "success": 0,
         "failed": 0,
         "failed_list": []
+    }
+
+def collect_news():
+    all_news = []
+
+    status = {
+        "government": _init_category_status(),
+        "media": _init_category_status(),
     }
 
     source_files = load_sources()
@@ -45,7 +56,9 @@ def collect_news():
             if source.get("status") != "active":
                 continue
 
-            status["total"] += 1
+            category = source.get("category", "government")
+            cat_status = status.setdefault(category, _init_category_status())
+            cat_status["total"] += 1
 
             source_type = source.get("source_type")
 
@@ -56,8 +69,8 @@ def collect_news():
             elif source_type == "api":
                 news = fetch_api(source_file)
             else:
-                status["failed"] += 1
-                status["failed_list"].append({
+                cat_status["failed"] += 1
+                cat_status["failed_list"].append({
                     "source": source.get("name", source_file.name),
                     "homepage": source.get("homepage", "#"),
                     "error": "未知源类型"
@@ -68,10 +81,10 @@ def collect_news():
             all_news.extend(news)
 
             if len(news) > 0:
-                status["success"] += 1
+                cat_status["success"] += 1
             else:
-                status["failed"] += 1
-                status["failed_list"].append({
+                cat_status["failed"] += 1
+                cat_status["failed_list"].append({
                     "source": source["name"],
                     "homepage": source.get("homepage", "#"),
                     "error": "0 articles"
@@ -79,13 +92,14 @@ def collect_news():
                 print(f"ERROR: {source['name']} — 无当日文章")
 
         except Exception as e:
-            status["failed"] += 1
+            cat_status = status.get(source.get("category", "government") if source else "government", status["government"])
+            cat_status["failed"] += 1
             source_name = source_file.name
             source_homepage = "#"
             if source is not None:
                 source_name = source.get("name", source_file.name)
                 source_homepage = source.get("homepage", "#")
-            status["failed_list"].append({
+            cat_status["failed_list"].append({
                 "source": source_name,
                 "homepage": source_homepage,
                 "error": "连接失败"

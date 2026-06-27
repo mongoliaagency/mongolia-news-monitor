@@ -2,221 +2,133 @@ import json
 from pathlib import Path
 from datetime import datetime
 
+CATEGORY_LABELS = {
+    "government": "党政机关",
+    "media": "新闻媒体",
+}
+
+CATEGORY_ORDER = ["government", "media"]
+
 
 def build_status():
-
     status_dir = Path("data/status")
+    status_dir.mkdir(parents=True, exist_ok=True)
 
-    status_dir.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+    # Load runtime status from main.py output
+    runtime_file = status_dir / "runtime_status.json"
+    runtime = {}
+    if runtime_file.exists():
+        try:
+            runtime = json.loads(runtime_file.read_text(encoding="utf-8"))
+        except Exception:
+            runtime = {}
 
     status = {
-
-        "updated_at":
-        datetime.now().strftime(
-            "%Y-%m-%d %H:%M:%S"
-        ),
-
-        "total_sources": 0,
-
-        "success_sources": 0,
-
-        "failed_sources": 0,
-
-        "success_rate": 0,
-
-        "failed_list": []
+        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "categories": {},
     }
+
+    total_all = 0
+    success_all = 0
+    failed_all = 0
+
+    for key in CATEGORY_ORDER:
+        cat = runtime.get(key, {"total": 0, "success": 0, "failed": 0, "failed_list": []})
+        cat_total = cat.get("total", 0)
+        cat_success = cat.get("success", 0)
+        cat_failed = cat.get("failed", 0)
+        rate = round(cat_success * 100 / cat_total, 1) if cat_total > 0 else 0
+
+        status["categories"][key] = {
+            "label": CATEGORY_LABELS.get(key, key),
+            "total": cat_total,
+            "success": cat_success,
+            "failed": cat_failed,
+            "success_rate": rate,
+            "failed_list": cat.get("failed_list", []),
+        }
+
+        total_all += cat_total
+        success_all += cat_success
+        failed_all += cat_failed
+
+    status["total_sources"] = total_all
+    status["success_sources"] = success_all
+    status["failed_sources"] = failed_all
+    status["success_rate"] = round(success_all * 100 / total_all, 1) if total_all > 0 else 0
 
     return status
 
-def scan_sources():
-
-    sources_dir = Path(
-        "config/sources"
-    )
-
-    source_files = list(
-        sources_dir.glob("*.json")
-    )
-
-    total = len(source_files)
-
-    success = 0
-
-    failed = 0
-
-    failed_list = []
-
-    for file in source_files:
-
-        try:
-
-            with open(
-                file,
-                "r",
-                encoding="utf-8"
-            ) as f:
-
-                source = json.load(f)
-
-            if (
-                source.get("status")
-                == "active"
-            ):
-
-                success += 1
-
-        except Exception:
-
-            failed += 1
-
-            failed_list.append(
-                file.name
-            )
-
-    return (
-        total,
-        success,
-        failed,
-        failed_list
-    )
 
 def save_status_json(status):
-
-    output_file = Path(
-        "data/status/status.json"
-    )
-
+    output_file = Path("data/status/status.json")
     output_file.write_text(
-
-        json.dumps(
-            status,
-            ensure_ascii=False,
-            indent=2
-        ),
-
+        json.dumps(status, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
+
 
 def build_status_html(status):
-
     html = f"""
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
 <meta charset="utf-8">
-
 <title>采集状态</title>
-
+<style>
+body {{ font-family: 'Noto Sans', Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #1f2937; }}
+h1 {{ font-size: 1.8rem; }}
+h2 {{ font-size: 1.2rem; margin-top: 28px; color: #374151; }}
+.cat-box {{ background: #f9fafb; border-radius: 12px; padding: 16px 20px; margin: 14px 0; border: 1px solid #e5e7eb; }}
+.cat-box h3 {{ margin: 0 0 8px; }}
+.fail {{ color: #b91c1c; }}
+.ok {{ color: #15803d; }}
+ul {{ padding-left: 20px; }}
+</style>
 </head>
-
 <body>
-
 <h1>采集状态</h1>
-
-<p>
-更新时间：
-{status["updated_at"]}
-</p>
-
-<p>
-新闻源总数：
-{status["total_sources"]}
-</p>
-
-<p>
-成功：
-{status["success_sources"]}
-</p>
-
-<p>
-失败：
-{status["failed_sources"]}
-</p>
-
-<p>
-成功率：
-{status["success_rate"]}%
-</p>
-
-<h2>失败新闻源</h2>
-
-<ul>
+<p>更新时间：{status["updated_at"]}</p>
+<p>新闻源总数：{status["total_sources"]} | 成功：<span class="ok">{status["success_sources"]}</span> | 失败：<span class="fail">{status["failed_sources"]}</span> | 成功率：{status["success_rate"]}%</p>
 """
 
-    for item in status["failed_list"]:
-
-        html += f"<li>{item}</li>"
+    for key in CATEGORY_ORDER:
+        cat = status.get("categories", {}).get(key, {})
+        if not cat:
+            continue
+        html += f"""
+<div class="cat-box">
+<h3>{cat.get('label', key)}</h3>
+<p>总计：{cat['total']} | 成功：<span class="ok">{cat['success']}</span> | 失败：<span class="fail">{cat['failed']}</span> | 成功率：{cat['success_rate']}%</p>
+"""
+        if cat.get("failed_list"):
+            html += "<h4>失败源</h4><ul>"
+            for item in cat["failed_list"]:
+                name = item.get("source", "")
+                error = item.get("error", "")
+                html += f"<li>{name} - {error}</li>"
+            html += "</ul>"
+        html += "</div>"
 
     html += """
-
-</ul>
-
 </body>
-
 </html>
 """
-
     return html
 
+
 def save_status_html(content):
+    output_file = Path("docs/status.html")
+    output_file.write_text(content, encoding="utf-8")
 
-    output_file = Path(
-        "docs/status.html"
-    )
-
-    output_file.write_text(
-
-        content,
-
-        encoding="utf-8"
-    )
 
 def main():
-
     status = build_status()
-
-    (
-        total,
-        success,
-        failed,
-        failed_list
-    ) = scan_sources()
-
-    status["total_sources"] = total
-
-    status["success_sources"] = success
-
-    status["failed_sources"] = failed
-
-    status["failed_list"] = failed_list
-
-    if total > 0:
-
-        status["success_rate"] = round(
-            success * 100 / total,
-            2
-        )
-
     save_status_json(status)
-
-    html = build_status_html(
-        status
-    )
-
+    html = build_status_html(status)
     save_status_html(html)
-
-    print(
-        "Status page generated."
-    )
+    print("Status page generated.")
 
 
 if __name__ == "__main__":
-
     main()
