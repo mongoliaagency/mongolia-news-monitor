@@ -1,0 +1,11 @@
+{
+  "name": "家庭、劳动和社会保障部",
+  "homepage": "https://mlsp.gov.mn/",
+  "source_type": "html",
+  "news_url": "https://mlsp.gov.mn/content?c=1",
+  "items_selector": "div.blog-post",
+  "title_selector": "h5.blog-post-title a[href*=\"/content/detail/\"]",
+  "link_selector": "h5.blog-post-title a[href*=\"/content/detail/\"]",
+  "date_selector": "div.blog-post-date",
+  "status": "active"
+}
