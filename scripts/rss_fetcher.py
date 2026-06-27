@@ -2,8 +2,7 @@ import json
 import feedparser
 import requests
 from pathlib import Path
-from datetime import datetime
-from date_utils import parse_date, format_date, is_today
+from date_utils import parse_date, format_date, is_within_days
 
 
 def _is_cloudflare_challenge(content, status_code=None):
@@ -124,10 +123,8 @@ def fetch_rss(source_file):
     for entry in feed.entries:
         raw_date = entry.get("published", "")
         dt = parse_date(raw_date)
-        if not dt:
-            continue  # skip entries without a parseable date
-        if dt.date() != datetime.now().date():
-            continue  # only keep today's articles
+        if not dt or not is_within_days(raw_date, days=7):
+            continue  # only keep articles from the last 7 days
         item = {
             "title": entry.get("title", ""),
             "publish_date": format_date(dt),

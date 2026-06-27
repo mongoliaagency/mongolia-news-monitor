@@ -95,7 +95,7 @@ def cleanup_old_files():
 
     today = datetime.now().date()
 
-    cutoff = today - timedelta(days=6)
+    cutoff = today - timedelta(days=7)
 
     for file in NEWS_DIR.glob("*.json"):
 

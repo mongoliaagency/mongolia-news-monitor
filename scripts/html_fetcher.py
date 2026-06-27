@@ -5,11 +5,9 @@ import requests
 
 from bs4 import BeautifulSoup
 
-from datetime import datetime
-
 from playwright.sync_api import sync_playwright
 
-from date_utils import parse_date, format_date, is_today
+from date_utils import parse_date, format_date, is_within_days
 
 
 def _fetch_with_retry(url, requires_browser=False, max_retries=3, timeout=60):
@@ -173,7 +171,7 @@ def fetch_html(source_file):
             "category": source.get("category", "党政机关"),
         })
 
-    # Filter: only today's articles
-    filtered_news = [item for item in news if is_today(item["publish_date"])]
+    # Filter: only articles from the last 7 days
+    filtered_news = [item for item in news if is_within_days(item["publish_date"], days=7)]
 
     return filtered_news

@@ -3,8 +3,7 @@ import time
 import requests
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
-from datetime import datetime
-from date_utils import parse_date, format_date, is_today
+from date_utils import parse_date, format_date, is_within_days
 
 
 def _fetch_api_with_retry(api_url, max_retries=3, timeout=45, verify=True):
@@ -99,21 +98,19 @@ def _get_paginated_items(source):
         if not raw_list:
             break
 
-        # Check if any items are still within today's range
+        # Check if any items are still within the last 7 days
         has_recent = False
         date_field = source.get('api_date_field', 'createdDateText')
         for item in raw_list:
             pub_date = _get_date_from_item(item, date_field, source)
-            if pub_date:
-                dt = parse_date(pub_date)
-                if dt and dt.date() >= datetime.now().date():
-                    has_recent = True
-                    break
+            if pub_date and is_within_days(pub_date, days=7):
+                has_recent = True
+                break
 
         all_items.extend(raw_list)
 
         if not has_recent:
-            break  # No more today's items in older pages
+            break  # No more recent items in older pages
 
         # Check total if available
         if isinstance(data, dict):
@@ -239,8 +236,8 @@ def fetch_api(source_file):
 
         publish_date_raw = _get_date_from_item(item, date_field, source)
         dt = parse_date(publish_date_raw)
-        if not dt or dt.date() != datetime.now().date():
-            continue  # only keep today's articles
+        if not dt or not is_within_days(publish_date_raw, days=7):
+            continue  # only keep articles from the last 7 days
 
         summary = _get_summary(item, source)
 

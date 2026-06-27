@@ -83,7 +83,7 @@ def collect_news():
                     "homepage": source.get("homepage", "#"),
                     "error": "0 articles"
                 })
-                print(f"ERROR: {source['name']} — 无当日文章")
+                print(f"ERROR: {source['name']} — 无近期文章")
 
         except Exception as e:
             cat_status = status.get(source.get("category", "党政机关") if source else "党政机关", status["党政机关"])
