@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from html_fetcher import fetch_html
@@ -17,7 +17,7 @@ def save_nema_json(
     output = {
         'name': source.get('name'),
         'homepage': source.get('homepage'),
-        'fetched_at': datetime.utcnow().isoformat() + 'Z',
+        'fetched_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'items': items
     }
 

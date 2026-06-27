@@ -8,6 +8,7 @@ from api_fetcher import fetch_api
 from news_storage import save_news
 
 from build_pages import main as build_pages
+from build_status import main as build_status
 
 def load_sources():
     sources_dir = Path("config/sources")
@@ -110,9 +111,10 @@ def main():
     save_news(all_news)
 
     build_pages()
+    build_status()
 
     print(f"Total articles: {len(all_news)}")
-    print("HTML generated successfully.")
+    print("HTML and status generated successfully.")
 
 
 if __name__ == "__main__":

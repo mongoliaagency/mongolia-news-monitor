@@ -2,7 +2,7 @@ import json
 from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def fetch_parliament(config_path='config/sources/parliament_mn.json', out_path='data/news/parliament_mn.json'):
@@ -71,7 +71,7 @@ def fetch_parliament(config_path='config/sources/parliament_mn.json', out_path='
     out = {
         'name': cfg.get('name'),
         'homepage': cfg.get('homepage'),
-        'fetched_at': datetime.utcnow().isoformat() + 'Z',
+        'fetched_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'items': items
     }
 

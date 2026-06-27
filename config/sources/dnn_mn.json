@@ -8,5 +8,6 @@
   "title_selector": "img",
   "title_attr": "alt",
   "date_from_item_text": true,
-  "category": "新闻媒体"
+  "category": "新闻媒体",
+  "status": "active"
 }

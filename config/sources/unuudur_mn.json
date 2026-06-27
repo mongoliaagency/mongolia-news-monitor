@@ -8,5 +8,6 @@
   "link_selector": "a.sidebar-article.uk-position-relative",
   "date_selector": "div.sidebar-article__img img",
   "date_attr": "src",
-  "category": "新闻媒体"
+  "category": "新闻媒体",
+  "status": "active"
 }

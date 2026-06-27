@@ -46,8 +46,8 @@ def parse_date(raw_date):
     # Roman numeral months (e.g. "2026 VI сар 26" from mongolbank.mn)
     # Order: longest first to avoid partial matches (e.g. "viii" before "iii")
     ROMAN_MONTHS = [
-        ('viii сар', 8), ('vii сар', 7), ('iii сар', 3), ('xii сар', 12),
-        ('xiii сар', 13), ('xi сар', 11), ('xii сар', 12), ('ix сар', 9),
+        ('xiii сар', 13), ('viii сар', 8), ('vii сар', 7), ('iii сар', 3),
+        ('xii сар', 12), ('xi сар', 11), ('ix сар', 9),
         ('iv сар', 4), ('vi сар', 6), ('ii сар', 2), ('v сар', 5),
         ('x сар', 10), ('i сар', 1),
     ]

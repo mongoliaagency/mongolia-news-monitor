@@ -8,5 +8,6 @@
   "link_selector": "a",
   "date_selector": "img",
   "date_attr": "src",
-  "category": "新闻媒体"
+  "category": "新闻媒体",
+  "status": "active"
 }

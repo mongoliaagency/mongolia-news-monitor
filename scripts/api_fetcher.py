@@ -1,7 +1,7 @@
 import json
 import time
 import requests
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, parse_qs, urlencode, urlunparse
 from bs4 import BeautifulSoup
 from date_utils import parse_date, format_date, is_within_days
 
@@ -49,6 +49,20 @@ def _extract_raw_list(data, source):
     return []
 
 
+def _set_page_param(url, page):
+    """Set or replace the 'page' query parameter in a URL."""
+    parsed = urlparse(url)
+    params = parse_qs(parsed.query, keep_blank_values=True)
+    # Flatten multi-value lists and set page
+    flat = {k: v[0] for k, v in params.items()}
+    if page == 0:
+        if 'page' in flat:
+            del flat['page']
+    else:
+        flat['page'] = str(page)
+    new_query = urlencode(flat, doseq=False)
+    return urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
+
 def _get_paginated_items(source):
     """Fetch items from API with optional pagination."""
     api_url = source.get('api_url')
@@ -60,24 +74,14 @@ def _get_paginated_items(source):
     verify = source.get('api_verify_ssl', True)
 
     for page in range(max_pages):
-        # Build page URL
-        if page == 0:
-            page_url = api_url
-        elif '?' in api_url:
-            page_url = f"{api_url}&page={page}"
-        else:
-            page_url = f"{api_url}?page={page}"
+        # Build page URL using proper query parameter manipulation
+        page_url = _set_page_param(api_url, page)
 
         # Try primary URL pattern, then fallback URLs
         urls_to_try = [page_url]
         fallback_urls = source.get('api_fallback_urls', [])
         for fb in fallback_urls:
-            if page == 0:
-                urls_to_try.append(fb)
-            elif '?' in fb:
-                urls_to_try.append(f"{fb}&page={page}")
-            else:
-                urls_to_try.append(f"{fb}?page={page}")
+            urls_to_try.append(_set_page_param(fb, page))
 
         data = None
         last_error = None

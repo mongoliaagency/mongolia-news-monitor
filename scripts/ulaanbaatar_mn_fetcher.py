@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from api_fetcher import fetch_api
@@ -17,7 +17,7 @@ def save_ulaanbaatar_json(
     output = {
         'name': source.get('name'),
         'homepage': source.get('homepage'),
-        'fetched_at': datetime.utcnow().isoformat() + 'Z',
+        'fetched_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'items': items
     }
 
