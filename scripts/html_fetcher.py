@@ -10,16 +10,28 @@ from datetime import datetime
 from playwright.sync_api import sync_playwright
 
 
-def _fetch_with_retry(url, requires_browser=False, max_retries=3, timeout=45):
+def _fetch_with_retry(url, requires_browser=False, max_retries=3, timeout=60):
     """Fetch URL with retry logic for connection timeouts."""
     last_error = None
     for attempt in range(max_retries):
         try:
             if requires_browser:
                 with sync_playwright() as p:
-                    browser = p.chromium.launch()
+                    browser = p.chromium.launch(headless=True, args=[
+                        '--disable-gpu',
+                        '--no-sandbox',
+                        '--disable-dev-shm-usage',
+                    ])
                     page = browser.new_page()
-                    page.goto(url, wait_until='networkidle', timeout=timeout * 1000)
+                    page.set_extra_http_headers({
+                        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                        "Accept-Language": "mn-MN,en-US;q=0.9",
+                    })
+                    # Use 'load' instead of 'networkidle' — Mongolian servers often
+                    # keep long-lived connections open, causing networkidle to timeout.
+                    page.goto(url, wait_until='load', timeout=timeout * 1000)
+                    # Give the page a little extra time to render dynamic content
+                    page.wait_for_timeout(2000)
                     html_content = page.content()
                     browser.close()
                 return html_content

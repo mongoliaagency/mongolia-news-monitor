@@ -48,7 +48,7 @@ def _fetch_with_requests(url, headers=None, timeout=30):
         return None
 
 
-def _fetch_with_playwright(url, timeout=45000):
+def _fetch_with_playwright(url, timeout=60000):
     try:
         from playwright.sync_api import sync_playwright
     except Exception:
@@ -56,12 +56,17 @@ def _fetch_with_playwright(url, timeout=45000):
 
     try:
         with sync_playwright() as pw:
-            browser = pw.chromium.launch(headless=True)
+            browser = pw.chromium.launch(headless=True, args=[
+                '--disable-gpu',
+                '--no-sandbox',
+                '--disable-dev-shm-usage',
+            ])
             page = browser.new_page()
             page.set_extra_http_headers({
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
             })
-            page.goto(url, wait_until="networkidle", timeout=timeout)
+            page.goto(url, wait_until="load", timeout=timeout)
+            page.wait_for_timeout(2000)
             content = page.content()
             browser.close()
             return content.encode("utf-8")
@@ -99,7 +104,20 @@ def fetch_rss(source_file):
         if playwright_content:
             content = playwright_content
 
-    feed = feedparser.parse(content or b"")
+    if content is None:
+        print(f"  {source['name']}: All fetch methods returned None")
+        return []
+
+    feed = feedparser.parse(content)
+
+    if feed.bozo:
+        print(f"  {source['name']}: XML parse warning — {feed.bozo_exception}")
+
+    if len(feed.entries) == 0:
+        # Diagnostic: log content preview to help debug
+        preview = (content[:500] if isinstance(content, bytes) else str(content)[:500])
+        preview = preview.replace('\n', ' ').replace('\r', '')
+        print(f"  {source['name']}: 0 entries in feed. Content preview: {preview}")
 
     news = []
     for entry in feed.entries:

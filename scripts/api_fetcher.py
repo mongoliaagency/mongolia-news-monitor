@@ -34,7 +34,21 @@ def fetch_api(source_file):
     if not api_url:
         raise ValueError('api_url is required for api source_type')
 
-    data = _fetch_api_with_retry(api_url)
+    # Try primary URL first, then fallback URLs
+    urls_to_try = [api_url] + source.get('api_fallback_urls', [])
+    data = None
+    last_error = None
+    for url in urls_to_try:
+        try:
+            data = _fetch_api_with_retry(url, max_retries=2, timeout=30)
+            break
+        except Exception as e:
+            last_error = e
+            if url != urls_to_try[-1]:
+                print(f"  Trying fallback URL: {urls_to_try[urls_to_try.index(url) + 1] if url != urls_to_try[-1] else 'none'}")
+
+    if data is None:
+        raise last_error
     items = []
 
     raw_list = []

@@ -3,6 +3,7 @@
   "homepage": "https://mod.gov.mn/",
   "source_type": "html",
   "news_url": "https://mod.gov.mn/?cat=23",
-  "title_selector": "article h2 a, .post-title a, h2.entry-title a",
+  "title_selector": ".entry-title a, .post-title a, h2 a, h3 a, article a",
+  "requires_browser": true,
   "status": "active"
 }
