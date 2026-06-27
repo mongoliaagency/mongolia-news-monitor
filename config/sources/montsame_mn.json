@@ -9,5 +9,5 @@
   "title_selector": "a[href*=\"/n/\"]",
   "link_selector": "a[href*=\"/n/\"]",
   "date_selector": ".date, time, [class*=\"date\"]",
-  "status": "inactive"
+  "status": "active"
 }

@@ -1,14 +1,13 @@
 {
-  "name": "蒙古国经济发展部",
-  "url": "https://med.gov.mn/posts?category_id=17008",
-  "type": "html",
-  "enabled": true,
+  "name": "经济发展部",
+  "homepage": "https://med.gov.mn/",
+  "category": "government",
+  "source_type": "html",
+  "news_url": "https://med.gov.mn/posts?category_id=17008",
+  "requires_browser": false,
   "items_selector": ".entry.post-list-item",
   "title_selector": ".entry-title h2 a",
   "link_selector": ".entry-title h2 a",
   "date_selector": ".entry-meta li:first-child",
-  "date_format": "%Y-%m-%d",
-  "date_language": "mn",
-  "encoding": "utf-8",
-  "base_url": "https://med.gov.mn"
+  "status": "active"
 }
