@@ -4,6 +4,10 @@
   "category": "government",
   "source_type": "html",
   "news_url": "https://nema.gov.mn/posts",
-  "title_selector": "article.post-item h6 a[href^=\"/post/\"]",
+  "requires_browser": false,
+  "items_selector": "article.post-item, div.posts-detail",
+  "title_selector": "h6 a[href^=\"/post/\"]",
+  "link_selector": "h6 a[href^=\"/post/\"]",
+  "date_selector": "div.post-date-category, div.post-date-category p",
   "status": "active"
 }

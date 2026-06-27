@@ -4,6 +4,9 @@
   "category": "government",
   "source_type": "html",
   "news_url": "https://www.parliament.mn/nc/340/",
-  "title_selector": "a[href^=\"/nn/\"]",
+  "items_selector": "div.col-md-8",
+  "title_selector": "h3 a[href^=\"/nn/\"]",
+  "link_selector": "h3 a[href^=\"/nn/\"]",
+  "date_selector": "div.entry-meta",
   "status": "active"
 }
