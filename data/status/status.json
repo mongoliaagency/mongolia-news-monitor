@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27 14:38:08",
+  "updated_at": "2026-06-27 15:01:57",
   "categories": {
     "党政机关": {
       "label": "党政机关",
@@ -62,15 +62,21 @@
     },
     "新闻媒体": {
       "label": "新闻媒体",
-      "total": 2,
-      "success": 2,
-      "failed": 0,
-      "success_rate": 100.0,
-      "failed_list": []
+      "total": 5,
+      "success": 4,
+      "failed": 1,
+      "success_rate": 80.0,
+      "failed_list": [
+        {
+          "source": "日报",
+          "homepage": "https://dnn.mn",
+          "error": "0 articles"
+        }
+      ]
     }
   },
-  "total_sources": 28,
-  "success_sources": 18,
-  "failed_sources": 10,
-  "success_rate": 64.3
+  "total_sources": 31,
+  "success_sources": 20,
+  "failed_sources": 11,
+  "success_rate": 64.5
 }

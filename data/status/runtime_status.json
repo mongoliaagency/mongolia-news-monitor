@@ -57,9 +57,15 @@
     ]
   },
   "新闻媒体": {
-    "total": 2,
-    "success": 2,
-    "failed": 0,
-    "failed_list": []
+    "total": 5,
+    "success": 4,
+    "failed": 1,
+    "failed_list": [
+      {
+        "source": "日报",
+        "homepage": "https://dnn.mn",
+        "error": "0 articles"
+      }
+    ]
   }
 }
