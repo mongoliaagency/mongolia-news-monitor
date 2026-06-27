@@ -2,6 +2,8 @@ import json
 import feedparser
 import requests
 from pathlib import Path
+from datetime import datetime
+from date_utils import parse_date, format_date, is_today
 
 
 def _is_cloudflare_challenge(content, status_code=None):
@@ -11,7 +13,13 @@ def _is_cloudflare_challenge(content, status_code=None):
     if status_code in {403, 429, 503, 520, 521, 522, 523, 524}:
         return True
 
-    lower = content[:2000].lower()
+    # Normalize content to bytes before checking keywords
+    if isinstance(content, str):
+        content_bytes = content[:2000].encode('utf-8', errors='replace')
+    else:
+        content_bytes = content[:2000]
+
+    lower = content_bytes.lower()
     challenge_keywords = [
         b"just a moment",
         b"cf-chl-bypass",
@@ -105,25 +113,24 @@ def fetch_rss(source_file):
             content = playwright_content
 
     if content is None:
-        print(f"  {source['name']}: All fetch methods returned None")
         return []
 
     feed = feedparser.parse(content)
 
-    if feed.bozo:
-        print(f"  {source['name']}: XML parse warning — {feed.bozo_exception}")
-
     if len(feed.entries) == 0:
-        # Diagnostic: log content preview to help debug
-        preview = (content[:500] if isinstance(content, bytes) else str(content)[:500])
-        preview = preview.replace('\n', ' ').replace('\r', '')
-        print(f"  {source['name']}: 0 entries in feed. Content preview: {preview}")
+        return []
 
     news = []
     for entry in feed.entries:
+        raw_date = entry.get("published", "")
+        dt = parse_date(raw_date)
+        if not dt:
+            continue  # skip entries without a parseable date
+        if dt.date() != datetime.now().date():
+            continue  # only keep today's articles
         item = {
             "title": entry.get("title", ""),
-            "publish_date": entry.get("published", ""),
+            "publish_date": format_date(dt),
             "source": source["name"],
             "url": entry.get("link", ""),
         }

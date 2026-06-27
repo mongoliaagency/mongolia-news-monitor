@@ -3,7 +3,9 @@
   "homepage": "https://mecc.gov.mn/",
   "source_type": "html",
   "news_url": "https://mecc.gov.mn/posts",
-  "title_selector": "a[href^=\"/post/\"]",
   "requires_browser": true,
+  "items_selector": "article",
+  "title_selector": "a[href*=\"/posts/\"]:not([class])",
+  "date_selector": "p.text-sm.text-heading",
   "status": "active"
 }

@@ -9,6 +9,8 @@ from datetime import datetime
 
 from playwright.sync_api import sync_playwright
 
+from date_utils import parse_date, format_date, is_today
+
 
 def _fetch_with_retry(url, requires_browser=False, max_retries=3, timeout=60):
     """Fetch URL with retry logic for connection timeouts."""
@@ -47,39 +49,9 @@ def _fetch_with_retry(url, requires_browser=False, max_retries=3, timeout=60):
             last_error = e
             if attempt < max_retries - 1:
                 wait = (attempt + 1) * 10
-                print(f"  Retry {attempt + 1}/{max_retries} for {url} in {wait}s: {e}")
                 time.sleep(wait)
             else:
                 raise last_error
-
-
-def parse_publish_date(raw_date):
-    if not raw_date:
-        return None
-
-    raw_date = raw_date.strip()
-    
-    # Remove common date prefixes/icons
-    if raw_date.startswith('far fa-clock'):
-        raw_date = raw_date.replace('far fa-clock', '').strip()
-
-    formats = [
-        "%Y/%m/%d",
-        "%Y.%m.%d",
-        "%Y-%m-%d",
-        "%d/%m/%Y",
-        "%d.%m.%Y",
-        "%d-%m-%Y",
-    ]
-
-    for fmt in formats:
-        try:
-            dt = datetime.strptime(raw_date, fmt)
-            return dt.strftime("%a, %d %b %Y 00:00:00 GMT")
-        except Exception:
-            continue
-
-    return None
 
 
 def fetch_html(source_file):
@@ -99,12 +71,10 @@ def fetch_html(source_file):
         html_content = _fetch_with_retry(url, requires_browser=requires_browser)
     except Exception as e:
         if not requires_browser:
-            # Fallback: try with Playwright browser rendering
-            print(f"  Falling back to Playwright for {url}: {e}")
             try:
                 html_content = _fetch_with_retry(url, requires_browser=True)
-            except Exception as e2:
-                raise Exception(f"All fetch methods failed for {url}: {e2}")
+            except Exception:
+                raise
         else:
             raise
 
@@ -125,8 +95,6 @@ def fetch_html(source_file):
     elif title_selector:
         items = soup.select(title_selector)
     else:
-        source_name = source.get("name", source_file)
-        print(f"  WARNING: {source_name} is missing both 'items_selector' and 'title_selector' in config, returning 0 articles")
         items = []
 
     for item in items[:100]:
@@ -155,22 +123,26 @@ def fetch_html(source_file):
         elif not link.startswith("http"):
             link = source["homepage"].rstrip("/") + "/" + link.lstrip("/")
 
-        publish_date = None
+        publish_date_str = None
         if date_selector:
             date_node = item.select_one(date_selector)
             if date_node:
-                publish_date = parse_publish_date(date_node.get_text(strip=True))
+                dt = parse_date(date_node.get_text(strip=True))
+                if dt:
+                    publish_date_str = format_date(dt)
 
-        if not publish_date:
-            publish_date = datetime.now().strftime(
-                "%a, %d %b %Y 00:00:00 GMT"
-            )
+        # Only keep articles with a parsed date matching today
+        if not publish_date_str:
+            continue
 
         news.append({
             "title": title,
-            "publish_date": publish_date,
+            "publish_date": publish_date_str,
             "source": source["name"],
             "url": link
         })
 
-    return news
+    # Filter: only today's articles
+    filtered_news = [item for item in news if is_today(item["publish_date"])]
+
+    return filtered_news

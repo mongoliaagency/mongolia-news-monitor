@@ -60,9 +60,9 @@ def collect_news():
                 status["failed_list"].append({
                     "source": source.get("name", source_file.name),
                     "homepage": source.get("homepage", "#"),
-                    "error": f"Unknown source_type: {source_type}"
+                    "error": "未知源类型"
                 })
-                print(f"ERROR: {source_file.name} - Unknown source_type: {source_type}")
+                print(f"ERROR: {source.get('name', source_file.name)} — 未知源类型")
                 continue
 
             all_news.extend(news)
@@ -76,8 +76,7 @@ def collect_news():
                     "homepage": source.get("homepage", "#"),
                     "error": "0 articles"
                 })
-
-            print(f"SUCCESS: {source['name']} {len(news)} articles")
+                print(f"ERROR: {source['name']} — 无当日文章")
 
         except Exception as e:
             status["failed"] += 1
@@ -89,11 +88,10 @@ def collect_news():
             status["failed_list"].append({
                 "source": source_name,
                 "homepage": source_homepage,
-                "error": str(e)
+                "error": "连接失败"
             })
 
-            print(f"ERROR: {source_file.name}")
-            print(e)
+            print(f"ERROR: {source_name} — 连接失败")
 
     return all_news, status
 

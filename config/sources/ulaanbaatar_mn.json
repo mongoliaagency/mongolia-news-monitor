@@ -7,5 +7,5 @@
     "https://ulaanbaatar.mn/api/article?type=TIME_HISTORY&currentPage=1&pageSize=24",
     "https://www.ulaanbaatar.mn:8443/api/article?type=TIME_HISTORY&currentPage=1&pageSize=24"
   ],
-  "status": "active"
+  "status": "inactive"
 }

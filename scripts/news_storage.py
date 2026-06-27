@@ -17,46 +17,76 @@ def ensure_dir():
     )
 
 
+def _parse_date_from_item(item):
+    """Extract date string (YYYY-MM-DD) from a news item's publish_date field."""
+    publish_date = item.get("publish_date", "")
+    if not publish_date:
+        return None
+
+    formats = [
+        "%a, %d %b %Y %H:%M:%S %Z",
+        "%a, %d %b %Y 00:00:00 GMT",
+    ]
+    for fmt in formats:
+        try:
+            dt = datetime.strptime(publish_date.strip(), fmt)
+            return dt.strftime("%Y-%m-%d")
+        except Exception:
+            continue
+
+    return None
+
+
 def save_news(news_list):
 
     ensure_dir()
 
-    today = datetime.now().strftime(
-        "%Y-%m-%d"
-    )
+    today_str = datetime.now().strftime("%Y-%m-%d")
 
-    # 去重：按照归一化后的标题保留首条记录，确保不同来源的重复标题只保留一次
-    def normalize_title(t):
-        if not t:
-            return ""
-        # 小写并去除首尾空白
-        s = t.strip().lower()
-        # 合并连续空白为单个空格
-        s = " ".join(s.split())
-        return s
-
-    seen = set()
-    unique_news = []
+    # Group articles by their publish_date (YYYY-MM-DD)
+    grouped = {}
     for item in news_list:
-        title = item.get("title", "")
-        key = normalize_title(title)
-        if key in seen:
-            continue
-        seen.add(key)
-        unique_news.append(item)
+        date_key = _parse_date_from_item(item)
+        if date_key is None:
+            date_key = today_str
+        grouped.setdefault(date_key, []).append(item)
 
-    news_list = unique_news
+    # Merge with existing files to preserve articles from previous runs
+    for date_key in grouped:
+        output_file = NEWS_DIR / f"{date_key}.json"
+        existing = []
+        if output_file.exists():
+            try:
+                existing = json.loads(output_file.read_text(encoding="utf-8"))
+            except Exception:
+                existing = []
 
-    output_file = (
-        NEWS_DIR /
-        f"{today}.json"
-    )
+        # Deduplicate: normalized title
+        def normalize_title(t):
+            if not t:
+                return ""
+            s = t.strip().lower()
+            return " ".join(s.split())
 
-    output_file.write_text(json.dumps(news_list, ensure_ascii=False, indent=2), encoding="utf-8")
+        seen = set()
+        for item in existing:
+            key = normalize_title(item.get("title", ""))
+            seen.add(key)
 
-    print(
-        f"Saved: {output_file}"
-    )
+        new_items = []
+        for item in grouped[date_key]:
+            key = normalize_title(item.get("title", ""))
+            if key in seen:
+                continue
+            seen.add(key)
+            new_items.append(item)
+
+        merged = existing + new_items
+        output_file.write_text(
+            json.dumps(merged, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+        print(f"Saved: {output_file} ({len(new_items)} new, {len(merged)} total)")
 
     cleanup_old_files()
 

@@ -4,6 +4,7 @@ import requests
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from datetime import datetime
+from date_utils import parse_date, format_date, is_today
 
 
 def _fetch_api_with_retry(api_url, max_retries=3, timeout=45):
@@ -20,7 +21,6 @@ def _fetch_api_with_retry(api_url, max_retries=3, timeout=45):
             last_error = e
             if attempt < max_retries - 1:
                 wait = (attempt + 1) * 10
-                print(f"  Retry {attempt + 1}/{max_retries} for {api_url} in {wait}s: {e}")
                 time.sleep(wait)
             else:
                 raise last_error
@@ -44,8 +44,6 @@ def fetch_api(source_file):
             break
         except Exception as e:
             last_error = e
-            if url != urls_to_try[-1]:
-                print(f"  Trying fallback URL: {urls_to_try[urls_to_try.index(url) + 1] if url != urls_to_try[-1] else 'none'}")
 
     if data is None:
         raise last_error
@@ -68,7 +66,10 @@ def fetch_api(source_file):
 
         link = urljoin(source.get('homepage', ''), f'/news/{url_id}')
 
-        publish_date = item.get('createdDateText') or item.get('createdDate') or ''
+        publish_date_raw = item.get('createdDateText') or item.get('createdDate') or ''
+        dt = parse_date(publish_date_raw)
+        if not dt or dt.date() != datetime.now().date():
+            continue  # only keep today's articles
 
         summary = item.get('shortContent') or ''
         if not summary:
@@ -81,7 +82,7 @@ def fetch_api(source_file):
 
         items.append({
             'title': title,
-            'publish_date': publish_date,
+            'publish_date': format_date(dt),
             'source': source.get('name'),
             'url': link,
             'summary': summary

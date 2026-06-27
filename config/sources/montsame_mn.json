@@ -5,5 +5,5 @@
   "news_url": "https://montsame.mn/",
   "title_selector": ".main-item a, .sub-item a, .news-box a.box",
   "requires_browser": true,
-  "status": "active"
+  "status": "inactive"
 }
