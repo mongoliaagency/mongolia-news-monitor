@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-06-27 05:08:34",
+  "updated_at": "2026-06-27 05:26:36",
   "total_sources": 13,
-  "success_sources": 12,
+  "success_sources": 10,
   "failed_sources": 0,
-  "success_rate": 92.31,
+  "success_rate": 76.92,
   "failed_list": []
 }

@@ -1,22 +1,47 @@
 {
-  "total": 12,
-  "success": 8,
-  "failed": 4,
+  "total": 10,
+  "success": 1,
+  "failed": 9,
   "failed_list": [
     {
-      "source": "蒙通社",
-      "homepage": "https://montsame.mn/",
+      "source": "蒙古国教育部",
+      "homepage": "https://moe.gov.mn",
       "error": "0 articles"
     },
     {
-      "source": "乌兰巴托市政府",
-      "homepage": "https://ulaanbaatar.mn/",
-      "error": "HTTPSConnectionPool(host='www.ulaanbaatar.mn', port=8443): Max retries exceeded with url: /api/article?type=TIME_HISTORY&currentPage=1&pageSize=24 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ulaanbaatar.mn', port=8443) at 0x7f656ea03c50>, 'Connection to www.ulaanbaatar.mn timed out. (connect timeout=30)'))"
+      "source": "蒙古国大呼拉尔",
+      "homepage": "https://www.parliament.mn/",
+      "error": "0 articles"
     },
     {
       "source": "蒙古国总统办公厅",
       "homepage": "https://president.mn/",
-      "error": "a bytes-like object is required, not 'str'"
+      "error": "0 articles"
+    },
+    {
+      "source": "蒙古国标准计量局",
+      "homepage": "https://www.masm.gov.mn",
+      "error": "0 articles"
+    },
+    {
+      "source": "蒙古国国防部",
+      "homepage": "https://mod.gov.mn/",
+      "error": "0 articles"
+    },
+    {
+      "source": "家庭、劳动和社会保障部",
+      "homepage": "https://mlsp.gov.mn/",
+      "error": "0 articles"
+    },
+    {
+      "source": "蒙古国工业和矿产资源部",
+      "homepage": "https://mmhi.gov.mn",
+      "error": "0 articles"
+    },
+    {
+      "source": "蒙古国紧急情况总局",
+      "homepage": "https://nema.gov.mn/",
+      "error": "0 articles"
     },
     {
       "source": "蒙古国环境和气候变化部",
