@@ -1,0 +1,13 @@
+{
+  "name": "蒙古国文化体育旅游与青年部",
+  "homepage": "https://mocsty.gov.mn/",
+  "category": "government",
+  "source_type": "html",
+  "news_url": "https://mocsty.gov.mn/news",
+  "requires_browser": false,
+  "items_selector": ".grid.grid-cols-3 article",
+  "title_selector": "h4.article-title",
+  "link_selector": "a[href^=\"/news/\"]",
+  "date_selector": "span.text-xs",
+  "status": "active"
+}
