@@ -1,0 +1,15 @@
+{
+  "name": "NEWMM",
+  "homepage": "https://www.newmm.mn/",
+  "news_url": "https://www.newmm.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "encoding": "utf-8",
+  "items_selector": ".post",
+  "title_selector": ".title a",
+  "link_selector": ".title a",
+  "date_selector": ".meta-item.date",
+  "date_format": "YYYY/MM/DD",
+  "link_prefix": "https://www.newmm.mn"
+}
