@@ -1,0 +1,12 @@
+{
+  "name": "每日新闻报",
+  "homepage": "https://www.sonin.mn",
+  "news_url": "https://www.sonin.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": ".newsItem",
+  "title_selector": "a[href*=\"newsDetail\"]:not(:has(img))",
+  "date_selector": ".dateago",
+  "status": "active"
+}

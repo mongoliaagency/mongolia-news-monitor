@@ -1,0 +1,12 @@
+{
+  "name": "彭博社（蒙古国）",
+  "homepage": "https://www.bloombergtv.mn",
+  "news_url": "https://www.bloombergtv.mn",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": true,
+  "items_selector": "div.flex.justify-between.flex-col.flex-1",
+  "title_selector": "a.line-clamp-4",
+  "date_selector": "div.news-date",
+  "status": "active"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "CNBC（蒙古国）",
+  "homepage": "https://cnbc.mn/",
+  "news_url": "https://cnbc.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "div.flex-1.flex.flex-col.justify-between",
+  "title_selector": "a[href^=\"/news/\"]",
+  "date_selector": "span.timestamp",
+  "status": "active"
+}

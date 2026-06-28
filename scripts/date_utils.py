@@ -43,6 +43,14 @@ def parse_date(raw_date):
         except Exception:
             continue
 
+    # Time-only format HH:MM (e.g. "14:58") — article published today
+    time_match = re.match(r'^\s*(\d{1,2}):(\d{2})\s*$', raw_date)
+    if time_match:
+        hour = int(time_match.group(1))
+        minute = int(time_match.group(2))
+        now = datetime.now()
+        return now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+
     # Roman numeral months (e.g. "2026 VI сар 26" from mongolbank.mn)
     # Order: longest first to avoid partial matches (e.g. "viii" before "iii")
     ROMAN_MONTHS = [
@@ -111,15 +119,21 @@ def parse_date(raw_date):
             break
 
     # Relative time in Mongolian (e.g. "8 цаг" = 8 hours ago, "5 өдөр" = 5 days ago)
-    rel_match = re.match(r'^\s*(\d+)\s*(цаг|өдөр|хоног)\s*$', raw_date)
+    # Also handle genitive/"өмнө" forms: "2 өдрийн өмнө" = 2 days ago, "3 сарын өмнө" = 3 months ago
+    rel_match = re.match(r'^\s*(\d+)\s*(?:цагийн\s*(?:өмнө|урьд)|цаг|өдрийн\s*(?:өмнө|урьд)|өдөр|хоногийн\s*(?:өмнө|урьд)|хоног|сарын\s*(?:өмнө|урьд)|сар|жилийн\s*(?:өмнө|урьд)|жил)\s*$', raw_date)
     if rel_match:
         num = int(rel_match.group(1))
-        unit = rel_match.group(2)
+        full = rel_match.group(0)
         from datetime import timedelta
         now = datetime.now()
-        if unit in ('цаг',):
+        if 'цаг' in full:
             return now.replace(hour=0, minute=0, second=0, microsecond=0)
-        elif unit in ('өдөр', 'хоног'):
+        elif 'сар' in full:
+            return (now - timedelta(days=num * 30)).replace(hour=0, minute=0, second=0, microsecond=0)
+        elif 'жил' in full:
+            return (now - timedelta(days=num * 365)).replace(hour=0, minute=0, second=0, microsecond=0)
+        else:
+            # өдөр / өдрийн / хоног / хоногийн
             return (now - timedelta(days=num)).replace(hour=0, minute=0, second=0, microsecond=0)
 
     # Fallback: extract first date-like pattern (e.g. "2026-06-26" from "2026-06-26Category")
