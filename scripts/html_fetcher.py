@@ -1,4 +1,5 @@
 import json
+import re
 import time
 from datetime import datetime, timedelta
 
@@ -56,6 +57,10 @@ def _fetch_with_retry(url, requires_browser=False, max_retries=3, timeout=60):
 def _parse_articles(soup, source, override_date=None):
     """Extract articles from a parsed BeautifulSoup object.
     If override_date is provided, use it as the publish_date for all articles.
+    Supports detail_page_date: when True, fetches each article's detail page
+    to extract the publish date via detail_date_pattern regex.
+    Supports group_date_selector: when items are grouped under date headers,
+    each item inherits the date from its nearest preceding group header.
     """
     items_selector = source.get("items_selector")
     title_selector = source.get("title_selector")
@@ -64,6 +69,37 @@ def _parse_articles(soup, source, override_date=None):
     date_selector = source.get("date_selector")
     date_attr = source.get("date_attr")
     exclude_urls = source.get("exclude_urls", [])
+    detail_date = source.get("detail_date", False)
+    detail_date_pattern = source.get("detail_date_pattern")
+    requires_browser = source.get("requires_browser", False)
+    group_date_selector = source.get("group_date_selector")
+    group_date_pattern = source.get("group_date_pattern")
+
+    # Build a group-date map when group_date_selector is configured.
+    # Maps each item element to the date of its nearest preceding group-date header.
+    group_date_map = {}
+    if group_date_selector and items_selector:
+        group_headers = soup.select(group_date_selector)
+        item_elements = soup.select(items_selector)
+        if group_headers and item_elements:
+            # Gather all relevant elements (headers + items) in document order
+            all_elements = [(el, 'group') for el in group_headers] + \
+                           [(el, 'item') for el in item_elements]
+            all_elements.sort(key=lambda x: x[0].sourceline if hasattr(x[0], 'sourceline') and x[0].sourceline else 0)
+            current_date = None
+            for el, el_type in all_elements:
+                if el_type == 'group':
+                    raw_date = el.get_text(strip=True)
+                    if group_date_pattern:
+                        m = re.search(group_date_pattern, raw_date)
+                        if m:
+                            raw_date = m.group(1)
+                    dt = parse_date(raw_date)
+                    if dt:
+                        current_date = format_date(dt)
+                elif el_type == 'item':
+                    if current_date:
+                        group_date_map[el] = current_date
 
     if items_selector:
         items = soup.select(items_selector)
@@ -73,6 +109,7 @@ def _parse_articles(soup, source, override_date=None):
         items = []
 
     articles = []
+    pending_for_detail = []  # articles that need detail page date fetch
 
     for item in items[:100]:
 
@@ -142,6 +179,12 @@ def _parse_articles(soup, source, override_date=None):
             if dt:
                 publish_date_str = format_date(dt)
 
+        # Group-date fallback: use date from nearest preceding group header
+        if not publish_date_str and not override_date and group_date_selector:
+            mapped_date = group_date_map.get(item)
+            if mapped_date:
+                publish_date_str = mapped_date
+
         # Fallback: try alt date selector when primary date_selector didn't yield a date
         if not publish_date_str and not override_date:
             date_alt_selector = source.get("date_alt_selector")
@@ -159,16 +202,44 @@ def _parse_articles(soup, source, override_date=None):
             if dt:
                 publish_date_str = format_date(dt)
 
-        if not publish_date_str:
-            continue
-
-        articles.append({
+        article_entry = {
             "title": title,
             "publish_date": publish_date_str,
             "source": source["name"],
             "url": link,
             "category": source.get("category", "党政机关"),
-        })
+        }
+
+        if not publish_date_str and detail_date and detail_date_pattern:
+            pending_for_detail.append(article_entry)
+        elif publish_date_str:
+            articles.append(article_entry)
+        # else: skip articles without date (and without detail_date config)
+
+    # Fetch detail pages for articles that need date extraction
+    if pending_for_detail:
+        for entry in pending_for_detail:
+            try:
+                detail_html = _fetch_with_retry(entry["url"], requires_browser=requires_browser, timeout=30)
+                match = re.search(detail_date_pattern, detail_html)
+                if match:
+                    raw_date = match.group(1)
+                    dt = parse_date(raw_date)
+                    if dt:
+                        entry["publish_date"] = format_date(dt)
+                        articles.append(entry)
+            except Exception:
+                pass  # Skip this article if detail page fetch fails
+
+    # Deduplicate by URL when configured (e.g. same article appears in multiple layouts)
+    if source.get("deduplicate_urls"):
+        seen = set()
+        deduped = []
+        for entry in articles:
+            if entry["url"] not in seen:
+                seen.add(entry["url"])
+                deduped.append(entry)
+        return deduped
 
     return articles
 

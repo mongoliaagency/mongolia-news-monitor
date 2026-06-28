@@ -36,6 +36,8 @@ def parse_date(raw_date):
         "%a, %d %b %Y %H:%M:%S",
         "%a, %d %b %Y",
         "%Y-%m-%dT%H:%M:%S%z",
+        # English date with comma: "16 Jun, 2026" (mongol.news)
+        "%d %b, %Y",
     ]
 
     for fmt in formats:
@@ -78,6 +80,10 @@ def parse_date(raw_date):
         '1 сарын': 1, '2 сарын': 2, '3 сарын': 3, '4 сарын': 4,
         '5 сарын': 5, '6 сарын': 6, '7 сарын': 7, '8 сарын': 8,
         '9 сарын': 9, '10 сарын': 10, '11 сарын': 11, '12 сарын': 12,
+        # "X-р сарын" ordinal suffix (e.g. "6-р сарын 21" from mono.mn)
+        '1-р сарын': 1, '2-р сарын': 2, '3-р сарын': 3, '4-р сарын': 4,
+        '5-р сарын': 5, '6-р сарын': 6, '7-р сарын': 7, '8-р сарын': 8,
+        '9-р сарын': 9, '10-р сарын': 10, '11-р сарын': 11, '12-р сарын': 12,
         # Alternative with different separators
         '1дугаар сар': 1, '2дугаар сар': 2, '3дугаар сар': 3, '4дүгээр сар': 4,
         '5дугаар сар': 5, '6дугаар сар': 6, '7дугаар сар': 7, '8дугаар сар': 8,
@@ -134,7 +140,7 @@ def parse_date(raw_date):
 
     # Relative time in Mongolian (e.g. "8 цаг" = 8 hours ago, "5 өдөр" = 5 days ago)
     # Also handle genitive/"өмнө" forms: "2 өдрийн өмнө" = 2 days ago, "3 сарын өмнө" = 3 months ago
-    rel_match = re.match(r'^\s*(\d+)\s*(?:цагийн\s*(?:өмнө|урьд)|цаг|өдрийн\s*(?:өмнө|урьд)|өдөр|хоногийн\s*(?:өмнө|урьд)|хоног|сарын\s*(?:өмнө|урьд)|сар|жилийн\s*(?:өмнө|урьд)|жил|минутын\s*(?:өмнө|урьд))\s*$', raw_date)
+    rel_match = re.match(r'^\s*(\d+)\s*(?:цагийн\s*(?:өмнө|урьд)|цаг|өдрийн\s*(?:өмнө|урьд)|өдөр|хоногийн\s*(?:өмнө|урьд)|хоног|долоо\s*хоногийн\s*(?:өмнө|урьд)|долоо\s*хоног\S*\s*(?:өмнө|урьд)|долоо\s*хоног|сарын\s*(?:өмнө|урьд)|сар|жилийн\s*(?:өмнө|урьд)|жил|минутын\s*(?:өмнө|урьд))\s*$', raw_date)
     if rel_match:
         num = int(rel_match.group(1))
         full = rel_match.group(0)
@@ -148,6 +154,8 @@ def parse_date(raw_date):
             return (now - timedelta(days=num * 30)).replace(hour=0, minute=0, second=0, microsecond=0)
         elif 'жил' in full:
             return (now - timedelta(days=num * 365)).replace(hour=0, minute=0, second=0, microsecond=0)
+        elif 'долоо хоног' in full:
+            return (now - timedelta(days=num * 7)).replace(hour=0, minute=0, second=0, microsecond=0)
         else:
             # өдөр / өдрийн / хоног / хоногийн
             return (now - timedelta(days=num)).replace(hour=0, minute=0, second=0, microsecond=0)

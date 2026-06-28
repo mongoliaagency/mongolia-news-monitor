@@ -1,0 +1,11 @@
+{
+  "name": "NMNEWS",
+  "homepage": "https://www.nmnews.mn",
+  "news_url": "https://www.nmnews.mn/news",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "items_selector": "div.back-grey-gradient a[href*='/news/post/']",
+  "detail_date": true,
+  "detail_date_pattern": "Хэзээ</div>\\s*<div[^>]*>([^<]+)",
+  "deduplicate_urls": true
+}

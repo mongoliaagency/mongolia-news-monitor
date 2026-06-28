@@ -1,0 +1,13 @@
+{
+  "name": "URUG",
+  "homepage": "https://urug.mn",
+  "news_url": "https://urug.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "article.jeg_post",
+  "title_selector": "h2, h3",
+  "link_selector": "a",
+  "date_from_item_text": true,
+  "deduplicate_urls": true
+}

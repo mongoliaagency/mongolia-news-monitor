@@ -1,0 +1,13 @@
+{
+  "name": "LegalInfo (Эрх зүйн мэдээллийн нэгдсэн систем)",
+  "homepage": "https://legalinfo.mn",
+  "news_url": "https://legalinfo.mn/mn",
+  "category": "党政机关",
+  "source_type": "html",
+  "requires_browser": true,
+  "items_selector": "a[href*='/detail?lawId=']",
+  "group_date_selector": ".group-date",
+  "group_date_pattern": "(\\d{4}-\\d{2}-\\d{2})",
+  "exclude_urls": ["play.google.com"],
+  "deduplicate_urls": true
+}

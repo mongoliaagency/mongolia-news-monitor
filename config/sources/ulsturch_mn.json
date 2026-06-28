@@ -1,0 +1,13 @@
+{
+  "name": "ULSTURCH",
+  "homepage": "https://www.ulsturch.mn/",
+  "news_url": "https://www.ulsturch.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": ".home-interview-section, .article-feature-broadcast-right, .live-border, .sub-title",
+  "title_selector": ".home-interview-main-title, .home-interview-small-title, .title a, .desc a, .sub-title a",
+  "link_selector": "a[href^=\"/a/\"]",
+  "date_selector": ".media-meta",
+  "exclude_urls": []
+}

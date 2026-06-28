@@ -1,0 +1,13 @@
+{
+  "name": "MONGOL NEWS",
+  "homepage": "https://mongol.news/",
+  "news_url": "https://mongol.news/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "article.card.card-full",
+  "title_selector": "h3.card-title",
+  "link_selector": "a[href*=\"/details/\"]",
+  "date_selector": "time",
+  "exclude_urls": []
+}

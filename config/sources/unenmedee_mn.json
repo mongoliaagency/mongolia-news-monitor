@@ -1,0 +1,17 @@
+{
+  "name": "蒙古国真理报（蒙古国人民党党报）",
+  "homepage": "https://www.unenmedee.mn/",
+  "news_url": "https://www.unenmedee.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "article.news-list, a.small-list-item",
+  "link_selector": "a.news-list__title, a",
+  "date_selector": ".news-list__time, .time",
+  "exclude_urls": [
+    "staticpage",
+    "/contact",
+    "/weather",
+    "/currency"
+  ]
+}

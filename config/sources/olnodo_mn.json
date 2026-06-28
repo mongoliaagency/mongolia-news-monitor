@@ -1,0 +1,14 @@
+{
+  "name": "OLNODO",
+  "homepage": "http://www.olnodo.com/",
+  "news_url": "http://www.olnodo.com/mn/news/post",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "div.post-item",
+  "title_selector": "h4",
+  "link_selector": "a.stretched-link",
+  "detail_date": true,
+  "detail_date_pattern": "Огноо.*?(\\d{4}-\\d{2}-\\d{2})",
+  "exclude_urls": []
+}

@@ -8,6 +8,5 @@
   "items_selector": "div.blog.list-view div.post",
   "title_selector": "h3.post-title a",
   "link_selector": "h3.post-title a",
-  "date_selector": "div.meta span.date",
-  "date_format": "%Y.%m.%d"
+  "date_selector": "div.meta span.date"
 }
