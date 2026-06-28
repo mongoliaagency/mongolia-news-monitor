@@ -1,0 +1,12 @@
+{
+  "name": "矿业洞察",
+  "homepage": "https://mininginsight.mn",
+  "news_url": "https://mininginsight.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": ".utf_post_block_style:has(.utf_post_date)",
+  "title_selector": ".utf_post_title a[href*=\"newsid=\"]",
+  "date_selector": ".utf_post_date",
+  "status": "active"
+}

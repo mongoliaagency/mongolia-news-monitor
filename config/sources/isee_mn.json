@@ -1,0 +1,11 @@
+{
+  "name": "ISEE",
+  "homepage": "https://isee.mn/",
+  "news_url": "https://isee.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": ".news-list .column:has(.post_meta)",
+  "title_selector": "a.titleni",
+  "date_selector": ".meta_date"
+}

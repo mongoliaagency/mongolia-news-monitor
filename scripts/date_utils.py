@@ -23,6 +23,7 @@ def parse_date(raw_date):
         "%Y-%m-%d %H:%M:%S",
         # Mongolian common
         "%Y.%m.%d",
+        "%Y/%m/%d, %H:%M",
         "%Y/%m/%d",
         "%Y / %m / %d",
         "%d.%m.%Y",
@@ -118,15 +119,30 @@ def parse_date(raw_date):
                     pass
             break
 
+    # "Уржигдар X цаг Y мин" = the day before yesterday at X:YY (e.g. "Уржигдар 17 цаг 36 мин")
+    # "Өчигдөр X цаг Y мин" = yesterday at X:YY
+    urjigdar_match = re.match(r'^\s*(Уржигдар|Өчигдөр)\s+(\d{1,2})\s*цаг\s*(\d{1,2})?\s*мин\s*$', raw_date)
+    if urjigdar_match:
+        keyword = urjigdar_match.group(1)
+        hour = int(urjigdar_match.group(2))
+        minute = int(urjigdar_match.group(3)) if urjigdar_match.group(3) else 0
+        from datetime import timedelta
+        now = datetime.now()
+        days_ago = 2 if keyword == 'Уржигдар' else 1
+        target = (now - timedelta(days=days_ago)).replace(hour=hour, minute=minute, second=0, microsecond=0)
+        return target
+
     # Relative time in Mongolian (e.g. "8 цаг" = 8 hours ago, "5 өдөр" = 5 days ago)
     # Also handle genitive/"өмнө" forms: "2 өдрийн өмнө" = 2 days ago, "3 сарын өмнө" = 3 months ago
-    rel_match = re.match(r'^\s*(\d+)\s*(?:цагийн\s*(?:өмнө|урьд)|цаг|өдрийн\s*(?:өмнө|урьд)|өдөр|хоногийн\s*(?:өмнө|урьд)|хоног|сарын\s*(?:өмнө|урьд)|сар|жилийн\s*(?:өмнө|урьд)|жил)\s*$', raw_date)
+    rel_match = re.match(r'^\s*(\d+)\s*(?:цагийн\s*(?:өмнө|урьд)|цаг|өдрийн\s*(?:өмнө|урьд)|өдөр|хоногийн\s*(?:өмнө|урьд)|хоног|сарын\s*(?:өмнө|урьд)|сар|жилийн\s*(?:өмнө|урьд)|жил|минутын\s*(?:өмнө|урьд))\s*$', raw_date)
     if rel_match:
         num = int(rel_match.group(1))
         full = rel_match.group(0)
         from datetime import timedelta
         now = datetime.now()
-        if 'цаг' in full:
+        if 'минут' in full:
+            return now - timedelta(minutes=num)
+        elif 'цаг' in full:
             return now.replace(hour=0, minute=0, second=0, microsecond=0)
         elif 'сар' in full:
             return (now - timedelta(days=num * 30)).replace(hour=0, minute=0, second=0, microsecond=0)

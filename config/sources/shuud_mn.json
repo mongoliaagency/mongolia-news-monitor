@@ -1,0 +1,13 @@
+{
+  "name": "SHUUD",
+  "homepage": "https://www.shuud.mn/",
+  "news_url": "https://www.shuud.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": ".trending__post, .tgbanner__post, .video__post-item, .stories-post__item",
+  "title_selector": ".title a",
+  "date_selector": "img",
+  "date_attr": "src",
+  "date_alt_selector": ".tgbanner__content-meta span"
+}
