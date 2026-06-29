@@ -71,17 +71,16 @@ def _navigate_data_path(data, data_path):
     return []
 
 
-def _set_page_param(url, page):
-    """Set or replace the 'page' query parameter in a URL."""
+def _set_page_param(url, page, param_name='page'):
+    """Set or replace a query parameter for pagination. Configurable param name."""
     parsed = urlparse(url)
     params = parse_qs(parsed.query, keep_blank_values=True)
-    # Flatten multi-value lists and set page
+    # Flatten multi-value lists and set page param
     flat = {k: v[0] for k, v in params.items()}
     if page == 0:
-        if 'page' in flat:
-            del flat['page']
+        flat.pop(param_name, None)
     else:
-        flat['page'] = str(page)
+        flat[param_name] = str(page)
     new_query = urlencode(flat, doseq=False)
     return urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
 
@@ -95,16 +94,17 @@ def _get_paginated_items(source):
     max_pages = source.get('api_max_pages', 5)
     verify = source.get('api_verify_ssl', True)
     api_method = source.get('api_method', 'GET')
+    page_param = source.get('api_page_param', 'page')
 
     for page in range(max_pages):
         # Build page URL using proper query parameter manipulation
-        page_url = _set_page_param(api_url, page)
+        page_url = _set_page_param(api_url, page, param_name=page_param)
 
         # Try primary URL pattern, then fallback URLs
         urls_to_try = [page_url]
         fallback_urls = source.get('api_fallback_urls', [])
         for fb in fallback_urls:
-            urls_to_try.append(_set_page_param(fb, page))
+            urls_to_try.append(_set_page_param(fb, page, param_name=page_param))
 
         data = None
         last_error = None

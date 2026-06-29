@@ -157,6 +157,7 @@ def _parse_articles(soup, source, override_date=None):
 
         # Date extraction
         publish_date_str = None
+        date_pattern = source.get("date_pattern")
 
         if override_date:
             # When using date_url_template, the date is known from the URL
@@ -171,6 +172,11 @@ def _parse_articles(soup, source, override_date=None):
                         raw_date = unquote(raw_date)
                 else:
                     raw_date = date_node.get_text(strip=True)
+                # Apply date_pattern regex to extract date from mixed text
+                if date_pattern:
+                    m = re.search(date_pattern, raw_date)
+                    if m:
+                        raw_date = m.group(1)
                 dt = parse_date(raw_date)
                 if dt:
                     publish_date_str = format_date(dt)

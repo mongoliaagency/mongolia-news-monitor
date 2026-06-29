@@ -1,12 +1,19 @@
 {
   "name": "乌兰巴托市政府",
   "homepage": "https://ulaanbaatar.mn/",
+  "news_url": "https://ulaanbaatar.mn/news-type/TIME_HISTORY",
   "category": "党政机关",
   "source_type": "api",
-  "api_url": "https://ulaanbaatar.mn:8443/api/article?type=TIME_HISTORY&currentPage=1&pageSize=24",
+  "api_url": "https://ulaanbaatar.mn:8443/api/article?type=TIME_HISTORY&currentPage=0&pageSize=24",
   "api_fallback_urls": [
-    "https://ulaanbaatar.mn/api/article?type=TIME_HISTORY&currentPage=1&pageSize=24",
-    "https://www.ulaanbaatar.mn:8443/api/article?type=TIME_HISTORY&currentPage=1&pageSize=24"
+    "https://ulaanbaatar.mn/api/article?type=TIME_HISTORY&currentPage=0&pageSize=24",
+    "https://www.ulaanbaatar.mn:8443/api/article?type=TIME_HISTORY&currentPage=0&pageSize=24"
   ],
+  "api_data_path": "data.list",
+  "api_id_field": "urlId",
+  "api_date_field": "createdDateText",
+  "api_link_template": "/news/{id}",
+  "api_max_pages": 3,
+  "api_page_param": "currentPage",
   "status": "active"
 }
