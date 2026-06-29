@@ -4,6 +4,7 @@
   "news_url": "https://mono.mn",
   "category": "新闻媒体",
   "source_type": "html",
+  "status": "active",
   "items_selector": "a[href^='/n/']",
   "date_from_item_text": true,
   "deduplicate_urls": true,

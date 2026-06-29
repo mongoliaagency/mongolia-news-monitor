@@ -4,6 +4,7 @@
   "news_url": "https://amnesty.mn",
   "category": "党政机关",
   "source_type": "html",
+  "status": "active",
   "items_selector": "div.relative.p-2 a[href^='/news/']",
   "date_from_item_text": true,
   "deduplicate_urls": true,

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <title> NewsPress</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/assets/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/assets/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">    
+        <link rel="stylesheet" type="text/css" href="/css/frontend/app.css?id=9565e273c542b90e8e1d1fc85d6e4a51">
+  </head>
+  <body>
+    <!-- Load Facebook SDK for JavaScript -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '420552192935052',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v14.0'
+        });
+
+        // FB.AppEvents.logPageView();
+
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div id="app">
+        <div id="head" class="header-section ">
+
+    <div class="minLogo is-hidden-mobile">
+        <a href="/"><img src="/assets/frontimages/logo/minLogo.png" alt="News press"></a>
+    </div>
+    
+    <div class="container">
+
+      <div class="columns mb-0 top gird-display">
+          <div class="column hitem date">
+             <today-vue />
+          </div>
+
+          <div class="column header">
+              
+               
+                <a href="/"><img src="/assets/frontimages/logo/logopink.svg" style="max-width:120px;" alt="News press"></a>
+                            
+          </div>
+          <div class="column hitem2 is-3 info">
+            <div>
+              <weather />
+            </div>
+            
+            <currency />
+          </div>
+          <div class="nav-burger is-hidden-tablet header1 ">
+            <a id="sidemobile">
+              <span class="icon-menu-icon"></span>
+            </a>
+          </div>
+
+          <div id="header2" class="nav-burger is-hidden-tablet header2 ">
+            <a id="sidemobile2">
+              <img src="/assets/frontimages/others/close.png" alt="">
+            </a>
+          </div>
+      </div>
+
+      <div class="bottom columns navbar-brand is-hidden-mobile">
+          <div class="column navbar-start">
+              <div class="menus">
+                                                          <a href="/v1/Нийгэм" 
+                      class="                              
+                                                          ">Нийгэм</a>
+                                                                              <a href="/v1/Улс-төр" 
+                      class="                              
+                                                          ">Улс төр</a>
+                                                                              <a href="/v1/126" 
+                      class="                              
+                                                          ">126</a>
+                                                                              <a href="/v1/Дэлхийн-мэдээ" 
+                      class="                              
+                                                          ">Дэлхийн мэдээ</a>
+                                                                              <a href="/v2/Гэрэл-түгээе" 
+                      class="                              
+                                                          ">Гэрэл түгээе</a>
+                                                                              <a href="/v1/v2/v3" 
+                      class="                              
+                                                          ">СОНГУУЛЬ 2027</a>
+                                                                              <a href="/v1/esreg" 
+                      class="                              
+                                                          ">ЭСРЭГ, ТЭСРЭГ</a>
+                                                                                                                                                                                                                                                                                                                                                      
+                                    <a id="btnOther">Бусад &nbsp 
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <rect width="8.00098" height="8" transform="matrix(-1 0 0 1 8.00098 0)" fill="url(#pattern0)"/>
+                        <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_861_2712" transform="scale(0.00195312)"/>
+                        </pattern>
+                        <image id="image0_861_2712" width="512" height="512" xlink:href="data:image/png;base64,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"/>
+                        </defs>
+                      </svg>
+                    </span>
+                  </a>
+                                </div>
+          </div>
+          
+          <div class="column is-3 search">
+            <form id="search_form" action="/news">
+              <input type="text" class="input-field" name="title" value="" placeholder="Хайлт">
+              <a onclick="document.getElementById('search_form').submit();"> <span class="icon-Search"></span></a>
+            </form>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div id="othermn" class="other-menus-container is-hidden-mobile ">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="columns is-multiline">
+                                                                                                                                                                                                                                                                                                                                                                                        <div class="column is-2">
+                            <a href="/v1/Эдийн-засаг" 
+                            class=" ">Эдийн засаг</a>
+                        </div>
+                                                                                            <div class="column is-2">
+                            <a href="/v1/Чөлөөт-цаг" 
+                            class=" ">Спорт</a>
+                        </div>
+                                                                                            <div class="column is-2">
+                            <a href="/v2/Бизнес-код" 
+                            class=" ">Бизнес код</a>
+                        </div>
+                                                                                            <div class="column is-2">
+                            <a href="/v1/Уулуурхай" 
+                            class=" ">Уул уурхай</a>
+                        </div>
+                                                                                            <div class="column is-2">
+                            <a href="/v1/v2" 
+                            class=" ">Нүүрсний сонсгол</a>
+                        </div>
+                                                                                            <div class="column is-2">
+                            <a href="/v1/Соёл-урлаг" 
+                            class=" ">Соёл урлаг</a>
+                        </div>
+                                                                                            <div class="column is-2">
+                            <a href="/v1/НААДАМ" 
+                            class=" ">НААДАМ</a>
+                        </div>
+                                                                                            <div class="column is-2">
+                            <a href="/v1/Боловсрол" 
+                            class=" ">Боловсрол</a>
+                        </div>
+                                                            </div>
+            </div>
+            <div class="column is-3">
+
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- Mobile SideBar Section -->
+
+<div id="side" class="side-bar ">
+
+  <div class="search">
+    <form id="search_form_mobile" action="/news">
+      <input type="text" class="input-field"  name="title" value="" placeholder="Хайлт">
+      <a onclick="document.getElementById('search_form_mobile').submit();"> <span class="icon-Search"></span></a>
+    </form>
+  </div>
+
+  <div class="side-menus">
+              <a href="/v1/Нийгэм">Нийгэм</a>
+              <a href="/v1/Улс-төр">Улс төр</a>
+              <a href="/v1/126">126</a>
+              <a href="/v1/Дэлхийн-мэдээ">Дэлхийн мэдээ</a>
+              <a href="/v2/Гэрэл-түгээе">Гэрэл түгээе</a>
+              <a href="/v1/v2/v3">СОНГУУЛЬ 2027</a>
+              <a href="/v1/esreg">ЭСРЭГ, ТЭСРЭГ</a>
+              <a href="/v1/Эдийн-засаг">Эдийн засаг</a>
+              <a href="/v1/Чөлөөт-цаг">Спорт</a>
+              <a href="/v2/Бизнес-код">Бизнес код</a>
+              <a href="/v1/Уулуурхай">Уул уурхай</a>
+              <a href="/v1/v2">Нүүрсний сонсгол</a>
+              <a href="/v1/Соёл-урлаг">Соёл урлаг</a>
+              <a href="/v1/НААДАМ">НААДАМ</a>
+              <a href="/v1/Боловсрол">Боловсрол</a>
+        </div>
+
+  <div class="side-menus">
+        </div>
+
+</div>
+            
+<div>
+    <home></home>
+</div>
+
+            <div class="container up">
+    <a id="up" class="up-btn"><img src="/assets/frontimages/others/polygon.svg" alt=""></a>
+</div>
+
+        <div class="footer">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="footer-section">
+                    <div class="footer-top">
+                        <a href="/"><img class="is-hidden-mobile" src="/assets/frontimages/logo/logofooter.png" alt=""></a>
+                        <a href="/"><img class="is-hidden-tablet" style="width:120px" src="/assets/frontimages/logo/logopink.svg" alt=""></a>
+                        <div class="mnu">
+                                                        <a href="/page/bidnii-tuxai-3">Бидний тухай</a>
+                                                        <a href="/page/redakciin-bodlogo-2">Редакцийн бодлого</a>
+                                                        <a href="/page/surtalcilgaa-bairsuulax-1">Сурталчилгаа байршуулах</a>
+                                                    </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="address">
+                                    <div class="is-flex">
+                                        <span class="icon-phone"></span><p>77119200</p>
+                                    </div>
+                                    <div class="is-flex">
+                                        <span class="icon-mail"></span><p>Newspressmn@gmail.com</p>
+                                    </div>
+                                    <div class="is-flex">
+                                        <span class="icon-location"></span><p>Монгол улс, Улаанбаатар хот</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="social">
+                                    <a href="https://twitter.com/newspressmn" target="_blank"><span class="icon-twit"></span></a>
+                                    <a href="https://www.facebook.com/newspress.mn" target="_blank"><span class="icon-fbook"></span></a>
+                                    <a href="https://www.instagram.com/" target="_blank"><span class="icon-insta"></span></a>
+                                    <a href="https://www.youtube.com/" target="_blank"><span class="icon-ytube"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-end">
+            <div class="columns">
+                <div class="column">
+                    <p>2022. Зохиогчийн эрх хуулиар хамгаалагдсан<br>Хөгжүүлсэн: <a href="https://tbsm.mn/" target="_blank">TBSM LLC</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <script src="/js/frontend/frontVue.js?id=0558cab14184d57ff5a42becfa259a01" type="text/javascript"></script>
+    <script src="/js/frontend/frontScript.js?id=4d197e818df056916aa611db0f04b75e" type="text/javascript"></script>
+        <script>
+    // Up Button JS
+    const a = document.getElementById('up');
+
+    a.addEventListener('click', event => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+</script>
+  </body>
+</html>

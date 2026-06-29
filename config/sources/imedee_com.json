@@ -4,6 +4,7 @@
   "news_url": "https://www.imedee.com/",
   "category": "新闻媒体",
   "source_type": "html",
+  "status": "active",
   "requires_browser": false,
   "items_selector": ".type-post",
   "title_selector": "h3 a",

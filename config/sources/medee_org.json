@@ -1,0 +1,15 @@
+{
+    "name": "MEDEE",
+    "homepage": "https://medee.org/",
+    "news_url": "https://medee.org/",
+    "source_type": "html",
+    "requires_browser": false,
+    "status": "active",
+    "category": "新闻媒体",
+    "encoding": "utf-8",
+    "items_selector": "div.td-main-content-wrap div.td_module_wrap",
+    "title_selector": "h3.entry-title a",
+    "link_selector": "h3.entry-title a",
+    "date_selector": "time.entry-date",
+    "date_attr": "datetime"
+}

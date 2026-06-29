@@ -4,6 +4,7 @@
     "news_url": "http://todaymongolia.mn/",
     "category": "新闻媒体",
     "source_type": "html",
+    "status": "active",
     "items_selector": "a[href^='/content/']",
     "title_selector": "h4.mn-news-card-title, h3.mn-hero-title",
     "date_from_item_text": true,

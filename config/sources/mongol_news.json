@@ -4,6 +4,7 @@
   "news_url": "https://mongol.news/",
   "category": "新闻媒体",
   "source_type": "html",
+  "status": "active",
   "requires_browser": false,
   "items_selector": "article.card.card-full",
   "title_selector": "h3.card-title",

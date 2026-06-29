@@ -4,6 +4,7 @@
   "news_url": "https://urug.mn/",
   "category": "新闻媒体",
   "source_type": "html",
+  "status": "active",
   "requires_browser": false,
   "items_selector": "article.jeg_post",
   "title_selector": "h2, h3",

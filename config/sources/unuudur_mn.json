@@ -3,6 +3,7 @@
   "homepage": "https://www.unuudur.mn",
   "news_url": "https://www.unuudur.mn/",
   "source_type": "html",
+  "requires_browser": false,
   "items_selector": "a.sidebar-article.uk-position-relative",
   "title_selector": "span.news-item__title",
   "link_selector": "a.sidebar-article.uk-position-relative",

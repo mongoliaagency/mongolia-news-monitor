@@ -3,6 +3,7 @@
   "homepage": "https://mmhi.gov.mn",
   "category": "党政机关",
   "source_type": "html",
+  "requires_browser": false,
   "news_url": "https://mmhi.gov.mn/%d0%bc%d1%8d%d0%b4%d1%8d%d1%8d-%d0%bc%d1%8d%d0%b4%d1%8d%d1%8d%d0%bb%d0%bb%d2%af%d2%af%d0%b4/",
   "items_selector": "article.post",
   "title_selector": "h2.entry-title a",

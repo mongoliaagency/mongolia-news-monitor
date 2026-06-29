@@ -1,0 +1,14 @@
+{
+    "name": "LIVETV",
+    "homepage": "https://www.livetv.mn/",
+    "news_url": "https://www.livetv.mn/",
+    "source_type": "html",
+    "requires_browser": false,
+    "status": "active",
+    "category": "新闻媒体",
+    "encoding": "utf-8",
+    "items_selector": ".section-list-item",
+    "title_selector": ".section-item-content h3",
+    "date_selector": ".section-item-content span",
+    "deduplicate_urls": true
+}

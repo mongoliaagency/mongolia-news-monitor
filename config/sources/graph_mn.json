@@ -1,0 +1,14 @@
+{
+    "name": "GRAPH",
+    "homepage": "https://graph.mn/",
+    "news_url": "https://graph.mn/",
+    "category": "新闻媒体",
+    "source_type": "html",
+    "requires_browser": false,
+    "status": "active",
+    "items_selector": ".scroll-news .news-list .news-1, .scroll-news .news-list .news-2",
+    "title_selector": "a h5",
+    "link_selector": "a",
+    "date_selector": "",
+    "notes": "首页文章列表无日期显示。每篇文章只有分类标签(.news-cat span)和标题。日期信息仅在图片路径中包含(/media/image/2026/06/24/...)，或需进入文章详情页获取。建议采集后进入详情页提取日期。"
+}

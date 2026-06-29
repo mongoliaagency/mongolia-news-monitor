@@ -138,15 +138,22 @@ def parse_date(raw_date):
         target = (now - timedelta(days=days_ago)).replace(hour=hour, minute=minute, second=0, microsecond=0)
         return target
 
+    # "Өчигдөр" alone (yesterday) — used by tovch.mn, news.mn etc.
+    if re.match(r'^\s*Өчигдөр\s*$', raw_date):
+        from datetime import timedelta
+        now = datetime.now()
+        return (now - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+
     # Relative time in Mongolian (e.g. "8 цаг" = 8 hours ago, "5 өдөр" = 5 days ago)
     # Also handle genitive/"өмнө" forms: "2 өдрийн өмнө" = 2 days ago, "3 сарын өмнө" = 3 months ago
-    rel_match = re.match(r'^\s*(\d+)\s*(?:цагийн\s*(?:өмнө|урьд)|цаг|өдрийн\s*(?:өмнө|урьд)|өдөр|хоногийн\s*(?:өмнө|урьд)|хоног|долоо\s*хоногийн\s*(?:өмнө|урьд)|долоо\s*хоног\S*\s*(?:өмнө|урьд)|долоо\s*хоног|сарын\s*(?:өмнө|урьд)|сар|жилийн\s*(?:өмнө|урьд)|жил|минутын\s*(?:өмнө|урьд))\s*$', raw_date)
+    # Includes abbreviated forms: "мин" (short for минут), "өд" (short for өдөр)
+    rel_match = re.match(r'^\s*(\d+)\s*(?:цагийн\s*(?:өмнө|урьд)|цаг|өдрийн\s*(?:өмнө|урьд)|өдөр|хоногийн\s*(?:өмнө|урьд)|хоног|долоо\s*хоногийн\s*(?:өмнө|урьд)|долоо\s*хоног\S*\s*(?:өмнө|урьд)|долоо\s*хоног|сарын\s*(?:өмнө|урьд)|сар|жилийн\s*(?:өмнө|урьд)|жил|минутын\s*(?:өмнө|урьд)|минут|мин)\s*$', raw_date)
     if rel_match:
         num = int(rel_match.group(1))
         full = rel_match.group(0)
         from datetime import timedelta
         now = datetime.now()
-        if 'минут' in full:
+        if 'минут' in full or 'мин' in full:
             return now - timedelta(minutes=num)
         elif 'цаг' in full:
             return now.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -159,6 +166,32 @@ def parse_date(raw_date):
         else:
             # өдөр / өдрийн / хоног / хоногийн
             return (now - timedelta(days=num)).replace(hour=0, minute=0, second=0, microsecond=0)
+
+    # Combined relative time: "X өдөр, Y цаг" or "X цаг, Y минут"
+    # e.g. "2 өдөр, 22 цаг", "3 цаг, 12 минут", "3 өдөр, 15 цаг"
+    from datetime import timedelta
+    now = datetime.now()
+    # Match "X өдөр, Y цаг" pattern
+    combined_dh = re.match(r'^\s*(\d+)\s*[,\s]*өдөр[,，\s]*\s*(\d+)\s*[,\s]*цаг\s*$', raw_date)
+    if combined_dh:
+        days = int(combined_dh.group(1))
+        hours = int(combined_dh.group(2))
+        return (now - timedelta(days=days, hours=hours)).replace(minute=0, second=0, microsecond=0)
+
+    # Match "X цаг, Y минут" pattern (comma-separated)
+    combined_hm = re.match(r'^\s*(\d+)\s*[,\s]*цаг[,，\s]*\s*(\d+)\s*[,\s]*минут\s*$', raw_date)
+    if combined_hm:
+        hours = int(combined_hm.group(1))
+        minutes = int(combined_hm.group(2))
+        return now - timedelta(hours=hours, minutes=minutes)
+
+    # Match "X цаг Y минутын өмнө" pattern (MNB style: space-separated, genitive suffix)
+    # e.g. "3 цаг 48 минутын өмнө", "1 цаг 15 минутын өмнө", "23 цаг 40 минутын өмнө"
+    combined_hm2 = re.match(r'^\s*(\d+)\s*цаг\s*(\d+)\s*минутын\s*(?:өмнө|урьд)\s*$', raw_date)
+    if combined_hm2:
+        hours = int(combined_hm2.group(1))
+        minutes = int(combined_hm2.group(2))
+        return now - timedelta(hours=hours, minutes=minutes)
 
     # Fallback: extract first date-like pattern (e.g. "2026-06-26" from "2026-06-26Category")
     date_pattern = re.search(r'(\d{4}[-./]\d{1,2}[-./]\d{1,2})', raw_date)

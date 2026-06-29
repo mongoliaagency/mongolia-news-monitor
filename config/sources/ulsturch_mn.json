@@ -4,6 +4,7 @@
   "news_url": "https://www.ulsturch.mn/",
   "category": "新闻媒体",
   "source_type": "html",
+  "status": "active",
   "requires_browser": false,
   "items_selector": ".home-interview-section, .article-feature-broadcast-right, .live-border, .sub-title",
   "title_selector": ".home-interview-main-title, .home-interview-small-title, .title a, .desc a, .sub-title a",

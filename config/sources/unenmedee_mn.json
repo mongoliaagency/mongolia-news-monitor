@@ -4,6 +4,7 @@
   "news_url": "https://www.unenmedee.mn/",
   "category": "新闻媒体",
   "source_type": "html",
+  "status": "active",
   "requires_browser": false,
   "items_selector": "article.news-list, a.small-list-item",
   "link_selector": "a.news-list__title, a",

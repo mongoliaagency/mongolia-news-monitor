@@ -4,6 +4,7 @@
   "news_url": "https://www.shuud.mn/",
   "category": "新闻媒体",
   "source_type": "html",
+  "status": "active",
   "requires_browser": false,
   "items_selector": ".trending__post, .tgbanner__post, .video__post-item, .stories-post__item",
   "title_selector": ".title a",

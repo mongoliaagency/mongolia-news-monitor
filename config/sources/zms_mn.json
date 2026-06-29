@@ -3,6 +3,7 @@
   "homepage": "https://www.zms.mn",
   "news_url": "https://www.zms.mn/",
   "source_type": "html",
+  "requires_browser": false,
   "items_selector": "div.article-list-new",
   "title_selector": "div.article-new-item__title",
   "link_selector": "a",

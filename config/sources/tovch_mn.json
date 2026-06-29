@@ -1,0 +1,14 @@
+{
+    "name": "TOVCH",
+    "homepage": "https://tovch.mn/",
+    "news_url": "https://tovch.mn/",
+    "category": "新闻媒体",
+    "source_type": "html",
+    "requires_browser": false,
+    "status": "active",
+    "items_selector": ".news-card.group",
+    "title_selector": "h2, h3, h4",
+    "link_selector": "a",
+    "date_selector": ".text-ink-400 span:first-child, .text-ink-500 span:last-child, .text-white\\/70 span:last-child, .text-ink-400 span:nth-child(1)",
+    "notes": "Tailwind CSS + 自定义JS。首页SSR渲染全部文章。所有文章均为 .news-card.group 卡片，日期在分类标签后的 span 中，格式多样：相对时间（X цаг/X мин/X өдөр/Өчигдөр）和绝对日期（YYYY.MM.DD）。顶部有滚动突发新闻条(.animate-ticker)，侧边栏有'Шинэ мэдээ'无限滚动列表。文章URL格式 /n/XXXX（短ID）。"
+}

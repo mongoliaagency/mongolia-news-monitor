@@ -3,6 +3,7 @@
   "homepage": "https://mlsp.gov.mn/",
   "category": "党政机关",
   "source_type": "html",
+  "requires_browser": false,
   "news_url": "https://mlsp.gov.mn/content?c=1",
   "items_selector": "div.blog-post",
   "title_selector": "h5.blog-post-title a[href*=\"/content/detail/\"]",

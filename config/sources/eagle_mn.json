@@ -1,0 +1,14 @@
+{
+    "name": "EAGLE",
+    "homepage": "https://eagle.mn/",
+    "news_url": "https://eagle.mn/",
+    "category": "新闻媒体",
+    "source_type": "html",
+    "requires_browser": false,
+    "status": "active",
+    "items_selector": ".card_wrapper__7t5AG, .side_wrapper__X3aua",
+    "title_selector": ".card_title__juxZ2, .side_title__9TX6C",
+    "link_selector": "a.shared_postLink__jHCdP",
+    "date_selector": ".shared_label__420UE span:first-child",
+    "notes": "Next.js App Router (RSC) SSR渲染。首页全部文章为静态HTML。主卡片区(.card_wrapper__7t5AG)和侧边栏'Шинэ мэдээ'(.side_wrapper__X3aua)结构一致：标题(.card_title__juxZ2 / .side_title__9TX6C) + 日期(.shared_label__420UE span) + 分类(.shared_category__joELE)。日期格式为蒙古语相对时间：X минутын өмнө / X цагийн өмнө / X өдрийн өмнө。文章URL格式 /r/XXXXX。侧边栏有'Шинэ мэдээ'和'Трэнд мэдээ'两个Tab切换，均为静态渲染。"
+}

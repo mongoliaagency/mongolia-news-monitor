@@ -3,6 +3,7 @@
   "homepage": "https://montsame.mn/",
   "category": "新闻媒体",
   "source_type": "html",
+  "requires_browser": false,
   "news_url": "https://montsame.mn/",
   "items_selector": ".news-box",
   "title_selector": "h6 span",

@@ -2,6 +2,8 @@
   "name": "综合新闻 (News.MN)",
   "homepage": "https://news.mn",
   "source_type": "html",
+  "news_url": "https://news.mn",
+  "requires_browser": false,
   "date_url_template": "https://news.mn/archive?start[year]={year}&start[month]={month}&start[day]={day}&end[year]={year}&end[month]={month}&end[day]={day}",
   "items_selector": "article.blog-under-image",
   "title_selector": "h1.entry-title a",

@@ -1,0 +1,15 @@
+{
+    "name": "ESIGHT",
+    "homepage": "https://esight.mn/",
+    "news_url": "https://esight.mn/",
+    "source_type": "html",
+    "requires_browser": false,
+    "status": "active",
+    "category": "新闻媒体",
+    "encoding": "utf-8",
+    "items_selector": "#content_data .new-item",
+    "title_selector": ".new-item-text a h2",
+    "link_selector": ".new-item-text a",
+    "date_selector": ".new-item-text div.d-flex span:first-child",
+    "deduplicate_urls": true
+}

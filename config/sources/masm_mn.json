@@ -3,6 +3,7 @@
   "homepage": "https://www.masm.gov.mn",
   "category": "党政机关",
   "source_type": "html",
+  "requires_browser": false,
   "news_url": "https://www.masm.gov.mn/website/news_list.aspx?page=1&type=1",
   "items_selector": "div.uk-grid.home-news > div",
   "title_selector": "a.uk-link-muted",

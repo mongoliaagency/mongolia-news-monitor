@@ -3,6 +3,7 @@
   "homepage": "https://www.parliament.mn/",
   "category": "党政机关",
   "source_type": "html",
+  "requires_browser": false,
   "news_url": "https://www.parliament.mn/nc/340/",
   "items_selector": "div.col-md-8",
   "title_selector": "h3 a[href^=\"/nn/\"]",

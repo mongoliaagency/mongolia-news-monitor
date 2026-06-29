@@ -4,6 +4,7 @@
   "news_url": "https://legalinfo.mn/mn",
   "category": "党政机关",
   "source_type": "html",
+  "status": "active",
   "requires_browser": true,
   "items_selector": "a[href*='/detail?lawId=']",
   "group_date_selector": ".group-date",

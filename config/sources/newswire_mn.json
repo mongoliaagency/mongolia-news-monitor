@@ -1,0 +1,14 @@
+{
+  "name": "NEWS WIRE",
+  "homepage": "https://www.newswire.mn/",
+  "news_url": "https://www.newswire.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "status": "active",
+  "requires_browser": false,
+  "items_selector": "div.n-last-posts > div.row",
+  "title_selector": "div.n-title a",
+  "link_selector": "div.n-title a",
+  "date_selector": "div.postdate",
+  "deduplicate_urls": true
+}
