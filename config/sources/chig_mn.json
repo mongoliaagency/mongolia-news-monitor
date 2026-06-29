@@ -1,14 +1,14 @@
 {
-    "name": "CHIG",
-    "homepage": "https://chig.mn/",
-    "news_url": "https://chig.mn/",
-    "category": "新闻媒体",
-    "source_type": "html",
-    "requires_browser": false,
-    "status": "active",
-    "items_selector": ".owl-carousel .item, .today_news_content1 li, .front_1 a[href*='/single/'], .front_2 a[href*='/single/']",
-    "title_selector": ".fr_news a, a[href*='/single/']",
-    "link_selector": "a[href*='/single/']",
-    "date_selector": ".fr_news span, li",
-    "notes": "自定义CMS（GENERATOR: chig.mn），Bootstrap 3 + jQuery 2 + Owl Carousel + SmartMenus。首页全部文章为静态HTML。文章URL格式 /news/{category_id}/single/{article_id}。日期格式2种：YYYY-MM-DD（精选轮播区 .fr_news span）和 YYYY-MM-DD HH:MM:SS（最新消息列表区 today_news_content1 li 文本末尾）。精选轮播(.owl-carousel .item)含3篇大图文章 + 最新消息(.today_news_content1)含10篇带缩略图列表。front_1/front_2为分类区块文章。视频区(.v_list)为YouTube嵌入无新闻文章。"
+  "name": "蒙古国CHIG网",
+  "homepage": "https://chig.mn/",
+  "news_url": "https://chig.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "items_selector": ".owl-carousel .item, .today_news_content1 li, .front_1 a[href*='/single/'], .front_2 a[href*='/single/']",
+  "title_selector": ".fr_news a, a[href*='/single/']",
+  "link_selector": "a[href*='/single/']",
+  "date_selector": ".fr_news span, li",
+  "notes": "自定义CMS（GENERATOR: chig.mn），Bootstrap 3 + jQuery 2 + Owl Carousel + SmartMenus。首页全部文章为静态HTML。文章URL格式 /news/{category_id}/single/{article_id}。日期格式2种：YYYY-MM-DD（精选轮播区 .fr_news span）和 YYYY-MM-DD HH:MM:SS（最新消息列表区 today_news_content1 li 文本末尾）。精选轮播(.owl-carousel .item)含3篇大图文章 + 最新消息(.today_news_content1)含10篇带缩略图列表。front_1/front_2为分类区块文章。视频区(.v_list)为YouTube嵌入无新闻文章。"
 }

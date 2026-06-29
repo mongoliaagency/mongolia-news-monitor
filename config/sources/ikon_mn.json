@@ -1,13 +1,8 @@
 {
-  "name": "IKON",
-
+  "name": "蒙古国IKON网",
   "homepage": "https://ikon.mn/",
-
   "category": "新闻媒体",
-
   "source_type": "rss",
-
   "rss_url": "https://ikon.mn/rss",
-
   "status": "active"
 }

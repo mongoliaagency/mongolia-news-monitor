@@ -1,0 +1,15 @@
+{
+  "name": "蒙古国TSAHIUR网",
+  "homepage": "https://tsahiur.mn/",
+  "news_url": "https://tsahiur.mn/",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "category": "新闻媒体",
+  "encoding": "utf-8",
+  "items_selector": ".hero-news-card a[href*='/n/s/'], .overlay-news-card a[href*='/n/s/'], #Tsahiur a[href*='/n/s/'], #pills-all a[href*='/n/s/'], #pills-most a[href*='/n/s/'], #pills-commented a[href*='/n/s/'], #pills-week-all a[href*='/n/s/'], #pills-week-most a[href*='/n/s/'], #pills-week-commented a[href*='/n/s/'], #pills-life-all a[href*='/n/s/'], #pills-life-most a[href*='/n/s/'], #pills-life-commented a[href*='/n/s/'], #pills-free-all a[href*='/n/s/'], #pills-free-most a[href*='/n/s/'], #pills-free-commented a[href*='/n/s/'], .list-group-item a.list-group-item-action[href*='/n/s/'], .list-news a[href*='/n/s/'], .breaking-news-content a[href*='/n/s/']",
+  "title_selector": "h2, h5",
+  "link_selector": "a[href*='/n/s/']",
+  "date_selector": "small.time, small.overlay-time",
+  "date_format": "YYYY-MM-DD"
+}

@@ -1,14 +1,14 @@
 {
-    "name": "DODU",
-    "homepage": "https://www.dobu.mn/",
-    "news_url": "https://www.dobu.mn/",
-    "category": "新闻媒体",
-    "source_type": "html",
-    "requires_browser": false,
-    "status": "active",
-    "items_selector": ".text-black.md\\:text-white.grid.grid-cols-7.gap-4.text-sm, .swiper-slide",
-    "title_selector": ".col-span-4 a, a[title]",
-    "link_selector": "a[href^='/news/']",
-    "date_selector": ".flex.justify-between.gap-4.text-xs p:first-child, .flex.justify-between.items-center p:first-child, .text-black.flex.justify-between.gap-4.text-xs p:first-child",
-    "notes": "Next.js App Router SSR渲染。首页全部文章静态HTML。页面结构：1) Hero大图区(1篇) 2) Swiper轮播区(3篇) 3) 主列表区(grid-cols-7，缩略图+标题+日期+作者，20篇) 4) 底部'Онцлох мэдээ'3列网格+侧边栏。每篇文章日期在flex容器中的<p>标签内，格式为蒙古语相对时间：X минутын өмнө / X цагийн өмнө / X өдрийн өмнө / X сарын өмнө。文章URL格式 /news/XXXX（数字ID）。图片为Next.js Image组件(next/image)。"
+  "name": "蒙古国DODU网",
+  "homepage": "https://www.dobu.mn/",
+  "news_url": "https://www.dobu.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "items_selector": ".text-black.md\\:text-white.grid.grid-cols-7.gap-4.text-sm, .swiper-slide",
+  "title_selector": ".col-span-4 a, a[title]",
+  "link_selector": "a[href^='/news/']",
+  "date_selector": ".flex.justify-between.gap-4.text-xs p:first-child, .flex.justify-between.items-center p:first-child, .text-black.flex.justify-between.gap-4.text-xs p:first-child",
+  "notes": "Next.js App Router SSR渲染。首页全部文章静态HTML。页面结构：1) Hero大图区(1篇) 2) Swiper轮播区(3篇) 3) 主列表区(grid-cols-7，缩略图+标题+日期+作者，20篇) 4) 底部'Онцлох мэдээ'3列网格+侧边栏。每篇文章日期在flex容器中的<p>标签内，格式为蒙古语相对时间：X минутын өмнө / X цагийн өмнө / X өдрийн өмнө / X сарын өмнө。文章URL格式 /news/XXXX（数字ID）。图片为Next.js Image组件(next/image)。"
 }

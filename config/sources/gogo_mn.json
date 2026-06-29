@@ -1,11 +1,14 @@
 {
-  "name": "GoGo",
+  "name": "蒙古国GoGo网",
   "source_type": "api",
   "status": "active",
   "homepage": "https://gogo.mn/",
   "category": "新闻媒体",
   "api_url": "https://gogo.mn/news/shinemedee",
-  "api_data_paths": ["shinemedee_list", "politicmedee_list"],
+  "api_data_paths": [
+    "shinemedee_list",
+    "politicmedee_list"
+  ],
   "api_date_field": "publish_date",
   "api_title_field": "title",
   "api_id_field": "id",

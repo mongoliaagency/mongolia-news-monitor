@@ -156,7 +156,7 @@ def parse_date(raw_date):
         if 'минут' in full or 'мин' in full:
             return now - timedelta(minutes=num)
         elif 'цаг' in full:
-            return now.replace(hour=0, minute=0, second=0, microsecond=0)
+            return now - timedelta(hours=num)
         elif 'сар' in full:
             return (now - timedelta(days=num * 30)).replace(hour=0, minute=0, second=0, microsecond=0)
         elif 'жил' in full:
@@ -191,6 +191,14 @@ def parse_date(raw_date):
     if combined_hm2:
         hours = int(combined_hm2.group(1))
         minutes = int(combined_hm2.group(2))
+        return now - timedelta(hours=hours, minutes=minutes)
+
+    # Match "X цаг Y мин" pattern (ZMS style: space-separated, short form)
+    # e.g. "1 цаг 4 мин", "2 цаг 45 мин", "8 цаг 12 мин"
+    combined_hm3 = re.match(r'^\s*(\d+)\s*цаг\s*(\d+)\s*мин\s*$', raw_date)
+    if combined_hm3:
+        hours = int(combined_hm3.group(1))
+        minutes = int(combined_hm3.group(2))
         return now - timedelta(hours=hours, minutes=minutes)
 
     # Fallback: extract first date-like pattern (e.g. "2026-06-26" from "2026-06-26Category")

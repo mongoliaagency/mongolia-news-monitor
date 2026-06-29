@@ -1,15 +1,15 @@
 {
-    "name": "MNB",
-    "homepage": "https://www.mnb.mn/",
-    "news_url": "https://www.mnb.mn/",
-    "source_type": "html",
-    "requires_browser": false,
-    "status": "active",
-    "category": "新闻媒体",
-    "encoding": "utf-8",
-    "items_selector": "ul.news-list li",
-    "title_selector": "a",
-    "link_selector": "a",
-    "date_selector": ".news-date",
-    "deduplicate_urls": true
+  "name": "蒙古国MNB网",
+  "homepage": "https://www.mnb.mn/",
+  "news_url": "https://www.mnb.mn/",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "category": "新闻媒体",
+  "encoding": "utf-8",
+  "items_selector": "ul.news-list li",
+  "title_selector": "a",
+  "link_selector": "a",
+  "date_selector": ".news-date",
+  "deduplicate_urls": true
 }

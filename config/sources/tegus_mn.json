@@ -1,0 +1,15 @@
+{
+  "name": "蒙古国TEGUS网",
+  "url": "https://tegus.mn/",
+  "homepage": "https://tegus.mn",
+  "news_url": "https://tegus.mn/",
+  "status": "active",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "a.list-item, a.big-news, a.small-news, article.news-list",
+  "title_selector": "h3, a.news-list__title",
+  "date_selector": ".news-list__time",
+  "deduplicate_urls": true,
+  "notes": "CodeIgniter (PHP) 框架。首页多板块布局：顶部轮播(slide-item)、分类轮播(a.list-item)、bulan区块(a.big-news/a.small-news)、右侧最新新闻(a.small-list-item)、底部分类列表(article.news-list)。items_selector组合捕获17篇结构化文章（去重后），另有侧栏.small-list-item含20篇最新新闻。日期格式：YYYY/MM/DD（如 2026/06/26），也含相对时间（如 '3 цагийн өмнө'）。分类页：/politics, /society, /Sport, /foreign-news, /Economics, /busad 等。含PHP错误信息（文件开头 weather API 连接失败）。"
+}

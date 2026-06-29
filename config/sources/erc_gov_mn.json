@@ -1,0 +1,13 @@
+{
+  "name": "蒙古国能源监管局",
+  "homepage": "https://erc.gov.mn/mn/contents/3",
+  "news_url": "https://erc.gov.mn/mn/contents/3",
+  "category": "党政机关",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "div.home-news div.uk-width-small-1-2",
+  "title_selector": "a.uk-link-muted",
+  "link_selector": "a.uk-link-muted",
+  "date_selector": "span.news-date",
+  "status": "active"
+}

@@ -1,12 +1,13 @@
 {
-    "name": "ITOIM",
-    "homepage": "https://itoim.mn/",
-    "news_url": "https://itoim.mn/",
-    "source_type": "html",
-    "category": "新闻媒体",
-    "encoding": "utf-8",
-    "status": "active",
-    "requires_browser": true,
-    "items_selector": "a[href^='/p/']",
-    "deduplicate_urls": true
+  "name": "蒙古国ITOIM网",
+  "homepage": "https://itoim.mn/",
+  "news_url": "https://itoim.mn/",
+  "source_type": "html",
+  "category": "新闻媒体",
+  "encoding": "utf-8",
+  "status": "active",
+  "requires_browser": true,
+  "items_selector": "a[href^='/p/']",
+  "date_from_item_text": true,
+  "deduplicate_urls": true
 }

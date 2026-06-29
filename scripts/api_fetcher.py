@@ -275,7 +275,7 @@ def fetch_api(source_file):
             'source': source.get('name'),
             'url': link,
             'summary': summary,
-            'category': source.get('category', 'government'),
+            'category': source.get('category', '党政机关'),
         })
 
     return items

@@ -1,14 +1,14 @@
 {
-    "name": "24TSAG",
-    "homepage": "https://www.24tsag.mn/",
-    "news_url": "https://www.24tsag.mn/",
-    "category": "新闻媒体",
-    "source_type": "html",
-    "requires_browser": false,
-    "status": "active",
-    "items_selector": ".featured-item, .article-item, .feature-main__left a[href^='/a/'], .feature-main__right a[href^='/a/'], .videos .item, .videos .video",
-    "title_selector": ".featured-item__title-text, .article-item-title, .title, a[href^='/a/']",
-    "link_selector": "a[href^='/a/']",
-    "date_selector": ".featured-item__date, .article-item-date span, .date span",
-    "notes": "Sodonsolution CMS，纯静态HTML。首页文章分布在5个区域：(1) featured-item 3篇精选带大图，日期在.featured-item__date中，格式为Өчигдөр/Уржигдар X цаг X мин；(2) article-item 6篇列表文章，标题在.article-item-title，日期在.article-item-date span中，格式为X мин / YYYY-MM-DD / Өчигдөр/Уржигдар X цаг X мин；(3) feature-main 左右两栏各1篇；(4) videos区(.videos)含1个主视频(.video)和多个.item缩略图列表，标题在.title，日期在.date span中，格式YYYY-MM-DD；(5) Swiper轮播区。文章URL格式 /a/XXXXX。日期格式：X мин / Өчигдөр X цаг X мин / Уржигдар X цаг X мин / YYYY-MM-DD。"
+  "name": "蒙古国24TSAG网",
+  "homepage": "https://www.24tsag.mn/",
+  "news_url": "https://www.24tsag.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "items_selector": ".featured-item, .article-item, .feature-main__left a[href^='/a/'], .feature-main__right a[href^='/a/'], .videos .item, .videos .video",
+  "title_selector": ".featured-item__title-text, .article-item-title, .title, a[href^='/a/']",
+  "link_selector": "a[href^='/a/']",
+  "date_selector": ".featured-item__date, .article-item-date span, .date span",
+  "notes": "Sodonsolution CMS，纯静态HTML。首页文章分布在5个区域：(1) featured-item 3篇精选带大图，日期在.featured-item__date中，格式为Өчигдөр/Уржигдар X цаг X мин；(2) article-item 6篇列表文章，标题在.article-item-title，日期在.article-item-date span中，格式为X мин / YYYY-MM-DD / Өчигдөр/Уржигдар X цаг X мин；(3) feature-main 左右两栏各1篇；(4) videos区(.videos)含1个主视频(.video)和多个.item缩略图列表，标题在.title，日期在.date span中，格式YYYY-MM-DD；(5) Swiper轮播区。文章URL格式 /a/XXXXX。日期格式：X мин / Өчигдөр X цаг X мин / Уржигдар X цаг X мин / YYYY-MM-DD。"
 }

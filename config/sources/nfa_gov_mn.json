@@ -1,0 +1,13 @@
+{
+  "name": "蒙古国法医总局",
+  "homepage": "https://nfa.gov.mn/",
+  "category": "党政机关",
+  "status": "active",
+  "source_type": "html",
+  "news_url": "https://nfa.gov.mn/site/cat/1",
+  "requires_browser": false,
+  "items_selector": "div.d-flex.align-items-start.position-relative",
+  "title_selector": "a.stretched-link",
+  "link_selector": "a.stretched-link",
+  "date_selector": "li"
+}

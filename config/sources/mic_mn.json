@@ -1,0 +1,12 @@
+{
+  "name": "蒙古国MIC网",
+  "homepage": "https://mic.mn/",
+  "news_url": "https://mic.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "items_selector": "a.small-list-item",
+  "title_selector": "div:last-child",
+  "date_selector": "span.time",
+  "status": "active"
+}

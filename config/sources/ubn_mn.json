@@ -1,15 +1,15 @@
 {
-    "name": "UBN",
-    "homepage": "https://ubn.mn/",
-    "news_url": "https://ubn.mn/",
-    "source_type": "html",
-    "requires_browser": false,
-    "status": "active",
-    "category": "新闻媒体",
-    "encoding": "utf-8",
-    "items_selector": "div.spost-wrapper div.spost",
-    "title_selector": "div.entry-title h4 a",
-    "link_selector": "div.entry-title h4 a",
-    "date_selector": "span.date-human-time",
-    "date_attr": "data-date"
+  "name": "蒙古国UBN网",
+  "homepage": "https://ubn.mn/",
+  "news_url": "https://ubn.mn/",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "category": "新闻媒体",
+  "encoding": "utf-8",
+  "items_selector": "div.spost-wrapper div.spost",
+  "title_selector": "div.entry-title h4 a",
+  "link_selector": "div.entry-title h4 a",
+  "date_selector": "span.date-human-time",
+  "date_attr": "data-date"
 }

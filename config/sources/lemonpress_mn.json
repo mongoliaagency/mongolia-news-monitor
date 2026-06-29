@@ -1,0 +1,20 @@
+{
+  "name": "蒙古国LEMON PRESS网",
+  "url": "https://lemonpress.mn/",
+  "homepage": "https://lemonpress.mn",
+  "news_url": "https://lemonpress.mn/",
+  "status": "active",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "pagination": {
+    "type": "none",
+    "note": "首页为编辑精选布局，无传统分页。更多文章可通过分类页面采集：/category/economy, /category/business, /category/market, /category/technology, /category/news 等"
+  },
+  "items_selector": ".post-item h3.post-title",
+  "title_selector": "h3.post-title",
+  "link_selector": "a.post-link",
+  "date_selector": ".post-author",
+  "date_format": "{month} сарын {day}, {year}",
+  "notes": "Next.js (React) + Turbopack，SSG/SSR。日期为蒙古文格式：6 сарын 29, 2026。文章URL：/post/{id}。首页含65个post-item，去重后23篇独特文章，分布在经济/市场/科技/商业/世界/新闻/广告等板块。"
+}

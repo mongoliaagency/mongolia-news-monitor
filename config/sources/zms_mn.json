@@ -1,14 +1,15 @@
 {
-  "name": "世纪新闻报",
+  "name": "蒙古国世纪新闻报",
   "homepage": "https://www.zms.mn",
   "news_url": "https://www.zms.mn/",
+  "status": "active",
+  "category": "新闻媒体",
   "source_type": "html",
   "requires_browser": false,
   "items_selector": "div.article-list-new",
-  "title_selector": "div.article-new-item__title",
+  "title_selector": ".article-new-item__title",
   "link_selector": "a",
-  "date_selector": "img",
-  "date_attr": "src",
-  "category": "新闻媒体",
-  "status": "active"
+  "date_selector": ".article-new-item__date span",
+  "deduplicate_urls": true,
+  "notes": "SodonSolution CMS（蒙古国自研CMS）。首页 div.article-list-new 卡片布局，每篇含: 图片(.article-list-new-img)、标题(.article-new-item__title)、日期(.article-new-item__date span)。日期格式：相对时间 'X цаг X мин'（如 '1 цаг 4 мин' = 1小时4分钟前）。文章URL: /a/{id}。分类页: /as/politics, /as/niigem, /as/kids, /as/bukh, /as/search 等。"
 }

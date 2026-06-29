@@ -1,5 +1,5 @@
 {
-  "name": "Mono News",
+  "name": "蒙古国Mono News网",
   "homepage": "https://mono.mn",
   "news_url": "https://mono.mn",
   "category": "新闻媒体",
@@ -8,6 +8,9 @@
   "items_selector": "a[href^='/n/']",
   "date_from_item_text": true,
   "deduplicate_urls": true,
-  "exclude_urls": ["editorial_principles", "contact_us"],
+  "exclude_urls": [
+    "editorial_principles",
+    "contact_us"
+  ],
   "requires_browser": true
 }

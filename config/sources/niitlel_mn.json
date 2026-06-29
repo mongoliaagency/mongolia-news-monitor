@@ -1,0 +1,23 @@
+{
+  "name": "蒙古国NIITLEL网",
+  "url": "https://niitlel.mn/",
+  "homepage": "https://niitlel.mn",
+  "news_url": "https://niitlel.mn/%d0%bd%d0%b8%d0%b9%d1%82%d0%bb%d1%8d%d0%bb/",
+  "status": "active",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "pagination": {
+    "type": "path",
+    "pattern": "/page/{page}/",
+    "start": 1,
+    "max_pages": 10
+  },
+  "items_selector": "article.post.style3",
+  "title_selector": "h3.entry-title a",
+  "link_selector": "h3.entry-title a",
+  "date_selector": "aside.post-meta",
+  "date_format": "DD/MM/YYYY",
+  "deduplicate_urls": true,
+  "notes": "WordPress 7.0 + Revolution 主题 + Youzify 社区插件 + Rank Math SEO。当前页面为 /нийтлэл/（文章归档页），每页10篇。分页使用 WordPress 标准 /page/N/ 路径，共1117页。日期有两个来源：aside.post-meta 显示 'DD/MM/YYYY'（如 29/06/2026），<time datetime='ISO8601'> 含精确时间。使用 post-meta 简单文本提取日期。分类标签在 aside.post-category 中。链接使用完整URL编码的蒙古文西里尔字母路径。"
+}

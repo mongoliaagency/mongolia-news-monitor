@@ -1,13 +1,13 @@
 {
-    "name": "NEWS PRESS",
-    "homepage": "https://newspress.mn/",
-    "news_url": "https://newspress.mn/",
-    "category": "新闻媒体",
-    "source_type": "html",
-    "requires_browser": true,
-    "items_selector": ".columns.is-multiline .column a[href^='/v1/'], .side-bar a[href^='/v1/']",
-    "title_selector": "a[href^='/v1/']",
-    "date_selector": "time, .date, span.date",
-    "notes": "Vue.js SPA（Laravel Mix构建），首页内容由JS动态渲染，需Playwright浏览器。技术栈：Vue.js + Bulma CSS框架。文章URL格式 /v1/{numeric_id} 或 /v1/{category_name}（分类页）。静态HTML中仅含导航菜单（分类名）和Footer，无文章内容。文章标题和日期通过Vue组件动态生成，选择器需在浏览器渲染后确认。",
-    "status": "active"
+  "name": "蒙古国NEWS PRESS网",
+  "homepage": "https://newspress.mn/",
+  "news_url": "https://newspress.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": true,
+  "items_selector": ".columns.is-multiline .column a[href^='/v1/'], .side-bar a[href^='/v1/']",
+  "title_selector": "a[href^='/v1/']",
+  "date_selector": "time, .date, span.date",
+  "notes": "Vue.js SPA（Laravel Mix构建），首页内容由JS动态渲染，需Playwright浏览器。技术栈：Vue.js + Bulma CSS框架。文章URL格式 /v1/{numeric_id} 或 /v1/{category_name}（分类页）。静态HTML中仅含导航菜单（分类名）和Footer，无文章内容。文章标题和日期通过Vue组件动态生成，选择器需在浏览器渲染后确认。",
+  "status": "active"
 }

@@ -1,0 +1,22 @@
+{
+  "name": "蒙古国NOGOON网",
+  "url": "https://nogoon.mn/",
+  "homepage": "https://nogoon.mn",
+  "news_url": "https://nogoon.mn/",
+  "status": "active",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "pagination": {
+    "type": "query_param",
+    "param": "paged",
+    "start": 1,
+    "max_pages": 10
+  },
+  "items_selector": "article.jeg_post",
+  "title_selector": ".jeg_post_title a",
+  "link_selector": ".jeg_post_title a",
+  "date_selector": ".jeg_meta_date a",
+  "date_format": "YYYY-MM-DD",
+  "notes": "WordPress + JNews主题。日期格式：2026-06-26。首页12篇独特文章含hero文章。分页使用WordPress标准 ?paged=N 参数。JNews前端使用load-more按钮（AJAX），但WordPress标准分页亦可用。"
+}

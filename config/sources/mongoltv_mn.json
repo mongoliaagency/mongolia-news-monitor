@@ -1,14 +1,14 @@
 {
-    "name": "MONGOL TV",
-    "homepage": "https://mongoltv.mn",
-    "news_url": "https://mongoltv.mn/news",
-    "category": "新闻媒体",
-    "source_type": "html",
-    "requires_browser": false,
-    "status": "active",
-    "items_selector": ".list-item",
-    "title_selector": ".list-item-dtl-title a",
-    "link_selector": ".list-item-dtl-title a",
-    "date_selector": ".list-item-date.before",
-    "deduplicate_urls": true
+  "name": "蒙古国MONGOL TV网",
+  "homepage": "https://mongoltv.mn",
+  "news_url": "https://mongoltv.mn/news",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "items_selector": ".list-item",
+  "title_selector": ".list-item-dtl-title a",
+  "link_selector": ".list-item-dtl-title a",
+  "date_selector": ".list-item-date.before",
+  "deduplicate_urls": true
 }

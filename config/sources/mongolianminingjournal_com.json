@@ -1,14 +1,14 @@
 {
-    "name": "矿业期刊",
-    "homepage": "https://www.mongolianminingjournal.com/",
-    "news_url": "https://www.mongolianminingjournal.com/",
-    "category": "新闻媒体",
-    "source_type": "html",
-    "requires_browser": false,
-    "status": "active",
-    "items_selector": ".swiper-slide, .sub-feature-item, .pages-item, .home-section-grid",
-    "title_selector": ".feature-content__name a, .sub-feature-item__name, .pages-item__desc, .home-article-item__title",
-    "link_selector": "a[href^='/a/']",
-    "date_selector": ".feature-content__date, .sub-feature-item__date span, .pages-item__time span",
-    "notes": "Sodonsolution CMS + UIkit框架，纯静态HTML。首页共15篇文章分布在4种区域：(1) Swiper主轮播(.swiper-slide) 3篇头条大图，日期在.feature-content__date中，格式为X мин或YYYY-MM-DD；(2) 副精选区(.sub-feature-item) 3篇带图卡片，日期在.sub-feature-item__date span中，格式YYYY-MM-DD；(3) 文章列表(.pages-item / .post-card) 2篇带缩略图和日期的卡片，日期在.pages-item__time span中，格式YYYY-MM-DD；(4) 分类版块(.home-section-grid) 3篇，仅标题无日期显示，日期需从详情页获取。文章URL格式 /a/XXXXX（数字ID）。"
+  "name": "矿业期刊",
+  "homepage": "https://www.mongolianminingjournal.com/",
+  "news_url": "https://www.mongolianminingjournal.com/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "requires_browser": false,
+  "status": "active",
+  "items_selector": ".swiper-slide, .sub-feature-item, .pages-item, .home-section-grid",
+  "title_selector": ".feature-content__name a, .sub-feature-item__name, .pages-item__desc, .home-article-item__title",
+  "link_selector": "a[href^='/a/']",
+  "date_selector": ".feature-content__date, .sub-feature-item__date span, .pages-item__time span",
+  "notes": "Sodonsolution CMS + UIkit框架，纯静态HTML。首页共15篇文章分布在4种区域：(1) Swiper主轮播(.swiper-slide) 3篇头条大图，日期在.feature-content__date中，格式为X мин或YYYY-MM-DD；(2) 副精选区(.sub-feature-item) 3篇带图卡片，日期在.sub-feature-item__date span中，格式YYYY-MM-DD；(3) 文章列表(.pages-item / .post-card) 2篇带缩略图和日期的卡片，日期在.pages-item__time span中，格式YYYY-MM-DD；(4) 分类版块(.home-section-grid) 3篇，仅标题无日期显示，日期需从详情页获取。文章URL格式 /a/XXXXX（数字ID）。"
 }

@@ -1,0 +1,15 @@
+{
+  "name": "蒙古国BAABAR网",
+  "homepage": "https://www.baabar.mn/",
+  "news_url": "https://www.baabar.mn/",
+  "source_type": "html",
+  "requires_browser": true,
+  "status": "active",
+  "category": "新闻媒体",
+  "encoding": "utf-8",
+  "items_selector": "article:not(.animate-pulse) a[href^='/p/']",
+  "title_selector": "article h2, article h3",
+  "link_selector": "a[href^='/p/']",
+  "date_selector": "article time, article span.text-neutral-500",
+  "date_format": "YYYY-MM-DD"
+}
