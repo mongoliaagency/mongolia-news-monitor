@@ -1,16 +1,16 @@
 {
-  "name": "蒙古国法律法规综合查询系统",
+  "name": "LegalInfo (Эрх зүйн мэдээллийн нэгдсэн систем)",
   "homepage": "https://legalinfo.mn",
   "news_url": "https://legalinfo.mn/mn/latestlaw",
   "category": "党政机关",
   "source_type": "html",
   "status": "active",
   "requires_browser": true,
-  "items_selector": "div.TblRow",
-  "title_selector": "a",
-  "link_selector": "a",
-  "date_selector": "div:last-child",
-  "date_pattern": "(\\d{4}-\\d{2}-\\d{2})",
+  "items_selector": "div.shine-huuli-content:not(.group-date)",
+  "title_selector": "a.act-name",
+  "link_selector": "a.act-name",
+  "group_date_selector": "div.shine-huuli-content.group-date div.latest-law-grouping",
+  "group_date_pattern": "(\\d{4}-\\d{2}-\\d{2})",
   "exclude_urls": ["play.google.com"],
   "deduplicate_urls": true
 }

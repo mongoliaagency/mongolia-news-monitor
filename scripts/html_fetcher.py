@@ -75,17 +75,33 @@ def _parse_articles(soup, source, override_date=None):
     group_date_selector = source.get("group_date_selector")
     group_date_pattern = source.get("group_date_pattern")
 
+    # Select items first (used for both processing and group-date map)
+    if items_selector:
+        items = soup.select(items_selector)
+    elif title_selector:
+        items = soup.select(title_selector)
+    else:
+        items = []
+
     # Build a group-date map when group_date_selector is configured.
     # Maps each item element to the date of its nearest preceding group-date header.
     group_date_map = {}
-    if group_date_selector and items_selector:
+    if group_date_selector and items_selector and items:
         group_headers = soup.select(group_date_selector)
-        item_elements = soup.select(items_selector)
-        if group_headers and item_elements:
-            # Gather all relevant elements (headers + items) in document order
+        if group_headers:
+            # Build a position index for all elements to sort in document order.
+            # We traverse the soup and assign sequential indexes, then sort by those.
+            element_positions = {}
+            position = 0
+            for el in soup.descendants:
+                if hasattr(el, 'name'):
+                    element_positions[el] = position
+                    position += 1
+
+            # Gather all relevant elements (headers + items) and sort by document position
             all_elements = [(el, 'group') for el in group_headers] + \
-                           [(el, 'item') for el in item_elements]
-            all_elements.sort(key=lambda x: x[0].sourceline if hasattr(x[0], 'sourceline') and x[0].sourceline else 0)
+                           [(el, 'item') for el in items]
+            all_elements.sort(key=lambda x: element_positions.get(x[0], 999999))
             current_date = None
             for el, el_type in all_elements:
                 if el_type == 'group':
@@ -100,13 +116,6 @@ def _parse_articles(soup, source, override_date=None):
                 elif el_type == 'item':
                     if current_date:
                         group_date_map[el] = current_date
-
-    if items_selector:
-        items = soup.select(items_selector)
-    elif title_selector:
-        items = soup.select(title_selector)
-    else:
-        items = []
 
     articles = []
     pending_for_detail = []  # articles that need detail page date fetch

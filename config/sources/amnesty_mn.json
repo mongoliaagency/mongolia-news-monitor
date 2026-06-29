@@ -1,8 +1,8 @@
 {
-  "name": "Эмнести Интернэшнл",
+  "name": "Эмнести Интернэшнл (Amnesty International Mongolia)",
   "homepage": "https://amnesty.mn",
   "news_url": "https://amnesty.mn",
-  "category": "党政机关",
+  "category": "新闻媒体",
   "source_type": "html",
   "status": "active",
   "items_selector": "div.relative.p-2 a[href^='/news/']",
