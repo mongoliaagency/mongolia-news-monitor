@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29 07:25:28",
+  "updated_at": "2026-06-29 08:37:48",
   "categories": {
     "党政机关": {
       "label": "党政机关",
@@ -78,9 +78,9 @@
     "新闻媒体": {
       "label": "新闻媒体",
       "total": 47,
-      "success": 30,
-      "failed": 17,
-      "success_rate": 63.8,
+      "success": 33,
+      "failed": 14,
+      "success_rate": 70.2,
       "failed_list": [
         {
           "source": "蒙古国MASS网",
@@ -103,11 +103,6 @@
           "error": "0 articles"
         },
         {
-          "source": "蒙古国NIITLEL网",
-          "homepage": "https://niitlel.mn",
-          "error": "0 articles"
-        },
-        {
           "source": "蒙古国综合新闻网",
           "homepage": "https://news.mn",
           "error": "0 articles"
@@ -116,11 +111,6 @@
           "source": "蒙古国MONGOL NEWS网",
           "homepage": "https://mongol.news/",
           "error": "0 articles"
-        },
-        {
-          "source": "蒙古国NEWS WIRE网",
-          "homepage": "https://www.newswire.mn/",
-          "error": "连接失败"
         },
         {
           "source": "蒙古国ITOIM网",
@@ -153,11 +143,6 @@
           "error": "0 articles"
         },
         {
-          "source": "蒙古国ESIGHT网",
-          "homepage": "https://esight.mn/",
-          "error": "连接失败"
-        },
-        {
           "source": "蒙古国NMNEWS网",
           "homepage": "https://www.nmnews.mn",
           "error": "0 articles"
@@ -171,7 +156,7 @@
     }
   },
   "total_sources": 76,
-  "success_sources": 46,
-  "failed_sources": 30,
-  "success_rate": 60.5
+  "success_sources": 49,
+  "failed_sources": 27,
+  "success_rate": 64.5
 }

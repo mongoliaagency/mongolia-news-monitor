@@ -73,8 +73,8 @@
   },
   "新闻媒体": {
     "total": 47,
-    "success": 30,
-    "failed": 17,
+    "success": 33,
+    "failed": 14,
     "failed_list": [
       {
         "source": "蒙古国MASS网",
@@ -97,11 +97,6 @@
         "error": "0 articles"
       },
       {
-        "source": "蒙古国NIITLEL网",
-        "homepage": "https://niitlel.mn",
-        "error": "0 articles"
-      },
-      {
         "source": "蒙古国综合新闻网",
         "homepage": "https://news.mn",
         "error": "0 articles"
@@ -110,11 +105,6 @@
         "source": "蒙古国MONGOL NEWS网",
         "homepage": "https://mongol.news/",
         "error": "0 articles"
-      },
-      {
-        "source": "蒙古国NEWS WIRE网",
-        "homepage": "https://www.newswire.mn/",
-        "error": "连接失败"
       },
       {
         "source": "蒙古国ITOIM网",
@@ -145,11 +135,6 @@
         "source": "蒙古国DODU网",
         "homepage": "https://www.dobu.mn/",
         "error": "0 articles"
-      },
-      {
-        "source": "蒙古国ESIGHT网",
-        "homepage": "https://esight.mn/",
-        "error": "连接失败"
       },
       {
         "source": "蒙古国NMNEWS网",
