@@ -1,9 +1,0 @@
-Main JS: 77461 chars
-
-  URL: https://fonts.googleapis.com/css
-
-=== 尝试猜 API ===
-  https://mofa.gov.mn/saContent/list?limit=20: 404 19039 chars
-  https://mofa.gov.mn:8085/saContent/list?limit=20: ERROR HTTPSConnectionPool(host='mofa.gov.mn', port=8085): Max retries exceeded with url: /saContent/list?limit=20 (Caused by ConnectTimeoutError(<HTTPSConnection(host='mofa.gov.mn', port=8085) at 0x2018b6d2c10>, 'Connection to mofa.gov.mn timed out. (connect timeout=10)'))
-  https://mofa.gov.mn/saContent/list?type=TIME&limit=20: 404 19039 chars
-  https://mofa.gov.mn/api/saContent/list?limit=20: 404 120 chars

@@ -1,2 +1,0 @@
-DIRECT GET https://mofa.gov.mn/news/list: 200 23206
-  <!DOCTYPE html><html><head><meta name="google-site-verification" content="c4Pfz1UDZFYLFt12AQb-evzmJKXj5xSplkK1OnTpQC4"/><link rel="shortcut icon" href="/images/logo/favicon.ico"/><link rel="preload" href="/fonts/Roboto/Roboto-Black.ttf" as="font" crossorigin=""/><link rel="preload" href="/fonts/Roboto/Roboto-Bold.ttf" as="font" crossorigin=""/><link rel="preload" href="/fonts/Roboto/Roboto-Medium.
