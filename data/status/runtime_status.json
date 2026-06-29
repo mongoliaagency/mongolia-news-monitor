@@ -73,13 +73,18 @@
   },
   "新闻媒体": {
     "total": 47,
-    "success": 33,
-    "failed": 14,
+    "success": 32,
+    "failed": 15,
     "failed_list": [
       {
         "source": "蒙古国MASS网",
         "homepage": "https://mass.mn/",
         "error": "0 articles"
+      },
+      {
+        "source": "蒙通社",
+        "homepage": "https://montsame.mn/",
+        "error": "连接失败"
       },
       {
         "source": "蒙古国LIVETV网",
