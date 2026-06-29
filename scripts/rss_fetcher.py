@@ -123,7 +123,7 @@ def fetch_rss(source_file):
     for entry in feed.entries:
         raw_date = entry.get("published", "")
         dt = parse_date(raw_date)
-        if not dt or not is_within_days(raw_date, days=7):
+        if not dt or not is_within_days(raw_date, days=1):
             continue  # only keep articles from the last 7 days
         item = {
             "title": entry.get("title", ""),

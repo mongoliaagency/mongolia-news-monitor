@@ -130,7 +130,7 @@ def _get_paginated_items(source):
         date_field = source.get('api_date_field', 'createdDateText')
         for item in raw_list:
             pub_date = _get_date_from_item(item, date_field, source)
-            if pub_date and is_within_days(pub_date, days=7):
+            if pub_date and is_within_days(pub_date, days=1):
                 has_recent = True
                 break
 
@@ -264,7 +264,7 @@ def fetch_api(source_file):
 
         publish_date_raw = _get_date_from_item(item, date_field, source)
         dt = parse_date(publish_date_raw)
-        if not dt or not is_within_days(publish_date_raw, days=7):
+        if not dt or not is_within_days(publish_date_raw, days=1):
             continue  # only keep articles from the last 7 days
 
         summary = _get_summary(item, source)

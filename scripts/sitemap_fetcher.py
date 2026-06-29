@@ -23,7 +23,7 @@ def fetch_sitemap(source_file):
     source = json.loads(open(source_file, 'r', encoding='utf-8').read())
     source_name = source.get('name', 'Unknown')
     category = source.get('category', '党政机关')
-    max_days = source.get('sitemap_max_days', 7)
+    max_days = source.get('sitemap_max_days', 1)
     max_articles = source.get('sitemap_max_articles', 100)
     timeout = source.get('timeout', 20)
 
@@ -124,7 +124,7 @@ def _extract_article_from_html(html, url, source_name, category):
 
     try:
         parsed = parse_date(pub_date)
-        if not parsed or not is_within_days(pub_date, days=7):
+        if not parsed or not is_within_days(pub_date, days=1):
             return None
         formatted_date = format_date(parsed)
     except Exception:
@@ -151,7 +151,7 @@ def _from_jsonld(ld, url, source_name, category):
 
     try:
         parsed = parse_date(pub_date)
-        if not parsed or not is_within_days(pub_date, days=7):
+        if not parsed or not is_within_days(pub_date, days=1):
             return None
         formatted_date = format_date(parsed)
     except Exception:

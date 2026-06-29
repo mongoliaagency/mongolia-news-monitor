@@ -257,7 +257,7 @@ def is_today(raw_date):
     return dt.date() == datetime.now().date()
 
 
-def is_within_days(raw_date, days=7):
+def is_within_days(raw_date, days=1):
     """Check if the raw date string is within the last N days (inclusive of today)."""
     dt = parse_date(raw_date)
     if dt is None:

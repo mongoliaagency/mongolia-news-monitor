@@ -298,7 +298,7 @@ def fetch_html(source_file):
         # Fetch per-day archive pages for the last 7 days
         all_news = []
         today = datetime.now().date()
-        for days_ago in range(7):
+        for days_ago in range(1):
             d = today - timedelta(days=days_ago)
             url = date_url_template.format(
                 year=d.year,
@@ -318,5 +318,5 @@ def fetch_html(source_file):
         url = source["news_url"]
         news = _fetch_and_parse(url, source, requires_browser)
 
-        # Filter: only articles from the last 7 days
-        return [item for item in news if is_within_days(item["publish_date"], days=7)]
+        # Filter: only articles from today
+        return [item for item in news if is_within_days(item["publish_date"], days=1)]

@@ -2,11 +2,10 @@ name: Mongolia News Monitor
 
 on:
 
-  # 暂停定时自动运行，仅保留手动触发
-  # schedule:
-  #   - cron: '0 4 * * *'
-  #   - cron: '0 10 * * *'
-  #   - cron: '0 13 * * *'
+  schedule:
+    - cron: '0 4 * * *'   # 12:00 北京时间
+    - cron: '0 9 * * *'   # 17:00 北京时间
+    - cron: '0 13 * * *'  # 21:00 北京时间
 
   workflow_dispatch:
 
