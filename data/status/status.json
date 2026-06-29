@@ -1,13 +1,18 @@
 {
-  "updated_at": "2026-06-28 05:27:41",
+  "updated_at": "2026-06-29 07:25:28",
   "categories": {
     "党政机关": {
       "label": "党政机关",
-      "total": 25,
+      "total": 29,
       "success": 16,
-      "failed": 9,
-      "success_rate": 64.0,
+      "failed": 13,
+      "success_rate": 55.2,
       "failed_list": [
+        {
+          "source": "LegalInfo (Эрх зүйн мэдээллийн нэгдсэн систем)",
+          "homepage": "https://legalinfo.mn",
+          "error": "0 articles"
+        },
         {
           "source": "乌兰巴托市政府",
           "homepage": "https://ulaanbaatar.mn/",
@@ -24,8 +29,18 @@
           "error": "连接失败"
         },
         {
+          "source": "Эмнести Интернэшнл",
+          "homepage": "https://amnesty.mn",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国国防部",
           "homepage": "https://mod.gov.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国法医总局",
+          "homepage": "https://nfa.gov.mn/",
           "error": "0 articles"
         },
         {
@@ -36,6 +51,11 @@
         {
           "source": "蒙古国城市发展建设与住房部",
           "homepage": "https://mcud.gov.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国环境和气候变化部",
+          "homepage": "https://mecc.gov.mn/",
           "error": "0 articles"
         },
         {
@@ -57,21 +77,101 @@
     },
     "新闻媒体": {
       "label": "新闻媒体",
-      "total": 7,
-      "success": 6,
-      "failed": 1,
-      "success_rate": 85.7,
+      "total": 47,
+      "success": 30,
+      "failed": 17,
+      "success_rate": 63.8,
       "failed_list": [
         {
-          "source": "综合新闻 (News.MN)",
+          "source": "蒙古国MASS网",
+          "homepage": "https://mass.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国LIVETV网",
+          "homepage": "https://www.livetv.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国TSAHIUR网",
+          "homepage": "https://tsahiur.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国LEMON PRESS网",
+          "homepage": "https://lemonpress.mn",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国NIITLEL网",
+          "homepage": "https://niitlel.mn",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国综合新闻网",
           "homepage": "https://news.mn",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国MONGOL NEWS网",
+          "homepage": "https://mongol.news/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国NEWS WIRE网",
+          "homepage": "https://www.newswire.mn/",
+          "error": "连接失败"
+        },
+        {
+          "source": "蒙古国ITOIM网",
+          "homepage": "https://itoim.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国BAABAR网",
+          "homepage": "https://www.baabar.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国IMEDEE网",
+          "homepage": "https://www.imedee.com/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国NEWS PRESS网",
+          "homepage": "https://newspress.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国TOVCH网",
+          "homepage": "https://tovch.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国DODU网",
+          "homepage": "https://www.dobu.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国ESIGHT网",
+          "homepage": "https://esight.mn/",
+          "error": "连接失败"
+        },
+        {
+          "source": "蒙古国NMNEWS网",
+          "homepage": "https://www.nmnews.mn",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国ISEE网",
+          "homepage": "https://isee.mn/",
           "error": "0 articles"
         }
       ]
     }
   },
-  "total_sources": 32,
-  "success_sources": 22,
-  "failed_sources": 10,
-  "success_rate": 68.8
+  "total_sources": 76,
+  "success_sources": 46,
+  "failed_sources": 30,
+  "success_rate": 60.5
 }
