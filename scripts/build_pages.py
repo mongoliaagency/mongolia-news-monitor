@@ -10,6 +10,12 @@ STATUS_FILE = Path("data/status/runtime_status.json")
 
 _DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+def _mmdd(date_str):
+    """Extract MM-DD from YYYY-MM-DD date string."""
+    if date_str and len(date_str) >= 10 and date_str[4] == '-':
+        return date_str[5:]  # return "MM-DD"
+    return date_str
+
 CATEGORY_ORDER = ["党政机关", "新闻媒体"]
 
 
@@ -139,7 +145,7 @@ a.home-link:hover {{
             html += f"""
 <div class="news-item">
 <a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
-<div class="news-meta">来源：{item['source']} | 时间：{item.get('publish_date', '')}</div>
+<div class="news-meta">来源：{item['source']} | 时间：{_mmdd(item.get('publish_date', ''))}</div>
 </div>
 """
 
@@ -149,7 +155,7 @@ a.home-link:hover {{
             html += f"""
 <div class="news-item">
 <a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
-<div class="news-meta">来源：{item['source']} | 时间：{item.get('publish_date', '')}</div>
+<div class="news-meta">来源：{item['source']} | 时间：{_mmdd(item.get('publish_date', ''))}</div>
 </div>
 """
 

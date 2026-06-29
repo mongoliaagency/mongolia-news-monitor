@@ -9,6 +9,7 @@
   "encoding": "utf-8",
   "items_selector": ".section-list-item",
   "title_selector": ".section-item-content h3",
+  "link_selector": "a[href^='/p/']",
   "date_selector": ".section-item-content span",
   "deduplicate_urls": true
 }

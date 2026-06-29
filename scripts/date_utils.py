@@ -29,6 +29,7 @@ def parse_date(raw_date):
         "%d.%m.%Y",
         "%d/%m/%Y",
         "%d-%m-%Y",
+        "%m-%d",
         # RSS/HTTP date formats
         "%a, %d %b %Y %H:%M:%S %z",
         "%a, %d %b %Y %H:%M:%S %Z",
@@ -42,7 +43,11 @@ def parse_date(raw_date):
 
     for fmt in formats:
         try:
-            return datetime.strptime(raw_date, fmt)
+            dt = datetime.strptime(raw_date, fmt)
+            # If year is 1900 (default for %m-%d format), use current year
+            if dt.year == 1900 and fmt == "%m-%d":
+                return dt.replace(year=datetime.now().year)
+            return dt
         except Exception:
             continue
 
@@ -144,6 +149,20 @@ def parse_date(raw_date):
         now = datetime.now()
         return (now - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
 
+    # Future/scheduled time: "X цагийн дараа" = posted X hours ago (treated as today)
+    # Some sites use "дараа" (later) to mean "just posted", treat as recent/today.
+    # e.g. "4 цагийн дараа", "39 мин дараа"
+    rel_future = re.match(r'^\s*(\d+)\s*(?:цагийн\s*дараа|минутын\s*дараа|мин\s*дараа)\s*$', raw_date)
+    if rel_future:
+        from datetime import timedelta
+        now = datetime.now()
+        num = int(rel_future.group(1))
+        full = rel_future.group(0)
+        if 'мин' in full:
+            return now - timedelta(minutes=num)
+        else:
+            return now - timedelta(hours=num)
+
     # Relative time in Mongolian (e.g. "8 цаг" = 8 hours ago, "5 өдөр" = 5 days ago)
     # Also handle genitive/"өмнө" forms: "2 өдрийн өмнө" = 2 days ago, "3 сарын өмнө" = 3 months ago
     # Includes abbreviated forms: "мин" (short for минут), "өд" (short for өдөр)
@@ -226,8 +245,8 @@ def parse_date(raw_date):
 
 
 def format_date(dt):
-    """Format datetime to standard publish_date string for storage."""
-    return dt.strftime("%a, %d %b %Y 00:00:00 GMT")
+    """Format datetime to standard publish_date string for storage (YYYY-MM-DD)."""
+    return dt.strftime("%Y-%m-%d")
 
 
 def is_today(raw_date):
