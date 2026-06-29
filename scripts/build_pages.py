@@ -178,6 +178,14 @@ def _build_category_summary(status):
     return "\n".join(parts)
 
 
+def _sort_failed_list(failed_list):
+    """Sort failed_list so '连接失败' comes before '0 articles'."""
+    connection_failures = [item for item in failed_list if item.get('error') == '连接失败']
+    zero_articles = [item for item in failed_list if item.get('error') == '0 articles']
+    others = [item for item in failed_list if item.get('error') not in ('连接失败', '0 articles')]
+    return connection_failures + zero_articles + others
+
+
 def _build_failures(status):
     """Build failure list HTML, grouped by category."""
     html = ""
@@ -186,7 +194,8 @@ def _build_failures(status):
         if cat["failed"] == 0:
             continue
         html += f"<div class=\"cat-fail\"><strong>{key}失败源：</strong><br>"
-        for item in cat["failed_list"]:
+        sorted_list = _sort_failed_list(cat["failed_list"])
+        for item in sorted_list:
             homepage = item.get('homepage', '#') or '#'
             display = f"{item.get('source', '')} - {item.get('error', '')}"
             html += f"<a href=\"{homepage}\" target=\"_blank\">{display}</a><br>"

@@ -98,7 +98,9 @@ ul {{ padding-left: 20px; }}
 """
         if cat.get("failed_list"):
             html += "<h4>失败源</h4><ul>"
-            for item in cat["failed_list"]:
+            # Sort: '连接失败' before '0 articles'
+            sorted_list = sorted(cat["failed_list"], key=lambda x: (0 if x.get("error") == "连接失败" else 1 if x.get("error") == "0 articles" else 2))
+            for item in sorted_list:
                 name = item.get("source", "")
                 error = item.get("error", "")
                 html += f"<li>{name} - {error}</li>"
