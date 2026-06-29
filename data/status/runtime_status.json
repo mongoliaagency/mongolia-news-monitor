@@ -77,6 +77,11 @@
     "failed": 14,
     "failed_list": [
       {
+        "source": "蒙古国真理报（蒙古国人民党党报）",
+        "homepage": "https://www.unenmedee.mn/",
+        "error": "0 articles"
+      },
+      {
         "source": "蒙古国MASS网",
         "homepage": "https://mass.mn/",
         "error": "0 articles"
@@ -114,11 +119,6 @@
       {
         "source": "蒙古国BAABAR网",
         "homepage": "https://www.baabar.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国IMEDEE网",
-        "homepage": "https://www.imedee.com/",
         "error": "0 articles"
       },
       {
