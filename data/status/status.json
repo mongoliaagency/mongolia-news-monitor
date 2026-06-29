@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29 09:49:57",
+  "updated_at": "2026-06-29 11:36:35",
   "categories": {
     "党政机关": {
       "label": "党政机关",
@@ -78,19 +78,14 @@
     "新闻媒体": {
       "label": "新闻媒体",
       "total": 47,
-      "success": 32,
-      "failed": 15,
-      "success_rate": 68.1,
+      "success": 33,
+      "failed": 14,
+      "success_rate": 70.2,
       "failed_list": [
         {
           "source": "蒙古国MASS网",
           "homepage": "https://mass.mn/",
           "error": "0 articles"
-        },
-        {
-          "source": "蒙通社",
-          "homepage": "https://montsame.mn/",
-          "error": "连接失败"
         },
         {
           "source": "蒙古国LIVETV网",
@@ -161,7 +156,7 @@
     }
   },
   "total_sources": 76,
-  "success_sources": 48,
-  "failed_sources": 28,
-  "success_rate": 63.2
+  "success_sources": 49,
+  "failed_sources": 27,
+  "success_rate": 64.5
 }
