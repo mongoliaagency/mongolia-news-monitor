@@ -1,62 +1,37 @@
 {
   "党政机关": {
     "total": 29,
-    "success": 16,
-    "failed": 13,
+    "success": 0,
+    "failed": 29,
     "failed_list": [
       {
-        "source": "LegalInfo (Эрх зүйн мэдээллийн нэгдсэн систем)",
+        "source": "蒙古国能源部",
+        "homepage": "https://energy.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国能源监管局",
+        "homepage": "https://erc.gov.mn/mn/contents/3",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国反腐败总局",
+        "homepage": "https://iaac.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "LegalInfo",
         "homepage": "https://legalinfo.mn",
         "error": "0 articles"
       },
       {
-        "source": "乌兰巴托市政府",
-        "homepage": "https://ulaanbaatar.mn/",
-        "error": "连接失败"
-      },
-      {
-        "source": "蒙古国总统办公厅",
-        "homepage": "https://president.mn/",
+        "source": "蒙古国标准计量局",
+        "homepage": "https://www.masm.gov.mn",
         "error": "0 articles"
-      },
-      {
-        "source": "蒙古国财政部",
-        "homepage": "https://mof.gov.mn/",
-        "error": "连接失败"
-      },
-      {
-        "source": "Эмнести Интернэшнл",
-        "homepage": "https://amnesty.mn",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国国防部",
-        "homepage": "https://mod.gov.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国法医总局",
-        "homepage": "https://nfa.gov.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国司法与内务部",
-        "homepage": "https://mojha.gov.mn/",
-        "error": "连接失败"
       },
       {
         "source": "蒙古国城市发展建设与住房部",
         "homepage": "https://mcud.gov.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国环境和气候变化部",
-        "homepage": "https://mecc.gov.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国矿产资源和石油管理局",
-        "homepage": "https://mrpam.gov.mn/",
         "error": "0 articles"
       },
       {
@@ -65,55 +40,130 @@
         "error": "0 articles"
       },
       {
+        "source": "蒙古国环境和气候变化部",
+        "homepage": "https://mecc.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国经济发展部",
+        "homepage": "https://med.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国家庭、劳动和社会保障部",
+        "homepage": "https://mlsp.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国工业和矿产资源部",
+        "homepage": "https://mmhi.gov.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国药品和医疗器械控制监管局",
+        "homepage": "https://mmra.gov.mn/?id=200008",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国文化体育旅游与青年部",
+        "homepage": "https://mocsty.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国国防部",
+        "homepage": "https://mod.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国教育部",
+        "homepage": "https://moe.gov.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国财政部",
+        "homepage": "https://mof.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国卫生部",
+        "homepage": "https://moh.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国司法与内务部",
+        "homepage": "https://mojha.gov.mn/",
+        "error": "0 articles"
+      },
+      {
         "source": "蒙古国央行",
         "homepage": "https://www.mongolbank.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国政府",
+        "homepage": "https://mongolia.gov.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国矿产资源和石油管理局",
+        "homepage": "https://mrpam.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国道路与交通运输部",
+        "homepage": "https://mrt.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国气象与环境研究局",
+        "homepage": "https://namem.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国紧急情况总局",
+        "homepage": "https://nema.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国法医总局",
+        "homepage": "https://nfa.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国大呼拉尔",
+        "homepage": "https://www.parliament.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国总统办公厅",
+        "homepage": "https://president.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国中小企业局",
+        "homepage": "https://sme.gov.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "乌兰巴托市政府",
+        "homepage": "https://ulaanbaatar.mn/",
         "error": "0 articles"
       }
     ]
   },
   "新闻媒体": {
-    "total": 47,
-    "success": 33,
-    "failed": 14,
+    "total": 48,
+    "success": 2,
+    "failed": 46,
     "failed_list": [
       {
-        "source": "蒙古国真理报（蒙古国人民党党报）",
-        "homepage": "https://www.unenmedee.mn/",
+        "source": "蒙古国24TSAG网",
+        "homepage": "https://www.24tsag.mn/",
         "error": "0 articles"
       },
       {
-        "source": "蒙古国MASS网",
-        "homepage": "https://mass.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国LIVETV网",
-        "homepage": "https://www.livetv.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国TSAHIUR网",
-        "homepage": "https://tsahiur.mn/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国LEMON PRESS网",
-        "homepage": "https://lemonpress.mn",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国综合新闻网",
-        "homepage": "https://news.mn",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国MONGOL NEWS网",
-        "homepage": "https://mongol.news/",
-        "error": "0 articles"
-      },
-      {
-        "source": "蒙古国ITOIM网",
-        "homepage": "https://itoim.mn/",
+        "source": "蒙古国AMNESTY网",
+        "homepage": "https://amnesty.mn",
         "error": "0 articles"
       },
       {
@@ -122,13 +172,23 @@
         "error": "0 articles"
       },
       {
-        "source": "蒙古国NEWS PRESS网",
-        "homepage": "https://newspress.mn/",
+        "source": "彭博社（蒙古国）",
+        "homepage": "https://www.bloombergtv.mn",
         "error": "0 articles"
       },
       {
-        "source": "蒙古国TOVCH网",
-        "homepage": "https://tovch.mn/",
+        "source": "蒙古国CHIG网",
+        "homepage": "https://chig.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "CNBC（蒙古国）",
+        "homepage": "https://cnbc.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国日报",
+        "homepage": "https://dnn.mn/",
         "error": "0 articles"
       },
       {
@@ -137,13 +197,193 @@
         "error": "0 articles"
       },
       {
-        "source": "蒙古国NMNEWS网",
-        "homepage": "https://www.nmnews.mn",
+        "source": "蒙古国EAGLE网",
+        "homepage": "https://eagle.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国ERGELT网",
+        "homepage": "https://ergelt.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国ESIGHT网",
+        "homepage": "https://esight.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国GoGo网",
+        "homepage": "https://gogo.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国IKON网",
+        "homepage": "https://ikon.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国IMEDEE网",
+        "homepage": "https://www.imedee.com/",
         "error": "0 articles"
       },
       {
         "source": "蒙古国ISEE网",
         "homepage": "https://isee.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国ITOIM网",
+        "homepage": "https://itoim.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国LEMON PRESS网",
+        "homepage": "https://lemonpress.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国LIVETV网",
+        "homepage": "https://www.livetv.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国MEDEE网",
+        "homepage": "https://medee.org/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国MIC网",
+        "homepage": "https://mic.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国《矿业洞察》",
+        "homepage": "https://mininginsight.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国MNB网",
+        "homepage": "https://www.mnb.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国《矿业期刊》",
+        "homepage": "https://www.mongolianminingjournal.com/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国MONGOL TV网",
+        "homepage": "https://mongoltv.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国MONGOL NEWS网",
+        "homepage": "https://mongol.news/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国Mono News网",
+        "homepage": "https://mono.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国蒙通社",
+        "homepage": "https://montsame.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国NEWMM网",
+        "homepage": "https://www.newmm.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国NEWS PRESS网",
+        "homepage": "https://newspress.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国NEWS WIRE网",
+        "homepage": "https://www.newswire.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国综合新闻网",
+        "homepage": "https://news.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国NIITLEL网",
+        "homepage": "https://niitlel.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国NMNEWS网",
+        "homepage": "https://www.nmnews.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国NOGOON网",
+        "homepage": "https://nogoon.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国OLNODO网",
+        "homepage": "http://www.olnodo.com/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国SHUUD网",
+        "homepage": "https://www.shuud.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国TEGUS网",
+        "homepage": "https://tegus.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国TODAY MONGOLIA网",
+        "homepage": "http://todaymongolia.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国TOVCH网",
+        "homepage": "https://tovch.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国TSAHIUR网",
+        "homepage": "https://tsahiur.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国UBN网",
+        "homepage": "https://ubn.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国ULSTURCH网",
+        "homepage": "https://www.ulsturch.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国真理报（蒙古国人民党党报）",
+        "homepage": "https://www.unenmedee.mn/",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国今日报",
+        "homepage": "https://www.unuudur.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国URUG网",
+        "homepage": "https://urug.mn",
+        "error": "0 articles"
+      },
+      {
+        "source": "蒙古国世纪新闻报",
+        "homepage": "https://www.zms.mn",
         "error": "0 articles"
       }
     ]
