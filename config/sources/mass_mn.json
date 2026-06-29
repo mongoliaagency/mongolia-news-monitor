@@ -6,10 +6,10 @@
   "source_type": "html",
   "status": "active",
   "requires_browser": false,
-  "items_selector": ".shine-list1 li, .featured-list, .featured-y",
-  "title_selector": ".n-title-new, .fy-title2, .fy-title",
+  "items_selector": ".shine-list1 li, .shine-list2 li",
+  "title_selector": ".n-title-new",
   "link_selector": "a[href*='/n/']",
   "date_selector": ".shine-after-time",
-  "date_alt_selector": ".y-after-item",
-  "date_from_item_text": true
+  "date_from_item_text": true,
+  "deduplicate_urls": true
 }

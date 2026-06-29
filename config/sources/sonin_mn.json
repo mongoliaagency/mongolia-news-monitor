@@ -5,8 +5,10 @@
   "category": "新闻媒体",
   "source_type": "html",
   "requires_browser": false,
-  "items_selector": ".newsItem",
-  "title_selector": "a[href*=\"newsDetail\"]:not(:has(img))",
+  "items_selector": "#mediumNews .newsItem, #nav-new .newsItem.newsHor, #nav-trend .newsItem.newsHor",
+  "title_selector": "h3.title a, h4.title a",
+  "link_selector": "a[href*=\"newsDetail\"]",
   "date_selector": ".dateago",
-  "status": "active"
+  "status": "active",
+  "deduplicate_urls": true
 }
