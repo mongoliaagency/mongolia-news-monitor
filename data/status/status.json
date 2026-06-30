@@ -1,16 +1,21 @@
 {
-  "updated_at": "2026-06-29 18:06:02",
+  "updated_at": "2026-06-30 08:09:49",
   "categories": {
     "党政机关": {
       "label": "党政机关",
       "total": 29,
-      "success": 9,
-      "failed": 20,
-      "success_rate": 31.0,
+      "success": 7,
+      "failed": 22,
+      "success_rate": 24.1,
       "failed_list": [
         {
           "source": "蒙古国能源监管局",
           "homepage": "https://erc.gov.mn/mn/contents/3",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国中小企业局",
+          "homepage": "https://sme.gov.mn/",
           "error": "0 articles"
         },
         {
@@ -24,11 +29,6 @@
           "error": "连接失败"
         },
         {
-          "source": "蒙古国卫生部",
-          "homepage": "https://moh.gov.mn/",
-          "error": "0 articles"
-        },
-        {
           "source": "蒙古国总统办公厅",
           "homepage": "https://president.mn/",
           "error": "0 articles"
@@ -39,13 +39,8 @@
           "error": "连接失败"
         },
         {
-          "source": "蒙古国文化体育旅游与青年部",
-          "homepage": "https://mocsty.gov.mn/",
-          "error": "0 articles"
-        },
-        {
-          "source": "蒙古国反腐败总局",
-          "homepage": "https://iaac.mn/",
+          "source": "蒙古国道路与交通运输部",
+          "homepage": "https://mrt.gov.mn/",
           "error": "0 articles"
         },
         {
@@ -59,6 +54,11 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国家庭、劳动和社会保障部",
+          "homepage": "https://mlsp.gov.mn/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国工业和矿产资源部",
           "homepage": "https://mmhi.gov.mn",
           "error": "0 articles"
@@ -66,6 +66,11 @@
         {
           "source": "蒙古国法医总局",
           "homepage": "https://nfa.gov.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国能源部",
+          "homepage": "https://energy.gov.mn/",
           "error": "0 articles"
         },
         {
@@ -94,6 +99,11 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国经济发展部",
+          "homepage": "https://med.gov.mn/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国药品和医疗器械控制监管局",
           "homepage": "https://mmra.gov.mn/?id=200008",
           "error": "0 articles"
@@ -112,14 +122,19 @@
     },
     "新闻媒体": {
       "label": "新闻媒体",
-      "total": 48,
-      "success": 29,
-      "failed": 19,
-      "success_rate": 60.4,
+      "total": 50,
+      "success": 30,
+      "failed": 20,
+      "success_rate": 60.0,
       "failed_list": [
         {
           "source": "蒙古国《矿业洞察》",
           "homepage": "https://mininginsight.mn",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国日报",
+          "homepage": "https://dnn.mn/",
           "error": "0 articles"
         },
         {
@@ -130,6 +145,11 @@
         {
           "source": "蒙古国Mono News网",
           "homepage": "https://mono.mn",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国INSIDE MONGOLIA网",
+          "homepage": "https://insidemongolia.mn/",
           "error": "0 articles"
         },
         {
@@ -148,8 +168,8 @@
           "error": "0 articles"
         },
         {
-          "source": "蒙古国OLNODO网",
-          "homepage": "http://www.olnodo.com/",
+          "source": "蒙古国NOGOON网",
+          "homepage": "https://nogoon.mn",
           "error": "0 articles"
         },
         {
@@ -160,11 +180,6 @@
         {
           "source": "蒙古国MONGOL NEWS网",
           "homepage": "https://mongol.news/",
-          "error": "0 articles"
-        },
-        {
-          "source": "蒙古国AMNESTY网",
-          "homepage": "https://amnesty.mn",
           "error": "0 articles"
         },
         {
@@ -183,6 +198,11 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国IMEDEE网",
+          "homepage": "https://www.imedee.com/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国NEWS PRESS网",
           "homepage": "https://newspress.mn/",
           "error": "0 articles"
@@ -190,11 +210,6 @@
         {
           "source": "蒙古国TOVCH网",
           "homepage": "https://tovch.mn/",
-          "error": "0 articles"
-        },
-        {
-          "source": "蒙古国ERGELT网",
-          "homepage": "https://ergelt.mn/",
           "error": "0 articles"
         },
         {
@@ -215,8 +230,8 @@
       ]
     }
   },
-  "total_sources": 77,
-  "success_sources": 38,
-  "failed_sources": 39,
-  "success_rate": 49.4
+  "total_sources": 79,
+  "success_sources": 37,
+  "failed_sources": 42,
+  "success_rate": 46.8
 }
