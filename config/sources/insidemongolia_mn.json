@@ -1,0 +1,15 @@
+{
+  "name": "蒙古国INSIDE MONGOLIA网",
+  "homepage": "https://insidemongolia.mn/",
+  "news_url": "https://insidemongolia.mn/",
+  "category": "新闻媒体",
+  "source_type": "html",
+  "status": "active",
+  "requires_browser": false,
+  "items_selector": ".post-item.big, .post-item.medium.post-item-flex, .post-item.small, a.colored-brochure-list-item, .breaking-news-item",
+  "title_selector": ".post-title, .item-title",
+  "link_selector": "a.post-link",
+  "date_selector": ".post-author, .item-span",
+  "date_pattern": "([A-Z][a-z]+ \\d{1,2}, \\d{4})",
+  "deduplicate_urls": true
+}

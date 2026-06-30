@@ -39,6 +39,8 @@ def parse_date(raw_date):
         "%Y-%m-%dT%H:%M:%S%z",
         # English date with comma: "16 Jun, 2026" (mongol.news)
         "%d %b, %Y",
+        # Full month name: "June 29, 2026" (insidemongolia.mn)
+        "%B %d, %Y",
     ]
 
     for fmt in formats:
