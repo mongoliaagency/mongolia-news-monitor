@@ -1,7 +1,9 @@
 import json
 import re
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+
+BJT = timezone(timedelta(hours=8))
 
 NEWS_DIR = Path("data/news")
 DOCS_DIR = Path("docs")
@@ -211,7 +213,7 @@ def _build_failures(status):
 
 def build_index_page(files):
     status = load_status()
-    update_time = datetime.now().strftime("%Y-%m-%d %H:%M")
+    update_time = datetime.now(BJT).strftime("%Y-%m-%d %H:%M")
 
     html = f"""
 <!DOCTYPE html>

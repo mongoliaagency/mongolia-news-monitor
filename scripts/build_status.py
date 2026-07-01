@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+
+BJT = timezone(timedelta(hours=8))
 
 CATEGORY_ORDER = ["党政机关", "新闻媒体"]
 
@@ -19,7 +21,7 @@ def build_status():
             runtime = {}
 
     status = {
-        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "updated_at": datetime.now(BJT).strftime("%Y-%m-%d %H:%M:%S"),
         "categories": {},
     }
 
