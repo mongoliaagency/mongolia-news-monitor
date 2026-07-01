@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>采集源列表 - 蒙古国新闻监控</title>
+<style>
+:root {
+    color-scheme: light;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: #eef2f8;
+    color: #1f2937;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    padding: 0;
+    background: #eef2f8;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 22px 50px;
+}
+
+/* ---- Navigation ---- */
+.nav-bar {
+    background: #1e3a5f;
+    padding: 0 22px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 52px;
+}
+.nav-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.nav-links {
+    display: flex;
+    gap: 6px;
+}
+.nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    transition: all 0.15s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+}
+
+/* ---- Page header ---- */
+.page-header {
+    margin-bottom: 24px;
+    padding-top: 8px;
+}
+h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+}
+.page-meta {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+.page-meta strong {
+    color: #1e3a5f;
+}
+
+/* ---- Filter bar ---- */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+    align-items: center;
+}
+.filter-bar input {
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 10px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s;
+}
+.filter-bar input:focus {
+    border-color: #3b5bdb;
+    box-shadow: 0 0 0 3px rgba(59,91,219,0.12);
+}
+.filter-bar .filter-btn {
+    padding: 10px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: #fff;
+    color: #374151;
+    transition: all 0.15s;
+}
+.filter-bar .filter-btn:hover {
+    background: #f1f5f9;
+}
+.filter-bar .filter-btn.active-filter {
+    background: #1e3a5f;
+    color: #fff;
+    border-color: #1e3a5f;
+}
+
+/* ---- Category sections ---- */
+.cat-section {
+    margin-bottom: 30px;
+}
+.cat-title {
+    font-size: 1.25rem;
+    color: #1e3a5f;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.cat-count {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #6b7280;
+}
+.count-detail {
+    color: #9ca3af;
+}
+.source-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 12px;
+}
+
+/* ---- Source card ---- */
+.source-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px 18px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+.source-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+}
+.source-card.inactive-card {
+    opacity: 0.55;
+}
+.source-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.source-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1f2937;
+}
+.badge {
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+}
+.badge-active {
+    background: #dcfce7;
+    color: #15803d;
+}
+.badge-inactive {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+.tag {
+    font-size: 0.73rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #ede9fe;
+    color: #6d28d9;
+}
+.tag-rss {
+    background: #fef3c7;
+    color: #92400e;
+}
+.tag-api {
+    background: #dbeafe;
+    color: #1e40af;
+}
+.source-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+.source-type {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: #475569;
+    white-space: nowrap;
+}
+.source-url {
+    font-size: 0.82rem;
+    color: #3b5bdb;
+    text-decoration: none;
+    word-break: break-all;
+    line-height: 1.4;
+}
+.source-url:hover {
+    text-decoration: underline;
+}
+
+/* ---- Footer ---- */
+.page-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+/* ---- Hidden utility ---- */
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<nav class="nav-bar">
+    <div class="nav-inner">
+        <a class="nav-brand" href="index.html">📡 蒙古国新闻监控</a>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="sources.html" class="active">采集源</a>
+            <a href="status.html">运行状态</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <section class="page-header">
+        <h1>采集源列表</h1>
+        <div class="page-meta">
+            共 <strong>79</strong> 个采集源 · 更新时间：2026-07-01 19:33
+        </div>
+    </section>
+
+    <div class="filter-bar">
+        <input type="text" id="searchInput" placeholder="🔍 搜索采集源名称或网址…" oninput="applyFilters()">
+        <button class="filter-btn active-filter" onclick="setFilter(this, 'all')">全部</button>
+        <button class="filter-btn" onclick="setFilter(this, 'active')">仅启用</button>
+        <button class="filter-btn" onclick="setFilter(this, '党政机关')">党政机关</button>
+        <button class="filter-btn" onclick="setFilter(this, '新闻媒体')">新闻媒体</button>
+        <button class="filter-btn" onclick="setFilter(this, 'html')">网页抓取</button>
+        <button class="filter-btn" onclick="setFilter(this, 'rss')">RSS</button>
+    </div>
+
+    
+            <section class="cat-section">
+                <h2 class="cat-title">
+                    党政机关
+                    <span class="cat-count">29个源<span class="count-detail">（29启用 / 0停用）</span></span>
+                </h2>
+                <div class="source-grid">
+                    
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国能源部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://energy.gov.mn/" target="_blank" rel="noopener">
+                            https://energy.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国能源监管局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://erc.gov.mn/mn/contents/3" target="_blank" rel="noopener">
+                            https://erc.gov.mn/mn/contents/3
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国反腐败总局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://iaac.mn/" target="_blank" rel="noopener">
+                            https://iaac.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">LegalInfo</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://legalinfo.mn" target="_blank" rel="noopener">
+                            https://legalinfo.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国标准计量局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.masm.gov.mn" target="_blank" rel="noopener">
+                            https://www.masm.gov.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国城市发展建设与住房部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mcud.gov.mn/" target="_blank" rel="noopener">
+                            https://mcud.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国数字发展创新与通信部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mddic.gov.mn/" target="_blank" rel="noopener">
+                            https://mddic.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国环境和气候变化部</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mecc.gov.mn/" target="_blank" rel="noopener">
+                            https://mecc.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国经济发展部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://med.gov.mn/" target="_blank" rel="noopener">
+                            https://med.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国家庭、劳动和社会保障部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mlsp.gov.mn/" target="_blank" rel="noopener">
+                            https://mlsp.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国工业和矿产资源部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mmhi.gov.mn" target="_blank" rel="noopener">
+                            https://mmhi.gov.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国药品和医疗器械控制监管局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mmra.gov.mn/?id=200008" target="_blank" rel="noopener">
+                            https://mmra.gov.mn/?id=200008
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国文化体育旅游与青年部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mocsty.gov.mn/" target="_blank" rel="noopener">
+                            https://mocsty.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国国防部</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mod.gov.mn/" target="_blank" rel="noopener">
+                            https://mod.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国教育部</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://moe.gov.mn" target="_blank" rel="noopener">
+                            https://moe.gov.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国财政部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mof.gov.mn/" target="_blank" rel="noopener">
+                            https://mof.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国卫生部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://moh.gov.mn/" target="_blank" rel="noopener">
+                            https://moh.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国司法与内务部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">API接口</span>
+                        <a class="source-url" href="https://mojha.gov.mn/" target="_blank" rel="noopener">
+                            https://mojha.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国央行</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">API接口</span>
+                        <a class="source-url" href="https://www.mongolbank.mn" target="_blank" rel="noopener">
+                            https://www.mongolbank.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国政府</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mongolia.gov.mn" target="_blank" rel="noopener">
+                            https://mongolia.gov.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国矿产资源和石油管理局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mrpam.gov.mn/" target="_blank" rel="noopener">
+                            https://mrpam.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国道路与交通运输部</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mrt.gov.mn/" target="_blank" rel="noopener">
+                            https://mrt.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国气象与环境研究局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://namem.gov.mn/" target="_blank" rel="noopener">
+                            https://namem.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国紧急情况总局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://nema.gov.mn/" target="_blank" rel="noopener">
+                            https://nema.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国法医总局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://nfa.gov.mn/" target="_blank" rel="noopener">
+                            https://nfa.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国大呼拉尔</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.parliament.mn/" target="_blank" rel="noopener">
+                            https://www.parliament.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国总统办公厅</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">RSS订阅</span>
+                        <a class="source-url" href="https://president.mn/" target="_blank" rel="noopener">
+                            https://president.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国中小企业局</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://sme.gov.mn/" target="_blank" rel="noopener">
+                            https://sme.gov.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">乌兰巴托市政府</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://ulaanbaatar.mn/" target="_blank" rel="noopener">
+                            https://ulaanbaatar.mn/
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <section class="cat-section">
+                <h2 class="cat-title">
+                    新闻媒体
+                    <span class="cat-count">50个源<span class="count-detail">（50启用 / 0停用）</span></span>
+                </h2>
+                <div class="source-grid">
+                    
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国24TSAG网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.24tsag.mn/" target="_blank" rel="noopener">
+                            https://www.24tsag.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国·美国商会 新闻采集</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">RSS订阅</span>
+                        <a class="source-url" href="https://www.amcham.mn/" target="_blank" rel="noopener">
+                            https://www.amcham.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国AMNESTY网</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://amnesty.mn" target="_blank" rel="noopener">
+                            https://amnesty.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国BAABAR网</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.baabar.mn/" target="_blank" rel="noopener">
+                            https://www.baabar.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">彭博社（蒙古国）</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.bloombergtv.mn" target="_blank" rel="noopener">
+                            https://www.bloombergtv.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国CHIG网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://chig.mn/" target="_blank" rel="noopener">
+                            https://chig.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">CNBC（蒙古国）</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://cnbc.mn/" target="_blank" rel="noopener">
+                            https://cnbc.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国日报</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">sitemap</span>
+                        <a class="source-url" href="https://dnn.mn/" target="_blank" rel="noopener">
+                            https://dnn.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国DODU网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.dobu.mn/" target="_blank" rel="noopener">
+                            https://www.dobu.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国EAGLE网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://eagle.mn/" target="_blank" rel="noopener">
+                            https://eagle.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国ERGELT网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://ergelt.mn/" target="_blank" rel="noopener">
+                            https://ergelt.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国ESIGHT网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://esight.mn/" target="_blank" rel="noopener">
+                            https://esight.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国GoGo网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">API接口</span>
+                        <a class="source-url" href="https://gogo.mn/" target="_blank" rel="noopener">
+                            https://gogo.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国IKON网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">RSS订阅</span>
+                        <a class="source-url" href="https://ikon.mn/" target="_blank" rel="noopener">
+                            https://ikon.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国IMEDEE网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.imedee.com/" target="_blank" rel="noopener">
+                            https://www.imedee.com/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国INSIDE MONGOLIA网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://insidemongolia.mn/" target="_blank" rel="noopener">
+                            https://insidemongolia.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国ISEE网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://isee.mn/" target="_blank" rel="noopener">
+                            https://isee.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国ITOIM网</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://itoim.mn/" target="_blank" rel="noopener">
+                            https://itoim.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国LEMON PRESS网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://lemonpress.mn" target="_blank" rel="noopener">
+                            https://lemonpress.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国LIVETV网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.livetv.mn/" target="_blank" rel="noopener">
+                            https://www.livetv.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国MASS网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mass.mn/" target="_blank" rel="noopener">
+                            https://mass.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国MEDEE网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://medee.org/" target="_blank" rel="noopener">
+                            https://medee.org/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国MIC网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mic.mn/" target="_blank" rel="noopener">
+                            https://mic.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国《矿业洞察》</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mininginsight.mn" target="_blank" rel="noopener">
+                            https://mininginsight.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国MNB网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.mnb.mn/" target="_blank" rel="noopener">
+                            https://www.mnb.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国MONGOL NEWS网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mongol.news/" target="_blank" rel="noopener">
+                            https://mongol.news/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国《矿业期刊》</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.mongolianminingjournal.com/" target="_blank" rel="noopener">
+                            https://www.mongolianminingjournal.com/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国MONGOL TV网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mongoltv.mn" target="_blank" rel="noopener">
+                            https://mongoltv.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国Mono News网</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://mono.mn" target="_blank" rel="noopener">
+                            https://mono.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国蒙通社</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://montsame.mn/" target="_blank" rel="noopener">
+                            https://montsame.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国NEWMM网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.newmm.mn/" target="_blank" rel="noopener">
+                            https://www.newmm.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国综合新闻网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://news.mn" target="_blank" rel="noopener">
+                            https://news.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国NEWS PRESS网</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://newspress.mn/" target="_blank" rel="noopener">
+                            https://newspress.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国NEWS WIRE网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.newswire.mn/" target="_blank" rel="noopener">
+                            https://www.newswire.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国NIITLEL网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://niitlel.mn" target="_blank" rel="noopener">
+                            https://niitlel.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国NMNEWS网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.nmnews.mn" target="_blank" rel="noopener">
+                            https://www.nmnews.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国NOGOON网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://nogoon.mn" target="_blank" rel="noopener">
+                            https://nogoon.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国OLNODO网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="http://www.olnodo.com/" target="_blank" rel="noopener">
+                            http://www.olnodo.com/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国SHUUD网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.shuud.mn/" target="_blank" rel="noopener">
+                            https://www.shuud.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国每日新闻报</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.sonin.mn" target="_blank" rel="noopener">
+                            https://www.sonin.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国TEGUS网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://tegus.mn" target="_blank" rel="noopener">
+                            https://tegus.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国TODAY MONGOLIA网</span>
+                        <span class="badge badge-active">启用</span>
+                        <span class="tag tag-browser">🖥 浏览器</span>
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="http://todaymongolia.mn" target="_blank" rel="noopener">
+                            http://todaymongolia.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国TOVCH网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://tovch.mn/" target="_blank" rel="noopener">
+                            https://tovch.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国TSAHIUR网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://tsahiur.mn/" target="_blank" rel="noopener">
+                            https://tsahiur.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国UBN网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://ubn.mn/" target="_blank" rel="noopener">
+                            https://ubn.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国ULSTURCH网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.ulsturch.mn/" target="_blank" rel="noopener">
+                            https://www.ulsturch.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国真理报（蒙古国人民党党报）</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.unenmedee.mn/" target="_blank" rel="noopener">
+                            https://www.unenmedee.mn/
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国今日报</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.unuudur.mn" target="_blank" rel="noopener">
+                            https://www.unuudur.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国URUG网</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://urug.mn" target="_blank" rel="noopener">
+                            https://urug.mn
+                        </a>
+                    </div>
+                </div>
+                <div class="source-card" data-status="active">
+                    <div class="source-header">
+                        <span class="source-name">蒙古国世纪新闻报</span>
+                        <span class="badge badge-active">启用</span>
+                        
+                    </div>
+                    <div class="source-body">
+                        <span class="source-type">网页抓取</span>
+                        <a class="source-url" href="https://www.zms.mn" target="_blank" rel="noopener">
+                            https://www.zms.mn
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+    <div class="page-footer">
+        采集源配置变更后，页面将在下一次采集任务执行时自动更新
+    </div>
+</div>
+
+<script>
+let currentFilter = 'all';
+
+function applyFilters() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.source-card');
+    const catSections = document.querySelectorAll('.cat-section');
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const status = card.dataset.status;
+        const catSection = card.closest('.cat-section');
+        const catName = catSection ? catSection.querySelector('.cat-title').textContent.trim() : '';
+        const matchSearch = !query || text.includes(query);
+        const matchStatus = currentFilter === 'all' ||
+            (currentFilter === 'active' && status === 'active') ||
+            (currentFilter === '党政机关' && catName.startsWith('党政机关')) ||
+            (currentFilter === '新闻媒体' && catName.startsWith('新闻媒体')) ||
+            (currentFilter === 'html' && text.includes('网页抓取')) ||
+            (currentFilter === 'rss' && text.includes('rss'));
+
+        if (matchSearch && matchStatus) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    // Hide empty category sections
+    catSections.forEach(section => {
+        const visible = section.querySelectorAll('.source-card:not(.hidden)');
+        if (visible.length === 0) {
+            section.classList.add('hidden');
+        } else {
+            section.classList.remove('hidden');
+        }
+    });
+}
+
+function setFilter(btn, filter) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter'));
+    btn.classList.add('active-filter');
+    applyFilters();
+}
+</script>
+</body>
+</html>

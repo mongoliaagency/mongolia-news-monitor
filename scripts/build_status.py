@@ -65,16 +65,76 @@ def save_status_json(status):
     )
 
 
+def _nav_css():
+    return """
+.nav-bar {
+    background: #1e3a5f;
+    padding: 0 22px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 52px;
+}
+.nav-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.nav-links {
+    display: flex;
+    gap: 6px;
+}
+.nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    transition: all 0.15s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+}
+"""
+
+
+def _build_nav_bar():
+    return """<nav class="nav-bar">
+    <div class="nav-inner">
+        <a class="nav-brand" href="index.html">蒙古国新闻监控</a>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="sources.html">采集源</a>
+            <a href="status.html" class="active">运行状态</a>
+        </div>
+    </div>
+</nav>"""
+
+
 def build_status_html(status):
     html = f"""
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>采集状态</title>
 <style>
-body {{ font-family: 'Noto Sans', Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #1f2937; }}
-h1 {{ font-size: 1.8rem; }}
+body {{ font-family: 'Noto Sans', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 20px; color: #1f2937; background: #eef2f8; }}
+{_nav_css()}
+h1 {{ font-size: 1.8rem; margin-top: 28px; }}
 h2 {{ font-size: 1.2rem; margin-top: 28px; color: #374151; }}
 .cat-box {{ background: #f9fafb; border-radius: 12px; padding: 16px 20px; margin: 14px 0; border: 1px solid #e5e7eb; }}
 .cat-box h3 {{ margin: 0 0 8px; }}
@@ -84,6 +144,7 @@ ul {{ padding-left: 20px; }}
 </style>
 </head>
 <body>
+{_build_nav_bar()}
 <h1>采集状态</h1>
 <p>更新时间：{status["updated_at"]}</p>
 <p>新闻源总数：{status["total_sources"]} | 成功：<span class="ok">{status["success_sources"]}</span> | 失败：<span class="fail">{status["failed_sources"]}</span> | 成功率：{status["success_rate"]}%</p>
