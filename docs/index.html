@@ -287,13 +287,50 @@ body { margin: 0; padding: 0; background: #eef2f8; }
     font-size: 0.9rem;
 }
 
-/* Past news */
-.date-subhead {
+/* Past news - collapsible by date */
+.date-group {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.date-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+}
+.date-header:hover { background: #f8fafc; }
+.date-header .toggle-icon {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+.date-group.expanded .date-header .toggle-icon {
+    transform: rotate(90deg);
+}
+.date-title {
     font-size: 1.05rem;
     color: #374151;
-    margin: 20px 0 10px;
-    padding-left: 4px;
     font-weight: 600;
+}
+.date-count-badge {
+    font-size: 0.82rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+.date-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+.date-group.expanded .date-body {
+    max-height: 5000px;
 }
 .past-news-list {
     list-style: none;
@@ -359,7 +396,7 @@ function switchTab(name, btn) {
 }
 </script>
 
-<div id="tab-today" class="tab-content active"><div class="update-time">📅 采集时间：2026-07-02 00:55 | 今日日期：2026-07-02</div><div class="quick-stats">
+<div id="tab-today" class="tab-content active"><div class="update-time">📅 采集时间：2026-07-02 01:18 | 今日日期：2026-07-02</div><div class="quick-stats">
     <div class="stat-card"><span class="stat-num">0</span><span class="stat-label">今日文章</span></div>
     <div class="stat-card"><span class="stat-num">43/79</span><span class="stat-label">采集成功</span></div>
     <div class="stat-card"><span class="stat-num">79</span><span class="stat-label">采集源总数</span></div>
@@ -1391,7 +1428,13 @@ function switchTab(name, btn) {
         <div class="no-news">暂无今日新闻</div>
     </div>
 </div></div></div>
-<div id="tab-past" class="tab-content"><h2 class="cat-heading">党政机关 <span class="cat-count">49 篇</span></h2><h3 class="date-subhead">2026-07-01 (20 篇)</h3><ul class="past-news-list"><li>
+<div id="tab-past" class="tab-content"><h2 class="cat-heading">党政机关 <span class="cat-count">49 篇</span></h2><div class="date-group" onclick="this.classList.toggle('expanded')">
+    <div class="date-header">
+        <span class="toggle-icon">▶</span>
+        <span class="date-title">2026-07-01</span>
+        <span class="date-count-badge">(20 篇)</span>
+    </div>
+    <div class="date-body"><ul class="past-news-list"><li>
                     <a href="https://mmra.gov.mn/?id=200008/?id=202070" target="_blank">ТАЛАРХАЛ.</a>
                     <span class="past-source">蒙古国药品和医疗器械控制监管局</span>
                 </li><li>
@@ -1451,7 +1494,14 @@ function switchTab(name, btn) {
                 </li><li>
                     <a href="https://moh.gov.mn/news/7578" target="_blank">“АЮУЛГҮЙ ОРЧИН – ЧАНАРТАЙ БАРИЛГА” СЭДЭВТ ХЭЛЭЛЦҮҮЛЭГ БОЛЛОО</a>
                     <span class="past-source">蒙古国卫生部</span>
-                </li></ul><h3 class="date-subhead">2026-06-30 (29 篇)</h3><ul class="past-news-list"><li>
+                </li></ul></div>
+</div><div class="date-group" onclick="this.classList.toggle('expanded')">
+    <div class="date-header">
+        <span class="toggle-icon">▶</span>
+        <span class="date-title">2026-06-30</span>
+        <span class="date-count-badge">(29 篇)</span>
+    </div>
+    <div class="date-body"><ul class="past-news-list"><li>
                     <a href="https://med.gov.mn/post/176777" target="_blank">Эдийн засаг, хөгжлийн яамны Төрийн нарийн бичгийн дарга И.Батхүү Холбооны Бүгд Найрамдах Герман Улс (ХБНГУ)-ын Бундестагийн гишүүн, Бундестаг дахь Герман–Төв Азийн парламентын бүлгийн дарга Кристиан Гёрке тэргүүтэй төлөөлөгчдийг хүлээн авч уулзлаа.</a>
                     <span class="past-source">蒙古国经济发展部</span>
                 </li><li>
@@ -1538,7 +1588,14 @@ function switchTab(name, btn) {
                 </li><li>
                     <a href="https://legalinfo.mn/mn/detail?lawId=17437714783992" target="_blank">ТОГТООЛЫН ХАВСРАЛТАД НЭМЭЛТ, ӨӨРЧЛӨЛТ ОРУУЛАХ ТУХАЙ (Засгийн газрын 2019 оны 204 дүгээр тогтоол)</a>
                     <span class="past-source">LegalInfo</span>
-                </li></ul><h2 class="cat-heading">新闻媒体 <span class="cat-count">854 篇</span></h2><h3 class="date-subhead">2026-07-01 (437 篇)</h3><ul class="past-news-list"><li>
+                </li></ul></div>
+</div><h2 class="cat-heading">新闻媒体 <span class="cat-count">854 篇</span></h2><div class="date-group" onclick="this.classList.toggle('expanded')">
+    <div class="date-header">
+        <span class="toggle-icon">▶</span>
+        <span class="date-title">2026-07-01</span>
+        <span class="date-count-badge">(437 篇)</span>
+    </div>
+    <div class="date-body"><ul class="past-news-list"><li>
                     <a href="https://montsame.mn/mn/read/403613" target="_blank">Бүгд Найрамдах Гватемал Улсын Гадаад хэргийн сайд Карлос Рамиро Мартинез Монгол Улсад айлчилна</a>
                     <span class="past-source">蒙古国蒙通社</span>
                 </li><li>
@@ -2849,7 +2906,14 @@ function switchTab(name, btn) {
                 </li><li>
                     <a href="https://cnbc.mn/news/h2eo9" target="_blank">Дональд Трампын 927 хуудас бүхий орлогын мэдүүлэг нийтлэгдлээ</a>
                     <span class="past-source">CNBC（蒙古国）</span>
-                </li></ul><h3 class="date-subhead">2026-06-30 (417 篇)</h3><ul class="past-news-list"><li>
+                </li></ul></div>
+</div><div class="date-group" onclick="this.classList.toggle('expanded')">
+    <div class="date-header">
+        <span class="toggle-icon">▶</span>
+        <span class="date-title">2026-06-30</span>
+        <span class="date-count-badge">(417 篇)</span>
+    </div>
+    <div class="date-body"><ul class="past-news-list"><li>
                     <a href="https://montsame.mn/mn/read/403522" target="_blank">Төрийн соёрхолт, дуучин Д.Болдын санаачилгыг дэмжин хамтран ажиллана</a>
                     <span class="past-source">蒙古国蒙通社</span>
                 </li><li>
@@ -4101,6 +4165,7 @@ function switchTab(name, btn) {
                     <a href="https://cnbc.mn/news/h281d4" target="_blank">З.Мэндсайхан: "Оюутолгой"-н зээлийн хүүг эргэн харах хэлэлцээ үр дүнд хүрсэн</a>
                     <span class="past-source">CNBC（蒙古国）</span>
                 </li></ul></div>
+</div></div>
 
 </div>
 </body>

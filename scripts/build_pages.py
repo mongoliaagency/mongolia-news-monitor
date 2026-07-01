@@ -523,13 +523,50 @@ def _index_css():
     font-size: 0.9rem;
 }
 
-/* Past news */
-.date-subhead {
+/* Past news - collapsible by date */
+.date-group {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.date-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+}
+.date-header:hover { background: #f8fafc; }
+.date-header .toggle-icon {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+.date-group.expanded .date-header .toggle-icon {
+    transform: rotate(90deg);
+}
+.date-title {
     font-size: 1.05rem;
     color: #374151;
-    margin: 20px 0 10px;
-    padding-left: 4px;
     font-weight: 600;
+}
+.date-count-badge {
+    font-size: 0.82rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+.date-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+.date-group.expanded .date-body {
+    max-height: 5000px;
 }
 .past-news-list {
     list-style: none;
@@ -701,17 +738,25 @@ def _build_past_tab(past_news):
 
         for date_str in sorted(by_date.keys(), reverse=True):
             items = by_date[date_str]
-            html += f'<h3 class="date-subhead">{date_str} ({len(items)} 篇)</h3>'
-            html += '<ul class="past-news-list">'
+            news_html = '<ul class="past-news-list">'
             for item in items:
                 title = item.get("title", "")
                 url = item.get("url", "#")
                 source = item.get("source", "")
-                html += f'''<li>
+                news_html += f'''<li>
                     <a href="{url}" target="_blank">{title}</a>
                     <span class="past-source">{source}</span>
                 </li>'''
-            html += '</ul>'
+            news_html += '</ul>'
+
+            html += f'''<div class="date-group" onclick="this.classList.toggle('expanded')">
+    <div class="date-header">
+        <span class="toggle-icon">▶</span>
+        <span class="date-title">{date_str}</span>
+        <span class="date-count-badge">({len(items)} 篇)</span>
+    </div>
+    <div class="date-body">{news_html}</div>
+</div>'''
 
     html += '</div>'
     return html
