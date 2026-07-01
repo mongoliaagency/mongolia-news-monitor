@@ -80,7 +80,7 @@ def build_sources_page():
             items_html += f"""
                 <div class="source-card" data-status="{status_badge}">
                     <div class="source-header">
-                        <span class="source-name">{_escape(s['name'])}</span>
+                        <a class="source-name" href="{_escape(s['homepage'])}" target="_blank" title="{_escape(s['homepage'])}">{_escape(s['name'])}</a>
                         <span class="badge badge-{status_badge}">{status_text}</span>
                         {browser_badge}
                     </div>
@@ -284,7 +284,12 @@ h1 {{
 .source-name {{
     font-weight: 600;
     font-size: 1rem;
-    color: #1f2937;
+    color: #1d4ed8;
+    text-decoration: none;
+}}
+.source-name:hover {{
+    color: #1e40af;
+    text-decoration: underline;
 }}
 .badge {{
     font-size: 0.75rem;

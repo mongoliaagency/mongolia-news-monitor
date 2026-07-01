@@ -186,6 +186,14 @@ def build_day_page(date_str, news_list):
         else:
             party_gov.append(item)
 
+    # Build source name -> homepage mapping
+    src_urls = {}
+    for cfg in _load_source_configs():
+        name = cfg.get("name", "")
+        homepage = cfg.get("homepage", "")
+        if name and homepage:
+            src_urls[name] = homepage
+
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -270,19 +278,25 @@ a.home-link:hover {{ text-decoration: underline; }}
     if party_gov:
         html += "<h2>党政机关</h2>"
         for item in party_gov:
+            src_name = item.get("source", "")
+            src_url = src_urls.get(src_name, "")
+            src_link = f'<a href="{src_url}" target="_blank" style="color:#6b7280;text-decoration:none;">{src_name}</a>' if src_url else src_name
             html += f"""
 <div class="news-item">
 <a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
-<div class="news-meta">来源：{item['source']} | 时间：{_mmdd(item.get('publish_date', ''))}</div>
+<div class="news-meta">来源：{src_link} | 时间：{_mmdd(item.get('publish_date', ''))}</div>
 </div>"""
 
     if media:
         html += "<h2>新闻媒体</h2>"
         for item in media:
+            src_name = item.get("source", "")
+            src_url = src_urls.get(src_name, "")
+            src_link = f'<a href="{src_url}" target="_blank" style="color:#6b7280;text-decoration:none;">{src_name}</a>' if src_url else src_name
             html += f"""
 <div class="news-item">
 <a class="title-link" href="{item['url']}" target="_blank">{item['title']}</a>
-<div class="news-meta">来源：{item['source']} | 时间：{_mmdd(item.get('publish_date', ''))}</div>
+<div class="news-meta">来源：{src_link} | 时间：{_mmdd(item.get('publish_date', ''))}</div>
 </div>"""
 
     html += """
@@ -595,10 +609,16 @@ def _index_css():
     line-height: 1.5;
 }
 .past-news-list a:hover { color: #3b5bdb; }
-.past-source {
+.past-source,
+a.past-source {
     font-size: 0.8rem;
     color: #9ca3af;
     white-space: nowrap;
+    text-decoration: none;
+}
+a.past-source:hover {
+    color: #6b7280;
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -715,6 +735,14 @@ def _build_today_tab(sources, source_status_lookup, news_by_source):
 
 def _build_past_tab(past_news):
     """Build the '往日采集（近七天）' tab HTML with aggregated past news."""
+    # Build source name -> homepage mapping
+    src_urls = {}
+    for cfg in _load_source_configs():
+        name = cfg.get("name", "")
+        homepage = cfg.get("homepage", "")
+        if name and homepage:
+            src_urls[name] = homepage
+
     html = '<div id="tab-past" class="tab-content">'
 
     if not past_news:
@@ -743,9 +771,11 @@ def _build_past_tab(past_news):
                 title = item.get("title", "")
                 url = item.get("url", "#")
                 source = item.get("source", "")
+                src_url = src_urls.get(source, "")
+                source_html = f'<a href="{src_url}" target="_blank" class="past-source">{source}</a>' if src_url else f'<span class="past-source">{source}</span>'
                 news_html += f'''<li>
                     <a href="{url}" target="_blank">{title}</a>
-                    <span class="past-source">{source}</span>
+                    {source_html}
                 </li>'''
             news_html += '</ul>'
 

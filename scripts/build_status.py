@@ -123,7 +123,24 @@ def _build_nav_bar():
 </nav>"""
 
 
+def _load_source_urls():
+    """Load source name -> homepage mapping from config files."""
+    mapping = {}
+    config_dir = Path("config/sources")
+    for f in config_dir.glob("*.json"):
+        try:
+            cfg = json.loads(f.read_text(encoding="utf-8"))
+            name = cfg.get("name", "")
+            homepage = cfg.get("homepage", "")
+            if name and homepage:
+                mapping[name] = homepage
+        except Exception:
+            continue
+    return mapping
+
+
 def build_status_html(status):
+    source_urls = _load_source_urls()
     html = f"""
 <!DOCTYPE html>
 <html>
@@ -141,6 +158,8 @@ h2 {{ font-size: 1.2rem; margin-top: 28px; color: #374151; }}
 .fail {{ color: #b91c1c; }}
 .ok {{ color: #15803d; }}
 ul {{ padding-left: 20px; }}
+a.failed-source {{ color: #b91c1c; text-decoration: none; }}
+a.failed-source:hover {{ text-decoration: underline; }}
 </style>
 </head>
 <body>
@@ -161,12 +180,15 @@ ul {{ padding-left: 20px; }}
 """
         if cat.get("failed_list"):
             html += "<h4>失败源</h4><ul>"
-            # Sort: '连接失败' before '0 articles'
             sorted_list = sorted(cat["failed_list"], key=lambda x: (0 if x.get("error") == "连接失败" else 1 if x.get("error") == "0 articles" else 2))
             for item in sorted_list:
                 name = item.get("source", "")
                 error = item.get("error", "")
-                html += f"<li>{name} - {error}</li>"
+                url = source_urls.get(name, "")
+                if url:
+                    html += f'<li><a class="failed-source" href="{url}" target="_blank" title="{url}">{name}</a> - {error}</li>'
+                else:
+                    html += f"<li>{name} - {error}</li>"
             html += "</ul>"
         html += "</div>"
 
