@@ -261,10 +261,13 @@ def is_today(raw_date):
 
 
 def is_within_days(raw_date, days=1):
-    """Check if the raw date string is within the last N days (inclusive of today)."""
+    """Check if the raw date string is within the last N days (inclusive of today),
+    and not more than 1 day in the future (timezone tolerance)."""
     dt = parse_date(raw_date)
     if dt is None:
         return False
     from datetime import timedelta
-    cutoff = datetime.now().date() - timedelta(days=days - 1)
-    return dt.date() >= cutoff
+    today = datetime.now().date()
+    cutoff = today - timedelta(days=days - 1)
+    max_date = today + timedelta(days=1)
+    return cutoff <= dt.date() <= max_date

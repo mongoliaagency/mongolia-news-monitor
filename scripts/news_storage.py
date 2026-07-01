@@ -41,12 +41,20 @@ def save_news(news_list):
     today_str = datetime.now().strftime("%Y-%m-%d")
 
     # Group articles by their publish_date (YYYY-MM-DD)
+    # Reject future dates (more than 1 day ahead for timezone tolerance)
+    max_allowed = (datetime.now().date() + timedelta(days=1)).strftime("%Y-%m-%d")
     grouped = {}
+    skipped_future = 0
     for item in news_list:
         date_key = _parse_date_from_item(item)
         if date_key is None:
             date_key = today_str
+        if date_key > max_allowed:
+            skipped_future += 1
+            continue  # Skip articles with future dates
         grouped.setdefault(date_key, []).append(item)
+    if skipped_future:
+        print(f"Skipped {skipped_future} articles with future dates")
 
     # Merge with existing files to preserve articles from previous runs
     for date_key in grouped:
