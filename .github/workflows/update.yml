@@ -4,7 +4,7 @@ on:
 
   schedule:
     - cron: '0 4 * * *'   # 12:00 北京时间
-    - cron: '0 10 * * *'  # 18:00 北京时间
+    - cron: '0 9 * * *'   # 17:00 北京时间
     - cron: '0 15 * * *'  # 23:00 北京时间
 
   workflow_dispatch:
