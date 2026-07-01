@@ -389,12 +389,7 @@ def _index_css():
     font-weight: 400;
 }
 
-/* Source block */
-.source-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+/* Source block - collapsible */
 .source-block {
     background: #fff;
     border-radius: 14px;
@@ -412,7 +407,27 @@ def _index_css():
     gap: 10px;
     padding: 14px 18px;
     background: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s, border-color 0.15s;
+}
+.source-header:hover {
+    background: #f1f5f9;
+}
+.source-block.expanded .source-header {
+    border-bottom-color: #e2e8f0;
+    border-bottom-style: solid;
+}
+.source-header .toggle-icon {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    display: inline-block;
+    margin-right: 4px;
+}
+.source-block.expanded .source-header .toggle-icon {
+    transform: rotate(90deg);
 }
 .source-name {
     font-weight: 700;
@@ -462,8 +477,20 @@ def _index_css():
     font-weight: 500;
 }
 
-/* News list in source */
+/* News list in source - collapsible */
+.source-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.source-block.expanded .source-body {
+    max-height: 2000px;
+}
 .source-news-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+}
     list-style: none;
     margin: 0;
     padding: 8px 0;
@@ -546,7 +573,7 @@ def _index_css():
 
 
 def _build_source_card(cfg, status_info, news_items):
-    """Build HTML for a single source block in the today tab."""
+    """Build HTML for a single source block in the today tab (collapsible)."""
     name = cfg.get("name", "Unknown")
     homepage = cfg.get("homepage", "#")
     is_active = cfg.get("status", "active") == "active"
@@ -576,31 +603,35 @@ def _build_source_card(cfg, status_info, news_items):
     else:
         tags.append('<span class="tag">HTML</span>')
 
-    html = f'''<div class="source-block">
+    # News list body (hidden by default)
+    if news_items:
+        news_list_html = '<ul class="source-news-list">'
+        for item in news_items:
+            title = item.get("title", "")
+            url = item.get("url", "#")
+            pub = _time_part(item.get("publish_date", ""))
+            news_list_html += f'''<li>
+                <a href="{url}" target="_blank">{title}</a>
+                <span class="news-time">{pub}</span>
+            </li>'''
+        news_list_html += '</ul>'
+    else:
+        news_list_html = '<div class="no-news">暂无今日新闻</div>'
+
+    html = f'''<div class="source-block" onclick="this.classList.toggle('expanded')">
     <div class="source-header">
-        <a class="source-name" href="{homepage}" target="_blank" title="{homepage}">{name}</a>
+        <span class="toggle-icon">▶</span>
+        <a class="source-name" href="{homepage}" target="_blank" title="{homepage}" onclick="event.stopPropagation();">{name}</a>
         <div class="source-badges">
             {badge_html}
             {"".join(tags)}
             <span class="article-count">{len(news_items)} 篇</span>
         </div>
-    </div>'''
-
-    if news_items:
-        html += '<ul class="source-news-list">'
-        for item in news_items:
-            title = item.get("title", "")
-            url = item.get("url", "#")
-            pub = _time_part(item.get("publish_date", ""))
-            html += f'''<li>
-                <a href="{url}" target="_blank">{title}</a>
-                <span class="news-time">{pub}</span>
-            </li>'''
-        html += '</ul>'
-    else:
-        html += '<div class="no-news">暂无今日新闻</div>'
-
-    html += '</div>'
+    </div>
+    <div class="source-body">
+        {news_list_html}
+    </div>
+</div>'''
     return html
 
 

@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-07-01 19:33:22",
+  "updated_at": "2026-07-01 21:09:51",
   "categories": {
     "党政机关": {
       "label": "党政机关",
       "total": 29,
-      "success": 7,
-      "failed": 22,
-      "success_rate": 24.1,
+      "success": 11,
+      "failed": 18,
+      "success_rate": 37.9,
       "failed_list": [
         {
           "source": "蒙古国能源监管局",
@@ -32,11 +32,6 @@
           "source": "乌兰巴托市政府",
           "homepage": "https://ulaanbaatar.mn/",
           "error": "连接失败"
-        },
-        {
-          "source": "蒙古国卫生部",
-          "homepage": "https://moh.gov.mn/",
-          "error": "0 articles"
         },
         {
           "source": "蒙古国总统办公厅",
@@ -74,29 +69,14 @@
           "error": "0 articles"
         },
         {
-          "source": "蒙古国工业和矿产资源部",
-          "homepage": "https://mmhi.gov.mn",
-          "error": "0 articles"
-        },
-        {
           "source": "蒙古国法医总局",
           "homepage": "https://nfa.gov.mn/",
-          "error": "0 articles"
-        },
-        {
-          "source": "蒙古国能源部",
-          "homepage": "https://energy.gov.mn/",
           "error": "0 articles"
         },
         {
           "source": "蒙古国司法与内务部",
           "homepage": "https://mojha.gov.mn/",
           "error": "连接失败"
-        },
-        {
-          "source": "蒙古国政府",
-          "homepage": "https://mongolia.gov.mn",
-          "error": "0 articles"
         },
         {
           "source": "蒙古国城市发展建设与住房部",
@@ -123,18 +103,13 @@
     "新闻媒体": {
       "label": "新闻媒体",
       "total": 50,
-      "success": 30,
-      "failed": 20,
-      "success_rate": 60.0,
+      "success": 32,
+      "failed": 18,
+      "success_rate": 64.0,
       "failed_list": [
         {
           "source": "蒙古国日报",
           "homepage": "https://dnn.mn/",
-          "error": "0 articles"
-        },
-        {
-          "source": "蒙古国真理报（蒙古国人民党党报）",
-          "homepage": "https://www.unenmedee.mn/",
           "error": "0 articles"
         },
         {
@@ -213,11 +188,6 @@
           "error": "0 articles"
         },
         {
-          "source": "蒙古国ESIGHT网",
-          "homepage": "https://esight.mn/",
-          "error": "0 articles"
-        },
-        {
           "source": "蒙古国NMNEWS网",
           "homepage": "https://www.nmnews.mn",
           "error": "0 articles"
@@ -231,7 +201,7 @@
     }
   },
   "total_sources": 79,
-  "success_sources": 37,
-  "failed_sources": 42,
-  "success_rate": 46.8
+  "success_sources": 43,
+  "failed_sources": 36,
+  "success_rate": 54.4
 }
