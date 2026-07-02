@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-07-02 02:00:48",
+  "updated_at": "2026-07-02 12:32:37",
   "categories": {
     "党政机关": {
       "label": "党政机关",
       "total": 29,
-      "success": 11,
-      "failed": 18,
-      "success_rate": 37.9,
+      "success": 4,
+      "failed": 25,
+      "success_rate": 13.8,
       "failed_list": [
         {
           "source": "蒙古国能源监管局",
@@ -34,6 +34,11 @@
           "error": "连接失败"
         },
         {
+          "source": "蒙古国卫生部",
+          "homepage": "https://moh.gov.mn/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国总统办公厅",
           "homepage": "https://president.mn/",
           "error": "0 articles"
@@ -44,8 +49,8 @@
           "error": "连接失败"
         },
         {
-          "source": "蒙古国反腐败总局",
-          "homepage": "https://iaac.mn/",
+          "source": "蒙古国文化体育旅游与青年部",
+          "homepage": "https://mocsty.gov.mn/",
           "error": "0 articles"
         },
         {
@@ -69,14 +74,29 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国工业和矿产资源部",
+          "homepage": "https://mmhi.gov.mn",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国法医总局",
           "homepage": "https://nfa.gov.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国能源部",
+          "homepage": "https://energy.gov.mn/",
           "error": "0 articles"
         },
         {
           "source": "蒙古国司法与内务部",
           "homepage": "https://mojha.gov.mn/",
           "error": "连接失败"
+        },
+        {
+          "source": "蒙古国政府",
+          "homepage": "https://mongolia.gov.mn",
+          "error": "0 articles"
         },
         {
           "source": "蒙古国城市发展建设与住房部",
@@ -94,6 +114,21 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国矿产资源和石油管理局",
+          "homepage": "https://mrpam.gov.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国药品和医疗器械控制监管局",
+          "homepage": "https://mmra.gov.mn/?id=200008",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国数字发展创新与通信部",
+          "homepage": "https://mddic.gov.mn/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国央行",
           "homepage": "https://www.mongolbank.mn",
           "error": "0 articles"
@@ -103,13 +138,33 @@
     "新闻媒体": {
       "label": "新闻媒体",
       "total": 50,
-      "success": 31,
-      "failed": 19,
-      "success_rate": 62.0,
+      "success": 21,
+      "failed": 29,
+      "success_rate": 42.0,
       "failed_list": [
+        {
+          "source": "彭博社（蒙古国）",
+          "homepage": "https://www.bloombergtv.mn",
+          "error": "0 articles"
+        },
         {
           "source": "蒙古国日报",
           "homepage": "https://dnn.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国真理报（蒙古国人民党党报）",
+          "homepage": "https://www.unenmedee.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国MASS网",
+          "homepage": "https://mass.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国Mono News网",
+          "homepage": "https://mono.mn",
           "error": "0 articles"
         },
         {
@@ -120,6 +175,11 @@
         {
           "source": "蒙古国INSIDE MONGOLIA网",
           "homepage": "https://insidemongolia.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国·美国商会 新闻采集",
+          "homepage": "https://www.amcham.mn/",
           "error": "0 articles"
         },
         {
@@ -138,6 +198,11 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国OLNODO网",
+          "homepage": "http://www.olnodo.com/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国综合新闻网",
           "homepage": "https://news.mn",
           "error": "0 articles"
@@ -153,6 +218,11 @@
           "error": "0 articles"
         },
         {
+          "source": "CNBC（蒙古国）",
+          "homepage": "https://cnbc.mn/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国ITOIM网",
           "homepage": "https://itoim.mn/",
           "error": "0 articles"
@@ -160,6 +230,11 @@
         {
           "source": "蒙古国BAABAR网",
           "homepage": "https://www.baabar.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国NEWMM网",
+          "homepage": "https://www.newmm.mn/",
           "error": "0 articles"
         },
         {
@@ -173,18 +248,13 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国CHIG网",
+          "homepage": "https://chig.mn/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国TOVCH网",
           "homepage": "https://tovch.mn/",
-          "error": "0 articles"
-        },
-        {
-          "source": "蒙古国今日报",
-          "homepage": "https://www.unuudur.mn",
-          "error": "0 articles"
-        },
-        {
-          "source": "蒙古国ERGELT网",
-          "homepage": "https://ergelt.mn/",
           "error": "0 articles"
         },
         {
@@ -193,8 +263,23 @@
           "error": "0 articles"
         },
         {
+          "source": "蒙古国ESIGHT网",
+          "homepage": "https://esight.mn/",
+          "error": "0 articles"
+        },
+        {
           "source": "蒙古国NMNEWS网",
           "homepage": "https://www.nmnews.mn",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国SHUUD网",
+          "homepage": "https://www.shuud.mn/",
+          "error": "0 articles"
+        },
+        {
+          "source": "蒙古国《矿业期刊》",
+          "homepage": "https://www.mongolianminingjournal.com/",
           "error": "0 articles"
         },
         {
@@ -206,7 +291,7 @@
     }
   },
   "total_sources": 79,
-  "success_sources": 42,
-  "failed_sources": 37,
-  "success_rate": 53.2
+  "success_sources": 25,
+  "failed_sources": 54,
+  "success_rate": 31.6
 }
